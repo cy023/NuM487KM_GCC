@@ -1,0 +1,2458 @@
+ARM GAS  /tmp/ccXTtQ1f.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 6
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"uart.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.UART_ClearIntFlag,"ax",%progbits
+  20              		.align	1
+  21              		.global	UART_ClearIntFlag
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  26              	UART_ClearIntFlag:
+  27              	.LFB195:
+  28              		.file 1 "Drivers/Library/StdDriver/src/uart.c"
+   1:Drivers/Library/StdDriver/src/uart.c **** /**************************************************************************//**
+   2:Drivers/Library/StdDriver/src/uart.c ****  * @file     uart.c
+   3:Drivers/Library/StdDriver/src/uart.c ****  * @version  V3.00
+   4:Drivers/Library/StdDriver/src/uart.c ****  * @brief    M480 series UART driver source file
+   5:Drivers/Library/StdDriver/src/uart.c ****  *
+   6:Drivers/Library/StdDriver/src/uart.c ****  * SPDX-License-Identifier: Apache-2.0
+   7:Drivers/Library/StdDriver/src/uart.c ****  * @copyright (C) 2016-2020 Nuvoton Technology Corp. All rights reserved.
+   8:Drivers/Library/StdDriver/src/uart.c **** *****************************************************************************/
+   9:Drivers/Library/StdDriver/src/uart.c **** 
+  10:Drivers/Library/StdDriver/src/uart.c **** #include <stdio.h>
+  11:Drivers/Library/StdDriver/src/uart.c **** #include "NuMicro.h"
+  12:Drivers/Library/StdDriver/src/uart.c **** 
+  13:Drivers/Library/StdDriver/src/uart.c **** /** @addtogroup Standard_Driver Standard Driver
+  14:Drivers/Library/StdDriver/src/uart.c ****   @{
+  15:Drivers/Library/StdDriver/src/uart.c **** */
+  16:Drivers/Library/StdDriver/src/uart.c **** 
+  17:Drivers/Library/StdDriver/src/uart.c **** /** @addtogroup UART_Driver UART Driver
+  18:Drivers/Library/StdDriver/src/uart.c ****   @{
+  19:Drivers/Library/StdDriver/src/uart.c **** */
+  20:Drivers/Library/StdDriver/src/uart.c **** 
+  21:Drivers/Library/StdDriver/src/uart.c **** /** @addtogroup UART_EXPORTED_FUNCTIONS UART Exported Functions
+  22:Drivers/Library/StdDriver/src/uart.c ****   @{
+  23:Drivers/Library/StdDriver/src/uart.c **** */
+  24:Drivers/Library/StdDriver/src/uart.c **** 
+  25:Drivers/Library/StdDriver/src/uart.c **** /**
+  26:Drivers/Library/StdDriver/src/uart.c ****  *    @brief        Clear UART specified interrupt flag
+  27:Drivers/Library/StdDriver/src/uart.c ****  *
+  28:Drivers/Library/StdDriver/src/uart.c ****  *    @param[in]    uart                The pointer of the specified UART module.
+  29:Drivers/Library/StdDriver/src/uart.c ****  *    @param[in]    u32InterruptFlag    The specified interrupt of UART module.
+  30:Drivers/Library/StdDriver/src/uart.c ****  *                                      - \ref UART_INTSTS_LININT_Msk    : LIN bus interrupt
+ARM GAS  /tmp/ccXTtQ1f.s 			page 2
+
+
+  31:Drivers/Library/StdDriver/src/uart.c ****  *                                      - \ref UART_INTSTS_WKIF_Msk      : Wake-up interrupt
+  32:Drivers/Library/StdDriver/src/uart.c ****  *                                      - \ref UART_INTSTS_BUFERRINT_Msk : Buffer Error interrupt
+  33:Drivers/Library/StdDriver/src/uart.c ****  *                                      - \ref UART_INTSTS_MODEMINT_Msk  : Modem Status interrupt
+  34:Drivers/Library/StdDriver/src/uart.c ****  *                                      - \ref UART_INTSTS_RLSINT_Msk    : Receive Line Status inte
+  35:Drivers/Library/StdDriver/src/uart.c ****  *
+  36:Drivers/Library/StdDriver/src/uart.c ****  *    @return       None
+  37:Drivers/Library/StdDriver/src/uart.c ****  *
+  38:Drivers/Library/StdDriver/src/uart.c ****  *    @details      The function is used to clear UART specified interrupt flag.
+  39:Drivers/Library/StdDriver/src/uart.c ****  */
+  40:Drivers/Library/StdDriver/src/uart.c **** 
+  41:Drivers/Library/StdDriver/src/uart.c **** void UART_ClearIntFlag(UART_T* uart, uint32_t u32InterruptFlag)
+  42:Drivers/Library/StdDriver/src/uart.c **** {
+  29              		.loc 1 42 1
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 8
+  32              		@ frame_needed = 1, uses_anonymous_args = 0
+  33              		@ link register save eliminated.
+  34 0000 80B4     		push	{r7}
+  35              	.LCFI0:
+  36              		.cfi_def_cfa_offset 4
+  37              		.cfi_offset 7, -4
+  38 0002 83B0     		sub	sp, sp, #12
+  39              	.LCFI1:
+  40              		.cfi_def_cfa_offset 16
+  41 0004 00AF     		add	r7, sp, #0
+  42              	.LCFI2:
+  43              		.cfi_def_cfa_register 7
+  44 0006 7860     		str	r0, [r7, #4]
+  45 0008 3960     		str	r1, [r7]
+  43:Drivers/Library/StdDriver/src/uart.c **** 
+  44:Drivers/Library/StdDriver/src/uart.c ****     if(u32InterruptFlag & UART_INTSTS_RLSINT_Msk)   /* Clear Receive Line Status Interrupt */
+  46              		.loc 1 44 25
+  47 000a 3B68     		ldr	r3, [r7]
+  48 000c 03F48063 		and	r3, r3, #1024
+  49              		.loc 1 44 7
+  50 0010 002B     		cmp	r3, #0
+  51 0012 05D0     		beq	.L2
+  45:Drivers/Library/StdDriver/src/uart.c ****     {
+  46:Drivers/Library/StdDriver/src/uart.c ****         uart->FIFOSTS = UART_FIFOSTS_BIF_Msk | UART_FIFOSTS_FEF_Msk | UART_FIFOSTS_PEF_Msk;
+  52              		.loc 1 46 23
+  53 0014 7B68     		ldr	r3, [r7, #4]
+  54 0016 7022     		movs	r2, #112
+  55 0018 9A61     		str	r2, [r3, #24]
+  47:Drivers/Library/StdDriver/src/uart.c ****         uart->FIFOSTS = UART_FIFOSTS_ADDRDETF_Msk;
+  56              		.loc 1 47 23
+  57 001a 7B68     		ldr	r3, [r7, #4]
+  58 001c 0822     		movs	r2, #8
+  59 001e 9A61     		str	r2, [r3, #24]
+  60              	.L2:
+  48:Drivers/Library/StdDriver/src/uart.c ****     }
+  49:Drivers/Library/StdDriver/src/uart.c **** 
+  50:Drivers/Library/StdDriver/src/uart.c ****     if(u32InterruptFlag & UART_INTSTS_MODEMINT_Msk)   /* Clear Modem Status Interrupt */
+  61              		.loc 1 50 25
+  62 0020 3B68     		ldr	r3, [r7]
+  63 0022 03F40063 		and	r3, r3, #2048
+  64              		.loc 1 50 7
+  65 0026 002B     		cmp	r3, #0
+ARM GAS  /tmp/ccXTtQ1f.s 			page 3
+
+
+  66 0028 05D0     		beq	.L3
+  51:Drivers/Library/StdDriver/src/uart.c ****     {
+  52:Drivers/Library/StdDriver/src/uart.c ****         uart->MODEMSTS |= UART_MODEMSTS_CTSDETF_Msk;
+  67              		.loc 1 52 24
+  68 002a 7B68     		ldr	r3, [r7, #4]
+  69 002c 5B69     		ldr	r3, [r3, #20]
+  70 002e 43F00102 		orr	r2, r3, #1
+  71 0032 7B68     		ldr	r3, [r7, #4]
+  72 0034 5A61     		str	r2, [r3, #20]
+  73              	.L3:
+  53:Drivers/Library/StdDriver/src/uart.c ****     }
+  54:Drivers/Library/StdDriver/src/uart.c ****     else
+  55:Drivers/Library/StdDriver/src/uart.c ****     {
+  56:Drivers/Library/StdDriver/src/uart.c ****     }
+  57:Drivers/Library/StdDriver/src/uart.c **** 
+  58:Drivers/Library/StdDriver/src/uart.c ****     if(u32InterruptFlag & UART_INTSTS_BUFERRINT_Msk)   /* Clear Buffer Error Interrupt */
+  74              		.loc 1 58 25
+  75 0036 3B68     		ldr	r3, [r7]
+  76 0038 03F40053 		and	r3, r3, #8192
+  77              		.loc 1 58 7
+  78 003c 002B     		cmp	r3, #0
+  79 003e 02D0     		beq	.L4
+  59:Drivers/Library/StdDriver/src/uart.c ****     {
+  60:Drivers/Library/StdDriver/src/uart.c ****         uart->FIFOSTS = UART_FIFOSTS_RXOVIF_Msk | UART_FIFOSTS_TXOVIF_Msk;
+  80              		.loc 1 60 23
+  81 0040 7B68     		ldr	r3, [r7, #4]
+  82 0042 0E4A     		ldr	r2, .L8
+  83 0044 9A61     		str	r2, [r3, #24]
+  84              	.L4:
+  61:Drivers/Library/StdDriver/src/uart.c ****     }
+  62:Drivers/Library/StdDriver/src/uart.c **** 
+  63:Drivers/Library/StdDriver/src/uart.c ****     if(u32InterruptFlag & UART_INTSTS_WKINT_Msk)   /* Clear Wake-up Interrupt */
+  85              		.loc 1 63 25
+  86 0046 3B68     		ldr	r3, [r7]
+  87 0048 03F48043 		and	r3, r3, #16384
+  88              		.loc 1 63 7
+  89 004c 002B     		cmp	r3, #0
+  90 004e 02D0     		beq	.L5
+  64:Drivers/Library/StdDriver/src/uart.c ****     {
+  65:Drivers/Library/StdDriver/src/uart.c ****         uart->WKSTS = UART_WKSTS_CTSWKF_Msk  | UART_WKSTS_DATWKF_Msk  |
+  91              		.loc 1 65 21
+  92 0050 7B68     		ldr	r3, [r7, #4]
+  93 0052 1F22     		movs	r2, #31
+  94 0054 5A64     		str	r2, [r3, #68]
+  95              	.L5:
+  66:Drivers/Library/StdDriver/src/uart.c ****                       UART_WKSTS_RFRTWKF_Msk |UART_WKSTS_RS485WKF_Msk |
+  67:Drivers/Library/StdDriver/src/uart.c ****                       UART_WKSTS_TOUTWKF_Msk;
+  68:Drivers/Library/StdDriver/src/uart.c ****     }
+  69:Drivers/Library/StdDriver/src/uart.c **** 
+  70:Drivers/Library/StdDriver/src/uart.c ****     if(u32InterruptFlag & UART_INTSTS_LININT_Msk)   /* Clear LIN Bus Interrupt */
+  96              		.loc 1 70 25
+  97 0056 3B68     		ldr	r3, [r7]
+  98 0058 03F40043 		and	r3, r3, #32768
+  99              		.loc 1 70 7
+ 100 005c 002B     		cmp	r3, #0
+ 101 005e 06D0     		beq	.L7
+  71:Drivers/Library/StdDriver/src/uart.c ****     {
+ARM GAS  /tmp/ccXTtQ1f.s 			page 4
+
+
+  72:Drivers/Library/StdDriver/src/uart.c ****         uart->INTSTS = UART_INTSTS_LINIF_Msk;
+ 102              		.loc 1 72 22
+ 103 0060 7B68     		ldr	r3, [r7, #4]
+ 104 0062 8022     		movs	r2, #128
+ 105 0064 DA61     		str	r2, [r3, #28]
+  73:Drivers/Library/StdDriver/src/uart.c ****         uart->LINSTS = UART_LINSTS_BITEF_Msk    | UART_LINSTS_BRKDETF_Msk  |
+ 106              		.loc 1 73 22
+ 107 0066 7B68     		ldr	r3, [r7, #4]
+ 108 0068 40F20F32 		movw	r2, #783
+ 109 006c 9A63     		str	r2, [r3, #56]
+ 110              	.L7:
+  74:Drivers/Library/StdDriver/src/uart.c ****                        UART_LINSTS_SLVSYNCF_Msk | UART_LINSTS_SLVIDPEF_Msk |
+  75:Drivers/Library/StdDriver/src/uart.c ****                        UART_LINSTS_SLVHEF_Msk   | UART_LINSTS_SLVHDETF_Msk ;
+  76:Drivers/Library/StdDriver/src/uart.c ****     }
+  77:Drivers/Library/StdDriver/src/uart.c **** }
+ 111              		.loc 1 77 1
+ 112 006e 00BF     		nop
+ 113 0070 0C37     		adds	r7, r7, #12
+ 114              	.LCFI3:
+ 115              		.cfi_def_cfa_offset 4
+ 116 0072 BD46     		mov	sp, r7
+ 117              	.LCFI4:
+ 118              		.cfi_def_cfa_register 13
+ 119              		@ sp needed
+ 120 0074 5DF8047B 		ldr	r7, [sp], #4
+ 121              	.LCFI5:
+ 122              		.cfi_restore 7
+ 123              		.cfi_def_cfa_offset 0
+ 124 0078 7047     		bx	lr
+ 125              	.L9:
+ 126 007a 00BF     		.align	2
+ 127              	.L8:
+ 128 007c 01000001 		.word	16777217
+ 129              		.cfi_endproc
+ 130              	.LFE195:
+ 132              		.section	.text.UART_Close,"ax",%progbits
+ 133              		.align	1
+ 134              		.global	UART_Close
+ 135              		.syntax unified
+ 136              		.thumb
+ 137              		.thumb_func
+ 139              	UART_Close:
+ 140              	.LFB196:
+  78:Drivers/Library/StdDriver/src/uart.c **** 
+  79:Drivers/Library/StdDriver/src/uart.c **** 
+  80:Drivers/Library/StdDriver/src/uart.c **** /**
+  81:Drivers/Library/StdDriver/src/uart.c ****  *  @brief      Disable UART interrupt
+  82:Drivers/Library/StdDriver/src/uart.c ****  *
+  83:Drivers/Library/StdDriver/src/uart.c ****  *  @param[in]  uart The pointer of the specified UART module.
+  84:Drivers/Library/StdDriver/src/uart.c ****  *
+  85:Drivers/Library/StdDriver/src/uart.c ****  *  @return     None
+  86:Drivers/Library/StdDriver/src/uart.c ****  *
+  87:Drivers/Library/StdDriver/src/uart.c ****  *  @details    The function is used to disable UART interrupt.
+  88:Drivers/Library/StdDriver/src/uart.c ****  */
+  89:Drivers/Library/StdDriver/src/uart.c **** void UART_Close(UART_T* uart)
+  90:Drivers/Library/StdDriver/src/uart.c **** {
+ 141              		.loc 1 90 1
+ARM GAS  /tmp/ccXTtQ1f.s 			page 5
+
+
+ 142              		.cfi_startproc
+ 143              		@ args = 0, pretend = 0, frame = 8
+ 144              		@ frame_needed = 1, uses_anonymous_args = 0
+ 145              		@ link register save eliminated.
+ 146 0000 80B4     		push	{r7}
+ 147              	.LCFI6:
+ 148              		.cfi_def_cfa_offset 4
+ 149              		.cfi_offset 7, -4
+ 150 0002 83B0     		sub	sp, sp, #12
+ 151              	.LCFI7:
+ 152              		.cfi_def_cfa_offset 16
+ 153 0004 00AF     		add	r7, sp, #0
+ 154              	.LCFI8:
+ 155              		.cfi_def_cfa_register 7
+ 156 0006 7860     		str	r0, [r7, #4]
+  91:Drivers/Library/StdDriver/src/uart.c ****     uart->INTEN = 0ul;
+ 157              		.loc 1 91 17
+ 158 0008 7B68     		ldr	r3, [r7, #4]
+ 159 000a 0022     		movs	r2, #0
+ 160 000c 5A60     		str	r2, [r3, #4]
+  92:Drivers/Library/StdDriver/src/uart.c **** }
+ 161              		.loc 1 92 1
+ 162 000e 00BF     		nop
+ 163 0010 0C37     		adds	r7, r7, #12
+ 164              	.LCFI9:
+ 165              		.cfi_def_cfa_offset 4
+ 166 0012 BD46     		mov	sp, r7
+ 167              	.LCFI10:
+ 168              		.cfi_def_cfa_register 13
+ 169              		@ sp needed
+ 170 0014 5DF8047B 		ldr	r7, [sp], #4
+ 171              	.LCFI11:
+ 172              		.cfi_restore 7
+ 173              		.cfi_def_cfa_offset 0
+ 174 0018 7047     		bx	lr
+ 175              		.cfi_endproc
+ 176              	.LFE196:
+ 178              		.section	.text.UART_DisableFlowCtrl,"ax",%progbits
+ 179              		.align	1
+ 180              		.global	UART_DisableFlowCtrl
+ 181              		.syntax unified
+ 182              		.thumb
+ 183              		.thumb_func
+ 185              	UART_DisableFlowCtrl:
+ 186              	.LFB197:
+  93:Drivers/Library/StdDriver/src/uart.c **** 
+  94:Drivers/Library/StdDriver/src/uart.c **** 
+  95:Drivers/Library/StdDriver/src/uart.c **** /**
+  96:Drivers/Library/StdDriver/src/uart.c ****  *  @brief      Disable UART auto flow control function
+  97:Drivers/Library/StdDriver/src/uart.c ****  *
+  98:Drivers/Library/StdDriver/src/uart.c ****  *  @param[in]  uart The pointer of the specified UART module.
+  99:Drivers/Library/StdDriver/src/uart.c ****  *
+ 100:Drivers/Library/StdDriver/src/uart.c ****  *  @return     None
+ 101:Drivers/Library/StdDriver/src/uart.c ****  *
+ 102:Drivers/Library/StdDriver/src/uart.c ****  *  @details    The function is used to disable UART auto flow control.
+ 103:Drivers/Library/StdDriver/src/uart.c ****  */
+ 104:Drivers/Library/StdDriver/src/uart.c **** void UART_DisableFlowCtrl(UART_T* uart)
+ARM GAS  /tmp/ccXTtQ1f.s 			page 6
+
+
+ 105:Drivers/Library/StdDriver/src/uart.c **** {
+ 187              		.loc 1 105 1
+ 188              		.cfi_startproc
+ 189              		@ args = 0, pretend = 0, frame = 8
+ 190              		@ frame_needed = 1, uses_anonymous_args = 0
+ 191              		@ link register save eliminated.
+ 192 0000 80B4     		push	{r7}
+ 193              	.LCFI12:
+ 194              		.cfi_def_cfa_offset 4
+ 195              		.cfi_offset 7, -4
+ 196 0002 83B0     		sub	sp, sp, #12
+ 197              	.LCFI13:
+ 198              		.cfi_def_cfa_offset 16
+ 199 0004 00AF     		add	r7, sp, #0
+ 200              	.LCFI14:
+ 201              		.cfi_def_cfa_register 7
+ 202 0006 7860     		str	r0, [r7, #4]
+ 106:Drivers/Library/StdDriver/src/uart.c ****     uart->INTEN &= ~(UART_INTEN_ATORTSEN_Msk | UART_INTEN_ATOCTSEN_Msk);
+ 203              		.loc 1 106 17
+ 204 0008 7B68     		ldr	r3, [r7, #4]
+ 205 000a 5B68     		ldr	r3, [r3, #4]
+ 206 000c 23F44052 		bic	r2, r3, #12288
+ 207 0010 7B68     		ldr	r3, [r7, #4]
+ 208 0012 5A60     		str	r2, [r3, #4]
+ 107:Drivers/Library/StdDriver/src/uart.c **** }
+ 209              		.loc 1 107 1
+ 210 0014 00BF     		nop
+ 211 0016 0C37     		adds	r7, r7, #12
+ 212              	.LCFI15:
+ 213              		.cfi_def_cfa_offset 4
+ 214 0018 BD46     		mov	sp, r7
+ 215              	.LCFI16:
+ 216              		.cfi_def_cfa_register 13
+ 217              		@ sp needed
+ 218 001a 5DF8047B 		ldr	r7, [sp], #4
+ 219              	.LCFI17:
+ 220              		.cfi_restore 7
+ 221              		.cfi_def_cfa_offset 0
+ 222 001e 7047     		bx	lr
+ 223              		.cfi_endproc
+ 224              	.LFE197:
+ 226              		.section	.text.UART_DisableInt,"ax",%progbits
+ 227              		.align	1
+ 228              		.global	UART_DisableInt
+ 229              		.syntax unified
+ 230              		.thumb
+ 231              		.thumb_func
+ 233              	UART_DisableInt:
+ 234              	.LFB198:
+ 108:Drivers/Library/StdDriver/src/uart.c **** 
+ 109:Drivers/Library/StdDriver/src/uart.c **** 
+ 110:Drivers/Library/StdDriver/src/uart.c **** /**
+ 111:Drivers/Library/StdDriver/src/uart.c ****  *    @brief        Disable UART specified interrupt
+ 112:Drivers/Library/StdDriver/src/uart.c ****  *
+ 113:Drivers/Library/StdDriver/src/uart.c ****  *    @param[in]    uart                The pointer of the specified UART module.
+ 114:Drivers/Library/StdDriver/src/uart.c ****  *    @param[in]    u32InterruptFlag    The specified interrupt of UART module.
+ 115:Drivers/Library/StdDriver/src/uart.c ****  *                                      - \ref UART_INTEN_WKIEN_Msk      : Wake-up interrupt
+ARM GAS  /tmp/ccXTtQ1f.s 			page 7
+
+
+ 116:Drivers/Library/StdDriver/src/uart.c ****  *                                      - \ref UART_INTEN_LINIEN_Msk     : Lin bus interrupt
+ 117:Drivers/Library/StdDriver/src/uart.c ****  *                                      - \ref UART_INTEN_BUFERRIEN_Msk  : Buffer Error interrupt
+ 118:Drivers/Library/StdDriver/src/uart.c ****  *                                      - \ref UART_INTEN_RXTOIEN_Msk    : Rx time-out interrupt
+ 119:Drivers/Library/StdDriver/src/uart.c ****  *                                      - \ref UART_INTEN_MODEMIEN_Msk   : Modem status interrupt
+ 120:Drivers/Library/StdDriver/src/uart.c ****  *                                      - \ref UART_INTEN_RLSIEN_Msk     : Receive Line status inte
+ 121:Drivers/Library/StdDriver/src/uart.c ****  *                                      - \ref UART_INTEN_THREIEN_Msk    : Tx empty interrupt
+ 122:Drivers/Library/StdDriver/src/uart.c ****  *                                      - \ref UART_INTEN_RDAIEN_Msk     : Rx ready interrupt *
+ 123:Drivers/Library/StdDriver/src/uart.c ****  *
+ 124:Drivers/Library/StdDriver/src/uart.c ****  *    @return       None
+ 125:Drivers/Library/StdDriver/src/uart.c ****  *
+ 126:Drivers/Library/StdDriver/src/uart.c ****  *    @details      The function is used to disable UART specified interrupt and disable NVIC UART 
+ 127:Drivers/Library/StdDriver/src/uart.c ****  */
+ 128:Drivers/Library/StdDriver/src/uart.c **** void UART_DisableInt(UART_T*  uart, uint32_t u32InterruptFlag)
+ 129:Drivers/Library/StdDriver/src/uart.c **** {
+ 235              		.loc 1 129 1
+ 236              		.cfi_startproc
+ 237              		@ args = 0, pretend = 0, frame = 8
+ 238              		@ frame_needed = 1, uses_anonymous_args = 0
+ 239              		@ link register save eliminated.
+ 240 0000 80B4     		push	{r7}
+ 241              	.LCFI18:
+ 242              		.cfi_def_cfa_offset 4
+ 243              		.cfi_offset 7, -4
+ 244 0002 83B0     		sub	sp, sp, #12
+ 245              	.LCFI19:
+ 246              		.cfi_def_cfa_offset 16
+ 247 0004 00AF     		add	r7, sp, #0
+ 248              	.LCFI20:
+ 249              		.cfi_def_cfa_register 7
+ 250 0006 7860     		str	r0, [r7, #4]
+ 251 0008 3960     		str	r1, [r7]
+ 130:Drivers/Library/StdDriver/src/uart.c ****     /* Disable UART specified interrupt */
+ 131:Drivers/Library/StdDriver/src/uart.c ****     UART_DISABLE_INT(uart, u32InterruptFlag);
+ 252              		.loc 1 131 5
+ 253 000a 7B68     		ldr	r3, [r7, #4]
+ 254 000c 5A68     		ldr	r2, [r3, #4]
+ 255 000e 3B68     		ldr	r3, [r7]
+ 256 0010 DB43     		mvns	r3, r3
+ 257 0012 1A40     		ands	r2, r2, r3
+ 258 0014 7B68     		ldr	r3, [r7, #4]
+ 259 0016 5A60     		str	r2, [r3, #4]
+ 132:Drivers/Library/StdDriver/src/uart.c **** }
+ 260              		.loc 1 132 1
+ 261 0018 00BF     		nop
+ 262 001a 0C37     		adds	r7, r7, #12
+ 263              	.LCFI21:
+ 264              		.cfi_def_cfa_offset 4
+ 265 001c BD46     		mov	sp, r7
+ 266              	.LCFI22:
+ 267              		.cfi_def_cfa_register 13
+ 268              		@ sp needed
+ 269 001e 5DF8047B 		ldr	r7, [sp], #4
+ 270              	.LCFI23:
+ 271              		.cfi_restore 7
+ 272              		.cfi_def_cfa_offset 0
+ 273 0022 7047     		bx	lr
+ 274              		.cfi_endproc
+ARM GAS  /tmp/ccXTtQ1f.s 			page 8
+
+
+ 275              	.LFE198:
+ 277              		.section	.text.UART_EnableFlowCtrl,"ax",%progbits
+ 278              		.align	1
+ 279              		.global	UART_EnableFlowCtrl
+ 280              		.syntax unified
+ 281              		.thumb
+ 282              		.thumb_func
+ 284              	UART_EnableFlowCtrl:
+ 285              	.LFB199:
+ 133:Drivers/Library/StdDriver/src/uart.c **** 
+ 134:Drivers/Library/StdDriver/src/uart.c **** 
+ 135:Drivers/Library/StdDriver/src/uart.c **** /**
+ 136:Drivers/Library/StdDriver/src/uart.c ****  *    @brief        Enable UART auto flow control function
+ 137:Drivers/Library/StdDriver/src/uart.c ****  *
+ 138:Drivers/Library/StdDriver/src/uart.c ****  *    @param[in]    uart    The pointer of the specified UART module.
+ 139:Drivers/Library/StdDriver/src/uart.c ****  *
+ 140:Drivers/Library/StdDriver/src/uart.c ****  *    @return       None
+ 141:Drivers/Library/StdDriver/src/uart.c ****  *
+ 142:Drivers/Library/StdDriver/src/uart.c ****  *    @details      The function is used to Enable UART auto flow control.
+ 143:Drivers/Library/StdDriver/src/uart.c ****  */
+ 144:Drivers/Library/StdDriver/src/uart.c **** void UART_EnableFlowCtrl(UART_T* uart)
+ 145:Drivers/Library/StdDriver/src/uart.c **** {
+ 286              		.loc 1 145 1
+ 287              		.cfi_startproc
+ 288              		@ args = 0, pretend = 0, frame = 8
+ 289              		@ frame_needed = 1, uses_anonymous_args = 0
+ 290              		@ link register save eliminated.
+ 291 0000 80B4     		push	{r7}
+ 292              	.LCFI24:
+ 293              		.cfi_def_cfa_offset 4
+ 294              		.cfi_offset 7, -4
+ 295 0002 83B0     		sub	sp, sp, #12
+ 296              	.LCFI25:
+ 297              		.cfi_def_cfa_offset 16
+ 298 0004 00AF     		add	r7, sp, #0
+ 299              	.LCFI26:
+ 300              		.cfi_def_cfa_register 7
+ 301 0006 7860     		str	r0, [r7, #4]
+ 146:Drivers/Library/StdDriver/src/uart.c ****     /* Set RTS pin output is low level active */
+ 147:Drivers/Library/StdDriver/src/uart.c ****     uart->MODEM |= UART_MODEM_RTSACTLV_Msk;
+ 302              		.loc 1 147 17
+ 303 0008 7B68     		ldr	r3, [r7, #4]
+ 304 000a 1B69     		ldr	r3, [r3, #16]
+ 305 000c 43F40072 		orr	r2, r3, #512
+ 306 0010 7B68     		ldr	r3, [r7, #4]
+ 307 0012 1A61     		str	r2, [r3, #16]
+ 148:Drivers/Library/StdDriver/src/uart.c **** 
+ 149:Drivers/Library/StdDriver/src/uart.c ****     /* Set CTS pin input is low level active */
+ 150:Drivers/Library/StdDriver/src/uart.c ****     uart->MODEMSTS |= UART_MODEMSTS_CTSACTLV_Msk;
+ 308              		.loc 1 150 20
+ 309 0014 7B68     		ldr	r3, [r7, #4]
+ 310 0016 5B69     		ldr	r3, [r3, #20]
+ 311 0018 43F48072 		orr	r2, r3, #256
+ 312 001c 7B68     		ldr	r3, [r7, #4]
+ 313 001e 5A61     		str	r2, [r3, #20]
+ 151:Drivers/Library/StdDriver/src/uart.c **** 
+ 152:Drivers/Library/StdDriver/src/uart.c ****     /* Set RTS and CTS auto flow control enable */
+ARM GAS  /tmp/ccXTtQ1f.s 			page 9
+
+
+ 153:Drivers/Library/StdDriver/src/uart.c ****     uart->INTEN |= UART_INTEN_ATORTSEN_Msk | UART_INTEN_ATOCTSEN_Msk;
+ 314              		.loc 1 153 17
+ 315 0020 7B68     		ldr	r3, [r7, #4]
+ 316 0022 5B68     		ldr	r3, [r3, #4]
+ 317 0024 43F44052 		orr	r2, r3, #12288
+ 318 0028 7B68     		ldr	r3, [r7, #4]
+ 319 002a 5A60     		str	r2, [r3, #4]
+ 154:Drivers/Library/StdDriver/src/uart.c **** }
+ 320              		.loc 1 154 1
+ 321 002c 00BF     		nop
+ 322 002e 0C37     		adds	r7, r7, #12
+ 323              	.LCFI27:
+ 324              		.cfi_def_cfa_offset 4
+ 325 0030 BD46     		mov	sp, r7
+ 326              	.LCFI28:
+ 327              		.cfi_def_cfa_register 13
+ 328              		@ sp needed
+ 329 0032 5DF8047B 		ldr	r7, [sp], #4
+ 330              	.LCFI29:
+ 331              		.cfi_restore 7
+ 332              		.cfi_def_cfa_offset 0
+ 333 0036 7047     		bx	lr
+ 334              		.cfi_endproc
+ 335              	.LFE199:
+ 337              		.section	.text.UART_EnableInt,"ax",%progbits
+ 338              		.align	1
+ 339              		.global	UART_EnableInt
+ 340              		.syntax unified
+ 341              		.thumb
+ 342              		.thumb_func
+ 344              	UART_EnableInt:
+ 345              	.LFB200:
+ 155:Drivers/Library/StdDriver/src/uart.c **** 
+ 156:Drivers/Library/StdDriver/src/uart.c **** 
+ 157:Drivers/Library/StdDriver/src/uart.c **** /**
+ 158:Drivers/Library/StdDriver/src/uart.c ****  *    @brief        The function is used to enable UART specified interrupt and enable NVIC UART IR
+ 159:Drivers/Library/StdDriver/src/uart.c ****  *
+ 160:Drivers/Library/StdDriver/src/uart.c ****  *    @param[in]    uart                The pointer of the specified UART module.
+ 161:Drivers/Library/StdDriver/src/uart.c ****  *    @param[in]    u32InterruptFlag    The specified interrupt of UART module:
+ 162:Drivers/Library/StdDriver/src/uart.c ****  *                                      - \ref UART_INTEN_WKIEN_Msk      : Wake-up interrupt
+ 163:Drivers/Library/StdDriver/src/uart.c ****  *                                      - \ref UART_INTEN_LINIEN_Msk     : Lin bus interrupt
+ 164:Drivers/Library/StdDriver/src/uart.c ****  *                                      - \ref UART_INTEN_BUFERRIEN_Msk  : Buffer Error interrupt
+ 165:Drivers/Library/StdDriver/src/uart.c ****  *                                      - \ref UART_INTEN_RXTOIEN_Msk    : Rx time-out interrupt
+ 166:Drivers/Library/StdDriver/src/uart.c ****  *                                      - \ref UART_INTEN_MODEMIEN_Msk   : Modem status interrupt
+ 167:Drivers/Library/StdDriver/src/uart.c ****  *                                      - \ref UART_INTEN_RLSIEN_Msk     : Receive Line status inte
+ 168:Drivers/Library/StdDriver/src/uart.c ****  *                                      - \ref UART_INTEN_THREIEN_Msk    : Tx empty interrupt
+ 169:Drivers/Library/StdDriver/src/uart.c ****  *                                      - \ref UART_INTEN_RDAIEN_Msk     : Rx ready interrupt *
+ 170:Drivers/Library/StdDriver/src/uart.c ****  *
+ 171:Drivers/Library/StdDriver/src/uart.c ****  *    @return       None
+ 172:Drivers/Library/StdDriver/src/uart.c ****  *
+ 173:Drivers/Library/StdDriver/src/uart.c ****  *    @details      The function is used to enable UART specified interrupt and enable NVIC UART IR
+ 174:Drivers/Library/StdDriver/src/uart.c ****  */
+ 175:Drivers/Library/StdDriver/src/uart.c **** void UART_EnableInt(UART_T*  uart, uint32_t u32InterruptFlag)
+ 176:Drivers/Library/StdDriver/src/uart.c **** {
+ 346              		.loc 1 176 1
+ 347              		.cfi_startproc
+ 348              		@ args = 0, pretend = 0, frame = 8
+ARM GAS  /tmp/ccXTtQ1f.s 			page 10
+
+
+ 349              		@ frame_needed = 1, uses_anonymous_args = 0
+ 350              		@ link register save eliminated.
+ 351 0000 80B4     		push	{r7}
+ 352              	.LCFI30:
+ 353              		.cfi_def_cfa_offset 4
+ 354              		.cfi_offset 7, -4
+ 355 0002 83B0     		sub	sp, sp, #12
+ 356              	.LCFI31:
+ 357              		.cfi_def_cfa_offset 16
+ 358 0004 00AF     		add	r7, sp, #0
+ 359              	.LCFI32:
+ 360              		.cfi_def_cfa_register 7
+ 361 0006 7860     		str	r0, [r7, #4]
+ 362 0008 3960     		str	r1, [r7]
+ 177:Drivers/Library/StdDriver/src/uart.c ****     /* Enable UART specified interrupt */
+ 178:Drivers/Library/StdDriver/src/uart.c ****     UART_ENABLE_INT(uart, u32InterruptFlag);
+ 363              		.loc 1 178 5
+ 364 000a 7B68     		ldr	r3, [r7, #4]
+ 365 000c 5A68     		ldr	r2, [r3, #4]
+ 366 000e 3B68     		ldr	r3, [r7]
+ 367 0010 1A43     		orrs	r2, r2, r3
+ 368 0012 7B68     		ldr	r3, [r7, #4]
+ 369 0014 5A60     		str	r2, [r3, #4]
+ 179:Drivers/Library/StdDriver/src/uart.c **** }
+ 370              		.loc 1 179 1
+ 371 0016 00BF     		nop
+ 372 0018 0C37     		adds	r7, r7, #12
+ 373              	.LCFI33:
+ 374              		.cfi_def_cfa_offset 4
+ 375 001a BD46     		mov	sp, r7
+ 376              	.LCFI34:
+ 377              		.cfi_def_cfa_register 13
+ 378              		@ sp needed
+ 379 001c 5DF8047B 		ldr	r7, [sp], #4
+ 380              	.LCFI35:
+ 381              		.cfi_restore 7
+ 382              		.cfi_def_cfa_offset 0
+ 383 0020 7047     		bx	lr
+ 384              		.cfi_endproc
+ 385              	.LFE200:
+ 387              		.section	.rodata
+ 388              		.align	2
+ 389              	.LC0:
+ 390 0000 001BB700 		.word	12000000
+ 391 0004 00000000 		.word	0
+ 392 0008 00800000 		.word	32768
+ 393 000c 001BB700 		.word	12000000
+ 394              		.section	.text.UART_Open,"ax",%progbits
+ 395              		.align	1
+ 396              		.global	UART_Open
+ 397              		.syntax unified
+ 398              		.thumb
+ 399              		.thumb_func
+ 401              	UART_Open:
+ 402              	.LFB201:
+ 180:Drivers/Library/StdDriver/src/uart.c **** 
+ 181:Drivers/Library/StdDriver/src/uart.c **** 
+ARM GAS  /tmp/ccXTtQ1f.s 			page 11
+
+
+ 182:Drivers/Library/StdDriver/src/uart.c **** /**
+ 183:Drivers/Library/StdDriver/src/uart.c ****  *    @brief        Open and set UART function
+ 184:Drivers/Library/StdDriver/src/uart.c ****  *
+ 185:Drivers/Library/StdDriver/src/uart.c ****  *    @param[in]    uart            The pointer of the specified UART module.
+ 186:Drivers/Library/StdDriver/src/uart.c ****  *    @param[in]    u32baudrate     The baudrate of UART module.
+ 187:Drivers/Library/StdDriver/src/uart.c ****  *
+ 188:Drivers/Library/StdDriver/src/uart.c ****  *    @return       None
+ 189:Drivers/Library/StdDriver/src/uart.c ****  *
+ 190:Drivers/Library/StdDriver/src/uart.c ****  *    @details      This function use to enable UART function and set baud-rate.
+ 191:Drivers/Library/StdDriver/src/uart.c ****  */
+ 192:Drivers/Library/StdDriver/src/uart.c **** void UART_Open(UART_T* uart, uint32_t u32baudrate)
+ 193:Drivers/Library/StdDriver/src/uart.c **** {
+ 403              		.loc 1 193 1
+ 404              		.cfi_startproc
+ 405              		@ args = 0, pretend = 0, frame = 40
+ 406              		@ frame_needed = 1, uses_anonymous_args = 0
+ 407 0000 90B5     		push	{r4, r7, lr}
+ 408              	.LCFI36:
+ 409              		.cfi_def_cfa_offset 12
+ 410              		.cfi_offset 4, -12
+ 411              		.cfi_offset 7, -8
+ 412              		.cfi_offset 14, -4
+ 413 0002 8BB0     		sub	sp, sp, #44
+ 414              	.LCFI37:
+ 415              		.cfi_def_cfa_offset 56
+ 416 0004 00AF     		add	r7, sp, #0
+ 417              	.LCFI38:
+ 418              		.cfi_def_cfa_register 7
+ 419 0006 7860     		str	r0, [r7, #4]
+ 420 0008 3960     		str	r1, [r7]
+ 194:Drivers/Library/StdDriver/src/uart.c ****     uint32_t u32UartClkSrcSel=0ul, u32UartClkDivNum=0ul;
+ 421              		.loc 1 194 14
+ 422 000a 0023     		movs	r3, #0
+ 423 000c 7B62     		str	r3, [r7, #36]
+ 424              		.loc 1 194 36
+ 425 000e 0023     		movs	r3, #0
+ 426 0010 3B62     		str	r3, [r7, #32]
+ 195:Drivers/Library/StdDriver/src/uart.c ****     uint32_t u32ClkTbl[4] = {__HXT, 0ul, __LXT, __HIRC};
+ 427              		.loc 1 195 14
+ 428 0012 5E4B     		ldr	r3, .L26
+ 429 0014 07F10C04 		add	r4, r7, #12
+ 430 0018 0FCB     		ldm	r3, {r0, r1, r2, r3}
+ 431 001a 84E80F00 		stm	r4, {r0, r1, r2, r3}
+ 196:Drivers/Library/StdDriver/src/uart.c ****     uint32_t u32Baud_Div = 0ul;
+ 432              		.loc 1 196 14
+ 433 001e 0023     		movs	r3, #0
+ 434 0020 FB61     		str	r3, [r7, #28]
+ 197:Drivers/Library/StdDriver/src/uart.c **** 
+ 198:Drivers/Library/StdDriver/src/uart.c **** 
+ 199:Drivers/Library/StdDriver/src/uart.c ****     if(uart==(UART_T*)UART0)
+ 435              		.loc 1 199 7
+ 436 0022 7B68     		ldr	r3, [r7, #4]
+ 437 0024 5A4A     		ldr	r2, .L26+4
+ 438 0026 9342     		cmp	r3, r2
+ 439 0028 0CD1     		bne	.L16
+ 200:Drivers/Library/StdDriver/src/uart.c ****     {
+ 201:Drivers/Library/StdDriver/src/uart.c ****         /* Get UART clock source selection */
+ARM GAS  /tmp/ccXTtQ1f.s 			page 12
+
+
+ 202:Drivers/Library/StdDriver/src/uart.c ****         u32UartClkSrcSel = ((uint32_t)(CLK->CLKSEL1 & CLK_CLKSEL1_UART0SEL_Msk)) >> CLK_CLKSEL1_UAR
+ 440              		.loc 1 202 43
+ 441 002a 5A4B     		ldr	r3, .L26+8
+ 442 002c 5B69     		ldr	r3, [r3, #20]
+ 443              		.loc 1 202 82
+ 444 002e 1B0E     		lsrs	r3, r3, #24
+ 445              		.loc 1 202 26
+ 446 0030 03F00303 		and	r3, r3, #3
+ 447 0034 7B62     		str	r3, [r7, #36]
+ 203:Drivers/Library/StdDriver/src/uart.c ****         /* Get UART clock divider number */
+ 204:Drivers/Library/StdDriver/src/uart.c ****         u32UartClkDivNum = (CLK->CLKDIV0 & CLK_CLKDIV0_UART0DIV_Msk) >> CLK_CLKDIV0_UART0DIV_Pos;
+ 448              		.loc 1 204 32
+ 449 0036 574B     		ldr	r3, .L26+8
+ 450 0038 1B6A     		ldr	r3, [r3, #32]
+ 451              		.loc 1 204 70
+ 452 003a 1B0A     		lsrs	r3, r3, #8
+ 453              		.loc 1 204 26
+ 454 003c 03F00F03 		and	r3, r3, #15
+ 455 0040 3B62     		str	r3, [r7, #32]
+ 456 0042 52E0     		b	.L17
+ 457              	.L16:
+ 205:Drivers/Library/StdDriver/src/uart.c ****     }
+ 206:Drivers/Library/StdDriver/src/uart.c ****     else if(uart==(UART_T*)UART1)
+ 458              		.loc 1 206 12
+ 459 0044 7B68     		ldr	r3, [r7, #4]
+ 460 0046 544A     		ldr	r2, .L26+12
+ 461 0048 9342     		cmp	r3, r2
+ 462 004a 0CD1     		bne	.L18
+ 207:Drivers/Library/StdDriver/src/uart.c ****     {
+ 208:Drivers/Library/StdDriver/src/uart.c ****         /* Get UART clock source selection */
+ 209:Drivers/Library/StdDriver/src/uart.c ****         u32UartClkSrcSel = (CLK->CLKSEL1 & CLK_CLKSEL1_UART1SEL_Msk) >> CLK_CLKSEL1_UART1SEL_Pos;
+ 463              		.loc 1 209 32
+ 464 004c 514B     		ldr	r3, .L26+8
+ 465 004e 5B69     		ldr	r3, [r3, #20]
+ 466              		.loc 1 209 70
+ 467 0050 9B0E     		lsrs	r3, r3, #26
+ 468              		.loc 1 209 26
+ 469 0052 03F00303 		and	r3, r3, #3
+ 470 0056 7B62     		str	r3, [r7, #36]
+ 210:Drivers/Library/StdDriver/src/uart.c ****         /* Get UART clock divider number */
+ 211:Drivers/Library/StdDriver/src/uart.c ****         u32UartClkDivNum = (CLK->CLKDIV0 & CLK_CLKDIV0_UART1DIV_Msk) >> CLK_CLKDIV0_UART1DIV_Pos;
+ 471              		.loc 1 211 32
+ 472 0058 4E4B     		ldr	r3, .L26+8
+ 473 005a 1B6A     		ldr	r3, [r3, #32]
+ 474              		.loc 1 211 70
+ 475 005c 1B0B     		lsrs	r3, r3, #12
+ 476              		.loc 1 211 26
+ 477 005e 03F00F03 		and	r3, r3, #15
+ 478 0062 3B62     		str	r3, [r7, #32]
+ 479 0064 41E0     		b	.L17
+ 480              	.L18:
+ 212:Drivers/Library/StdDriver/src/uart.c ****     }
+ 213:Drivers/Library/StdDriver/src/uart.c ****     else if(uart==(UART_T*)UART2)
+ 481              		.loc 1 213 12
+ 482 0066 7B68     		ldr	r3, [r7, #4]
+ 483 0068 4C4A     		ldr	r2, .L26+16
+ 484 006a 9342     		cmp	r3, r2
+ARM GAS  /tmp/ccXTtQ1f.s 			page 13
+
+
+ 485 006c 0BD1     		bne	.L19
+ 214:Drivers/Library/StdDriver/src/uart.c ****     {
+ 215:Drivers/Library/StdDriver/src/uart.c ****         /* Get UART clock source selection */
+ 216:Drivers/Library/StdDriver/src/uart.c ****         u32UartClkSrcSel = (CLK->CLKSEL3 & CLK_CLKSEL3_UART2SEL_Msk) >> CLK_CLKSEL3_UART2SEL_Pos;
+ 486              		.loc 1 216 32
+ 487 006e 494B     		ldr	r3, .L26+8
+ 488 0070 DB69     		ldr	r3, [r3, #28]
+ 489              		.loc 1 216 70
+ 490 0072 1B0E     		lsrs	r3, r3, #24
+ 491              		.loc 1 216 26
+ 492 0074 03F00303 		and	r3, r3, #3
+ 493 0078 7B62     		str	r3, [r7, #36]
+ 217:Drivers/Library/StdDriver/src/uart.c ****         /* Get UART clock divider number */
+ 218:Drivers/Library/StdDriver/src/uart.c ****         u32UartClkDivNum = (CLK->CLKDIV4 & CLK_CLKDIV4_UART2DIV_Msk) >> CLK_CLKDIV4_UART2DIV_Pos;
+ 494              		.loc 1 218 32
+ 495 007a 464B     		ldr	r3, .L26+8
+ 496 007c 1B6B     		ldr	r3, [r3, #48]
+ 497              		.loc 1 218 26
+ 498 007e 03F00F03 		and	r3, r3, #15
+ 499 0082 3B62     		str	r3, [r7, #32]
+ 500 0084 31E0     		b	.L17
+ 501              	.L19:
+ 219:Drivers/Library/StdDriver/src/uart.c ****     }
+ 220:Drivers/Library/StdDriver/src/uart.c ****     else if(uart==(UART_T*)UART3)
+ 502              		.loc 1 220 12
+ 503 0086 7B68     		ldr	r3, [r7, #4]
+ 504 0088 454A     		ldr	r2, .L26+20
+ 505 008a 9342     		cmp	r3, r2
+ 506 008c 0CD1     		bne	.L20
+ 221:Drivers/Library/StdDriver/src/uart.c ****     {
+ 222:Drivers/Library/StdDriver/src/uart.c ****         /* Get UART clock source selection */
+ 223:Drivers/Library/StdDriver/src/uart.c ****         u32UartClkSrcSel = (CLK->CLKSEL3 & CLK_CLKSEL3_UART3SEL_Msk) >> CLK_CLKSEL3_UART3SEL_Pos;
+ 507              		.loc 1 223 32
+ 508 008e 414B     		ldr	r3, .L26+8
+ 509 0090 DB69     		ldr	r3, [r3, #28]
+ 510              		.loc 1 223 70
+ 511 0092 9B0E     		lsrs	r3, r3, #26
+ 512              		.loc 1 223 26
+ 513 0094 03F00303 		and	r3, r3, #3
+ 514 0098 7B62     		str	r3, [r7, #36]
+ 224:Drivers/Library/StdDriver/src/uart.c ****         /* Get UART clock divider number */
+ 225:Drivers/Library/StdDriver/src/uart.c ****         u32UartClkDivNum = (CLK->CLKDIV4 & CLK_CLKDIV4_UART3DIV_Msk) >> CLK_CLKDIV4_UART3DIV_Pos;
+ 515              		.loc 1 225 32
+ 516 009a 3E4B     		ldr	r3, .L26+8
+ 517 009c 1B6B     		ldr	r3, [r3, #48]
+ 518              		.loc 1 225 70
+ 519 009e 1B09     		lsrs	r3, r3, #4
+ 520              		.loc 1 225 26
+ 521 00a0 03F00F03 		and	r3, r3, #15
+ 522 00a4 3B62     		str	r3, [r7, #32]
+ 523 00a6 20E0     		b	.L17
+ 524              	.L20:
+ 226:Drivers/Library/StdDriver/src/uart.c ****     }
+ 227:Drivers/Library/StdDriver/src/uart.c ****     else if(uart==(UART_T*)UART4)
+ 525              		.loc 1 227 12
+ 526 00a8 7B68     		ldr	r3, [r7, #4]
+ 527 00aa 3E4A     		ldr	r2, .L26+24
+ARM GAS  /tmp/ccXTtQ1f.s 			page 14
+
+
+ 528 00ac 9342     		cmp	r3, r2
+ 529 00ae 0CD1     		bne	.L21
+ 228:Drivers/Library/StdDriver/src/uart.c ****     {
+ 229:Drivers/Library/StdDriver/src/uart.c ****         /* Get UART clock source selection */
+ 230:Drivers/Library/StdDriver/src/uart.c ****         u32UartClkSrcSel = (CLK->CLKSEL3 & CLK_CLKSEL3_UART4SEL_Msk) >> CLK_CLKSEL3_UART4SEL_Pos;
+ 530              		.loc 1 230 32
+ 531 00b0 384B     		ldr	r3, .L26+8
+ 532 00b2 DB69     		ldr	r3, [r3, #28]
+ 533              		.loc 1 230 70
+ 534 00b4 1B0F     		lsrs	r3, r3, #28
+ 535              		.loc 1 230 26
+ 536 00b6 03F00303 		and	r3, r3, #3
+ 537 00ba 7B62     		str	r3, [r7, #36]
+ 231:Drivers/Library/StdDriver/src/uart.c ****         /* Get UART clock divider number */
+ 232:Drivers/Library/StdDriver/src/uart.c ****         u32UartClkDivNum = (CLK->CLKDIV4 & CLK_CLKDIV4_UART4DIV_Msk) >> CLK_CLKDIV4_UART4DIV_Pos;
+ 538              		.loc 1 232 32
+ 539 00bc 354B     		ldr	r3, .L26+8
+ 540 00be 1B6B     		ldr	r3, [r3, #48]
+ 541              		.loc 1 232 70
+ 542 00c0 1B0A     		lsrs	r3, r3, #8
+ 543              		.loc 1 232 26
+ 544 00c2 03F00F03 		and	r3, r3, #15
+ 545 00c6 3B62     		str	r3, [r7, #32]
+ 546 00c8 0FE0     		b	.L17
+ 547              	.L21:
+ 233:Drivers/Library/StdDriver/src/uart.c ****     }
+ 234:Drivers/Library/StdDriver/src/uart.c ****     else if(uart==(UART_T*)UART5)
+ 548              		.loc 1 234 12
+ 549 00ca 7B68     		ldr	r3, [r7, #4]
+ 550 00cc 364A     		ldr	r2, .L26+28
+ 551 00ce 9342     		cmp	r3, r2
+ 552 00d0 0BD1     		bne	.L17
+ 235:Drivers/Library/StdDriver/src/uart.c ****     {
+ 236:Drivers/Library/StdDriver/src/uart.c ****         /* Get UART clock source selection */
+ 237:Drivers/Library/StdDriver/src/uart.c ****         u32UartClkSrcSel = (CLK->CLKSEL3 & CLK_CLKSEL3_UART5SEL_Msk) >> CLK_CLKSEL3_UART5SEL_Pos;
+ 553              		.loc 1 237 32
+ 554 00d2 304B     		ldr	r3, .L26+8
+ 555 00d4 DB69     		ldr	r3, [r3, #28]
+ 556              		.loc 1 237 70
+ 557 00d6 9B0F     		lsrs	r3, r3, #30
+ 558              		.loc 1 237 26
+ 559 00d8 03F00303 		and	r3, r3, #3
+ 560 00dc 7B62     		str	r3, [r7, #36]
+ 238:Drivers/Library/StdDriver/src/uart.c ****         /* Get UART clock divider number */
+ 239:Drivers/Library/StdDriver/src/uart.c ****         u32UartClkDivNum = (CLK->CLKDIV4 & CLK_CLKDIV4_UART5DIV_Msk) >> CLK_CLKDIV4_UART5DIV_Pos;
+ 561              		.loc 1 239 32
+ 562 00de 2D4B     		ldr	r3, .L26+8
+ 563 00e0 1B6B     		ldr	r3, [r3, #48]
+ 564              		.loc 1 239 70
+ 565 00e2 1B0B     		lsrs	r3, r3, #12
+ 566              		.loc 1 239 26
+ 567 00e4 03F00F03 		and	r3, r3, #15
+ 568 00e8 3B62     		str	r3, [r7, #32]
+ 569              	.L17:
+ 240:Drivers/Library/StdDriver/src/uart.c ****     }
+ 241:Drivers/Library/StdDriver/src/uart.c **** 
+ 242:Drivers/Library/StdDriver/src/uart.c ****     /* Select UART function */
+ARM GAS  /tmp/ccXTtQ1f.s 			page 15
+
+
+ 243:Drivers/Library/StdDriver/src/uart.c ****     uart->FUNCSEL = UART_FUNCSEL_UART;
+ 570              		.loc 1 243 19
+ 571 00ea 7B68     		ldr	r3, [r7, #4]
+ 572 00ec 0022     		movs	r2, #0
+ 573 00ee 1A63     		str	r2, [r3, #48]
+ 244:Drivers/Library/StdDriver/src/uart.c **** 
+ 245:Drivers/Library/StdDriver/src/uart.c ****     /* Set UART line configuration */
+ 246:Drivers/Library/StdDriver/src/uart.c ****     uart->LINE = UART_WORD_LEN_8 | UART_PARITY_NONE | UART_STOP_BIT_1;
+ 574              		.loc 1 246 16
+ 575 00f0 7B68     		ldr	r3, [r7, #4]
+ 576 00f2 0322     		movs	r2, #3
+ 577 00f4 DA60     		str	r2, [r3, #12]
+ 247:Drivers/Library/StdDriver/src/uart.c **** 
+ 248:Drivers/Library/StdDriver/src/uart.c ****     /* Set UART Rx and RTS trigger level */
+ 249:Drivers/Library/StdDriver/src/uart.c ****     uart->FIFO &= ~(UART_FIFO_RFITL_Msk | UART_FIFO_RTSTRGLV_Msk);
+ 578              		.loc 1 249 16
+ 579 00f6 7B68     		ldr	r3, [r7, #4]
+ 580 00f8 9B68     		ldr	r3, [r3, #8]
+ 581 00fa 23F47023 		bic	r3, r3, #983040
+ 582 00fe 23F0F003 		bic	r3, r3, #240
+ 583 0102 7A68     		ldr	r2, [r7, #4]
+ 584 0104 9360     		str	r3, [r2, #8]
+ 250:Drivers/Library/StdDriver/src/uart.c **** 
+ 251:Drivers/Library/StdDriver/src/uart.c ****     /* Get PLL clock frequency if UART clock source selection is PLL */
+ 252:Drivers/Library/StdDriver/src/uart.c ****     if(u32UartClkSrcSel == 1ul)
+ 585              		.loc 1 252 7
+ 586 0106 7B6A     		ldr	r3, [r7, #36]
+ 587 0108 012B     		cmp	r3, #1
+ 588 010a 08D1     		bne	.L22
+ 253:Drivers/Library/StdDriver/src/uart.c ****     {
+ 254:Drivers/Library/StdDriver/src/uart.c ****         u32ClkTbl[u32UartClkSrcSel] = CLK_GetPLLClockFreq();
+ 589              		.loc 1 254 39
+ 590 010c FFF7FEFF 		bl	CLK_GetPLLClockFreq
+ 591 0110 0246     		mov	r2, r0
+ 592              		.loc 1 254 37
+ 593 0112 7B6A     		ldr	r3, [r7, #36]
+ 594 0114 9B00     		lsls	r3, r3, #2
+ 595 0116 2833     		adds	r3, r3, #40
+ 596 0118 3B44     		add	r3, r3, r7
+ 597 011a 43F81C2C 		str	r2, [r3, #-28]
+ 598              	.L22:
+ 255:Drivers/Library/StdDriver/src/uart.c ****     }
+ 256:Drivers/Library/StdDriver/src/uart.c **** 
+ 257:Drivers/Library/StdDriver/src/uart.c ****     /* Set UART baud rate */
+ 258:Drivers/Library/StdDriver/src/uart.c ****     if(u32baudrate != 0ul)
+ 599              		.loc 1 258 7
+ 600 011e 3B68     		ldr	r3, [r7]
+ 601 0120 002B     		cmp	r3, #0
+ 602 0122 2FD0     		beq	.L25
+ 259:Drivers/Library/StdDriver/src/uart.c ****     {
+ 260:Drivers/Library/StdDriver/src/uart.c ****         u32Baud_Div = UART_BAUD_MODE2_DIVIDER((u32ClkTbl[u32UartClkSrcSel]) / (u32UartClkDivNum + 1
+ 603              		.loc 1 260 23
+ 604 0124 7B6A     		ldr	r3, [r7, #36]
+ 605 0126 9B00     		lsls	r3, r3, #2
+ 606 0128 2833     		adds	r3, r3, #40
+ 607 012a 3B44     		add	r3, r3, r7
+ 608 012c 53F81C2C 		ldr	r2, [r3, #-28]
+ARM GAS  /tmp/ccXTtQ1f.s 			page 16
+
+
+ 609 0130 3B6A     		ldr	r3, [r7, #32]
+ 610 0132 0133     		adds	r3, r3, #1
+ 611 0134 B2FBF3F2 		udiv	r2, r2, r3
+ 612 0138 3B68     		ldr	r3, [r7]
+ 613 013a 5B08     		lsrs	r3, r3, #1
+ 614 013c 1A44     		add	r2, r2, r3
+ 615 013e 3B68     		ldr	r3, [r7]
+ 616 0140 B2FBF3F3 		udiv	r3, r2, r3
+ 617              		.loc 1 260 21
+ 618 0144 023B     		subs	r3, r3, #2
+ 619 0146 FB61     		str	r3, [r7, #28]
+ 261:Drivers/Library/StdDriver/src/uart.c **** 
+ 262:Drivers/Library/StdDriver/src/uart.c ****         if(u32Baud_Div > 0xFFFFul)
+ 620              		.loc 1 262 11
+ 621 0148 FB69     		ldr	r3, [r7, #28]
+ 622 014a B3F5803F 		cmp	r3, #65536
+ 623 014e 14D3     		bcc	.L24
+ 263:Drivers/Library/StdDriver/src/uart.c ****         {
+ 264:Drivers/Library/StdDriver/src/uart.c ****             uart->BAUD = (UART_BAUD_MODE0 | UART_BAUD_MODE0_DIVIDER((u32ClkTbl[u32UartClkSrcSel]) /
+ 624              		.loc 1 264 45
+ 625 0150 7B6A     		ldr	r3, [r7, #36]
+ 626 0152 9B00     		lsls	r3, r3, #2
+ 627 0154 2833     		adds	r3, r3, #40
+ 628 0156 3B44     		add	r3, r3, r7
+ 629 0158 53F81C2C 		ldr	r2, [r3, #-28]
+ 630 015c 3B6A     		ldr	r3, [r7, #32]
+ 631 015e 0133     		adds	r3, r3, #1
+ 632 0160 B2FBF3F2 		udiv	r2, r2, r3
+ 633 0164 3B68     		ldr	r3, [r7]
+ 634 0166 DB00     		lsls	r3, r3, #3
+ 635 0168 1A44     		add	r2, r2, r3
+ 636 016a 3B68     		ldr	r3, [r7]
+ 637 016c B2FBF3F3 		udiv	r3, r2, r3
+ 638 0170 1B09     		lsrs	r3, r3, #4
+ 639              		.loc 1 264 43
+ 640 0172 9A1E     		subs	r2, r3, #2
+ 641              		.loc 1 264 24
+ 642 0174 7B68     		ldr	r3, [r7, #4]
+ 643 0176 5A62     		str	r2, [r3, #36]
+ 265:Drivers/Library/StdDriver/src/uart.c ****         }
+ 266:Drivers/Library/StdDriver/src/uart.c ****         else
+ 267:Drivers/Library/StdDriver/src/uart.c ****         {
+ 268:Drivers/Library/StdDriver/src/uart.c ****             uart->BAUD = (UART_BAUD_MODE2 | u32Baud_Div);
+ 269:Drivers/Library/StdDriver/src/uart.c ****         }
+ 270:Drivers/Library/StdDriver/src/uart.c ****     }
+ 271:Drivers/Library/StdDriver/src/uart.c **** }
+ 644              		.loc 1 271 1
+ 645 0178 04E0     		b	.L25
+ 646              	.L24:
+ 268:Drivers/Library/StdDriver/src/uart.c ****         }
+ 647              		.loc 1 268 43
+ 648 017a FB69     		ldr	r3, [r7, #28]
+ 649 017c 43F04052 		orr	r2, r3, #805306368
+ 268:Drivers/Library/StdDriver/src/uart.c ****         }
+ 650              		.loc 1 268 24
+ 651 0180 7B68     		ldr	r3, [r7, #4]
+ 652 0182 5A62     		str	r2, [r3, #36]
+ARM GAS  /tmp/ccXTtQ1f.s 			page 17
+
+
+ 653              	.L25:
+ 654              		.loc 1 271 1
+ 655 0184 00BF     		nop
+ 656 0186 2C37     		adds	r7, r7, #44
+ 657              	.LCFI39:
+ 658              		.cfi_def_cfa_offset 12
+ 659 0188 BD46     		mov	sp, r7
+ 660              	.LCFI40:
+ 661              		.cfi_def_cfa_register 13
+ 662              		@ sp needed
+ 663 018a 90BD     		pop	{r4, r7, pc}
+ 664              	.L27:
+ 665              		.align	2
+ 666              	.L26:
+ 667 018c 00000000 		.word	.LC0
+ 668 0190 00000740 		.word	1074200576
+ 669 0194 00020040 		.word	1073742336
+ 670 0198 00100740 		.word	1074204672
+ 671 019c 00200740 		.word	1074208768
+ 672 01a0 00300740 		.word	1074212864
+ 673 01a4 00400740 		.word	1074216960
+ 674 01a8 00500740 		.word	1074221056
+ 675              		.cfi_endproc
+ 676              	.LFE201:
+ 678              		.section	.text.UART_Read,"ax",%progbits
+ 679              		.align	1
+ 680              		.global	UART_Read
+ 681              		.syntax unified
+ 682              		.thumb
+ 683              		.thumb_func
+ 685              	UART_Read:
+ 686              	.LFB202:
+ 272:Drivers/Library/StdDriver/src/uart.c **** 
+ 273:Drivers/Library/StdDriver/src/uart.c **** 
+ 274:Drivers/Library/StdDriver/src/uart.c **** /**
+ 275:Drivers/Library/StdDriver/src/uart.c ****  *    @brief        Read UART data
+ 276:Drivers/Library/StdDriver/src/uart.c ****  *
+ 277:Drivers/Library/StdDriver/src/uart.c ****  *    @param[in]    uart            The pointer of the specified UART module.
+ 278:Drivers/Library/StdDriver/src/uart.c ****  *    @param[in]    pu8RxBuf        The buffer to receive the data of receive FIFO.
+ 279:Drivers/Library/StdDriver/src/uart.c ****  *    @param[in]    u32ReadBytes    The the read bytes number of data.
+ 280:Drivers/Library/StdDriver/src/uart.c ****  *
+ 281:Drivers/Library/StdDriver/src/uart.c ****  *    @return       u32Count Receive byte count
+ 282:Drivers/Library/StdDriver/src/uart.c ****  *
+ 283:Drivers/Library/StdDriver/src/uart.c ****  *    @details      The function is used to read Rx data from RX FIFO and the data will be stored i
+ 284:Drivers/Library/StdDriver/src/uart.c ****  */
+ 285:Drivers/Library/StdDriver/src/uart.c **** uint32_t UART_Read(UART_T* uart, uint8_t pu8RxBuf[], uint32_t u32ReadBytes)
+ 286:Drivers/Library/StdDriver/src/uart.c **** {
+ 687              		.loc 1 286 1
+ 688              		.cfi_startproc
+ 689              		@ args = 0, pretend = 0, frame = 32
+ 690              		@ frame_needed = 1, uses_anonymous_args = 0
+ 691              		@ link register save eliminated.
+ 692 0000 80B4     		push	{r7}
+ 693              	.LCFI41:
+ 694              		.cfi_def_cfa_offset 4
+ 695              		.cfi_offset 7, -4
+ 696 0002 89B0     		sub	sp, sp, #36
+ARM GAS  /tmp/ccXTtQ1f.s 			page 18
+
+
+ 697              	.LCFI42:
+ 698              		.cfi_def_cfa_offset 40
+ 699 0004 00AF     		add	r7, sp, #0
+ 700              	.LCFI43:
+ 701              		.cfi_def_cfa_register 7
+ 702 0006 F860     		str	r0, [r7, #12]
+ 703 0008 B960     		str	r1, [r7, #8]
+ 704 000a 7A60     		str	r2, [r7, #4]
+ 287:Drivers/Library/StdDriver/src/uart.c ****     uint32_t  u32Count, u32delayno;
+ 288:Drivers/Library/StdDriver/src/uart.c ****     uint32_t  u32Exit = 0ul;
+ 705              		.loc 1 288 15
+ 706 000c 0023     		movs	r3, #0
+ 707 000e 7B61     		str	r3, [r7, #20]
+ 289:Drivers/Library/StdDriver/src/uart.c **** 
+ 290:Drivers/Library/StdDriver/src/uart.c ****     for(u32Count = 0ul; u32Count < u32ReadBytes; u32Count++)
+ 708              		.loc 1 290 18
+ 709 0010 0023     		movs	r3, #0
+ 710 0012 FB61     		str	r3, [r7, #28]
+ 711              		.loc 1 290 5
+ 712 0014 1FE0     		b	.L29
+ 713              	.L35:
+ 291:Drivers/Library/StdDriver/src/uart.c ****     {
+ 292:Drivers/Library/StdDriver/src/uart.c ****         u32delayno = 0ul;
+ 714              		.loc 1 292 20
+ 715 0016 0023     		movs	r3, #0
+ 716 0018 BB61     		str	r3, [r7, #24]
+ 293:Drivers/Library/StdDriver/src/uart.c **** 
+ 294:Drivers/Library/StdDriver/src/uart.c ****         while(uart->FIFOSTS & UART_FIFOSTS_RXEMPTY_Msk)   /* Check RX empty => failed */
+ 717              		.loc 1 294 14
+ 718 001a 09E0     		b	.L30
+ 719              	.L32:
+ 295:Drivers/Library/StdDriver/src/uart.c ****         {
+ 296:Drivers/Library/StdDriver/src/uart.c ****             u32delayno++;
+ 720              		.loc 1 296 23
+ 721 001c BB69     		ldr	r3, [r7, #24]
+ 722 001e 0133     		adds	r3, r3, #1
+ 723 0020 BB61     		str	r3, [r7, #24]
+ 297:Drivers/Library/StdDriver/src/uart.c ****             if(u32delayno >= 0x40000000ul)
+ 724              		.loc 1 297 15
+ 725 0022 BB69     		ldr	r3, [r7, #24]
+ 726 0024 B3F1804F 		cmp	r3, #1073741824
+ 727 0028 02D3     		bcc	.L30
+ 298:Drivers/Library/StdDriver/src/uart.c ****             {
+ 299:Drivers/Library/StdDriver/src/uart.c ****                 u32Exit = 1ul;
+ 728              		.loc 1 299 25
+ 729 002a 0123     		movs	r3, #1
+ 730 002c 7B61     		str	r3, [r7, #20]
+ 300:Drivers/Library/StdDriver/src/uart.c ****                 break;
+ 731              		.loc 1 300 17
+ 732 002e 05E0     		b	.L31
+ 733              	.L30:
+ 294:Drivers/Library/StdDriver/src/uart.c ****         {
+ 734              		.loc 1 294 19
+ 735 0030 FB68     		ldr	r3, [r7, #12]
+ 736 0032 9B69     		ldr	r3, [r3, #24]
+ 294:Drivers/Library/StdDriver/src/uart.c ****         {
+ 737              		.loc 1 294 29
+ARM GAS  /tmp/ccXTtQ1f.s 			page 19
+
+
+ 738 0034 03F48043 		and	r3, r3, #16384
+ 294:Drivers/Library/StdDriver/src/uart.c ****         {
+ 739              		.loc 1 294 14
+ 740 0038 002B     		cmp	r3, #0
+ 741 003a EFD1     		bne	.L32
+ 742              	.L31:
+ 301:Drivers/Library/StdDriver/src/uart.c ****             }
+ 302:Drivers/Library/StdDriver/src/uart.c ****             else
+ 303:Drivers/Library/StdDriver/src/uart.c ****             {
+ 304:Drivers/Library/StdDriver/src/uart.c ****             }
+ 305:Drivers/Library/StdDriver/src/uart.c ****         }
+ 306:Drivers/Library/StdDriver/src/uart.c **** 
+ 307:Drivers/Library/StdDriver/src/uart.c ****         if(u32Exit == 1ul)
+ 743              		.loc 1 307 11
+ 744 003c 7B69     		ldr	r3, [r7, #20]
+ 745 003e 012B     		cmp	r3, #1
+ 746 0040 0ED0     		beq	.L37
+ 308:Drivers/Library/StdDriver/src/uart.c ****         {
+ 309:Drivers/Library/StdDriver/src/uart.c ****             break;
+ 310:Drivers/Library/StdDriver/src/uart.c ****         }
+ 311:Drivers/Library/StdDriver/src/uart.c ****         else
+ 312:Drivers/Library/StdDriver/src/uart.c ****         {
+ 313:Drivers/Library/StdDriver/src/uart.c ****             pu8RxBuf[u32Count] = (uint8_t)uart->DAT; /* Get Data from UART RX  */
+ 747              		.loc 1 313 47 discriminator 2
+ 748 0042 FB68     		ldr	r3, [r7, #12]
+ 749 0044 1968     		ldr	r1, [r3]
+ 750              		.loc 1 313 21 discriminator 2
+ 751 0046 BA68     		ldr	r2, [r7, #8]
+ 752 0048 FB69     		ldr	r3, [r7, #28]
+ 753 004a 1344     		add	r3, r3, r2
+ 754              		.loc 1 313 34 discriminator 2
+ 755 004c CAB2     		uxtb	r2, r1
+ 756              		.loc 1 313 32 discriminator 2
+ 757 004e 1A70     		strb	r2, [r3]
+ 290:Drivers/Library/StdDriver/src/uart.c ****     {
+ 758              		.loc 1 290 58 discriminator 2
+ 759 0050 FB69     		ldr	r3, [r7, #28]
+ 760 0052 0133     		adds	r3, r3, #1
+ 761 0054 FB61     		str	r3, [r7, #28]
+ 762              	.L29:
+ 290:Drivers/Library/StdDriver/src/uart.c ****     {
+ 763              		.loc 1 290 5 discriminator 1
+ 764 0056 FA69     		ldr	r2, [r7, #28]
+ 765 0058 7B68     		ldr	r3, [r7, #4]
+ 766 005a 9A42     		cmp	r2, r3
+ 767 005c DBD3     		bcc	.L35
+ 768 005e 00E0     		b	.L34
+ 769              	.L37:
+ 309:Drivers/Library/StdDriver/src/uart.c ****         }
+ 770              		.loc 1 309 13
+ 771 0060 00BF     		nop
+ 772              	.L34:
+ 314:Drivers/Library/StdDriver/src/uart.c ****         }
+ 315:Drivers/Library/StdDriver/src/uart.c ****     }
+ 316:Drivers/Library/StdDriver/src/uart.c **** 
+ 317:Drivers/Library/StdDriver/src/uart.c ****     return u32Count;
+ 773              		.loc 1 317 12
+ARM GAS  /tmp/ccXTtQ1f.s 			page 20
+
+
+ 774 0062 FB69     		ldr	r3, [r7, #28]
+ 318:Drivers/Library/StdDriver/src/uart.c **** 
+ 319:Drivers/Library/StdDriver/src/uart.c **** }
+ 775              		.loc 1 319 1
+ 776 0064 1846     		mov	r0, r3
+ 777 0066 2437     		adds	r7, r7, #36
+ 778              	.LCFI44:
+ 779              		.cfi_def_cfa_offset 4
+ 780 0068 BD46     		mov	sp, r7
+ 781              	.LCFI45:
+ 782              		.cfi_def_cfa_register 13
+ 783              		@ sp needed
+ 784 006a 5DF8047B 		ldr	r7, [sp], #4
+ 785              	.LCFI46:
+ 786              		.cfi_restore 7
+ 787              		.cfi_def_cfa_offset 0
+ 788 006e 7047     		bx	lr
+ 789              		.cfi_endproc
+ 790              	.LFE202:
+ 792              		.section	.text.UART_SetLineConfig,"ax",%progbits
+ 793              		.align	1
+ 794              		.global	UART_SetLineConfig
+ 795              		.syntax unified
+ 796              		.thumb
+ 797              		.thumb_func
+ 799              	UART_SetLineConfig:
+ 800              	.LFB203:
+ 320:Drivers/Library/StdDriver/src/uart.c **** 
+ 321:Drivers/Library/StdDriver/src/uart.c **** 
+ 322:Drivers/Library/StdDriver/src/uart.c **** /**
+ 323:Drivers/Library/StdDriver/src/uart.c ****  *    @brief        Set UART line configuration
+ 324:Drivers/Library/StdDriver/src/uart.c ****  *
+ 325:Drivers/Library/StdDriver/src/uart.c ****  *    @param[in]    uart            The pointer of the specified UART module.
+ 326:Drivers/Library/StdDriver/src/uart.c ****  *    @param[in]    u32baudrate     The register value of baudrate of UART module.
+ 327:Drivers/Library/StdDriver/src/uart.c ****  *                                  If u32baudrate = 0, UART baudrate will not change.
+ 328:Drivers/Library/StdDriver/src/uart.c ****  *    @param[in]    u32data_width   The data length of UART module.
+ 329:Drivers/Library/StdDriver/src/uart.c ****  *                                  - \ref UART_WORD_LEN_5
+ 330:Drivers/Library/StdDriver/src/uart.c ****  *                                  - \ref UART_WORD_LEN_6
+ 331:Drivers/Library/StdDriver/src/uart.c ****  *                                  - \ref UART_WORD_LEN_7
+ 332:Drivers/Library/StdDriver/src/uart.c ****  *                                  - \ref UART_WORD_LEN_8
+ 333:Drivers/Library/StdDriver/src/uart.c ****  *    @param[in]    u32parity       The parity setting (none/odd/even/mark/space) of UART module.
+ 334:Drivers/Library/StdDriver/src/uart.c ****  *                                  - \ref UART_PARITY_NONE
+ 335:Drivers/Library/StdDriver/src/uart.c ****  *                                  - \ref UART_PARITY_ODD
+ 336:Drivers/Library/StdDriver/src/uart.c ****  *                                  - \ref UART_PARITY_EVEN
+ 337:Drivers/Library/StdDriver/src/uart.c ****  *                                  - \ref UART_PARITY_MARK
+ 338:Drivers/Library/StdDriver/src/uart.c ****  *                                  - \ref UART_PARITY_SPACE
+ 339:Drivers/Library/StdDriver/src/uart.c ****  *    @param[in]    u32stop_bits    The stop bit length (1/1.5/2 bit) of UART module.
+ 340:Drivers/Library/StdDriver/src/uart.c ****  *                                  - \ref UART_STOP_BIT_1
+ 341:Drivers/Library/StdDriver/src/uart.c ****  *                                  - \ref UART_STOP_BIT_1_5
+ 342:Drivers/Library/StdDriver/src/uart.c ****  *                                  - \ref UART_STOP_BIT_2
+ 343:Drivers/Library/StdDriver/src/uart.c ****  *
+ 344:Drivers/Library/StdDriver/src/uart.c ****  *    @return       None
+ 345:Drivers/Library/StdDriver/src/uart.c ****  *
+ 346:Drivers/Library/StdDriver/src/uart.c ****  *    @details      This function use to config UART line setting.
+ 347:Drivers/Library/StdDriver/src/uart.c ****  */
+ 348:Drivers/Library/StdDriver/src/uart.c **** void UART_SetLineConfig(UART_T* uart, uint32_t u32baudrate, uint32_t u32data_width, uint32_t u32par
+ 349:Drivers/Library/StdDriver/src/uart.c **** {
+ARM GAS  /tmp/ccXTtQ1f.s 			page 21
+
+
+ 801              		.loc 1 349 1
+ 802              		.cfi_startproc
+ 803              		@ args = 4, pretend = 0, frame = 48
+ 804              		@ frame_needed = 1, uses_anonymous_args = 0
+ 805 0000 90B5     		push	{r4, r7, lr}
+ 806              	.LCFI47:
+ 807              		.cfi_def_cfa_offset 12
+ 808              		.cfi_offset 4, -12
+ 809              		.cfi_offset 7, -8
+ 810              		.cfi_offset 14, -4
+ 811 0002 8DB0     		sub	sp, sp, #52
+ 812              	.LCFI48:
+ 813              		.cfi_def_cfa_offset 64
+ 814 0004 00AF     		add	r7, sp, #0
+ 815              	.LCFI49:
+ 816              		.cfi_def_cfa_register 7
+ 817 0006 F860     		str	r0, [r7, #12]
+ 818 0008 B960     		str	r1, [r7, #8]
+ 819 000a 7A60     		str	r2, [r7, #4]
+ 820 000c 3B60     		str	r3, [r7]
+ 350:Drivers/Library/StdDriver/src/uart.c ****     uint32_t u32UartClkSrcSel=0ul, u32UartClkDivNum=0ul;
+ 821              		.loc 1 350 14
+ 822 000e 0023     		movs	r3, #0
+ 823 0010 FB62     		str	r3, [r7, #44]
+ 824              		.loc 1 350 36
+ 825 0012 0023     		movs	r3, #0
+ 826 0014 BB62     		str	r3, [r7, #40]
+ 351:Drivers/Library/StdDriver/src/uart.c ****     uint32_t u32ClkTbl[4ul] = {__HXT, 0ul, __LXT, __HIRC};
+ 827              		.loc 1 351 14
+ 828 0016 5B4B     		ldr	r3, .L48
+ 829 0018 07F11404 		add	r4, r7, #20
+ 830 001c 0FCB     		ldm	r3, {r0, r1, r2, r3}
+ 831 001e 84E80F00 		stm	r4, {r0, r1, r2, r3}
+ 352:Drivers/Library/StdDriver/src/uart.c ****     uint32_t u32Baud_Div = 0ul;
+ 832              		.loc 1 352 14
+ 833 0022 0023     		movs	r3, #0
+ 834 0024 7B62     		str	r3, [r7, #36]
+ 353:Drivers/Library/StdDriver/src/uart.c **** 
+ 354:Drivers/Library/StdDriver/src/uart.c **** 
+ 355:Drivers/Library/StdDriver/src/uart.c ****     if(uart==(UART_T*)UART0)
+ 835              		.loc 1 355 7
+ 836 0026 FB68     		ldr	r3, [r7, #12]
+ 837 0028 574A     		ldr	r2, .L48+4
+ 838 002a 9342     		cmp	r3, r2
+ 839 002c 0CD1     		bne	.L39
+ 356:Drivers/Library/StdDriver/src/uart.c ****     {
+ 357:Drivers/Library/StdDriver/src/uart.c ****         /* Get UART clock source selection */
+ 358:Drivers/Library/StdDriver/src/uart.c ****         u32UartClkSrcSel = (CLK->CLKSEL1 & CLK_CLKSEL1_UART0SEL_Msk) >> CLK_CLKSEL1_UART0SEL_Pos;
+ 840              		.loc 1 358 32
+ 841 002e 574B     		ldr	r3, .L48+8
+ 842 0030 5B69     		ldr	r3, [r3, #20]
+ 843              		.loc 1 358 70
+ 844 0032 1B0E     		lsrs	r3, r3, #24
+ 845              		.loc 1 358 26
+ 846 0034 03F00303 		and	r3, r3, #3
+ 847 0038 FB62     		str	r3, [r7, #44]
+ 359:Drivers/Library/StdDriver/src/uart.c ****         /* Get UART clock divider number */
+ARM GAS  /tmp/ccXTtQ1f.s 			page 22
+
+
+ 360:Drivers/Library/StdDriver/src/uart.c ****         u32UartClkDivNum = (CLK->CLKDIV0 & CLK_CLKDIV0_UART0DIV_Msk) >> CLK_CLKDIV0_UART0DIV_Pos;
+ 848              		.loc 1 360 32
+ 849 003a 544B     		ldr	r3, .L48+8
+ 850 003c 1B6A     		ldr	r3, [r3, #32]
+ 851              		.loc 1 360 70
+ 852 003e 1B0A     		lsrs	r3, r3, #8
+ 853              		.loc 1 360 26
+ 854 0040 03F00F03 		and	r3, r3, #15
+ 855 0044 BB62     		str	r3, [r7, #40]
+ 856 0046 52E0     		b	.L40
+ 857              	.L39:
+ 361:Drivers/Library/StdDriver/src/uart.c ****     }
+ 362:Drivers/Library/StdDriver/src/uart.c ****     else if(uart==(UART_T*)UART1)
+ 858              		.loc 1 362 12
+ 859 0048 FB68     		ldr	r3, [r7, #12]
+ 860 004a 514A     		ldr	r2, .L48+12
+ 861 004c 9342     		cmp	r3, r2
+ 862 004e 0CD1     		bne	.L41
+ 363:Drivers/Library/StdDriver/src/uart.c ****     {
+ 364:Drivers/Library/StdDriver/src/uart.c ****         /* Get UART clock source selection */
+ 365:Drivers/Library/StdDriver/src/uart.c ****         u32UartClkSrcSel = (CLK->CLKSEL1 & CLK_CLKSEL1_UART1SEL_Msk) >> CLK_CLKSEL1_UART1SEL_Pos;
+ 863              		.loc 1 365 32
+ 864 0050 4E4B     		ldr	r3, .L48+8
+ 865 0052 5B69     		ldr	r3, [r3, #20]
+ 866              		.loc 1 365 70
+ 867 0054 9B0E     		lsrs	r3, r3, #26
+ 868              		.loc 1 365 26
+ 869 0056 03F00303 		and	r3, r3, #3
+ 870 005a FB62     		str	r3, [r7, #44]
+ 366:Drivers/Library/StdDriver/src/uart.c ****         /* Get UART clock divider number */
+ 367:Drivers/Library/StdDriver/src/uart.c ****         u32UartClkDivNum = (CLK->CLKDIV0 & CLK_CLKDIV0_UART1DIV_Msk) >> CLK_CLKDIV0_UART1DIV_Pos;
+ 871              		.loc 1 367 32
+ 872 005c 4B4B     		ldr	r3, .L48+8
+ 873 005e 1B6A     		ldr	r3, [r3, #32]
+ 874              		.loc 1 367 70
+ 875 0060 1B0B     		lsrs	r3, r3, #12
+ 876              		.loc 1 367 26
+ 877 0062 03F00F03 		and	r3, r3, #15
+ 878 0066 BB62     		str	r3, [r7, #40]
+ 879 0068 41E0     		b	.L40
+ 880              	.L41:
+ 368:Drivers/Library/StdDriver/src/uart.c ****     }
+ 369:Drivers/Library/StdDriver/src/uart.c ****     else if(uart==(UART_T*)UART2)
+ 881              		.loc 1 369 12
+ 882 006a FB68     		ldr	r3, [r7, #12]
+ 883 006c 494A     		ldr	r2, .L48+16
+ 884 006e 9342     		cmp	r3, r2
+ 885 0070 0BD1     		bne	.L42
+ 370:Drivers/Library/StdDriver/src/uart.c ****     {
+ 371:Drivers/Library/StdDriver/src/uart.c ****         /* Get UART clock source selection */
+ 372:Drivers/Library/StdDriver/src/uart.c ****         u32UartClkSrcSel = (CLK->CLKSEL3 & CLK_CLKSEL3_UART2SEL_Msk) >> CLK_CLKSEL3_UART2SEL_Pos;
+ 886              		.loc 1 372 32
+ 887 0072 464B     		ldr	r3, .L48+8
+ 888 0074 DB69     		ldr	r3, [r3, #28]
+ 889              		.loc 1 372 70
+ 890 0076 1B0E     		lsrs	r3, r3, #24
+ 891              		.loc 1 372 26
+ARM GAS  /tmp/ccXTtQ1f.s 			page 23
+
+
+ 892 0078 03F00303 		and	r3, r3, #3
+ 893 007c FB62     		str	r3, [r7, #44]
+ 373:Drivers/Library/StdDriver/src/uart.c ****         /* Get UART clock divider number */
+ 374:Drivers/Library/StdDriver/src/uart.c ****         u32UartClkDivNum = (CLK->CLKDIV4 & CLK_CLKDIV4_UART2DIV_Msk) >> CLK_CLKDIV4_UART2DIV_Pos;
+ 894              		.loc 1 374 32
+ 895 007e 434B     		ldr	r3, .L48+8
+ 896 0080 1B6B     		ldr	r3, [r3, #48]
+ 897              		.loc 1 374 26
+ 898 0082 03F00F03 		and	r3, r3, #15
+ 899 0086 BB62     		str	r3, [r7, #40]
+ 900 0088 31E0     		b	.L40
+ 901              	.L42:
+ 375:Drivers/Library/StdDriver/src/uart.c ****     }
+ 376:Drivers/Library/StdDriver/src/uart.c ****     else if(uart==(UART_T*)UART3)
+ 902              		.loc 1 376 12
+ 903 008a FB68     		ldr	r3, [r7, #12]
+ 904 008c 424A     		ldr	r2, .L48+20
+ 905 008e 9342     		cmp	r3, r2
+ 906 0090 0CD1     		bne	.L43
+ 377:Drivers/Library/StdDriver/src/uart.c ****     {
+ 378:Drivers/Library/StdDriver/src/uart.c ****         /* Get UART clock source selection */
+ 379:Drivers/Library/StdDriver/src/uart.c ****         u32UartClkSrcSel = (CLK->CLKSEL3 & CLK_CLKSEL3_UART3SEL_Msk) >> CLK_CLKSEL3_UART3SEL_Pos;
+ 907              		.loc 1 379 32
+ 908 0092 3E4B     		ldr	r3, .L48+8
+ 909 0094 DB69     		ldr	r3, [r3, #28]
+ 910              		.loc 1 379 70
+ 911 0096 9B0E     		lsrs	r3, r3, #26
+ 912              		.loc 1 379 26
+ 913 0098 03F00303 		and	r3, r3, #3
+ 914 009c FB62     		str	r3, [r7, #44]
+ 380:Drivers/Library/StdDriver/src/uart.c ****         /* Get UART clock divider number */
+ 381:Drivers/Library/StdDriver/src/uart.c ****         u32UartClkDivNum = (CLK->CLKDIV4 & CLK_CLKDIV4_UART3DIV_Msk) >> CLK_CLKDIV4_UART3DIV_Pos;
+ 915              		.loc 1 381 32
+ 916 009e 3B4B     		ldr	r3, .L48+8
+ 917 00a0 1B6B     		ldr	r3, [r3, #48]
+ 918              		.loc 1 381 70
+ 919 00a2 1B09     		lsrs	r3, r3, #4
+ 920              		.loc 1 381 26
+ 921 00a4 03F00F03 		and	r3, r3, #15
+ 922 00a8 BB62     		str	r3, [r7, #40]
+ 923 00aa 20E0     		b	.L40
+ 924              	.L43:
+ 382:Drivers/Library/StdDriver/src/uart.c ****     }
+ 383:Drivers/Library/StdDriver/src/uart.c ****     else if(uart==(UART_T*)UART4)
+ 925              		.loc 1 383 12
+ 926 00ac FB68     		ldr	r3, [r7, #12]
+ 927 00ae 3B4A     		ldr	r2, .L48+24
+ 928 00b0 9342     		cmp	r3, r2
+ 929 00b2 0CD1     		bne	.L44
+ 384:Drivers/Library/StdDriver/src/uart.c ****     {
+ 385:Drivers/Library/StdDriver/src/uart.c ****         /* Get UART clock source selection */
+ 386:Drivers/Library/StdDriver/src/uart.c ****         u32UartClkSrcSel = (CLK->CLKSEL3 & CLK_CLKSEL3_UART4SEL_Msk) >> CLK_CLKSEL3_UART4SEL_Pos;
+ 930              		.loc 1 386 32
+ 931 00b4 354B     		ldr	r3, .L48+8
+ 932 00b6 DB69     		ldr	r3, [r3, #28]
+ 933              		.loc 1 386 70
+ 934 00b8 1B0F     		lsrs	r3, r3, #28
+ARM GAS  /tmp/ccXTtQ1f.s 			page 24
+
+
+ 935              		.loc 1 386 26
+ 936 00ba 03F00303 		and	r3, r3, #3
+ 937 00be FB62     		str	r3, [r7, #44]
+ 387:Drivers/Library/StdDriver/src/uart.c ****         /* Get UART clock divider number */
+ 388:Drivers/Library/StdDriver/src/uart.c ****         u32UartClkDivNum = (CLK->CLKDIV4 & CLK_CLKDIV4_UART4DIV_Msk) >> CLK_CLKDIV4_UART4DIV_Pos;
+ 938              		.loc 1 388 32
+ 939 00c0 324B     		ldr	r3, .L48+8
+ 940 00c2 1B6B     		ldr	r3, [r3, #48]
+ 941              		.loc 1 388 70
+ 942 00c4 1B0A     		lsrs	r3, r3, #8
+ 943              		.loc 1 388 26
+ 944 00c6 03F00F03 		and	r3, r3, #15
+ 945 00ca BB62     		str	r3, [r7, #40]
+ 946 00cc 0FE0     		b	.L40
+ 947              	.L44:
+ 389:Drivers/Library/StdDriver/src/uart.c ****     }
+ 390:Drivers/Library/StdDriver/src/uart.c ****     else if(uart==(UART_T*)UART5)
+ 948              		.loc 1 390 12
+ 949 00ce FB68     		ldr	r3, [r7, #12]
+ 950 00d0 334A     		ldr	r2, .L48+28
+ 951 00d2 9342     		cmp	r3, r2
+ 952 00d4 0BD1     		bne	.L40
+ 391:Drivers/Library/StdDriver/src/uart.c ****     {
+ 392:Drivers/Library/StdDriver/src/uart.c ****         /* Get UART clock source selection */
+ 393:Drivers/Library/StdDriver/src/uart.c ****         u32UartClkSrcSel = (CLK->CLKSEL3 & CLK_CLKSEL3_UART5SEL_Msk) >> CLK_CLKSEL3_UART5SEL_Pos;
+ 953              		.loc 1 393 32
+ 954 00d6 2D4B     		ldr	r3, .L48+8
+ 955 00d8 DB69     		ldr	r3, [r3, #28]
+ 956              		.loc 1 393 70
+ 957 00da 9B0F     		lsrs	r3, r3, #30
+ 958              		.loc 1 393 26
+ 959 00dc 03F00303 		and	r3, r3, #3
+ 960 00e0 FB62     		str	r3, [r7, #44]
+ 394:Drivers/Library/StdDriver/src/uart.c ****         /* Get UART clock divider number */
+ 395:Drivers/Library/StdDriver/src/uart.c ****         u32UartClkDivNum = (CLK->CLKDIV4 & CLK_CLKDIV4_UART5DIV_Msk) >> CLK_CLKDIV4_UART5DIV_Pos;
+ 961              		.loc 1 395 32
+ 962 00e2 2A4B     		ldr	r3, .L48+8
+ 963 00e4 1B6B     		ldr	r3, [r3, #48]
+ 964              		.loc 1 395 70
+ 965 00e6 1B0B     		lsrs	r3, r3, #12
+ 966              		.loc 1 395 26
+ 967 00e8 03F00F03 		and	r3, r3, #15
+ 968 00ec BB62     		str	r3, [r7, #40]
+ 969              	.L40:
+ 396:Drivers/Library/StdDriver/src/uart.c ****     }
+ 397:Drivers/Library/StdDriver/src/uart.c **** 
+ 398:Drivers/Library/StdDriver/src/uart.c ****     /* Get PLL clock frequency if UART clock source selection is PLL */
+ 399:Drivers/Library/StdDriver/src/uart.c ****     if(u32UartClkSrcSel == 1ul)
+ 970              		.loc 1 399 7
+ 971 00ee FB6A     		ldr	r3, [r7, #44]
+ 972 00f0 012B     		cmp	r3, #1
+ 973 00f2 08D1     		bne	.L45
+ 400:Drivers/Library/StdDriver/src/uart.c ****     {
+ 401:Drivers/Library/StdDriver/src/uart.c ****         u32ClkTbl[u32UartClkSrcSel] = CLK_GetPLLClockFreq();
+ 974              		.loc 1 401 39
+ 975 00f4 FFF7FEFF 		bl	CLK_GetPLLClockFreq
+ 976 00f8 0246     		mov	r2, r0
+ARM GAS  /tmp/ccXTtQ1f.s 			page 25
+
+
+ 977              		.loc 1 401 37
+ 978 00fa FB6A     		ldr	r3, [r7, #44]
+ 979 00fc 9B00     		lsls	r3, r3, #2
+ 980 00fe 3033     		adds	r3, r3, #48
+ 981 0100 3B44     		add	r3, r3, r7
+ 982 0102 43F81C2C 		str	r2, [r3, #-28]
+ 983              	.L45:
+ 402:Drivers/Library/StdDriver/src/uart.c ****     }
+ 403:Drivers/Library/StdDriver/src/uart.c ****     else
+ 404:Drivers/Library/StdDriver/src/uart.c ****     {
+ 405:Drivers/Library/StdDriver/src/uart.c ****     }
+ 406:Drivers/Library/StdDriver/src/uart.c **** 
+ 407:Drivers/Library/StdDriver/src/uart.c ****     /* Set UART baud rate */
+ 408:Drivers/Library/StdDriver/src/uart.c ****     if(u32baudrate != 0ul)
+ 984              		.loc 1 408 7
+ 985 0106 BB68     		ldr	r3, [r7, #8]
+ 986 0108 002B     		cmp	r3, #0
+ 987 010a 2FD0     		beq	.L46
+ 409:Drivers/Library/StdDriver/src/uart.c ****     {
+ 410:Drivers/Library/StdDriver/src/uart.c ****         u32Baud_Div = UART_BAUD_MODE2_DIVIDER((u32ClkTbl[u32UartClkSrcSel]) / (u32UartClkDivNum + 1
+ 988              		.loc 1 410 23
+ 989 010c FB6A     		ldr	r3, [r7, #44]
+ 990 010e 9B00     		lsls	r3, r3, #2
+ 991 0110 3033     		adds	r3, r3, #48
+ 992 0112 3B44     		add	r3, r3, r7
+ 993 0114 53F81C2C 		ldr	r2, [r3, #-28]
+ 994 0118 BB6A     		ldr	r3, [r7, #40]
+ 995 011a 0133     		adds	r3, r3, #1
+ 996 011c B2FBF3F2 		udiv	r2, r2, r3
+ 997 0120 BB68     		ldr	r3, [r7, #8]
+ 998 0122 5B08     		lsrs	r3, r3, #1
+ 999 0124 1A44     		add	r2, r2, r3
+ 1000 0126 BB68     		ldr	r3, [r7, #8]
+ 1001 0128 B2FBF3F3 		udiv	r3, r2, r3
+ 1002              		.loc 1 410 21
+ 1003 012c 023B     		subs	r3, r3, #2
+ 1004 012e 7B62     		str	r3, [r7, #36]
+ 411:Drivers/Library/StdDriver/src/uart.c **** 
+ 412:Drivers/Library/StdDriver/src/uart.c ****         if(u32Baud_Div > 0xFFFFul)
+ 1005              		.loc 1 412 11
+ 1006 0130 7B6A     		ldr	r3, [r7, #36]
+ 1007 0132 B3F5803F 		cmp	r3, #65536
+ 1008 0136 14D3     		bcc	.L47
+ 413:Drivers/Library/StdDriver/src/uart.c ****         {
+ 414:Drivers/Library/StdDriver/src/uart.c ****             uart->BAUD = (UART_BAUD_MODE0 | UART_BAUD_MODE0_DIVIDER((u32ClkTbl[u32UartClkSrcSel]) /
+ 1009              		.loc 1 414 45
+ 1010 0138 FB6A     		ldr	r3, [r7, #44]
+ 1011 013a 9B00     		lsls	r3, r3, #2
+ 1012 013c 3033     		adds	r3, r3, #48
+ 1013 013e 3B44     		add	r3, r3, r7
+ 1014 0140 53F81C2C 		ldr	r2, [r3, #-28]
+ 1015 0144 BB6A     		ldr	r3, [r7, #40]
+ 1016 0146 0133     		adds	r3, r3, #1
+ 1017 0148 B2FBF3F2 		udiv	r2, r2, r3
+ 1018 014c BB68     		ldr	r3, [r7, #8]
+ 1019 014e DB00     		lsls	r3, r3, #3
+ 1020 0150 1A44     		add	r2, r2, r3
+ARM GAS  /tmp/ccXTtQ1f.s 			page 26
+
+
+ 1021 0152 BB68     		ldr	r3, [r7, #8]
+ 1022 0154 B2FBF3F3 		udiv	r3, r2, r3
+ 1023 0158 1B09     		lsrs	r3, r3, #4
+ 1024              		.loc 1 414 43
+ 1025 015a 9A1E     		subs	r2, r3, #2
+ 1026              		.loc 1 414 24
+ 1027 015c FB68     		ldr	r3, [r7, #12]
+ 1028 015e 5A62     		str	r2, [r3, #36]
+ 1029 0160 04E0     		b	.L46
+ 1030              	.L47:
+ 415:Drivers/Library/StdDriver/src/uart.c ****         }
+ 416:Drivers/Library/StdDriver/src/uart.c ****         else
+ 417:Drivers/Library/StdDriver/src/uart.c ****         {
+ 418:Drivers/Library/StdDriver/src/uart.c ****             uart->BAUD = (UART_BAUD_MODE2 | u32Baud_Div);
+ 1031              		.loc 1 418 43
+ 1032 0162 7B6A     		ldr	r3, [r7, #36]
+ 1033 0164 43F04052 		orr	r2, r3, #805306368
+ 1034              		.loc 1 418 24
+ 1035 0168 FB68     		ldr	r3, [r7, #12]
+ 1036 016a 5A62     		str	r2, [r3, #36]
+ 1037              	.L46:
+ 419:Drivers/Library/StdDriver/src/uart.c ****         }
+ 420:Drivers/Library/StdDriver/src/uart.c ****     }
+ 421:Drivers/Library/StdDriver/src/uart.c **** 
+ 422:Drivers/Library/StdDriver/src/uart.c ****     /* Set UART line configuration */
+ 423:Drivers/Library/StdDriver/src/uart.c ****     uart->LINE = u32data_width | u32parity | u32stop_bits;
+ 1038              		.loc 1 423 32
+ 1039 016c 7A68     		ldr	r2, [r7, #4]
+ 1040 016e 3B68     		ldr	r3, [r7]
+ 1041 0170 1A43     		orrs	r2, r2, r3
+ 1042              		.loc 1 423 44
+ 1043 0172 3B6C     		ldr	r3, [r7, #64]
+ 1044 0174 1A43     		orrs	r2, r2, r3
+ 1045              		.loc 1 423 16
+ 1046 0176 FB68     		ldr	r3, [r7, #12]
+ 1047 0178 DA60     		str	r2, [r3, #12]
+ 424:Drivers/Library/StdDriver/src/uart.c **** }
+ 1048              		.loc 1 424 1
+ 1049 017a 00BF     		nop
+ 1050 017c 3437     		adds	r7, r7, #52
+ 1051              	.LCFI50:
+ 1052              		.cfi_def_cfa_offset 12
+ 1053 017e BD46     		mov	sp, r7
+ 1054              	.LCFI51:
+ 1055              		.cfi_def_cfa_register 13
+ 1056              		@ sp needed
+ 1057 0180 90BD     		pop	{r4, r7, pc}
+ 1058              	.L49:
+ 1059 0182 00BF     		.align	2
+ 1060              	.L48:
+ 1061 0184 00000000 		.word	.LC0
+ 1062 0188 00000740 		.word	1074200576
+ 1063 018c 00020040 		.word	1073742336
+ 1064 0190 00100740 		.word	1074204672
+ 1065 0194 00200740 		.word	1074208768
+ 1066 0198 00300740 		.word	1074212864
+ 1067 019c 00400740 		.word	1074216960
+ARM GAS  /tmp/ccXTtQ1f.s 			page 27
+
+
+ 1068 01a0 00500740 		.word	1074221056
+ 1069              		.cfi_endproc
+ 1070              	.LFE203:
+ 1072              		.section	.text.UART_SetTimeoutCnt,"ax",%progbits
+ 1073              		.align	1
+ 1074              		.global	UART_SetTimeoutCnt
+ 1075              		.syntax unified
+ 1076              		.thumb
+ 1077              		.thumb_func
+ 1079              	UART_SetTimeoutCnt:
+ 1080              	.LFB204:
+ 425:Drivers/Library/StdDriver/src/uart.c **** 
+ 426:Drivers/Library/StdDriver/src/uart.c **** 
+ 427:Drivers/Library/StdDriver/src/uart.c **** /**
+ 428:Drivers/Library/StdDriver/src/uart.c ****  *    @brief        Set Rx timeout count
+ 429:Drivers/Library/StdDriver/src/uart.c ****  *
+ 430:Drivers/Library/StdDriver/src/uart.c ****  *    @param[in]    uart    The pointer of the specified UART module.
+ 431:Drivers/Library/StdDriver/src/uart.c ****  *    @param[in]    u32TOC  Rx timeout counter.
+ 432:Drivers/Library/StdDriver/src/uart.c ****  *
+ 433:Drivers/Library/StdDriver/src/uart.c ****  *    @return       None
+ 434:Drivers/Library/StdDriver/src/uart.c ****  *
+ 435:Drivers/Library/StdDriver/src/uart.c ****  *    @details      This function use to set Rx timeout count.
+ 436:Drivers/Library/StdDriver/src/uart.c ****  */
+ 437:Drivers/Library/StdDriver/src/uart.c **** void UART_SetTimeoutCnt(UART_T* uart, uint32_t u32TOC)
+ 438:Drivers/Library/StdDriver/src/uart.c **** {
+ 1081              		.loc 1 438 1
+ 1082              		.cfi_startproc
+ 1083              		@ args = 0, pretend = 0, frame = 8
+ 1084              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1085              		@ link register save eliminated.
+ 1086 0000 80B4     		push	{r7}
+ 1087              	.LCFI52:
+ 1088              		.cfi_def_cfa_offset 4
+ 1089              		.cfi_offset 7, -4
+ 1090 0002 83B0     		sub	sp, sp, #12
+ 1091              	.LCFI53:
+ 1092              		.cfi_def_cfa_offset 16
+ 1093 0004 00AF     		add	r7, sp, #0
+ 1094              	.LCFI54:
+ 1095              		.cfi_def_cfa_register 7
+ 1096 0006 7860     		str	r0, [r7, #4]
+ 1097 0008 3960     		str	r1, [r7]
+ 439:Drivers/Library/StdDriver/src/uart.c ****     /* Set time-out interrupt comparator */
+ 440:Drivers/Library/StdDriver/src/uart.c ****     uart->TOUT = (uart->TOUT & ~UART_TOUT_TOIC_Msk) | (u32TOC);
+ 1098              		.loc 1 440 23
+ 1099 000a 7B68     		ldr	r3, [r7, #4]
+ 1100 000c 1B6A     		ldr	r3, [r3, #32]
+ 1101              		.loc 1 440 30
+ 1102 000e 23F0FF02 		bic	r2, r3, #255
+ 1103              		.loc 1 440 53
+ 1104 0012 3B68     		ldr	r3, [r7]
+ 1105 0014 1A43     		orrs	r2, r2, r3
+ 1106              		.loc 1 440 16
+ 1107 0016 7B68     		ldr	r3, [r7, #4]
+ 1108 0018 1A62     		str	r2, [r3, #32]
+ 441:Drivers/Library/StdDriver/src/uart.c **** 
+ 442:Drivers/Library/StdDriver/src/uart.c ****     /* Set time-out counter enable */
+ARM GAS  /tmp/ccXTtQ1f.s 			page 28
+
+
+ 443:Drivers/Library/StdDriver/src/uart.c ****     uart->INTEN |= UART_INTEN_TOCNTEN_Msk;
+ 1109              		.loc 1 443 17
+ 1110 001a 7B68     		ldr	r3, [r7, #4]
+ 1111 001c 5B68     		ldr	r3, [r3, #4]
+ 1112 001e 43F40062 		orr	r2, r3, #2048
+ 1113 0022 7B68     		ldr	r3, [r7, #4]
+ 1114 0024 5A60     		str	r2, [r3, #4]
+ 444:Drivers/Library/StdDriver/src/uart.c **** }
+ 1115              		.loc 1 444 1
+ 1116 0026 00BF     		nop
+ 1117 0028 0C37     		adds	r7, r7, #12
+ 1118              	.LCFI55:
+ 1119              		.cfi_def_cfa_offset 4
+ 1120 002a BD46     		mov	sp, r7
+ 1121              	.LCFI56:
+ 1122              		.cfi_def_cfa_register 13
+ 1123              		@ sp needed
+ 1124 002c 5DF8047B 		ldr	r7, [sp], #4
+ 1125              	.LCFI57:
+ 1126              		.cfi_restore 7
+ 1127              		.cfi_def_cfa_offset 0
+ 1128 0030 7047     		bx	lr
+ 1129              		.cfi_endproc
+ 1130              	.LFE204:
+ 1132              		.section	.text.UART_SelectIrDAMode,"ax",%progbits
+ 1133              		.align	1
+ 1134              		.global	UART_SelectIrDAMode
+ 1135              		.syntax unified
+ 1136              		.thumb
+ 1137              		.thumb_func
+ 1139              	UART_SelectIrDAMode:
+ 1140              	.LFB205:
+ 445:Drivers/Library/StdDriver/src/uart.c **** 
+ 446:Drivers/Library/StdDriver/src/uart.c **** 
+ 447:Drivers/Library/StdDriver/src/uart.c **** /**
+ 448:Drivers/Library/StdDriver/src/uart.c ****  *    @brief        Select and configure IrDA function
+ 449:Drivers/Library/StdDriver/src/uart.c ****  *
+ 450:Drivers/Library/StdDriver/src/uart.c ****  *    @param[in]    uart            The pointer of the specified UART module.
+ 451:Drivers/Library/StdDriver/src/uart.c ****  *    @param[in]    u32Buadrate     The baudrate of UART module.
+ 452:Drivers/Library/StdDriver/src/uart.c ****  *    @param[in]    u32Direction    The direction of UART module in IrDA mode:
+ 453:Drivers/Library/StdDriver/src/uart.c ****  *                                  - \ref UART_IRDA_TXEN
+ 454:Drivers/Library/StdDriver/src/uart.c ****  *                                  - \ref UART_IRDA_RXEN
+ 455:Drivers/Library/StdDriver/src/uart.c ****  *
+ 456:Drivers/Library/StdDriver/src/uart.c ****  *    @return       None
+ 457:Drivers/Library/StdDriver/src/uart.c ****   *
+ 458:Drivers/Library/StdDriver/src/uart.c ****  *    @details      The function is used to configure IrDA relative settings. It consists of TX or 
+ 459:Drivers/Library/StdDriver/src/uart.c ****  */
+ 460:Drivers/Library/StdDriver/src/uart.c **** void UART_SelectIrDAMode(UART_T* uart, uint32_t u32Buadrate, uint32_t u32Direction)
+ 461:Drivers/Library/StdDriver/src/uart.c **** {
+ 1141              		.loc 1 461 1
+ 1142              		.cfi_startproc
+ 1143              		@ args = 0, pretend = 0, frame = 48
+ 1144              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1145 0000 90B5     		push	{r4, r7, lr}
+ 1146              	.LCFI58:
+ 1147              		.cfi_def_cfa_offset 12
+ 1148              		.cfi_offset 4, -12
+ARM GAS  /tmp/ccXTtQ1f.s 			page 29
+
+
+ 1149              		.cfi_offset 7, -8
+ 1150              		.cfi_offset 14, -4
+ 1151 0002 8DB0     		sub	sp, sp, #52
+ 1152              	.LCFI59:
+ 1153              		.cfi_def_cfa_offset 64
+ 1154 0004 00AF     		add	r7, sp, #0
+ 1155              	.LCFI60:
+ 1156              		.cfi_def_cfa_register 7
+ 1157 0006 F860     		str	r0, [r7, #12]
+ 1158 0008 B960     		str	r1, [r7, #8]
+ 1159 000a 7A60     		str	r2, [r7, #4]
+ 462:Drivers/Library/StdDriver/src/uart.c ****     uint32_t u32UartClkSrcSel=0ul, u32UartClkDivNum=0ul;
+ 1160              		.loc 1 462 14
+ 1161 000c 0023     		movs	r3, #0
+ 1162 000e FB62     		str	r3, [r7, #44]
+ 1163              		.loc 1 462 36
+ 1164 0010 0023     		movs	r3, #0
+ 1165 0012 BB62     		str	r3, [r7, #40]
+ 463:Drivers/Library/StdDriver/src/uart.c ****     uint32_t u32ClkTbl[4ul] = {__HXT, 0ul, __LXT, __HIRC};
+ 1166              		.loc 1 463 14
+ 1167 0014 5B4B     		ldr	r3, .L63
+ 1168 0016 07F11404 		add	r4, r7, #20
+ 1169 001a 0FCB     		ldm	r3, {r0, r1, r2, r3}
+ 1170 001c 84E80F00 		stm	r4, {r0, r1, r2, r3}
+ 464:Drivers/Library/StdDriver/src/uart.c ****     uint32_t u32Baud_Div;
+ 465:Drivers/Library/StdDriver/src/uart.c **** 
+ 466:Drivers/Library/StdDriver/src/uart.c ****     /* Select IrDA function mode */
+ 467:Drivers/Library/StdDriver/src/uart.c ****     uart->FUNCSEL = UART_FUNCSEL_IrDA;
+ 1171              		.loc 1 467 19
+ 1172 0020 FB68     		ldr	r3, [r7, #12]
+ 1173 0022 0222     		movs	r2, #2
+ 1174 0024 1A63     		str	r2, [r3, #48]
+ 468:Drivers/Library/StdDriver/src/uart.c **** 
+ 469:Drivers/Library/StdDriver/src/uart.c **** 
+ 470:Drivers/Library/StdDriver/src/uart.c ****     if(uart==UART0)
+ 1175              		.loc 1 470 7
+ 1176 0026 FB68     		ldr	r3, [r7, #12]
+ 1177 0028 574A     		ldr	r2, .L63+4
+ 1178 002a 9342     		cmp	r3, r2
+ 1179 002c 0CD1     		bne	.L52
+ 471:Drivers/Library/StdDriver/src/uart.c ****     {
+ 472:Drivers/Library/StdDriver/src/uart.c ****         /* Get UART clock source selection */
+ 473:Drivers/Library/StdDriver/src/uart.c ****         u32UartClkSrcSel = (CLK->CLKSEL1 & CLK_CLKSEL1_UART0SEL_Msk) >> CLK_CLKSEL1_UART0SEL_Pos;
+ 1180              		.loc 1 473 32
+ 1181 002e 574B     		ldr	r3, .L63+8
+ 1182 0030 5B69     		ldr	r3, [r3, #20]
+ 1183              		.loc 1 473 70
+ 1184 0032 1B0E     		lsrs	r3, r3, #24
+ 1185              		.loc 1 473 26
+ 1186 0034 03F00303 		and	r3, r3, #3
+ 1187 0038 FB62     		str	r3, [r7, #44]
+ 474:Drivers/Library/StdDriver/src/uart.c ****         /* Get UART clock divider number */
+ 475:Drivers/Library/StdDriver/src/uart.c ****         u32UartClkDivNum = (CLK->CLKDIV0 & CLK_CLKDIV0_UART0DIV_Msk) >> CLK_CLKDIV0_UART0DIV_Pos;
+ 1188              		.loc 1 475 32
+ 1189 003a 544B     		ldr	r3, .L63+8
+ 1190 003c 1B6A     		ldr	r3, [r3, #32]
+ 1191              		.loc 1 475 70
+ARM GAS  /tmp/ccXTtQ1f.s 			page 30
+
+
+ 1192 003e 1B0A     		lsrs	r3, r3, #8
+ 1193              		.loc 1 475 26
+ 1194 0040 03F00F03 		and	r3, r3, #15
+ 1195 0044 BB62     		str	r3, [r7, #40]
+ 1196 0046 52E0     		b	.L53
+ 1197              	.L52:
+ 476:Drivers/Library/StdDriver/src/uart.c ****     }
+ 477:Drivers/Library/StdDriver/src/uart.c ****     else if(uart==UART1)
+ 1198              		.loc 1 477 12
+ 1199 0048 FB68     		ldr	r3, [r7, #12]
+ 1200 004a 514A     		ldr	r2, .L63+12
+ 1201 004c 9342     		cmp	r3, r2
+ 1202 004e 0CD1     		bne	.L54
+ 478:Drivers/Library/StdDriver/src/uart.c ****     {
+ 479:Drivers/Library/StdDriver/src/uart.c ****         /* Get UART clock source selection */
+ 480:Drivers/Library/StdDriver/src/uart.c ****         u32UartClkSrcSel = (CLK->CLKSEL1 & CLK_CLKSEL1_UART1SEL_Msk) >> CLK_CLKSEL1_UART1SEL_Pos;
+ 1203              		.loc 1 480 32
+ 1204 0050 4E4B     		ldr	r3, .L63+8
+ 1205 0052 5B69     		ldr	r3, [r3, #20]
+ 1206              		.loc 1 480 70
+ 1207 0054 9B0E     		lsrs	r3, r3, #26
+ 1208              		.loc 1 480 26
+ 1209 0056 03F00303 		and	r3, r3, #3
+ 1210 005a FB62     		str	r3, [r7, #44]
+ 481:Drivers/Library/StdDriver/src/uart.c ****         /* Get UART clock divider number */
+ 482:Drivers/Library/StdDriver/src/uart.c ****         u32UartClkDivNum = (CLK->CLKDIV0 & CLK_CLKDIV0_UART1DIV_Msk) >> CLK_CLKDIV0_UART1DIV_Pos;
+ 1211              		.loc 1 482 32
+ 1212 005c 4B4B     		ldr	r3, .L63+8
+ 1213 005e 1B6A     		ldr	r3, [r3, #32]
+ 1214              		.loc 1 482 70
+ 1215 0060 1B0B     		lsrs	r3, r3, #12
+ 1216              		.loc 1 482 26
+ 1217 0062 03F00F03 		and	r3, r3, #15
+ 1218 0066 BB62     		str	r3, [r7, #40]
+ 1219 0068 41E0     		b	.L53
+ 1220              	.L54:
+ 483:Drivers/Library/StdDriver/src/uart.c ****     }
+ 484:Drivers/Library/StdDriver/src/uart.c ****     else if(uart==UART2)
+ 1221              		.loc 1 484 12
+ 1222 006a FB68     		ldr	r3, [r7, #12]
+ 1223 006c 494A     		ldr	r2, .L63+16
+ 1224 006e 9342     		cmp	r3, r2
+ 1225 0070 0BD1     		bne	.L55
+ 485:Drivers/Library/StdDriver/src/uart.c ****     {
+ 486:Drivers/Library/StdDriver/src/uart.c ****         /* Get UART clock source selection */
+ 487:Drivers/Library/StdDriver/src/uart.c ****         u32UartClkSrcSel = (CLK->CLKSEL3 & CLK_CLKSEL3_UART2SEL_Msk) >> CLK_CLKSEL3_UART2SEL_Pos;
+ 1226              		.loc 1 487 32
+ 1227 0072 464B     		ldr	r3, .L63+8
+ 1228 0074 DB69     		ldr	r3, [r3, #28]
+ 1229              		.loc 1 487 70
+ 1230 0076 1B0E     		lsrs	r3, r3, #24
+ 1231              		.loc 1 487 26
+ 1232 0078 03F00303 		and	r3, r3, #3
+ 1233 007c FB62     		str	r3, [r7, #44]
+ 488:Drivers/Library/StdDriver/src/uart.c ****         /* Get UART clock divider number */
+ 489:Drivers/Library/StdDriver/src/uart.c ****         u32UartClkDivNum = (CLK->CLKDIV4 & CLK_CLKDIV4_UART2DIV_Msk) >> CLK_CLKDIV4_UART2DIV_Pos;
+ 1234              		.loc 1 489 32
+ARM GAS  /tmp/ccXTtQ1f.s 			page 31
+
+
+ 1235 007e 434B     		ldr	r3, .L63+8
+ 1236 0080 1B6B     		ldr	r3, [r3, #48]
+ 1237              		.loc 1 489 26
+ 1238 0082 03F00F03 		and	r3, r3, #15
+ 1239 0086 BB62     		str	r3, [r7, #40]
+ 1240 0088 31E0     		b	.L53
+ 1241              	.L55:
+ 490:Drivers/Library/StdDriver/src/uart.c ****     }
+ 491:Drivers/Library/StdDriver/src/uart.c ****     else if(uart==UART3)
+ 1242              		.loc 1 491 12
+ 1243 008a FB68     		ldr	r3, [r7, #12]
+ 1244 008c 424A     		ldr	r2, .L63+20
+ 1245 008e 9342     		cmp	r3, r2
+ 1246 0090 0CD1     		bne	.L56
+ 492:Drivers/Library/StdDriver/src/uart.c ****     {
+ 493:Drivers/Library/StdDriver/src/uart.c ****         /* Get UART clock source selection */
+ 494:Drivers/Library/StdDriver/src/uart.c ****         u32UartClkSrcSel = (CLK->CLKSEL3 & CLK_CLKSEL3_UART3SEL_Msk) >> CLK_CLKSEL3_UART3SEL_Pos;
+ 1247              		.loc 1 494 32
+ 1248 0092 3E4B     		ldr	r3, .L63+8
+ 1249 0094 DB69     		ldr	r3, [r3, #28]
+ 1250              		.loc 1 494 70
+ 1251 0096 9B0E     		lsrs	r3, r3, #26
+ 1252              		.loc 1 494 26
+ 1253 0098 03F00303 		and	r3, r3, #3
+ 1254 009c FB62     		str	r3, [r7, #44]
+ 495:Drivers/Library/StdDriver/src/uart.c ****         /* Get UART clock divider number */
+ 496:Drivers/Library/StdDriver/src/uart.c ****         u32UartClkDivNum = (CLK->CLKDIV4 & CLK_CLKDIV4_UART3DIV_Msk) >> CLK_CLKDIV4_UART3DIV_Pos;
+ 1255              		.loc 1 496 32
+ 1256 009e 3B4B     		ldr	r3, .L63+8
+ 1257 00a0 1B6B     		ldr	r3, [r3, #48]
+ 1258              		.loc 1 496 70
+ 1259 00a2 1B09     		lsrs	r3, r3, #4
+ 1260              		.loc 1 496 26
+ 1261 00a4 03F00F03 		and	r3, r3, #15
+ 1262 00a8 BB62     		str	r3, [r7, #40]
+ 1263 00aa 20E0     		b	.L53
+ 1264              	.L56:
+ 497:Drivers/Library/StdDriver/src/uart.c ****     }
+ 498:Drivers/Library/StdDriver/src/uart.c ****     else if(uart==UART4)
+ 1265              		.loc 1 498 12
+ 1266 00ac FB68     		ldr	r3, [r7, #12]
+ 1267 00ae 3B4A     		ldr	r2, .L63+24
+ 1268 00b0 9342     		cmp	r3, r2
+ 1269 00b2 0CD1     		bne	.L57
+ 499:Drivers/Library/StdDriver/src/uart.c ****     {
+ 500:Drivers/Library/StdDriver/src/uart.c ****         /* Get UART clock source selection */
+ 501:Drivers/Library/StdDriver/src/uart.c ****         u32UartClkSrcSel = (CLK->CLKSEL3 & CLK_CLKSEL3_UART4SEL_Msk) >> CLK_CLKSEL3_UART4SEL_Pos;
+ 1270              		.loc 1 501 32
+ 1271 00b4 354B     		ldr	r3, .L63+8
+ 1272 00b6 DB69     		ldr	r3, [r3, #28]
+ 1273              		.loc 1 501 70
+ 1274 00b8 1B0F     		lsrs	r3, r3, #28
+ 1275              		.loc 1 501 26
+ 1276 00ba 03F00303 		and	r3, r3, #3
+ 1277 00be FB62     		str	r3, [r7, #44]
+ 502:Drivers/Library/StdDriver/src/uart.c ****         /* Get UART clock divider number */
+ 503:Drivers/Library/StdDriver/src/uart.c ****         u32UartClkDivNum = (CLK->CLKDIV4 & CLK_CLKDIV4_UART4DIV_Msk) >> CLK_CLKDIV4_UART4DIV_Pos;
+ARM GAS  /tmp/ccXTtQ1f.s 			page 32
+
+
+ 1278              		.loc 1 503 32
+ 1279 00c0 324B     		ldr	r3, .L63+8
+ 1280 00c2 1B6B     		ldr	r3, [r3, #48]
+ 1281              		.loc 1 503 70
+ 1282 00c4 1B0A     		lsrs	r3, r3, #8
+ 1283              		.loc 1 503 26
+ 1284 00c6 03F00F03 		and	r3, r3, #15
+ 1285 00ca BB62     		str	r3, [r7, #40]
+ 1286 00cc 0FE0     		b	.L53
+ 1287              	.L57:
+ 504:Drivers/Library/StdDriver/src/uart.c ****     }
+ 505:Drivers/Library/StdDriver/src/uart.c ****     else if(uart==UART5)
+ 1288              		.loc 1 505 12
+ 1289 00ce FB68     		ldr	r3, [r7, #12]
+ 1290 00d0 334A     		ldr	r2, .L63+28
+ 1291 00d2 9342     		cmp	r3, r2
+ 1292 00d4 0BD1     		bne	.L53
+ 506:Drivers/Library/StdDriver/src/uart.c ****     {
+ 507:Drivers/Library/StdDriver/src/uart.c ****         /* Get UART clock source selection */
+ 508:Drivers/Library/StdDriver/src/uart.c ****         u32UartClkSrcSel = (CLK->CLKSEL3 & CLK_CLKSEL3_UART5SEL_Msk) >> CLK_CLKSEL3_UART5SEL_Pos;
+ 1293              		.loc 1 508 32
+ 1294 00d6 2D4B     		ldr	r3, .L63+8
+ 1295 00d8 DB69     		ldr	r3, [r3, #28]
+ 1296              		.loc 1 508 70
+ 1297 00da 9B0F     		lsrs	r3, r3, #30
+ 1298              		.loc 1 508 26
+ 1299 00dc 03F00303 		and	r3, r3, #3
+ 1300 00e0 FB62     		str	r3, [r7, #44]
+ 509:Drivers/Library/StdDriver/src/uart.c ****         /* Get UART clock divider number */
+ 510:Drivers/Library/StdDriver/src/uart.c ****         u32UartClkDivNum = (CLK->CLKDIV4 & CLK_CLKDIV4_UART5DIV_Msk) >> CLK_CLKDIV4_UART5DIV_Pos;
+ 1301              		.loc 1 510 32
+ 1302 00e2 2A4B     		ldr	r3, .L63+8
+ 1303 00e4 1B6B     		ldr	r3, [r3, #48]
+ 1304              		.loc 1 510 70
+ 1305 00e6 1B0B     		lsrs	r3, r3, #12
+ 1306              		.loc 1 510 26
+ 1307 00e8 03F00F03 		and	r3, r3, #15
+ 1308 00ec BB62     		str	r3, [r7, #40]
+ 1309              	.L53:
+ 511:Drivers/Library/StdDriver/src/uart.c ****     }
+ 512:Drivers/Library/StdDriver/src/uart.c **** 
+ 513:Drivers/Library/StdDriver/src/uart.c **** 
+ 514:Drivers/Library/StdDriver/src/uart.c ****     /* Get PLL clock frequency if UART clock source selection is PLL */
+ 515:Drivers/Library/StdDriver/src/uart.c ****     if(u32UartClkSrcSel == 1ul)
+ 1310              		.loc 1 515 7
+ 1311 00ee FB6A     		ldr	r3, [r7, #44]
+ 1312 00f0 012B     		cmp	r3, #1
+ 1313 00f2 08D1     		bne	.L58
+ 516:Drivers/Library/StdDriver/src/uart.c ****     {
+ 517:Drivers/Library/StdDriver/src/uart.c ****         u32ClkTbl[u32UartClkSrcSel] = CLK_GetPLLClockFreq();
+ 1314              		.loc 1 517 39
+ 1315 00f4 FFF7FEFF 		bl	CLK_GetPLLClockFreq
+ 1316 00f8 0246     		mov	r2, r0
+ 1317              		.loc 1 517 37
+ 1318 00fa FB6A     		ldr	r3, [r7, #44]
+ 1319 00fc 9B00     		lsls	r3, r3, #2
+ 1320 00fe 3033     		adds	r3, r3, #48
+ARM GAS  /tmp/ccXTtQ1f.s 			page 33
+
+
+ 1321 0100 3B44     		add	r3, r3, r7
+ 1322 0102 43F81C2C 		str	r2, [r3, #-28]
+ 1323              	.L58:
+ 518:Drivers/Library/StdDriver/src/uart.c ****     }
+ 519:Drivers/Library/StdDriver/src/uart.c ****     else
+ 520:Drivers/Library/StdDriver/src/uart.c ****     {
+ 521:Drivers/Library/StdDriver/src/uart.c ****     }
+ 522:Drivers/Library/StdDriver/src/uart.c **** 
+ 523:Drivers/Library/StdDriver/src/uart.c ****     /* Set UART IrDA baud rate in mode 0 */
+ 524:Drivers/Library/StdDriver/src/uart.c ****     if(u32Buadrate != 0ul)
+ 1324              		.loc 1 524 7
+ 1325 0106 BB68     		ldr	r3, [r7, #8]
+ 1326 0108 002B     		cmp	r3, #0
+ 1327 010a 1AD0     		beq	.L59
+ 525:Drivers/Library/StdDriver/src/uart.c ****     {
+ 526:Drivers/Library/StdDriver/src/uart.c ****         u32Baud_Div = UART_BAUD_MODE0_DIVIDER((u32ClkTbl[u32UartClkSrcSel]) / (u32UartClkDivNum + 1
+ 1328              		.loc 1 526 23
+ 1329 010c FB6A     		ldr	r3, [r7, #44]
+ 1330 010e 9B00     		lsls	r3, r3, #2
+ 1331 0110 3033     		adds	r3, r3, #48
+ 1332 0112 3B44     		add	r3, r3, r7
+ 1333 0114 53F81C2C 		ldr	r2, [r3, #-28]
+ 1334 0118 BB6A     		ldr	r3, [r7, #40]
+ 1335 011a 0133     		adds	r3, r3, #1
+ 1336 011c B2FBF3F2 		udiv	r2, r2, r3
+ 1337 0120 BB68     		ldr	r3, [r7, #8]
+ 1338 0122 DB00     		lsls	r3, r3, #3
+ 1339 0124 1A44     		add	r2, r2, r3
+ 1340 0126 BB68     		ldr	r3, [r7, #8]
+ 1341 0128 B2FBF3F3 		udiv	r3, r2, r3
+ 1342 012c 1B09     		lsrs	r3, r3, #4
+ 1343              		.loc 1 526 21
+ 1344 012e 023B     		subs	r3, r3, #2
+ 1345 0130 7B62     		str	r3, [r7, #36]
+ 527:Drivers/Library/StdDriver/src/uart.c **** 
+ 528:Drivers/Library/StdDriver/src/uart.c ****         if(u32Baud_Div < 0xFFFFul)
+ 1346              		.loc 1 528 11
+ 1347 0132 7B6A     		ldr	r3, [r7, #36]
+ 1348 0134 4FF6FE72 		movw	r2, #65534
+ 1349 0138 9342     		cmp	r3, r2
+ 1350 013a 02D8     		bhi	.L59
+ 529:Drivers/Library/StdDriver/src/uart.c ****         {
+ 530:Drivers/Library/StdDriver/src/uart.c ****             uart->BAUD = (UART_BAUD_MODE0 | u32Baud_Div);
+ 1351              		.loc 1 530 24
+ 1352 013c FB68     		ldr	r3, [r7, #12]
+ 1353 013e 7A6A     		ldr	r2, [r7, #36]
+ 1354 0140 5A62     		str	r2, [r3, #36]
+ 1355              	.L59:
+ 531:Drivers/Library/StdDriver/src/uart.c ****         }
+ 532:Drivers/Library/StdDriver/src/uart.c ****         else
+ 533:Drivers/Library/StdDriver/src/uart.c ****         {
+ 534:Drivers/Library/StdDriver/src/uart.c ****         }
+ 535:Drivers/Library/StdDriver/src/uart.c ****     }
+ 536:Drivers/Library/StdDriver/src/uart.c **** 
+ 537:Drivers/Library/StdDriver/src/uart.c ****     /* Configure IrDA relative settings */
+ 538:Drivers/Library/StdDriver/src/uart.c ****     if(u32Direction == UART_IRDA_RXEN)
+ 1356              		.loc 1 538 7
+ARM GAS  /tmp/ccXTtQ1f.s 			page 34
+
+
+ 1357 0142 7B68     		ldr	r3, [r7, #4]
+ 1358 0144 002B     		cmp	r3, #0
+ 1359 0146 0CD1     		bne	.L60
+ 539:Drivers/Library/StdDriver/src/uart.c ****     {
+ 540:Drivers/Library/StdDriver/src/uart.c ****         uart->IRDA |= UART_IRDA_RXINV_Msk;     /*Rx signal is inverse*/
+ 1360              		.loc 1 540 20
+ 1361 0148 FB68     		ldr	r3, [r7, #12]
+ 1362 014a 9B6A     		ldr	r3, [r3, #40]
+ 1363 014c 43F04002 		orr	r2, r3, #64
+ 1364 0150 FB68     		ldr	r3, [r7, #12]
+ 1365 0152 9A62     		str	r2, [r3, #40]
+ 541:Drivers/Library/StdDriver/src/uart.c ****         uart->IRDA &= ~UART_IRDA_TXEN_Msk;
+ 1366              		.loc 1 541 20
+ 1367 0154 FB68     		ldr	r3, [r7, #12]
+ 1368 0156 9B6A     		ldr	r3, [r3, #40]
+ 1369 0158 23F00202 		bic	r2, r3, #2
+ 1370 015c FB68     		ldr	r3, [r7, #12]
+ 1371 015e 9A62     		str	r2, [r3, #40]
+ 542:Drivers/Library/StdDriver/src/uart.c ****     }
+ 543:Drivers/Library/StdDriver/src/uart.c ****     else
+ 544:Drivers/Library/StdDriver/src/uart.c ****     {
+ 545:Drivers/Library/StdDriver/src/uart.c ****         uart->IRDA &= ~UART_IRDA_TXINV_Msk;    /*Tx signal is not inverse*/
+ 546:Drivers/Library/StdDriver/src/uart.c ****         uart->IRDA |= UART_IRDA_TXEN_Msk;
+ 547:Drivers/Library/StdDriver/src/uart.c ****     }
+ 548:Drivers/Library/StdDriver/src/uart.c **** 
+ 549:Drivers/Library/StdDriver/src/uart.c **** }
+ 1372              		.loc 1 549 1
+ 1373 0160 0BE0     		b	.L62
+ 1374              	.L60:
+ 545:Drivers/Library/StdDriver/src/uart.c ****         uart->IRDA |= UART_IRDA_TXEN_Msk;
+ 1375              		.loc 1 545 20
+ 1376 0162 FB68     		ldr	r3, [r7, #12]
+ 1377 0164 9B6A     		ldr	r3, [r3, #40]
+ 1378 0166 23F02002 		bic	r2, r3, #32
+ 1379 016a FB68     		ldr	r3, [r7, #12]
+ 1380 016c 9A62     		str	r2, [r3, #40]
+ 546:Drivers/Library/StdDriver/src/uart.c ****     }
+ 1381              		.loc 1 546 20
+ 1382 016e FB68     		ldr	r3, [r7, #12]
+ 1383 0170 9B6A     		ldr	r3, [r3, #40]
+ 1384 0172 43F00202 		orr	r2, r3, #2
+ 1385 0176 FB68     		ldr	r3, [r7, #12]
+ 1386 0178 9A62     		str	r2, [r3, #40]
+ 1387              	.L62:
+ 1388              		.loc 1 549 1
+ 1389 017a 00BF     		nop
+ 1390 017c 3437     		adds	r7, r7, #52
+ 1391              	.LCFI61:
+ 1392              		.cfi_def_cfa_offset 12
+ 1393 017e BD46     		mov	sp, r7
+ 1394              	.LCFI62:
+ 1395              		.cfi_def_cfa_register 13
+ 1396              		@ sp needed
+ 1397 0180 90BD     		pop	{r4, r7, pc}
+ 1398              	.L64:
+ 1399 0182 00BF     		.align	2
+ 1400              	.L63:
+ARM GAS  /tmp/ccXTtQ1f.s 			page 35
+
+
+ 1401 0184 00000000 		.word	.LC0
+ 1402 0188 00000740 		.word	1074200576
+ 1403 018c 00020040 		.word	1073742336
+ 1404 0190 00100740 		.word	1074204672
+ 1405 0194 00200740 		.word	1074208768
+ 1406 0198 00300740 		.word	1074212864
+ 1407 019c 00400740 		.word	1074216960
+ 1408 01a0 00500740 		.word	1074221056
+ 1409              		.cfi_endproc
+ 1410              	.LFE205:
+ 1412              		.section	.text.UART_SelectRS485Mode,"ax",%progbits
+ 1413              		.align	1
+ 1414              		.global	UART_SelectRS485Mode
+ 1415              		.syntax unified
+ 1416              		.thumb
+ 1417              		.thumb_func
+ 1419              	UART_SelectRS485Mode:
+ 1420              	.LFB206:
+ 550:Drivers/Library/StdDriver/src/uart.c **** 
+ 551:Drivers/Library/StdDriver/src/uart.c **** 
+ 552:Drivers/Library/StdDriver/src/uart.c **** /**
+ 553:Drivers/Library/StdDriver/src/uart.c ****  *    @brief        Select and configure RS485 function
+ 554:Drivers/Library/StdDriver/src/uart.c ****  *
+ 555:Drivers/Library/StdDriver/src/uart.c ****  *    @param[in]    uart        The pointer of the specified UART module.
+ 556:Drivers/Library/StdDriver/src/uart.c ****  *    @param[in]    u32Mode     The operation mode(NMM/AUD/AAD).
+ 557:Drivers/Library/StdDriver/src/uart.c ****  *                              - \ref UART_ALTCTL_RS485NMM_Msk
+ 558:Drivers/Library/StdDriver/src/uart.c ****  *                              - \ref UART_ALTCTL_RS485AUD_Msk
+ 559:Drivers/Library/StdDriver/src/uart.c ****  *                              - \ref UART_ALTCTL_RS485AAD_Msk
+ 560:Drivers/Library/StdDriver/src/uart.c ****  *    @param[in]    u32Addr     The RS485 address.
+ 561:Drivers/Library/StdDriver/src/uart.c ****  *
+ 562:Drivers/Library/StdDriver/src/uart.c ****  *    @return       None
+ 563:Drivers/Library/StdDriver/src/uart.c ****  *
+ 564:Drivers/Library/StdDriver/src/uart.c ****  *    @details      The function is used to set RS485 relative setting.
+ 565:Drivers/Library/StdDriver/src/uart.c ****  */
+ 566:Drivers/Library/StdDriver/src/uart.c **** void UART_SelectRS485Mode(UART_T* uart, uint32_t u32Mode, uint32_t u32Addr)
+ 567:Drivers/Library/StdDriver/src/uart.c **** {
+ 1421              		.loc 1 567 1
+ 1422              		.cfi_startproc
+ 1423              		@ args = 0, pretend = 0, frame = 16
+ 1424              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1425              		@ link register save eliminated.
+ 1426 0000 80B4     		push	{r7}
+ 1427              	.LCFI63:
+ 1428              		.cfi_def_cfa_offset 4
+ 1429              		.cfi_offset 7, -4
+ 1430 0002 85B0     		sub	sp, sp, #20
+ 1431              	.LCFI64:
+ 1432              		.cfi_def_cfa_offset 24
+ 1433 0004 00AF     		add	r7, sp, #0
+ 1434              	.LCFI65:
+ 1435              		.cfi_def_cfa_register 7
+ 1436 0006 F860     		str	r0, [r7, #12]
+ 1437 0008 B960     		str	r1, [r7, #8]
+ 1438 000a 7A60     		str	r2, [r7, #4]
+ 568:Drivers/Library/StdDriver/src/uart.c ****     /* Select UART RS485 function mode */
+ 569:Drivers/Library/StdDriver/src/uart.c ****     uart->FUNCSEL = UART_FUNCSEL_RS485;
+ 1439              		.loc 1 569 19
+ARM GAS  /tmp/ccXTtQ1f.s 			page 36
+
+
+ 1440 000c FB68     		ldr	r3, [r7, #12]
+ 1441 000e 0322     		movs	r2, #3
+ 1442 0010 1A63     		str	r2, [r3, #48]
+ 570:Drivers/Library/StdDriver/src/uart.c **** 
+ 571:Drivers/Library/StdDriver/src/uart.c ****     /* Set RS585 configuration */
+ 572:Drivers/Library/StdDriver/src/uart.c ****     uart->ALTCTL &= ~(UART_ALTCTL_RS485NMM_Msk | UART_ALTCTL_RS485AUD_Msk | UART_ALTCTL_RS485AAD_Ms
+ 1443              		.loc 1 572 18
+ 1444 0012 FB68     		ldr	r3, [r7, #12]
+ 1445 0014 DB6A     		ldr	r3, [r3, #44]
+ 1446 0016 23F07F43 		bic	r3, r3, #-16777216
+ 1447 001a 23F4E063 		bic	r3, r3, #1792
+ 1448 001e FA68     		ldr	r2, [r7, #12]
+ 1449 0020 D362     		str	r3, [r2, #44]
+ 573:Drivers/Library/StdDriver/src/uart.c ****     uart->ALTCTL |= (u32Mode | (u32Addr << UART_ALTCTL_ADDRMV_Pos));
+ 1450              		.loc 1 573 18
+ 1451 0022 FB68     		ldr	r3, [r7, #12]
+ 1452 0024 DA6A     		ldr	r2, [r3, #44]
+ 1453              		.loc 1 573 41
+ 1454 0026 7B68     		ldr	r3, [r7, #4]
+ 1455 0028 1906     		lsls	r1, r3, #24
+ 1456              		.loc 1 573 30
+ 1457 002a BB68     		ldr	r3, [r7, #8]
+ 1458 002c 0B43     		orrs	r3, r3, r1
+ 1459              		.loc 1 573 18
+ 1460 002e 1A43     		orrs	r2, r2, r3
+ 1461 0030 FB68     		ldr	r3, [r7, #12]
+ 1462 0032 DA62     		str	r2, [r3, #44]
+ 574:Drivers/Library/StdDriver/src/uart.c **** }
+ 1463              		.loc 1 574 1
+ 1464 0034 00BF     		nop
+ 1465 0036 1437     		adds	r7, r7, #20
+ 1466              	.LCFI66:
+ 1467              		.cfi_def_cfa_offset 4
+ 1468 0038 BD46     		mov	sp, r7
+ 1469              	.LCFI67:
+ 1470              		.cfi_def_cfa_register 13
+ 1471              		@ sp needed
+ 1472 003a 5DF8047B 		ldr	r7, [sp], #4
+ 1473              	.LCFI68:
+ 1474              		.cfi_restore 7
+ 1475              		.cfi_def_cfa_offset 0
+ 1476 003e 7047     		bx	lr
+ 1477              		.cfi_endproc
+ 1478              	.LFE206:
+ 1480              		.section	.text.UART_SelectLINMode,"ax",%progbits
+ 1481              		.align	1
+ 1482              		.global	UART_SelectLINMode
+ 1483              		.syntax unified
+ 1484              		.thumb
+ 1485              		.thumb_func
+ 1487              	UART_SelectLINMode:
+ 1488              	.LFB207:
+ 575:Drivers/Library/StdDriver/src/uart.c **** 
+ 576:Drivers/Library/StdDriver/src/uart.c **** 
+ 577:Drivers/Library/StdDriver/src/uart.c **** /**
+ 578:Drivers/Library/StdDriver/src/uart.c ****  *    @brief        Select and configure LIN function
+ 579:Drivers/Library/StdDriver/src/uart.c ****  *
+ARM GAS  /tmp/ccXTtQ1f.s 			page 37
+
+
+ 580:Drivers/Library/StdDriver/src/uart.c ****  *    @param[in]    uart            The pointer of the specified UART module.
+ 581:Drivers/Library/StdDriver/src/uart.c ****  *    @param[in]    u32Mode         The LIN direction :
+ 582:Drivers/Library/StdDriver/src/uart.c ****  *                                  - \ref UART_ALTCTL_LINTXEN_Msk
+ 583:Drivers/Library/StdDriver/src/uart.c ****  *                                  - \ref UART_ALTCTL_LINRXEN_Msk
+ 584:Drivers/Library/StdDriver/src/uart.c ****  *    @param[in]    u32BreakLength  The break field length.
+ 585:Drivers/Library/StdDriver/src/uart.c ****  *
+ 586:Drivers/Library/StdDriver/src/uart.c ****  *    @return       None
+ 587:Drivers/Library/StdDriver/src/uart.c ****  *
+ 588:Drivers/Library/StdDriver/src/uart.c ****  *    @details      The function is used to set LIN relative setting.
+ 589:Drivers/Library/StdDriver/src/uart.c ****  */
+ 590:Drivers/Library/StdDriver/src/uart.c **** void UART_SelectLINMode(UART_T* uart, uint32_t u32Mode, uint32_t u32BreakLength)
+ 591:Drivers/Library/StdDriver/src/uart.c **** {
+ 1489              		.loc 1 591 1
+ 1490              		.cfi_startproc
+ 1491              		@ args = 0, pretend = 0, frame = 16
+ 1492              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1493              		@ link register save eliminated.
+ 1494 0000 80B4     		push	{r7}
+ 1495              	.LCFI69:
+ 1496              		.cfi_def_cfa_offset 4
+ 1497              		.cfi_offset 7, -4
+ 1498 0002 85B0     		sub	sp, sp, #20
+ 1499              	.LCFI70:
+ 1500              		.cfi_def_cfa_offset 24
+ 1501 0004 00AF     		add	r7, sp, #0
+ 1502              	.LCFI71:
+ 1503              		.cfi_def_cfa_register 7
+ 1504 0006 F860     		str	r0, [r7, #12]
+ 1505 0008 B960     		str	r1, [r7, #8]
+ 1506 000a 7A60     		str	r2, [r7, #4]
+ 592:Drivers/Library/StdDriver/src/uart.c ****     /* Select LIN function mode */
+ 593:Drivers/Library/StdDriver/src/uart.c ****     uart->FUNCSEL = UART_FUNCSEL_LIN;
+ 1507              		.loc 1 593 19
+ 1508 000c FB68     		ldr	r3, [r7, #12]
+ 1509 000e 0122     		movs	r2, #1
+ 1510 0010 1A63     		str	r2, [r3, #48]
+ 594:Drivers/Library/StdDriver/src/uart.c **** 
+ 595:Drivers/Library/StdDriver/src/uart.c ****     /* Select LIN function setting : Tx enable, Rx enable and break field length */
+ 596:Drivers/Library/StdDriver/src/uart.c ****     uart->ALTCTL &= ~(UART_ALTCTL_LINTXEN_Msk | UART_ALTCTL_LINRXEN_Msk | UART_ALTCTL_BRKFL_Msk);
+ 1511              		.loc 1 596 18
+ 1512 0012 FB68     		ldr	r3, [r7, #12]
+ 1513 0014 DB6A     		ldr	r3, [r3, #44]
+ 1514 0016 23F0CF02 		bic	r2, r3, #207
+ 1515 001a FB68     		ldr	r3, [r7, #12]
+ 1516 001c DA62     		str	r2, [r3, #44]
+ 597:Drivers/Library/StdDriver/src/uart.c ****     uart->ALTCTL |= (u32Mode | (u32BreakLength << UART_ALTCTL_BRKFL_Pos));
+ 1517              		.loc 1 597 18
+ 1518 001e FB68     		ldr	r3, [r7, #12]
+ 1519 0020 DA6A     		ldr	r2, [r3, #44]
+ 1520              		.loc 1 597 30
+ 1521 0022 B968     		ldr	r1, [r7, #8]
+ 1522 0024 7B68     		ldr	r3, [r7, #4]
+ 1523 0026 0B43     		orrs	r3, r3, r1
+ 1524              		.loc 1 597 18
+ 1525 0028 1A43     		orrs	r2, r2, r3
+ 1526 002a FB68     		ldr	r3, [r7, #12]
+ 1527 002c DA62     		str	r2, [r3, #44]
+ARM GAS  /tmp/ccXTtQ1f.s 			page 38
+
+
+ 598:Drivers/Library/StdDriver/src/uart.c **** }
+ 1528              		.loc 1 598 1
+ 1529 002e 00BF     		nop
+ 1530 0030 1437     		adds	r7, r7, #20
+ 1531              	.LCFI72:
+ 1532              		.cfi_def_cfa_offset 4
+ 1533 0032 BD46     		mov	sp, r7
+ 1534              	.LCFI73:
+ 1535              		.cfi_def_cfa_register 13
+ 1536              		@ sp needed
+ 1537 0034 5DF8047B 		ldr	r7, [sp], #4
+ 1538              	.LCFI74:
+ 1539              		.cfi_restore 7
+ 1540              		.cfi_def_cfa_offset 0
+ 1541 0038 7047     		bx	lr
+ 1542              		.cfi_endproc
+ 1543              	.LFE207:
+ 1545              		.section	.text.UART_Write,"ax",%progbits
+ 1546              		.align	1
+ 1547              		.global	UART_Write
+ 1548              		.syntax unified
+ 1549              		.thumb
+ 1550              		.thumb_func
+ 1552              	UART_Write:
+ 1553              	.LFB208:
+ 599:Drivers/Library/StdDriver/src/uart.c **** 
+ 600:Drivers/Library/StdDriver/src/uart.c **** 
+ 601:Drivers/Library/StdDriver/src/uart.c **** /**
+ 602:Drivers/Library/StdDriver/src/uart.c ****  *    @brief        Write UART data
+ 603:Drivers/Library/StdDriver/src/uart.c ****  *
+ 604:Drivers/Library/StdDriver/src/uart.c ****  *    @param[in]    uart            The pointer of the specified UART module.
+ 605:Drivers/Library/StdDriver/src/uart.c ****  *    @param[in]    pu8TxBuf        The buffer to send the data to UART transmission FIFO.
+ 606:Drivers/Library/StdDriver/src/uart.c ****  *    @param[out]   u32WriteBytes   The byte number of data.
+ 607:Drivers/Library/StdDriver/src/uart.c ****  *
+ 608:Drivers/Library/StdDriver/src/uart.c ****  *    @return       u32Count transfer byte count
+ 609:Drivers/Library/StdDriver/src/uart.c ****  *
+ 610:Drivers/Library/StdDriver/src/uart.c ****  *    @details      The function is to write data into TX buffer to transmit data by UART.
+ 611:Drivers/Library/StdDriver/src/uart.c ****  */
+ 612:Drivers/Library/StdDriver/src/uart.c **** uint32_t UART_Write(UART_T* uart, uint8_t pu8TxBuf[], uint32_t u32WriteBytes)
+ 613:Drivers/Library/StdDriver/src/uart.c **** {
+ 1554              		.loc 1 613 1
+ 1555              		.cfi_startproc
+ 1556              		@ args = 0, pretend = 0, frame = 32
+ 1557              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1558              		@ link register save eliminated.
+ 1559 0000 80B4     		push	{r7}
+ 1560              	.LCFI75:
+ 1561              		.cfi_def_cfa_offset 4
+ 1562              		.cfi_offset 7, -4
+ 1563 0002 89B0     		sub	sp, sp, #36
+ 1564              	.LCFI76:
+ 1565              		.cfi_def_cfa_offset 40
+ 1566 0004 00AF     		add	r7, sp, #0
+ 1567              	.LCFI77:
+ 1568              		.cfi_def_cfa_register 7
+ 1569 0006 F860     		str	r0, [r7, #12]
+ 1570 0008 B960     		str	r1, [r7, #8]
+ARM GAS  /tmp/ccXTtQ1f.s 			page 39
+
+
+ 1571 000a 7A60     		str	r2, [r7, #4]
+ 614:Drivers/Library/StdDriver/src/uart.c ****     uint32_t  u32Count, u32delayno;
+ 615:Drivers/Library/StdDriver/src/uart.c ****     uint32_t  u32Exit = 0ul;
+ 1572              		.loc 1 615 15
+ 1573 000c 0023     		movs	r3, #0
+ 1574 000e 7B61     		str	r3, [r7, #20]
+ 616:Drivers/Library/StdDriver/src/uart.c **** 
+ 617:Drivers/Library/StdDriver/src/uart.c ****     for(u32Count = 0ul; u32Count != u32WriteBytes; u32Count++)
+ 1575              		.loc 1 617 18
+ 1576 0010 0023     		movs	r3, #0
+ 1577 0012 FB61     		str	r3, [r7, #28]
+ 1578              		.loc 1 617 5
+ 1579 0014 1FE0     		b	.L68
+ 1580              	.L74:
+ 618:Drivers/Library/StdDriver/src/uart.c ****     {
+ 619:Drivers/Library/StdDriver/src/uart.c ****         u32delayno = 0ul;
+ 1581              		.loc 1 619 20
+ 1582 0016 0023     		movs	r3, #0
+ 1583 0018 BB61     		str	r3, [r7, #24]
+ 620:Drivers/Library/StdDriver/src/uart.c ****         while(uart->FIFOSTS & UART_FIFOSTS_TXFULL_Msk)   /* Check Tx Full */
+ 1584              		.loc 1 620 14
+ 1585 001a 09E0     		b	.L69
+ 1586              	.L71:
+ 621:Drivers/Library/StdDriver/src/uart.c ****         {
+ 622:Drivers/Library/StdDriver/src/uart.c ****             u32delayno++;
+ 1587              		.loc 1 622 23
+ 1588 001c BB69     		ldr	r3, [r7, #24]
+ 1589 001e 0133     		adds	r3, r3, #1
+ 1590 0020 BB61     		str	r3, [r7, #24]
+ 623:Drivers/Library/StdDriver/src/uart.c ****             if(u32delayno >= 0x40000000ul)
+ 1591              		.loc 1 623 15
+ 1592 0022 BB69     		ldr	r3, [r7, #24]
+ 1593 0024 B3F1804F 		cmp	r3, #1073741824
+ 1594 0028 02D3     		bcc	.L69
+ 624:Drivers/Library/StdDriver/src/uart.c ****             {
+ 625:Drivers/Library/StdDriver/src/uart.c ****                 u32Exit = 1ul;
+ 1595              		.loc 1 625 25
+ 1596 002a 0123     		movs	r3, #1
+ 1597 002c 7B61     		str	r3, [r7, #20]
+ 626:Drivers/Library/StdDriver/src/uart.c ****                 break;
+ 1598              		.loc 1 626 17
+ 1599 002e 05E0     		b	.L70
+ 1600              	.L69:
+ 620:Drivers/Library/StdDriver/src/uart.c ****         {
+ 1601              		.loc 1 620 19
+ 1602 0030 FB68     		ldr	r3, [r7, #12]
+ 1603 0032 9B69     		ldr	r3, [r3, #24]
+ 620:Drivers/Library/StdDriver/src/uart.c ****         {
+ 1604              		.loc 1 620 29
+ 1605 0034 03F40003 		and	r3, r3, #8388608
+ 620:Drivers/Library/StdDriver/src/uart.c ****         {
+ 1606              		.loc 1 620 14
+ 1607 0038 002B     		cmp	r3, #0
+ 1608 003a EFD1     		bne	.L71
+ 1609              	.L70:
+ 627:Drivers/Library/StdDriver/src/uart.c ****             }
+ 628:Drivers/Library/StdDriver/src/uart.c ****             else
+ARM GAS  /tmp/ccXTtQ1f.s 			page 40
+
+
+ 629:Drivers/Library/StdDriver/src/uart.c ****             {
+ 630:Drivers/Library/StdDriver/src/uart.c ****             }
+ 631:Drivers/Library/StdDriver/src/uart.c ****         }
+ 632:Drivers/Library/StdDriver/src/uart.c **** 
+ 633:Drivers/Library/StdDriver/src/uart.c ****         if(u32Exit == 1ul)
+ 1610              		.loc 1 633 11
+ 1611 003c 7B69     		ldr	r3, [r7, #20]
+ 1612 003e 012B     		cmp	r3, #1
+ 1613 0040 0ED0     		beq	.L76
+ 634:Drivers/Library/StdDriver/src/uart.c ****         {
+ 635:Drivers/Library/StdDriver/src/uart.c ****             break;
+ 636:Drivers/Library/StdDriver/src/uart.c ****         }
+ 637:Drivers/Library/StdDriver/src/uart.c ****         else
+ 638:Drivers/Library/StdDriver/src/uart.c ****         {
+ 639:Drivers/Library/StdDriver/src/uart.c ****             uart->DAT = pu8TxBuf[u32Count];    /* Send UART Data from buffer */
+ 1614              		.loc 1 639 33 discriminator 2
+ 1615 0042 BA68     		ldr	r2, [r7, #8]
+ 1616 0044 FB69     		ldr	r3, [r7, #28]
+ 1617 0046 1344     		add	r3, r3, r2
+ 1618 0048 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1619 004a 1A46     		mov	r2, r3
+ 1620              		.loc 1 639 23 discriminator 2
+ 1621 004c FB68     		ldr	r3, [r7, #12]
+ 1622 004e 1A60     		str	r2, [r3]
+ 617:Drivers/Library/StdDriver/src/uart.c ****     {
+ 1623              		.loc 1 617 60 discriminator 2
+ 1624 0050 FB69     		ldr	r3, [r7, #28]
+ 1625 0052 0133     		adds	r3, r3, #1
+ 1626 0054 FB61     		str	r3, [r7, #28]
+ 1627              	.L68:
+ 617:Drivers/Library/StdDriver/src/uart.c ****     {
+ 1628              		.loc 1 617 5 discriminator 1
+ 1629 0056 FA69     		ldr	r2, [r7, #28]
+ 1630 0058 7B68     		ldr	r3, [r7, #4]
+ 1631 005a 9A42     		cmp	r2, r3
+ 1632 005c DBD1     		bne	.L74
+ 1633 005e 00E0     		b	.L73
+ 1634              	.L76:
+ 635:Drivers/Library/StdDriver/src/uart.c ****         }
+ 1635              		.loc 1 635 13
+ 1636 0060 00BF     		nop
+ 1637              	.L73:
+ 640:Drivers/Library/StdDriver/src/uart.c ****         }
+ 641:Drivers/Library/StdDriver/src/uart.c ****     }
+ 642:Drivers/Library/StdDriver/src/uart.c **** 
+ 643:Drivers/Library/StdDriver/src/uart.c ****     return u32Count;
+ 1638              		.loc 1 643 12
+ 1639 0062 FB69     		ldr	r3, [r7, #28]
+ 644:Drivers/Library/StdDriver/src/uart.c **** }
+ 1640              		.loc 1 644 1
+ 1641 0064 1846     		mov	r0, r3
+ 1642 0066 2437     		adds	r7, r7, #36
+ 1643              	.LCFI78:
+ 1644              		.cfi_def_cfa_offset 4
+ 1645 0068 BD46     		mov	sp, r7
+ 1646              	.LCFI79:
+ 1647              		.cfi_def_cfa_register 13
+ARM GAS  /tmp/ccXTtQ1f.s 			page 41
+
+
+ 1648              		@ sp needed
+ 1649 006a 5DF8047B 		ldr	r7, [sp], #4
+ 1650              	.LCFI80:
+ 1651              		.cfi_restore 7
+ 1652              		.cfi_def_cfa_offset 0
+ 1653 006e 7047     		bx	lr
+ 1654              		.cfi_endproc
+ 1655              	.LFE208:
+ 1657              		.text
+ 1658              	.Letext0:
+ 1659              		.file 2 "/usr/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/machine/_default_types.h"
+ 1660              		.file 3 "/usr/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/_stdint.h"
+ 1661              		.file 4 "Drivers/Library/Device/Nuvoton_M480/Include/clk_reg.h"
+ 1662              		.file 5 "Drivers/Library/Device/Nuvoton_M480/Include/uart_reg.h"
+ARM GAS  /tmp/ccXTtQ1f.s 			page 42
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 uart.c
+     /tmp/ccXTtQ1f.s:20     .text.UART_ClearIntFlag:0000000000000000 $t
+     /tmp/ccXTtQ1f.s:26     .text.UART_ClearIntFlag:0000000000000000 UART_ClearIntFlag
+     /tmp/ccXTtQ1f.s:128    .text.UART_ClearIntFlag:000000000000007c $d
+     /tmp/ccXTtQ1f.s:133    .text.UART_Close:0000000000000000 $t
+     /tmp/ccXTtQ1f.s:139    .text.UART_Close:0000000000000000 UART_Close
+     /tmp/ccXTtQ1f.s:179    .text.UART_DisableFlowCtrl:0000000000000000 $t
+     /tmp/ccXTtQ1f.s:185    .text.UART_DisableFlowCtrl:0000000000000000 UART_DisableFlowCtrl
+     /tmp/ccXTtQ1f.s:227    .text.UART_DisableInt:0000000000000000 $t
+     /tmp/ccXTtQ1f.s:233    .text.UART_DisableInt:0000000000000000 UART_DisableInt
+     /tmp/ccXTtQ1f.s:278    .text.UART_EnableFlowCtrl:0000000000000000 $t
+     /tmp/ccXTtQ1f.s:284    .text.UART_EnableFlowCtrl:0000000000000000 UART_EnableFlowCtrl
+     /tmp/ccXTtQ1f.s:338    .text.UART_EnableInt:0000000000000000 $t
+     /tmp/ccXTtQ1f.s:344    .text.UART_EnableInt:0000000000000000 UART_EnableInt
+     /tmp/ccXTtQ1f.s:388    .rodata:0000000000000000 $d
+     /tmp/ccXTtQ1f.s:395    .text.UART_Open:0000000000000000 $t
+     /tmp/ccXTtQ1f.s:401    .text.UART_Open:0000000000000000 UART_Open
+     /tmp/ccXTtQ1f.s:667    .text.UART_Open:000000000000018c $d
+     /tmp/ccXTtQ1f.s:679    .text.UART_Read:0000000000000000 $t
+     /tmp/ccXTtQ1f.s:685    .text.UART_Read:0000000000000000 UART_Read
+     /tmp/ccXTtQ1f.s:793    .text.UART_SetLineConfig:0000000000000000 $t
+     /tmp/ccXTtQ1f.s:799    .text.UART_SetLineConfig:0000000000000000 UART_SetLineConfig
+     /tmp/ccXTtQ1f.s:1061   .text.UART_SetLineConfig:0000000000000184 $d
+     /tmp/ccXTtQ1f.s:1073   .text.UART_SetTimeoutCnt:0000000000000000 $t
+     /tmp/ccXTtQ1f.s:1079   .text.UART_SetTimeoutCnt:0000000000000000 UART_SetTimeoutCnt
+     /tmp/ccXTtQ1f.s:1133   .text.UART_SelectIrDAMode:0000000000000000 $t
+     /tmp/ccXTtQ1f.s:1139   .text.UART_SelectIrDAMode:0000000000000000 UART_SelectIrDAMode
+     /tmp/ccXTtQ1f.s:1401   .text.UART_SelectIrDAMode:0000000000000184 $d
+     /tmp/ccXTtQ1f.s:1413   .text.UART_SelectRS485Mode:0000000000000000 $t
+     /tmp/ccXTtQ1f.s:1419   .text.UART_SelectRS485Mode:0000000000000000 UART_SelectRS485Mode
+     /tmp/ccXTtQ1f.s:1481   .text.UART_SelectLINMode:0000000000000000 $t
+     /tmp/ccXTtQ1f.s:1487   .text.UART_SelectLINMode:0000000000000000 UART_SelectLINMode
+     /tmp/ccXTtQ1f.s:1546   .text.UART_Write:0000000000000000 $t
+     /tmp/ccXTtQ1f.s:1552   .text.UART_Write:0000000000000000 UART_Write
+
+UNDEFINED SYMBOLS
+CLK_GetPLLClockFreq

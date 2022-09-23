@@ -1,0 +1,1653 @@
+ARM GAS  /tmp/ccxB69I0.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 6
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"retarget.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.global	__stdout
+  20              		.section	.bss.__stdout,"aw",%nobits
+  21              		.align	2
+  24              	__stdout:
+  25 0000 00000000 		.space	104
+  25      00000000 
+  25      00000000 
+  25      00000000 
+  25      00000000 
+  26              		.global	__stdin
+  27              		.section	.bss.__stdin,"aw",%nobits
+  28              		.align	2
+  31              	__stdin:
+  32 0000 00000000 		.space	104
+  32      00000000 
+  32      00000000 
+  32      00000000 
+  32      00000000 
+  33              		.section	.rodata
+  34              		.align	2
+  35              	.LC0:
+  36 0000 72302020 		.ascii	"r0  = 0x%lx\012\000"
+  36      3D203078 
+  36      256C780A 
+  36      00
+  37 000d 000000   		.align	2
+  38              	.LC1:
+  39 0010 72312020 		.ascii	"r1  = 0x%lx\012\000"
+  39      3D203078 
+  39      256C780A 
+  39      00
+  40 001d 000000   		.align	2
+  41              	.LC2:
+  42 0020 72322020 		.ascii	"r2  = 0x%lx\012\000"
+  42      3D203078 
+  42      256C780A 
+  42      00
+  43 002d 000000   		.align	2
+  44              	.LC3:
+ARM GAS  /tmp/ccxB69I0.s 			page 2
+
+
+  45 0030 72332020 		.ascii	"r3  = 0x%lx\012\000"
+  45      3D203078 
+  45      256C780A 
+  45      00
+  46 003d 000000   		.align	2
+  47              	.LC4:
+  48 0040 72313220 		.ascii	"r12 = 0x%lx\012\000"
+  48      3D203078 
+  48      256C780A 
+  48      00
+  49 004d 000000   		.align	2
+  50              	.LC5:
+  51 0050 6C722020 		.ascii	"lr  = 0x%lx\012\000"
+  51      3D203078 
+  51      256C780A 
+  51      00
+  52 005d 000000   		.align	2
+  53              	.LC6:
+  54 0060 70632020 		.ascii	"pc  = 0x%lx\012\000"
+  54      3D203078 
+  54      256C780A 
+  54      00
+  55 006d 000000   		.align	2
+  56              	.LC7:
+  57 0070 70737220 		.ascii	"psr = 0x%lx\012\000"
+  57      3D203078 
+  57      256C780A 
+  57      00
+  58              		.section	.text.stackDump,"ax",%progbits
+  59              		.align	1
+  60              		.syntax unified
+  61              		.thumb
+  62              		.thumb_func
+  64              	stackDump:
+  65              	.LFB195:
+  66              		.file 1 "Drivers/Library/StdDriver/src/retarget.c"
+   1:Drivers/Library/StdDriver/src/retarget.c **** /**************************************************************************//**
+   2:Drivers/Library/StdDriver/src/retarget.c ****  * @file     retarget.c
+   3:Drivers/Library/StdDriver/src/retarget.c ****  * @version  V3.00
+   4:Drivers/Library/StdDriver/src/retarget.c ****  * @brief    M480 Series Debug Port and Semihost Setting Source File
+   5:Drivers/Library/StdDriver/src/retarget.c ****  *
+   6:Drivers/Library/StdDriver/src/retarget.c ****  * SPDX-License-Identifier: Apache-2.0
+   7:Drivers/Library/StdDriver/src/retarget.c ****  * @copyright (C) 2016-2020 Nuvoton Technology Corp. All rights reserved.
+   8:Drivers/Library/StdDriver/src/retarget.c ****  ******************************************************************************/
+   9:Drivers/Library/StdDriver/src/retarget.c **** 
+  10:Drivers/Library/StdDriver/src/retarget.c **** 
+  11:Drivers/Library/StdDriver/src/retarget.c **** #include <stdio.h>
+  12:Drivers/Library/StdDriver/src/retarget.c **** #include "NuMicro.h"
+  13:Drivers/Library/StdDriver/src/retarget.c **** 
+  14:Drivers/Library/StdDriver/src/retarget.c **** #if defined ( __CC_ARM   )
+  15:Drivers/Library/StdDriver/src/retarget.c **** #if (__ARMCC_VERSION < 400000)
+  16:Drivers/Library/StdDriver/src/retarget.c **** #else
+  17:Drivers/Library/StdDriver/src/retarget.c **** /* Insist on keeping widthprec, to avoid X propagation by benign code in C-lib */
+  18:Drivers/Library/StdDriver/src/retarget.c **** #pragma import _printf_widthprec
+  19:Drivers/Library/StdDriver/src/retarget.c **** #endif
+  20:Drivers/Library/StdDriver/src/retarget.c **** #endif
+  21:Drivers/Library/StdDriver/src/retarget.c **** /* Uncomment this line to disable all printf and getchar. getchar() will always return 0x00*/
+ARM GAS  /tmp/ccxB69I0.s 			page 3
+
+
+  22:Drivers/Library/StdDriver/src/retarget.c **** /* #define DISABLE_UART */
+  23:Drivers/Library/StdDriver/src/retarget.c **** 
+  24:Drivers/Library/StdDriver/src/retarget.c **** #if defined(DEBUG_ENABLE_SEMIHOST)
+  25:Drivers/Library/StdDriver/src/retarget.c ****     #ifndef DISABLE_UART
+  26:Drivers/Library/StdDriver/src/retarget.c ****         #define DISABLE_UART
+  27:Drivers/Library/StdDriver/src/retarget.c ****     #endif
+  28:Drivers/Library/StdDriver/src/retarget.c **** #endif
+  29:Drivers/Library/StdDriver/src/retarget.c **** 
+  30:Drivers/Library/StdDriver/src/retarget.c **** #define DEBUG_PORT   UART0
+  31:Drivers/Library/StdDriver/src/retarget.c **** /*-------------------------------------------------------------------------------------------------
+  32:Drivers/Library/StdDriver/src/retarget.c **** /* Global variables                                                                                
+  33:Drivers/Library/StdDriver/src/retarget.c **** /*-------------------------------------------------------------------------------------------------
+  34:Drivers/Library/StdDriver/src/retarget.c **** #if !(defined(__ICCARM__) && (__VER__ >= 6010000))
+  35:Drivers/Library/StdDriver/src/retarget.c **** # if (__ARMCC_VERSION < 6040000)
+  36:Drivers/Library/StdDriver/src/retarget.c **** struct __FILE
+  37:Drivers/Library/StdDriver/src/retarget.c **** {
+  38:Drivers/Library/StdDriver/src/retarget.c ****     int handle; /* Add whatever you need here */
+  39:Drivers/Library/StdDriver/src/retarget.c **** };
+  40:Drivers/Library/StdDriver/src/retarget.c **** # endif
+  41:Drivers/Library/StdDriver/src/retarget.c **** #elif(__VER__ >= 8000000)
+  42:Drivers/Library/StdDriver/src/retarget.c **** struct __FILE
+  43:Drivers/Library/StdDriver/src/retarget.c **** {
+  44:Drivers/Library/StdDriver/src/retarget.c ****     int handle; /* Add whatever you need here */
+  45:Drivers/Library/StdDriver/src/retarget.c **** };
+  46:Drivers/Library/StdDriver/src/retarget.c **** #endif
+  47:Drivers/Library/StdDriver/src/retarget.c **** FILE __stdout;
+  48:Drivers/Library/StdDriver/src/retarget.c **** FILE __stdin;
+  49:Drivers/Library/StdDriver/src/retarget.c **** 
+  50:Drivers/Library/StdDriver/src/retarget.c **** 
+  51:Drivers/Library/StdDriver/src/retarget.c **** enum { r0, r1, r2, r3, r12, lr, pc, psr};
+  52:Drivers/Library/StdDriver/src/retarget.c **** 
+  53:Drivers/Library/StdDriver/src/retarget.c **** /**
+  54:Drivers/Library/StdDriver/src/retarget.c ****  * @brief       Helper function to dump register while hard fault occurred
+  55:Drivers/Library/StdDriver/src/retarget.c ****  * @param[in]   stack pointer points to the dumped registers in SRAM
+  56:Drivers/Library/StdDriver/src/retarget.c ****  * @return      None
+  57:Drivers/Library/StdDriver/src/retarget.c ****  * @details     This function is implement to print r0, r1, r2, r3, r12, lr, pc, psr
+  58:Drivers/Library/StdDriver/src/retarget.c ****  */
+  59:Drivers/Library/StdDriver/src/retarget.c **** static void stackDump(uint32_t stack[])
+  60:Drivers/Library/StdDriver/src/retarget.c **** {
+  67              		.loc 1 60 1
+  68              		.cfi_startproc
+  69              		@ args = 0, pretend = 0, frame = 8
+  70              		@ frame_needed = 1, uses_anonymous_args = 0
+  71 0000 80B5     		push	{r7, lr}
+  72              	.LCFI0:
+  73              		.cfi_def_cfa_offset 8
+  74              		.cfi_offset 7, -8
+  75              		.cfi_offset 14, -4
+  76 0002 82B0     		sub	sp, sp, #8
+  77              	.LCFI1:
+  78              		.cfi_def_cfa_offset 16
+  79 0004 00AF     		add	r7, sp, #0
+  80              	.LCFI2:
+  81              		.cfi_def_cfa_register 7
+  82 0006 7860     		str	r0, [r7, #4]
+  61:Drivers/Library/StdDriver/src/retarget.c ****     printf("r0  = 0x%lx\n", stack[r0]);
+  83              		.loc 1 61 5
+ARM GAS  /tmp/ccxB69I0.s 			page 4
+
+
+  84 0008 7B68     		ldr	r3, [r7, #4]
+  85 000a 1B68     		ldr	r3, [r3]
+  86 000c 1946     		mov	r1, r3
+  87 000e 1C48     		ldr	r0, .L2
+  88 0010 FFF7FEFF 		bl	printf
+  62:Drivers/Library/StdDriver/src/retarget.c ****     printf("r1  = 0x%lx\n", stack[r1]);
+  89              		.loc 1 62 34
+  90 0014 7B68     		ldr	r3, [r7, #4]
+  91 0016 0433     		adds	r3, r3, #4
+  92              		.loc 1 62 5
+  93 0018 1B68     		ldr	r3, [r3]
+  94 001a 1946     		mov	r1, r3
+  95 001c 1948     		ldr	r0, .L2+4
+  96 001e FFF7FEFF 		bl	printf
+  63:Drivers/Library/StdDriver/src/retarget.c ****     printf("r2  = 0x%lx\n", stack[r2]);
+  97              		.loc 1 63 34
+  98 0022 7B68     		ldr	r3, [r7, #4]
+  99 0024 0833     		adds	r3, r3, #8
+ 100              		.loc 1 63 5
+ 101 0026 1B68     		ldr	r3, [r3]
+ 102 0028 1946     		mov	r1, r3
+ 103 002a 1748     		ldr	r0, .L2+8
+ 104 002c FFF7FEFF 		bl	printf
+  64:Drivers/Library/StdDriver/src/retarget.c ****     printf("r3  = 0x%lx\n", stack[r3]);
+ 105              		.loc 1 64 34
+ 106 0030 7B68     		ldr	r3, [r7, #4]
+ 107 0032 0C33     		adds	r3, r3, #12
+ 108              		.loc 1 64 5
+ 109 0034 1B68     		ldr	r3, [r3]
+ 110 0036 1946     		mov	r1, r3
+ 111 0038 1448     		ldr	r0, .L2+12
+ 112 003a FFF7FEFF 		bl	printf
+  65:Drivers/Library/StdDriver/src/retarget.c ****     printf("r12 = 0x%lx\n", stack[r12]);
+ 113              		.loc 1 65 34
+ 114 003e 7B68     		ldr	r3, [r7, #4]
+ 115 0040 1033     		adds	r3, r3, #16
+ 116              		.loc 1 65 5
+ 117 0042 1B68     		ldr	r3, [r3]
+ 118 0044 1946     		mov	r1, r3
+ 119 0046 1248     		ldr	r0, .L2+16
+ 120 0048 FFF7FEFF 		bl	printf
+  66:Drivers/Library/StdDriver/src/retarget.c ****     printf("lr  = 0x%lx\n", stack[lr]);
+ 121              		.loc 1 66 34
+ 122 004c 7B68     		ldr	r3, [r7, #4]
+ 123 004e 1433     		adds	r3, r3, #20
+ 124              		.loc 1 66 5
+ 125 0050 1B68     		ldr	r3, [r3]
+ 126 0052 1946     		mov	r1, r3
+ 127 0054 0F48     		ldr	r0, .L2+20
+ 128 0056 FFF7FEFF 		bl	printf
+  67:Drivers/Library/StdDriver/src/retarget.c ****     printf("pc  = 0x%lx\n", stack[pc]);
+ 129              		.loc 1 67 34
+ 130 005a 7B68     		ldr	r3, [r7, #4]
+ 131 005c 1833     		adds	r3, r3, #24
+ 132              		.loc 1 67 5
+ 133 005e 1B68     		ldr	r3, [r3]
+ 134 0060 1946     		mov	r1, r3
+ARM GAS  /tmp/ccxB69I0.s 			page 5
+
+
+ 135 0062 0D48     		ldr	r0, .L2+24
+ 136 0064 FFF7FEFF 		bl	printf
+  68:Drivers/Library/StdDriver/src/retarget.c ****     printf("psr = 0x%lx\n", stack[psr]);
+ 137              		.loc 1 68 34
+ 138 0068 7B68     		ldr	r3, [r7, #4]
+ 139 006a 1C33     		adds	r3, r3, #28
+ 140              		.loc 1 68 5
+ 141 006c 1B68     		ldr	r3, [r3]
+ 142 006e 1946     		mov	r1, r3
+ 143 0070 0A48     		ldr	r0, .L2+28
+ 144 0072 FFF7FEFF 		bl	printf
+  69:Drivers/Library/StdDriver/src/retarget.c **** }
+ 145              		.loc 1 69 1
+ 146 0076 00BF     		nop
+ 147 0078 0837     		adds	r7, r7, #8
+ 148              	.LCFI3:
+ 149              		.cfi_def_cfa_offset 8
+ 150 007a BD46     		mov	sp, r7
+ 151              	.LCFI4:
+ 152              		.cfi_def_cfa_register 13
+ 153              		@ sp needed
+ 154 007c 80BD     		pop	{r7, pc}
+ 155              	.L3:
+ 156 007e 00BF     		.align	2
+ 157              	.L2:
+ 158 0080 00000000 		.word	.LC0
+ 159 0084 10000000 		.word	.LC1
+ 160 0088 20000000 		.word	.LC2
+ 161 008c 30000000 		.word	.LC3
+ 162 0090 40000000 		.word	.LC4
+ 163 0094 50000000 		.word	.LC5
+ 164 0098 60000000 		.word	.LC6
+ 165 009c 70000000 		.word	.LC7
+ 166              		.cfi_endproc
+ 167              	.LFE195:
+ 169              		.section	.rodata
+ 170 007d 000000   		.align	2
+ 171              	.LC8:
+ 172 0080 496E2048 		.ascii	"In Hard Fault Handler\000"
+ 172      61726420 
+ 172      4661756C 
+ 172      74204861 
+ 172      6E646C65 
+ 173              		.section	.text.Hard_Fault_Handler,"ax",%progbits
+ 174              		.align	1
+ 175              		.global	Hard_Fault_Handler
+ 176              		.syntax unified
+ 177              		.thumb
+ 178              		.thumb_func
+ 180              	Hard_Fault_Handler:
+ 181              	.LFB196:
+  70:Drivers/Library/StdDriver/src/retarget.c **** 
+  71:Drivers/Library/StdDriver/src/retarget.c **** /**
+  72:Drivers/Library/StdDriver/src/retarget.c ****  * @brief       Hard fault handler
+  73:Drivers/Library/StdDriver/src/retarget.c ****  * @param[in]   stack pointer points to the dumped registers in SRAM
+  74:Drivers/Library/StdDriver/src/retarget.c ****  * @return      None
+  75:Drivers/Library/StdDriver/src/retarget.c ****  * @details     Replace while(1) at the end of this function with chip reset if WDT is not enabled 
+ARM GAS  /tmp/ccxB69I0.s 			page 6
+
+
+  76:Drivers/Library/StdDriver/src/retarget.c ****  */
+  77:Drivers/Library/StdDriver/src/retarget.c **** void Hard_Fault_Handler(uint32_t stack[])
+  78:Drivers/Library/StdDriver/src/retarget.c **** {
+ 182              		.loc 1 78 1
+ 183              		.cfi_startproc
+ 184              		@ args = 0, pretend = 0, frame = 8
+ 185              		@ frame_needed = 1, uses_anonymous_args = 0
+ 186 0000 80B5     		push	{r7, lr}
+ 187              	.LCFI5:
+ 188              		.cfi_def_cfa_offset 8
+ 189              		.cfi_offset 7, -8
+ 190              		.cfi_offset 14, -4
+ 191 0002 82B0     		sub	sp, sp, #8
+ 192              	.LCFI6:
+ 193              		.cfi_def_cfa_offset 16
+ 194 0004 00AF     		add	r7, sp, #0
+ 195              	.LCFI7:
+ 196              		.cfi_def_cfa_register 7
+ 197 0006 7860     		str	r0, [r7, #4]
+  79:Drivers/Library/StdDriver/src/retarget.c ****     printf("In Hard Fault Handler\n");
+ 198              		.loc 1 79 5
+ 199 0008 0348     		ldr	r0, .L6
+ 200 000a FFF7FEFF 		bl	puts
+  80:Drivers/Library/StdDriver/src/retarget.c **** 
+  81:Drivers/Library/StdDriver/src/retarget.c ****     stackDump(stack);
+ 201              		.loc 1 81 5
+ 202 000e 7868     		ldr	r0, [r7, #4]
+ 203 0010 FFF7FEFF 		bl	stackDump
+ 204              	.L5:
+  82:Drivers/Library/StdDriver/src/retarget.c ****     /* Replace while(1) with chip reset if WDT is not enabled for end product */
+  83:Drivers/Library/StdDriver/src/retarget.c ****     while(1);
+ 205              		.loc 1 83 10 discriminator 1
+ 206 0014 FEE7     		b	.L5
+ 207              	.L7:
+ 208 0016 00BF     		.align	2
+ 209              	.L6:
+ 210 0018 80000000 		.word	.LC8
+ 211              		.cfi_endproc
+ 212              	.LFE196:
+ 214              		.section	.text.HardFault_Handler,"ax",%progbits
+ 215              		.align	1
+ 216              		.global	HardFault_Handler
+ 217              		.syntax unified
+ 218              		.thumb
+ 219              		.thumb_func
+ 221              	HardFault_Handler:
+ 222              	.LFB197:
+  84:Drivers/Library/StdDriver/src/retarget.c ****     /* SYS->IPRST0 = SYS_IPRST0_CHIPRST_Msk; */
+  85:Drivers/Library/StdDriver/src/retarget.c **** }
+  86:Drivers/Library/StdDriver/src/retarget.c **** 
+  87:Drivers/Library/StdDriver/src/retarget.c **** 
+  88:Drivers/Library/StdDriver/src/retarget.c **** 
+  89:Drivers/Library/StdDriver/src/retarget.c **** /*-------------------------------------------------------------------------------------------------
+  90:Drivers/Library/StdDriver/src/retarget.c **** /* Routine to write a char                                                                         
+  91:Drivers/Library/StdDriver/src/retarget.c **** /*-------------------------------------------------------------------------------------------------
+  92:Drivers/Library/StdDriver/src/retarget.c **** 
+  93:Drivers/Library/StdDriver/src/retarget.c **** #if defined(DEBUG_ENABLE_SEMIHOST)
+ARM GAS  /tmp/ccxB69I0.s 			page 7
+
+
+  94:Drivers/Library/StdDriver/src/retarget.c **** /* The static buffer is used to speed up the semihost    */
+  95:Drivers/Library/StdDriver/src/retarget.c **** static char g_buf[16];
+  96:Drivers/Library/StdDriver/src/retarget.c **** static char g_buf_len = 0;
+  97:Drivers/Library/StdDriver/src/retarget.c **** 
+  98:Drivers/Library/StdDriver/src/retarget.c **** /* Make sure won't goes here only because --gnu is defined , so
+  99:Drivers/Library/StdDriver/src/retarget.c ****    add !__CC_ARM and !__ICCARM__ checking */
+ 100:Drivers/Library/StdDriver/src/retarget.c **** # if defined ( __GNUC__ ) && !(__CC_ARM) && !(__ICCARM__)
+ 101:Drivers/Library/StdDriver/src/retarget.c **** 
+ 102:Drivers/Library/StdDriver/src/retarget.c **** # elif defined(__ICCARM__)      // IAR
+ 103:Drivers/Library/StdDriver/src/retarget.c **** 
+ 104:Drivers/Library/StdDriver/src/retarget.c **** void SH_End(void)
+ 105:Drivers/Library/StdDriver/src/retarget.c **** {
+ 106:Drivers/Library/StdDriver/src/retarget.c ****     asm("MOVS   R0,#1 \n"        /*; Set return value to 1 */
+ 107:Drivers/Library/StdDriver/src/retarget.c ****         "BX     lr    \n"        /*; Return */
+ 108:Drivers/Library/StdDriver/src/retarget.c ****        );
+ 109:Drivers/Library/StdDriver/src/retarget.c **** }
+ 110:Drivers/Library/StdDriver/src/retarget.c **** 
+ 111:Drivers/Library/StdDriver/src/retarget.c **** void SH_ICE(void)
+ 112:Drivers/Library/StdDriver/src/retarget.c **** {
+ 113:Drivers/Library/StdDriver/src/retarget.c ****   asm("CMP   R2,#0   \n"
+ 114:Drivers/Library/StdDriver/src/retarget.c ****       "BEQ   SH_End  \n"
+ 115:Drivers/Library/StdDriver/src/retarget.c ****       "STR   R0,[R2] \n"       /*; Save the return value to *pn32Out_R0 */
+ 116:Drivers/Library/StdDriver/src/retarget.c ****      );
+ 117:Drivers/Library/StdDriver/src/retarget.c **** }
+ 118:Drivers/Library/StdDriver/src/retarget.c **** 
+ 119:Drivers/Library/StdDriver/src/retarget.c **** /**
+ 120:Drivers/Library/StdDriver/src/retarget.c ****  *
+ 121:Drivers/Library/StdDriver/src/retarget.c ****  * @brief      The function to process semihosted command
+ 122:Drivers/Library/StdDriver/src/retarget.c ****  * @param[in]  n32In_R0  : semihost register 0
+ 123:Drivers/Library/StdDriver/src/retarget.c ****  * @param[in]  n32In_R1  : semihost register 1
+ 124:Drivers/Library/StdDriver/src/retarget.c ****  * @param[out] pn32Out_R0: semihost register 0
+ 125:Drivers/Library/StdDriver/src/retarget.c ****  * @retval     0: No ICE debug
+ 126:Drivers/Library/StdDriver/src/retarget.c ****  * @retval     1: ICE debug
+ 127:Drivers/Library/StdDriver/src/retarget.c ****  *
+ 128:Drivers/Library/StdDriver/src/retarget.c ****  */
+ 129:Drivers/Library/StdDriver/src/retarget.c **** int32_t SH_DoCommand(int32_t n32In_R0, int32_t n32In_R1, int32_t *pn32Out_R0)
+ 130:Drivers/Library/StdDriver/src/retarget.c **** {
+ 131:Drivers/Library/StdDriver/src/retarget.c ****     asm("BKPT   0xAB   \n"       /*; This instruction will cause ICE trap or system HardFault */
+ 132:Drivers/Library/StdDriver/src/retarget.c ****         "B      SH_ICE \n"
+ 133:Drivers/Library/StdDriver/src/retarget.c ****         "SH_HardFault: \n"       /*; Captured by HardFault */
+ 134:Drivers/Library/StdDriver/src/retarget.c ****         "MOVS   R0,#0  \n"       /*; Set return value to 0 */
+ 135:Drivers/Library/StdDriver/src/retarget.c ****         "BX     lr     \n"       /*; Return */
+ 136:Drivers/Library/StdDriver/src/retarget.c ****         );
+ 137:Drivers/Library/StdDriver/src/retarget.c **** 
+ 138:Drivers/Library/StdDriver/src/retarget.c ****     return 1;                    /*; Return 1 when it is trap by ICE */
+ 139:Drivers/Library/StdDriver/src/retarget.c **** }
+ 140:Drivers/Library/StdDriver/src/retarget.c **** 
+ 141:Drivers/Library/StdDriver/src/retarget.c **** /**
+ 142:Drivers/Library/StdDriver/src/retarget.c ****  * @brief       Get LR value and branch to Hard_Fault_Handler function
+ 143:Drivers/Library/StdDriver/src/retarget.c ****  * @param       None
+ 144:Drivers/Library/StdDriver/src/retarget.c ****  * @return      None
+ 145:Drivers/Library/StdDriver/src/retarget.c ****  * @details     This function is use to get LR value and branch to Hard_Fault_Handler function.
+ 146:Drivers/Library/StdDriver/src/retarget.c ****  */
+ 147:Drivers/Library/StdDriver/src/retarget.c **** void Get_LR_and_Branch(void)
+ 148:Drivers/Library/StdDriver/src/retarget.c **** {
+ 149:Drivers/Library/StdDriver/src/retarget.c ****     asm("MOV     R1, LR               \n" /*; LR current value */
+ 150:Drivers/Library/StdDriver/src/retarget.c ****         "B       Hard_Fault_Handler   \n"
+ARM GAS  /tmp/ccxB69I0.s 			page 8
+
+
+ 151:Drivers/Library/StdDriver/src/retarget.c ****        );
+ 152:Drivers/Library/StdDriver/src/retarget.c **** }
+ 153:Drivers/Library/StdDriver/src/retarget.c **** 
+ 154:Drivers/Library/StdDriver/src/retarget.c **** /**
+ 155:Drivers/Library/StdDriver/src/retarget.c ****  * @brief       Get MSP value and branch to Get_LR_and_Branch function
+ 156:Drivers/Library/StdDriver/src/retarget.c ****  * @param       None
+ 157:Drivers/Library/StdDriver/src/retarget.c ****  * @return      None
+ 158:Drivers/Library/StdDriver/src/retarget.c ****  * @details     This function is use to get stack pointer value and branch to Get_LR_and_Branch fun
+ 159:Drivers/Library/StdDriver/src/retarget.c ****  */
+ 160:Drivers/Library/StdDriver/src/retarget.c **** void Stack_Use_MSP(void)
+ 161:Drivers/Library/StdDriver/src/retarget.c **** {
+ 162:Drivers/Library/StdDriver/src/retarget.c ****     asm("MRS     R0, MSP           \n" /*; read MSP */
+ 163:Drivers/Library/StdDriver/src/retarget.c ****         "B       Get_LR_and_Branch \n"
+ 164:Drivers/Library/StdDriver/src/retarget.c ****        );
+ 165:Drivers/Library/StdDriver/src/retarget.c **** }
+ 166:Drivers/Library/StdDriver/src/retarget.c **** 
+ 167:Drivers/Library/StdDriver/src/retarget.c **** /**
+ 168:Drivers/Library/StdDriver/src/retarget.c ****  * @brief       Get stack pointer value and branch to Get_LR_and_Branch function
+ 169:Drivers/Library/StdDriver/src/retarget.c ****  * @param       None
+ 170:Drivers/Library/StdDriver/src/retarget.c ****  * @return      None
+ 171:Drivers/Library/StdDriver/src/retarget.c ****  * @details     This function is use to get stack pointer value and branch to Get_LR_and_Branch fun
+ 172:Drivers/Library/StdDriver/src/retarget.c ****  */
+ 173:Drivers/Library/StdDriver/src/retarget.c **** void HardFault_Handler_Ret(void)
+ 174:Drivers/Library/StdDriver/src/retarget.c **** {
+ 175:Drivers/Library/StdDriver/src/retarget.c ****     asm("MOVS    r0, #4                        \n"
+ 176:Drivers/Library/StdDriver/src/retarget.c ****         "MOV     r1, LR                        \n"
+ 177:Drivers/Library/StdDriver/src/retarget.c ****         "TST     r0, r1                        \n" /*; check LR bit 2 */
+ 178:Drivers/Library/StdDriver/src/retarget.c ****         "BEQ     Stack_Use_MSP                 \n" /*; stack use MSP */
+ 179:Drivers/Library/StdDriver/src/retarget.c ****         "MRS     R0, PSP                       \n" /*; stack use PSP, read PSP */
+ 180:Drivers/Library/StdDriver/src/retarget.c ****         "B       Get_LR_and_Branch             \n"
+ 181:Drivers/Library/StdDriver/src/retarget.c ****        );
+ 182:Drivers/Library/StdDriver/src/retarget.c **** }
+ 183:Drivers/Library/StdDriver/src/retarget.c **** 
+ 184:Drivers/Library/StdDriver/src/retarget.c **** /**
+ 185:Drivers/Library/StdDriver/src/retarget.c ****  * @brief    This function is implemented to support semihost
+ 186:Drivers/Library/StdDriver/src/retarget.c ****  * @param    None
+ 187:Drivers/Library/StdDriver/src/retarget.c ****  * @returns  None
+ 188:Drivers/Library/StdDriver/src/retarget.c ****  * @details  This function is implement to support semihost message print.
+ 189:Drivers/Library/StdDriver/src/retarget.c ****  *
+ 190:Drivers/Library/StdDriver/src/retarget.c ****  */
+ 191:Drivers/Library/StdDriver/src/retarget.c **** void SP_Read_Ready(void)
+ 192:Drivers/Library/StdDriver/src/retarget.c **** {
+ 193:Drivers/Library/StdDriver/src/retarget.c ****     asm("LDR     R1, [R0, #24] \n"        /*; Get previous PC */
+ 194:Drivers/Library/StdDriver/src/retarget.c ****         "LDRH    R3, [R1]      \n"        /*; Get instruction */
+ 195:Drivers/Library/StdDriver/src/retarget.c ****         "LDR     R2, [pc, #8]  \n"        /*; The special BKPT instruction */
+ 196:Drivers/Library/StdDriver/src/retarget.c ****         "CMP     R3, R2        \n"        /*; Test if the instruction at previous PC is BKPT */
+ 197:Drivers/Library/StdDriver/src/retarget.c ****         "BNE     HardFault_Handler_Ret \n" /*; Not BKPT */
+ 198:Drivers/Library/StdDriver/src/retarget.c ****         "ADDS    R1, #4        \n"        /*; Skip BKPT and next line */
+ 199:Drivers/Library/StdDriver/src/retarget.c ****         "STR     R1, [R0, #24] \n"        /*; Save previous PC */
+ 200:Drivers/Library/StdDriver/src/retarget.c ****         "BX      lr            \n"        /*; Return */
+ 201:Drivers/Library/StdDriver/src/retarget.c ****         "DCD     0xBEAB        \n"        /*; BKPT instruction code */
+ 202:Drivers/Library/StdDriver/src/retarget.c ****         "B       HardFault_Handler_Ret \n"
+ 203:Drivers/Library/StdDriver/src/retarget.c ****        );
+ 204:Drivers/Library/StdDriver/src/retarget.c **** }
+ 205:Drivers/Library/StdDriver/src/retarget.c **** 
+ 206:Drivers/Library/StdDriver/src/retarget.c **** /**
+ 207:Drivers/Library/StdDriver/src/retarget.c ****  * @brief       Get stack pointer value and branch to Get_LR_and_Branch function
+ARM GAS  /tmp/ccxB69I0.s 			page 9
+
+
+ 208:Drivers/Library/StdDriver/src/retarget.c ****  * @param       None
+ 209:Drivers/Library/StdDriver/src/retarget.c ****  * @return      None
+ 210:Drivers/Library/StdDriver/src/retarget.c ****  * @details     This function is use to get stack pointer value and branch to Get_LR_and_Branch fun
+ 211:Drivers/Library/StdDriver/src/retarget.c ****  */
+ 212:Drivers/Library/StdDriver/src/retarget.c **** void SP_is_PSP(void)
+ 213:Drivers/Library/StdDriver/src/retarget.c **** {
+ 214:Drivers/Library/StdDriver/src/retarget.c ****     asm(
+ 215:Drivers/Library/StdDriver/src/retarget.c ****         "MRS     R0, PSP       \n"      /*; stack use PSP, read PSP */
+ 216:Drivers/Library/StdDriver/src/retarget.c ****         "B       Get_LR_and_Branch    \n"
+ 217:Drivers/Library/StdDriver/src/retarget.c **** 
+ 218:Drivers/Library/StdDriver/src/retarget.c ****        );
+ 219:Drivers/Library/StdDriver/src/retarget.c **** }
+ 220:Drivers/Library/StdDriver/src/retarget.c **** 
+ 221:Drivers/Library/StdDriver/src/retarget.c **** /**
+ 222:Drivers/Library/StdDriver/src/retarget.c ****  * @brief    This HardFault handler is implemented to support semihost
+ 223:Drivers/Library/StdDriver/src/retarget.c ****  *
+ 224:Drivers/Library/StdDriver/src/retarget.c ****  * @param    None
+ 225:Drivers/Library/StdDriver/src/retarget.c ****  *
+ 226:Drivers/Library/StdDriver/src/retarget.c ****  * @returns  None
+ 227:Drivers/Library/StdDriver/src/retarget.c ****  *
+ 228:Drivers/Library/StdDriver/src/retarget.c ****  * @details  This function is implement to support semihost message print.
+ 229:Drivers/Library/StdDriver/src/retarget.c ****  *
+ 230:Drivers/Library/StdDriver/src/retarget.c ****  */
+ 231:Drivers/Library/StdDriver/src/retarget.c **** void HardFault_Handler (void)
+ 232:Drivers/Library/StdDriver/src/retarget.c **** {
+ 233:Drivers/Library/StdDriver/src/retarget.c ****     asm("MOV     R0, lr        \n"
+ 234:Drivers/Library/StdDriver/src/retarget.c ****         "LSLS    R0, #29       \n"        /*; Check bit 2 */
+ 235:Drivers/Library/StdDriver/src/retarget.c ****         "BMI     SP_is_PSP     \n"        /*; previous stack is PSP */
+ 236:Drivers/Library/StdDriver/src/retarget.c ****         "MRS     R0, MSP       \n"        /*; previous stack is MSP, read MSP */
+ 237:Drivers/Library/StdDriver/src/retarget.c ****         "B       SP_Read_Ready \n"
+ 238:Drivers/Library/StdDriver/src/retarget.c ****        );
+ 239:Drivers/Library/StdDriver/src/retarget.c **** 
+ 240:Drivers/Library/StdDriver/src/retarget.c ****     while(1);
+ 241:Drivers/Library/StdDriver/src/retarget.c **** }
+ 242:Drivers/Library/StdDriver/src/retarget.c **** 
+ 243:Drivers/Library/StdDriver/src/retarget.c **** # else
+ 244:Drivers/Library/StdDriver/src/retarget.c **** 
+ 245:Drivers/Library/StdDriver/src/retarget.c **** /**
+ 246:Drivers/Library/StdDriver/src/retarget.c ****  * @brief    This HardFault handler is implemented to support semihost
+ 247:Drivers/Library/StdDriver/src/retarget.c ****  * @param    None
+ 248:Drivers/Library/StdDriver/src/retarget.c ****  * @returns  None
+ 249:Drivers/Library/StdDriver/src/retarget.c ****  * @details  This function is implement to support semihost message print.
+ 250:Drivers/Library/StdDriver/src/retarget.c ****  *
+ 251:Drivers/Library/StdDriver/src/retarget.c ****  */
+ 252:Drivers/Library/StdDriver/src/retarget.c **** __asm int32_t HardFault_Handler(void)
+ 253:Drivers/Library/StdDriver/src/retarget.c **** {
+ 254:Drivers/Library/StdDriver/src/retarget.c ****     MOV     R0, LR
+ 255:Drivers/Library/StdDriver/src/retarget.c ****     LSLS    R0, #29               /*; Check bit 2 */
+ 256:Drivers/Library/StdDriver/src/retarget.c ****     BMI     SP_is_PSP             /*; previous stack is PSP */
+ 257:Drivers/Library/StdDriver/src/retarget.c ****     MRS     R0, MSP               /*; previous stack is MSP, read MSP */
+ 258:Drivers/Library/StdDriver/src/retarget.c ****     B       SP_Read_Ready
+ 259:Drivers/Library/StdDriver/src/retarget.c **** SP_is_PSP
+ 260:Drivers/Library/StdDriver/src/retarget.c ****     MRS     R0, PSP               /*; Read PSP */
+ 261:Drivers/Library/StdDriver/src/retarget.c **** 
+ 262:Drivers/Library/StdDriver/src/retarget.c **** SP_Read_Ready
+ 263:Drivers/Library/StdDriver/src/retarget.c ****     LDR     R1, [R0, #24]         /*; Get previous PC */
+ 264:Drivers/Library/StdDriver/src/retarget.c ****     LDRH    R3, [R1]              /*; Get instruction */
+ARM GAS  /tmp/ccxB69I0.s 			page 10
+
+
+ 265:Drivers/Library/StdDriver/src/retarget.c ****     LDR     R2, =0xBEAB           /*; The special BKPT instruction */
+ 266:Drivers/Library/StdDriver/src/retarget.c ****     CMP     R3, R2                /*; Test if the instruction at previous PC is BKPT */
+ 267:Drivers/Library/StdDriver/src/retarget.c ****     BNE     HardFault_Handler_Ret /*; Not BKPT */
+ 268:Drivers/Library/StdDriver/src/retarget.c **** 
+ 269:Drivers/Library/StdDriver/src/retarget.c ****     ADDS    R1, #4                /*; Skip BKPT and next line */
+ 270:Drivers/Library/StdDriver/src/retarget.c ****     STR     R1, [R0, #24]         /*; Save previous PC */
+ 271:Drivers/Library/StdDriver/src/retarget.c **** 
+ 272:Drivers/Library/StdDriver/src/retarget.c ****     BX      LR                    /*; Return */
+ 273:Drivers/Library/StdDriver/src/retarget.c **** HardFault_Handler_Ret
+ 274:Drivers/Library/StdDriver/src/retarget.c **** 
+ 275:Drivers/Library/StdDriver/src/retarget.c ****     /* TODO: Implement your own hard fault handler here. */
+ 276:Drivers/Library/StdDriver/src/retarget.c ****     MOVS    r0, #4
+ 277:Drivers/Library/StdDriver/src/retarget.c ****     MOV     r1, LR
+ 278:Drivers/Library/StdDriver/src/retarget.c ****     TST     r0, r1                          /*; check LR bit 2 */
+ 279:Drivers/Library/StdDriver/src/retarget.c ****     BEQ     Stack_Use_MSP                   /*; stack use MSP */
+ 280:Drivers/Library/StdDriver/src/retarget.c ****     MRS     R0, PSP ;stack use PSP          /*; stack use PSP, read PSP */
+ 281:Drivers/Library/StdDriver/src/retarget.c ****     B       Get_LR_and_Branch
+ 282:Drivers/Library/StdDriver/src/retarget.c **** Stack_Use_MSP
+ 283:Drivers/Library/StdDriver/src/retarget.c ****     MRS     R0, MSP ; stack use MSP         /*; read MSP */
+ 284:Drivers/Library/StdDriver/src/retarget.c **** Get_LR_and_Branch
+ 285:Drivers/Library/StdDriver/src/retarget.c ****     MOV     R1, LR ; LR current value       /*; LR current value */
+ 286:Drivers/Library/StdDriver/src/retarget.c ****     LDR     R2,=__cpp(Hard_Fault_Handler)   /*; branch to Hard_Fault_Handler */
+ 287:Drivers/Library/StdDriver/src/retarget.c ****     BX      R2
+ 288:Drivers/Library/StdDriver/src/retarget.c **** 
+ 289:Drivers/Library/StdDriver/src/retarget.c ****     B       .
+ 290:Drivers/Library/StdDriver/src/retarget.c **** 
+ 291:Drivers/Library/StdDriver/src/retarget.c ****     ALIGN
+ 292:Drivers/Library/StdDriver/src/retarget.c **** }
+ 293:Drivers/Library/StdDriver/src/retarget.c **** 
+ 294:Drivers/Library/StdDriver/src/retarget.c **** /**
+ 295:Drivers/Library/StdDriver/src/retarget.c ****  *
+ 296:Drivers/Library/StdDriver/src/retarget.c ****  * @brief      The function to process semihosted command
+ 297:Drivers/Library/StdDriver/src/retarget.c ****  * @param[in]  n32In_R0  : semihost register 0
+ 298:Drivers/Library/StdDriver/src/retarget.c ****  * @param[in]  n32In_R1  : semihost register 1
+ 299:Drivers/Library/StdDriver/src/retarget.c ****  * @param[out] pn32Out_R0: semihost register 0
+ 300:Drivers/Library/StdDriver/src/retarget.c ****  * @retval     0: No ICE debug
+ 301:Drivers/Library/StdDriver/src/retarget.c ****  * @retval     1: ICE debug
+ 302:Drivers/Library/StdDriver/src/retarget.c ****  *
+ 303:Drivers/Library/StdDriver/src/retarget.c ****  */
+ 304:Drivers/Library/StdDriver/src/retarget.c **** __asm int32_t SH_DoCommand(int32_t n32In_R0, int32_t n32In_R1, int32_t *pn32Out_R0)
+ 305:Drivers/Library/StdDriver/src/retarget.c **** {
+ 306:Drivers/Library/StdDriver/src/retarget.c ****     BKPT   0xAB          /*; Wait ICE or HardFault */
+ 307:Drivers/Library/StdDriver/src/retarget.c ****     /*; ICE will step over BKPT directly
+ 308:Drivers/Library/StdDriver/src/retarget.c ****       ; HardFault will step BKPT and the next line */
+ 309:Drivers/Library/StdDriver/src/retarget.c ****     B      SH_ICE
+ 310:Drivers/Library/StdDriver/src/retarget.c **** 
+ 311:Drivers/Library/StdDriver/src/retarget.c **** SH_HardFault             /*; Captured by HardFault */
+ 312:Drivers/Library/StdDriver/src/retarget.c ****     MOVS   R0, #0        /*; Set return value to 0 */
+ 313:Drivers/Library/StdDriver/src/retarget.c ****     BX     lr            /*; Return */
+ 314:Drivers/Library/StdDriver/src/retarget.c **** 
+ 315:Drivers/Library/StdDriver/src/retarget.c **** SH_ICE                   /*; Captured by ICE */
+ 316:Drivers/Library/StdDriver/src/retarget.c ****     /*; Save return value */
+ 317:Drivers/Library/StdDriver/src/retarget.c ****     CMP    R2, #0
+ 318:Drivers/Library/StdDriver/src/retarget.c ****     BEQ    SH_End
+ 319:Drivers/Library/StdDriver/src/retarget.c ****     STR    R0, [R2]      /*; Save the return value to *pn32Out_R0 */
+ 320:Drivers/Library/StdDriver/src/retarget.c **** 
+ 321:Drivers/Library/StdDriver/src/retarget.c **** SH_End
+ARM GAS  /tmp/ccxB69I0.s 			page 11
+
+
+ 322:Drivers/Library/StdDriver/src/retarget.c ****     MOVS   R0, #1        /*; Set return value to 1 */
+ 323:Drivers/Library/StdDriver/src/retarget.c ****     BX     lr            /*; Return */
+ 324:Drivers/Library/StdDriver/src/retarget.c **** }
+ 325:Drivers/Library/StdDriver/src/retarget.c **** #endif
+ 326:Drivers/Library/StdDriver/src/retarget.c **** 
+ 327:Drivers/Library/StdDriver/src/retarget.c **** #else   // ndef DEBUG_ENABLE_SEMIHOST
+ 328:Drivers/Library/StdDriver/src/retarget.c **** 
+ 329:Drivers/Library/StdDriver/src/retarget.c **** /* Make sure won't goes here only because --gnu is defined , so
+ 330:Drivers/Library/StdDriver/src/retarget.c ****    add !__CC_ARM and !__ICCARM__ checking */
+ 331:Drivers/Library/StdDriver/src/retarget.c **** # if defined ( __GNUC__ ) && !(__CC_ARM) && !(__ICCARM__) 
+ 332:Drivers/Library/StdDriver/src/retarget.c **** 
+ 333:Drivers/Library/StdDriver/src/retarget.c **** /**
+ 334:Drivers/Library/StdDriver/src/retarget.c ****  * @brief    This HardFault handler is implemented to show r0, r1, r2, r3, r12, lr, pc, psr
+ 335:Drivers/Library/StdDriver/src/retarget.c ****  *
+ 336:Drivers/Library/StdDriver/src/retarget.c ****  * @param    None
+ 337:Drivers/Library/StdDriver/src/retarget.c ****  *
+ 338:Drivers/Library/StdDriver/src/retarget.c ****  * @returns  None
+ 339:Drivers/Library/StdDriver/src/retarget.c ****  *
+ 340:Drivers/Library/StdDriver/src/retarget.c ****  * @details  This function is implement to print r0, r1, r2, r3, r12, lr, pc, psr.
+ 341:Drivers/Library/StdDriver/src/retarget.c ****  *
+ 342:Drivers/Library/StdDriver/src/retarget.c ****  */
+ 343:Drivers/Library/StdDriver/src/retarget.c **** void HardFault_Handler(void)
+ 344:Drivers/Library/StdDriver/src/retarget.c **** {
+ 223              		.loc 1 344 1
+ 224              		.cfi_startproc
+ 225              		@ args = 0, pretend = 0, frame = 0
+ 226              		@ frame_needed = 1, uses_anonymous_args = 0
+ 227              		@ link register save eliminated.
+ 228 0000 80B4     		push	{r7}
+ 229              	.LCFI8:
+ 230              		.cfi_def_cfa_offset 4
+ 231              		.cfi_offset 7, -4
+ 232 0002 00AF     		add	r7, sp, #0
+ 233              	.LCFI9:
+ 234              		.cfi_def_cfa_register 7
+ 345:Drivers/Library/StdDriver/src/retarget.c ****     asm("MOVS    r0, #4                        \n"
+ 235              		.loc 1 345 5
+ 236 0004 074B     		ldr	r3, .L10
+ 237              		.syntax unified
+ 238              	@ 345 "Drivers/Library/StdDriver/src/retarget.c" 1
+ 239 0006 0420     		MOVS    r0, #4                        
+ 240 0008 7146     	MOV     r1, LR                        
+ 241 000a 0842     	TST     r0, r1                        
+ 242 000c 04D0     	BEQ     1f                            
+ 243 000e EFF30980 	MRS     R0, PSP                       
+ 244 0012 7146     	MOV     R1, LR                        
+ 245 0014 FFF7FEBF 	B       Hard_Fault_Handler            
+ 246              	1:                                    
+ 247 0018 EFF30880 	MRS     R0, MSP                       
+ 248 001c FFF7FEBF 	B       Hard_Fault_Handler            
+ 249              	
+ 250              	@ 0 "" 2
+ 251              		.thumb
+ 252              		.syntax unified
+ 253              	.L9:
+ 346:Drivers/Library/StdDriver/src/retarget.c ****         "MOV     r1, LR                        \n"
+ 347:Drivers/Library/StdDriver/src/retarget.c ****         "TST     r0, r1                        \n" /*; check LR bit 2 */
+ARM GAS  /tmp/ccxB69I0.s 			page 12
+
+
+ 348:Drivers/Library/StdDriver/src/retarget.c ****         "BEQ     1f                            \n" /*; stack use MSP */
+ 349:Drivers/Library/StdDriver/src/retarget.c ****         "MRS     R0, PSP                       \n" /*; stack use PSP, read PSP */
+ 350:Drivers/Library/StdDriver/src/retarget.c ****         "MOV     R1, LR                        \n" /*; LR current value */
+ 351:Drivers/Library/StdDriver/src/retarget.c ****         "B       Hard_Fault_Handler            \n"
+ 352:Drivers/Library/StdDriver/src/retarget.c ****         "1:                                    \n"
+ 353:Drivers/Library/StdDriver/src/retarget.c ****         "MRS     R0, MSP                       \n" /*; LR current value */
+ 354:Drivers/Library/StdDriver/src/retarget.c ****         "B       Hard_Fault_Handler            \n"    
+ 355:Drivers/Library/StdDriver/src/retarget.c ****         ::[Hard_Fault_Handler] "r" (Hard_Fault_Handler) // input
+ 356:Drivers/Library/StdDriver/src/retarget.c ****     );
+ 357:Drivers/Library/StdDriver/src/retarget.c ****     while(1);
+ 254              		.loc 1 357 10 discriminator 1
+ 255 0020 FEE7     		b	.L9
+ 256              	.L11:
+ 257 0022 00BF     		.align	2
+ 258              	.L10:
+ 259 0024 00000000 		.word	Hard_Fault_Handler
+ 260              		.cfi_endproc
+ 261              	.LFE197:
+ 263              		.section	.text.SendChar_ToUART,"ax",%progbits
+ 264              		.align	1
+ 265              		.syntax unified
+ 266              		.thumb
+ 267              		.thumb_func
+ 269              	SendChar_ToUART:
+ 270              	.LFB198:
+ 358:Drivers/Library/StdDriver/src/retarget.c **** }
+ 359:Drivers/Library/StdDriver/src/retarget.c **** 
+ 360:Drivers/Library/StdDriver/src/retarget.c **** # elif defined(__ICCARM__)
+ 361:Drivers/Library/StdDriver/src/retarget.c **** 
+ 362:Drivers/Library/StdDriver/src/retarget.c **** void Get_LR_and_Branch(void)
+ 363:Drivers/Library/StdDriver/src/retarget.c **** {
+ 364:Drivers/Library/StdDriver/src/retarget.c ****     asm("MOV     R1, LR                  \n" /*; LR current value */
+ 365:Drivers/Library/StdDriver/src/retarget.c ****         "B       Hard_Fault_Handler      \n"
+ 366:Drivers/Library/StdDriver/src/retarget.c ****        );
+ 367:Drivers/Library/StdDriver/src/retarget.c **** }
+ 368:Drivers/Library/StdDriver/src/retarget.c **** 
+ 369:Drivers/Library/StdDriver/src/retarget.c **** void Stack_Use_MSP(void)
+ 370:Drivers/Library/StdDriver/src/retarget.c **** {
+ 371:Drivers/Library/StdDriver/src/retarget.c ****     asm("MRS     R0, MSP           \n" /*; read MSP */
+ 372:Drivers/Library/StdDriver/src/retarget.c ****         "B       Get_LR_and_Branch \n"
+ 373:Drivers/Library/StdDriver/src/retarget.c ****        );
+ 374:Drivers/Library/StdDriver/src/retarget.c **** }
+ 375:Drivers/Library/StdDriver/src/retarget.c **** 
+ 376:Drivers/Library/StdDriver/src/retarget.c **** /**
+ 377:Drivers/Library/StdDriver/src/retarget.c ****  * @brief    This HardFault handler is implemented to show r0, r1, r2, r3, r12, lr, pc, psr
+ 378:Drivers/Library/StdDriver/src/retarget.c ****  *
+ 379:Drivers/Library/StdDriver/src/retarget.c ****  * @param    None
+ 380:Drivers/Library/StdDriver/src/retarget.c ****  *
+ 381:Drivers/Library/StdDriver/src/retarget.c ****  * @returns  None
+ 382:Drivers/Library/StdDriver/src/retarget.c ****  *
+ 383:Drivers/Library/StdDriver/src/retarget.c ****  * @details  This function is implement to print r0, r1, r2, r3, r12, lr, pc, psr.
+ 384:Drivers/Library/StdDriver/src/retarget.c ****  *
+ 385:Drivers/Library/StdDriver/src/retarget.c ****  */
+ 386:Drivers/Library/StdDriver/src/retarget.c **** void HardFault_Handler(void)
+ 387:Drivers/Library/StdDriver/src/retarget.c **** {
+ 388:Drivers/Library/StdDriver/src/retarget.c ****     asm("MOVS    r0, #4                        \n"
+ 389:Drivers/Library/StdDriver/src/retarget.c ****         "MOV     r1, LR                        \n"
+ARM GAS  /tmp/ccxB69I0.s 			page 13
+
+
+ 390:Drivers/Library/StdDriver/src/retarget.c ****         "TST     r0, r1                        \n" /*; check LR bit 2 */
+ 391:Drivers/Library/StdDriver/src/retarget.c ****         "BEQ     Stack_Use_MSP                 \n" /*; stack use MSP */
+ 392:Drivers/Library/StdDriver/src/retarget.c ****         "MRS     R0, PSP                       \n" /*; stack use PSP, read PSP */
+ 393:Drivers/Library/StdDriver/src/retarget.c ****         "B       Get_LR_and_Branch             \n"
+ 394:Drivers/Library/StdDriver/src/retarget.c ****        );
+ 395:Drivers/Library/StdDriver/src/retarget.c **** 
+ 396:Drivers/Library/StdDriver/src/retarget.c ****     while(1);
+ 397:Drivers/Library/StdDriver/src/retarget.c **** }
+ 398:Drivers/Library/StdDriver/src/retarget.c **** 
+ 399:Drivers/Library/StdDriver/src/retarget.c **** # else
+ 400:Drivers/Library/StdDriver/src/retarget.c **** 
+ 401:Drivers/Library/StdDriver/src/retarget.c **** /**
+ 402:Drivers/Library/StdDriver/src/retarget.c ****  * @brief    This HardFault handler is implemented to show r0, r1, r2, r3, r12, lr, pc, psr
+ 403:Drivers/Library/StdDriver/src/retarget.c ****  *
+ 404:Drivers/Library/StdDriver/src/retarget.c ****  * @param    None
+ 405:Drivers/Library/StdDriver/src/retarget.c ****  *
+ 406:Drivers/Library/StdDriver/src/retarget.c ****  * @return   None
+ 407:Drivers/Library/StdDriver/src/retarget.c ****  *
+ 408:Drivers/Library/StdDriver/src/retarget.c ****  * @details  The function extracts the location of stack frame and passes it to Hard_Fault_Handler 
+ 409:Drivers/Library/StdDriver/src/retarget.c ****  *
+ 410:Drivers/Library/StdDriver/src/retarget.c ****  */
+ 411:Drivers/Library/StdDriver/src/retarget.c **** __asm int32_t HardFault_Handler(void)
+ 412:Drivers/Library/StdDriver/src/retarget.c **** {
+ 413:Drivers/Library/StdDriver/src/retarget.c ****     MOVS    r0, #4
+ 414:Drivers/Library/StdDriver/src/retarget.c ****     MOV     r1, LR
+ 415:Drivers/Library/StdDriver/src/retarget.c ****     TST     r0, r1          /*; check LR bit 2 */
+ 416:Drivers/Library/StdDriver/src/retarget.c ****     BEQ     Stack_Use_MSP   /*; stack use MSP */
+ 417:Drivers/Library/StdDriver/src/retarget.c ****     MRS     R0, PSP         /*; stack use PSP, read PSP */
+ 418:Drivers/Library/StdDriver/src/retarget.c ****     B       Get_LR_and_Branch
+ 419:Drivers/Library/StdDriver/src/retarget.c **** Stack_Use_MSP
+ 420:Drivers/Library/StdDriver/src/retarget.c ****     MRS     R0, MSP         /*; read MSP */
+ 421:Drivers/Library/StdDriver/src/retarget.c **** Get_LR_and_Branch
+ 422:Drivers/Library/StdDriver/src/retarget.c ****     MOV     R1, LR          /*; LR current value */
+ 423:Drivers/Library/StdDriver/src/retarget.c ****     LDR     R2,=__cpp(Hard_Fault_Handler) /*; branch to Hard_Fault_Handler */
+ 424:Drivers/Library/StdDriver/src/retarget.c ****     BX      R2
+ 425:Drivers/Library/StdDriver/src/retarget.c **** }
+ 426:Drivers/Library/StdDriver/src/retarget.c **** 
+ 427:Drivers/Library/StdDriver/src/retarget.c **** #endif
+ 428:Drivers/Library/StdDriver/src/retarget.c **** 
+ 429:Drivers/Library/StdDriver/src/retarget.c **** #endif
+ 430:Drivers/Library/StdDriver/src/retarget.c **** 
+ 431:Drivers/Library/StdDriver/src/retarget.c **** #ifndef DISABLE_UART
+ 432:Drivers/Library/StdDriver/src/retarget.c **** /**
+ 433:Drivers/Library/StdDriver/src/retarget.c ****  * @brief       Routine to send a char
+ 434:Drivers/Library/StdDriver/src/retarget.c ****  *
+ 435:Drivers/Library/StdDriver/src/retarget.c ****  * @param[in]   ch Character to send to debug port.
+ 436:Drivers/Library/StdDriver/src/retarget.c ****  *
+ 437:Drivers/Library/StdDriver/src/retarget.c ****  * @returns     Send value from UART debug port
+ 438:Drivers/Library/StdDriver/src/retarget.c ****  *
+ 439:Drivers/Library/StdDriver/src/retarget.c ****  * @details     Send a target char to UART debug port .
+ 440:Drivers/Library/StdDriver/src/retarget.c ****  */
+ 441:Drivers/Library/StdDriver/src/retarget.c **** #ifndef NONBLOCK_PRINTF
+ 442:Drivers/Library/StdDriver/src/retarget.c **** static void SendChar_ToUART(int ch)
+ 443:Drivers/Library/StdDriver/src/retarget.c **** {
+ 271              		.loc 1 443 1
+ 272              		.cfi_startproc
+ 273              		@ args = 0, pretend = 0, frame = 8
+ARM GAS  /tmp/ccxB69I0.s 			page 14
+
+
+ 274              		@ frame_needed = 1, uses_anonymous_args = 0
+ 275              		@ link register save eliminated.
+ 276 0000 80B4     		push	{r7}
+ 277              	.LCFI10:
+ 278              		.cfi_def_cfa_offset 4
+ 279              		.cfi_offset 7, -4
+ 280 0002 83B0     		sub	sp, sp, #12
+ 281              	.LCFI11:
+ 282              		.cfi_def_cfa_offset 16
+ 283 0004 00AF     		add	r7, sp, #0
+ 284              	.LCFI12:
+ 285              		.cfi_def_cfa_register 7
+ 286 0006 7860     		str	r0, [r7, #4]
+ 444:Drivers/Library/StdDriver/src/retarget.c ****     while(DEBUG_PORT->FIFOSTS & UART_FIFOSTS_TXFULL_Msk);
+ 287              		.loc 1 444 10
+ 288 0008 00BF     		nop
+ 289              	.L13:
+ 290              		.loc 1 444 21 discriminator 1
+ 291 000a 0E4B     		ldr	r3, .L16
+ 292 000c 9B69     		ldr	r3, [r3, #24]
+ 293              		.loc 1 444 31 discriminator 1
+ 294 000e 03F40003 		and	r3, r3, #8388608
+ 295              		.loc 1 444 10 discriminator 1
+ 296 0012 002B     		cmp	r3, #0
+ 297 0014 F9D1     		bne	.L13
+ 445:Drivers/Library/StdDriver/src/retarget.c **** 
+ 446:Drivers/Library/StdDriver/src/retarget.c ****     if(ch == '\n')
+ 298              		.loc 1 446 7
+ 299 0016 7B68     		ldr	r3, [r7, #4]
+ 300 0018 0A2B     		cmp	r3, #10
+ 301 001a 09D1     		bne	.L14
+ 447:Drivers/Library/StdDriver/src/retarget.c ****     {
+ 448:Drivers/Library/StdDriver/src/retarget.c ****         DEBUG_PORT->DAT = '\r';
+ 302              		.loc 1 448 19
+ 303 001c 094B     		ldr	r3, .L16
+ 304              		.loc 1 448 25
+ 305 001e 0D22     		movs	r2, #13
+ 306 0020 1A60     		str	r2, [r3]
+ 449:Drivers/Library/StdDriver/src/retarget.c ****         while(DEBUG_PORT->FIFOSTS & UART_FIFOSTS_TXFULL_Msk);
+ 307              		.loc 1 449 14
+ 308 0022 00BF     		nop
+ 309              	.L15:
+ 310              		.loc 1 449 25 discriminator 1
+ 311 0024 074B     		ldr	r3, .L16
+ 312 0026 9B69     		ldr	r3, [r3, #24]
+ 313              		.loc 1 449 35 discriminator 1
+ 314 0028 03F40003 		and	r3, r3, #8388608
+ 315              		.loc 1 449 14 discriminator 1
+ 316 002c 002B     		cmp	r3, #0
+ 317 002e F9D1     		bne	.L15
+ 318              	.L14:
+ 450:Drivers/Library/StdDriver/src/retarget.c ****     }
+ 451:Drivers/Library/StdDriver/src/retarget.c ****     DEBUG_PORT->DAT = ch;
+ 319              		.loc 1 451 15
+ 320 0030 044A     		ldr	r2, .L16
+ 321              		.loc 1 451 21
+ 322 0032 7B68     		ldr	r3, [r7, #4]
+ARM GAS  /tmp/ccxB69I0.s 			page 15
+
+
+ 323 0034 1360     		str	r3, [r2]
+ 452:Drivers/Library/StdDriver/src/retarget.c **** }
+ 324              		.loc 1 452 1
+ 325 0036 00BF     		nop
+ 326 0038 0C37     		adds	r7, r7, #12
+ 327              	.LCFI13:
+ 328              		.cfi_def_cfa_offset 4
+ 329 003a BD46     		mov	sp, r7
+ 330              	.LCFI14:
+ 331              		.cfi_def_cfa_register 13
+ 332              		@ sp needed
+ 333 003c 5DF8047B 		ldr	r7, [sp], #4
+ 334              	.LCFI15:
+ 335              		.cfi_restore 7
+ 336              		.cfi_def_cfa_offset 0
+ 337 0040 7047     		bx	lr
+ 338              	.L17:
+ 339 0042 00BF     		.align	2
+ 340              	.L16:
+ 341 0044 00000740 		.word	1074200576
+ 342              		.cfi_endproc
+ 343              	.LFE198:
+ 345              		.section	.text.SendChar,"ax",%progbits
+ 346              		.align	1
+ 347              		.syntax unified
+ 348              		.thumb
+ 349              		.thumb_func
+ 351              	SendChar:
+ 352              	.LFB199:
+ 453:Drivers/Library/StdDriver/src/retarget.c **** 
+ 454:Drivers/Library/StdDriver/src/retarget.c **** #else
+ 455:Drivers/Library/StdDriver/src/retarget.c **** /* Non-block implement of send char */
+ 456:Drivers/Library/StdDriver/src/retarget.c **** #define BUF_SIZE    2048
+ 457:Drivers/Library/StdDriver/src/retarget.c **** static void SendChar_ToUART(int ch)
+ 458:Drivers/Library/StdDriver/src/retarget.c **** {
+ 459:Drivers/Library/StdDriver/src/retarget.c ****     static uint8_t u8Buf[BUF_SIZE] = {0};
+ 460:Drivers/Library/StdDriver/src/retarget.c ****     static int32_t i32Head = 0;
+ 461:Drivers/Library/StdDriver/src/retarget.c ****     static int32_t i32Tail = 0;
+ 462:Drivers/Library/StdDriver/src/retarget.c ****     int32_t i32Tmp;
+ 463:Drivers/Library/StdDriver/src/retarget.c **** 
+ 464:Drivers/Library/StdDriver/src/retarget.c ****     /* Only flush the data in buffer to UART when ch == 0 */
+ 465:Drivers/Library/StdDriver/src/retarget.c ****     if(ch)
+ 466:Drivers/Library/StdDriver/src/retarget.c ****     {
+ 467:Drivers/Library/StdDriver/src/retarget.c ****         /* Push char */
+ 468:Drivers/Library/StdDriver/src/retarget.c ****         if(ch == '\n')
+ 469:Drivers/Library/StdDriver/src/retarget.c ****         {
+ 470:Drivers/Library/StdDriver/src/retarget.c ****             i32Tmp = i32Head+1;
+ 471:Drivers/Library/StdDriver/src/retarget.c ****             if(i32Tmp > BUF_SIZE) i32Tmp = 0;
+ 472:Drivers/Library/StdDriver/src/retarget.c ****             if(i32Tmp != i32Tail)
+ 473:Drivers/Library/StdDriver/src/retarget.c ****             {
+ 474:Drivers/Library/StdDriver/src/retarget.c ****                 u8Buf[i32Head] = '\r';
+ 475:Drivers/Library/StdDriver/src/retarget.c ****                 i32Head = i32Tmp;
+ 476:Drivers/Library/StdDriver/src/retarget.c ****             }
+ 477:Drivers/Library/StdDriver/src/retarget.c ****         }
+ 478:Drivers/Library/StdDriver/src/retarget.c **** 
+ 479:Drivers/Library/StdDriver/src/retarget.c ****         i32Tmp = i32Head+1;
+ 480:Drivers/Library/StdDriver/src/retarget.c ****         if(i32Tmp > BUF_SIZE) i32Tmp = 0;
+ARM GAS  /tmp/ccxB69I0.s 			page 16
+
+
+ 481:Drivers/Library/StdDriver/src/retarget.c ****         if(i32Tmp != i32Tail)
+ 482:Drivers/Library/StdDriver/src/retarget.c ****         {
+ 483:Drivers/Library/StdDriver/src/retarget.c ****             u8Buf[i32Head] = ch;
+ 484:Drivers/Library/StdDriver/src/retarget.c ****             i32Head = i32Tmp;
+ 485:Drivers/Library/StdDriver/src/retarget.c ****         }
+ 486:Drivers/Library/StdDriver/src/retarget.c ****     }
+ 487:Drivers/Library/StdDriver/src/retarget.c ****     else
+ 488:Drivers/Library/StdDriver/src/retarget.c ****     {
+ 489:Drivers/Library/StdDriver/src/retarget.c ****         if(i32Tail == i32Head)
+ 490:Drivers/Library/StdDriver/src/retarget.c ****             return;
+ 491:Drivers/Library/StdDriver/src/retarget.c ****     }
+ 492:Drivers/Library/StdDriver/src/retarget.c **** 
+ 493:Drivers/Library/StdDriver/src/retarget.c ****     /* pop char */
+ 494:Drivers/Library/StdDriver/src/retarget.c ****     do
+ 495:Drivers/Library/StdDriver/src/retarget.c ****     {
+ 496:Drivers/Library/StdDriver/src/retarget.c ****         i32Tmp = i32Tail + 1;
+ 497:Drivers/Library/StdDriver/src/retarget.c ****         if(i32Tmp > BUF_SIZE) i32Tmp = 0;
+ 498:Drivers/Library/StdDriver/src/retarget.c **** 
+ 499:Drivers/Library/StdDriver/src/retarget.c ****         if((DEBUG_PORT->FIFOSTS & UART_FIFOSTS_TXFULL_Msk) == 0)
+ 500:Drivers/Library/StdDriver/src/retarget.c ****         {
+ 501:Drivers/Library/StdDriver/src/retarget.c ****             DEBUG_PORT->DAT = u8Buf[i32Tail];
+ 502:Drivers/Library/StdDriver/src/retarget.c ****             i32Tail = i32Tmp;
+ 503:Drivers/Library/StdDriver/src/retarget.c ****         }
+ 504:Drivers/Library/StdDriver/src/retarget.c ****         else
+ 505:Drivers/Library/StdDriver/src/retarget.c ****             break; /* FIFO full */
+ 506:Drivers/Library/StdDriver/src/retarget.c ****     }while(i32Tail != i32Head);
+ 507:Drivers/Library/StdDriver/src/retarget.c **** }
+ 508:Drivers/Library/StdDriver/src/retarget.c **** #endif   /* else for NONBLOCK_PRINTF */
+ 509:Drivers/Library/StdDriver/src/retarget.c **** 
+ 510:Drivers/Library/StdDriver/src/retarget.c **** #endif   /* if not def DISABLE_UART */
+ 511:Drivers/Library/StdDriver/src/retarget.c **** 
+ 512:Drivers/Library/StdDriver/src/retarget.c **** /**
+ 513:Drivers/Library/StdDriver/src/retarget.c ****  * @brief       Routine to send a char
+ 514:Drivers/Library/StdDriver/src/retarget.c ****  *
+ 515:Drivers/Library/StdDriver/src/retarget.c ****  * @param[in]   ch Character to send to debug port.
+ 516:Drivers/Library/StdDriver/src/retarget.c ****  *
+ 517:Drivers/Library/StdDriver/src/retarget.c ****  * @returns     Send value from UART debug port or semihost
+ 518:Drivers/Library/StdDriver/src/retarget.c ****  *
+ 519:Drivers/Library/StdDriver/src/retarget.c ****  * @details     Send a target char to UART debug port or semihost.
+ 520:Drivers/Library/StdDriver/src/retarget.c ****  */
+ 521:Drivers/Library/StdDriver/src/retarget.c **** static void SendChar(int ch)
+ 522:Drivers/Library/StdDriver/src/retarget.c **** {
+ 353              		.loc 1 522 1
+ 354              		.cfi_startproc
+ 355              		@ args = 0, pretend = 0, frame = 8
+ 356              		@ frame_needed = 1, uses_anonymous_args = 0
+ 357 0000 80B5     		push	{r7, lr}
+ 358              	.LCFI16:
+ 359              		.cfi_def_cfa_offset 8
+ 360              		.cfi_offset 7, -8
+ 361              		.cfi_offset 14, -4
+ 362 0002 82B0     		sub	sp, sp, #8
+ 363              	.LCFI17:
+ 364              		.cfi_def_cfa_offset 16
+ 365 0004 00AF     		add	r7, sp, #0
+ 366              	.LCFI18:
+ 367              		.cfi_def_cfa_register 7
+ARM GAS  /tmp/ccxB69I0.s 			page 17
+
+
+ 368 0006 7860     		str	r0, [r7, #4]
+ 523:Drivers/Library/StdDriver/src/retarget.c **** #if defined(DEBUG_ENABLE_SEMIHOST)
+ 524:Drivers/Library/StdDriver/src/retarget.c ****     g_buf[g_buf_len++] = ch;
+ 525:Drivers/Library/StdDriver/src/retarget.c ****     g_buf[g_buf_len] = '\0';
+ 526:Drivers/Library/StdDriver/src/retarget.c ****     if(g_buf_len + 1 >= sizeof(g_buf) || ch == '\n' || ch == '\0')
+ 527:Drivers/Library/StdDriver/src/retarget.c ****     {
+ 528:Drivers/Library/StdDriver/src/retarget.c ****         /* Send the char */
+ 529:Drivers/Library/StdDriver/src/retarget.c ****         if(SH_DoCommand(0x04, (int)g_buf, NULL) != 0)
+ 530:Drivers/Library/StdDriver/src/retarget.c ****         {
+ 531:Drivers/Library/StdDriver/src/retarget.c ****             g_buf_len = 0;
+ 532:Drivers/Library/StdDriver/src/retarget.c ****             return;
+ 533:Drivers/Library/StdDriver/src/retarget.c ****         }
+ 534:Drivers/Library/StdDriver/src/retarget.c ****         else
+ 535:Drivers/Library/StdDriver/src/retarget.c ****         {
+ 536:Drivers/Library/StdDriver/src/retarget.c **** #ifndef DISABLE_UART
+ 537:Drivers/Library/StdDriver/src/retarget.c ****             int i;
+ 538:Drivers/Library/StdDriver/src/retarget.c **** 
+ 539:Drivers/Library/StdDriver/src/retarget.c ****             for(i = 0; i < g_buf_len; i++)
+ 540:Drivers/Library/StdDriver/src/retarget.c ****                 SendChar_ToUART(g_buf[i]);
+ 541:Drivers/Library/StdDriver/src/retarget.c **** #endif
+ 542:Drivers/Library/StdDriver/src/retarget.c ****             g_buf_len = 0;
+ 543:Drivers/Library/StdDriver/src/retarget.c ****         }
+ 544:Drivers/Library/StdDriver/src/retarget.c ****     }
+ 545:Drivers/Library/StdDriver/src/retarget.c **** #else
+ 546:Drivers/Library/StdDriver/src/retarget.c **** #ifndef DISABLE_UART
+ 547:Drivers/Library/StdDriver/src/retarget.c ****     SendChar_ToUART(ch);
+ 369              		.loc 1 547 5
+ 370 0008 7868     		ldr	r0, [r7, #4]
+ 371 000a FFF7FEFF 		bl	SendChar_ToUART
+ 548:Drivers/Library/StdDriver/src/retarget.c **** #endif
+ 549:Drivers/Library/StdDriver/src/retarget.c **** #endif
+ 550:Drivers/Library/StdDriver/src/retarget.c **** }
+ 372              		.loc 1 550 1
+ 373 000e 00BF     		nop
+ 374 0010 0837     		adds	r7, r7, #8
+ 375              	.LCFI19:
+ 376              		.cfi_def_cfa_offset 8
+ 377 0012 BD46     		mov	sp, r7
+ 378              	.LCFI20:
+ 379              		.cfi_def_cfa_register 13
+ 380              		@ sp needed
+ 381 0014 80BD     		pop	{r7, pc}
+ 382              		.cfi_endproc
+ 383              	.LFE199:
+ 385              		.section	.text.GetChar,"ax",%progbits
+ 386              		.align	1
+ 387              		.syntax unified
+ 388              		.thumb
+ 389              		.thumb_func
+ 391              	GetChar:
+ 392              	.LFB200:
+ 551:Drivers/Library/StdDriver/src/retarget.c **** 
+ 552:Drivers/Library/StdDriver/src/retarget.c **** /**
+ 553:Drivers/Library/StdDriver/src/retarget.c ****  * @brief    Routine to get a char
+ 554:Drivers/Library/StdDriver/src/retarget.c ****  *
+ 555:Drivers/Library/StdDriver/src/retarget.c ****  * @param    None
+ 556:Drivers/Library/StdDriver/src/retarget.c ****  *
+ARM GAS  /tmp/ccxB69I0.s 			page 18
+
+
+ 557:Drivers/Library/StdDriver/src/retarget.c ****  * @returns  Get value from UART debug port or semihost
+ 558:Drivers/Library/StdDriver/src/retarget.c ****  *
+ 559:Drivers/Library/StdDriver/src/retarget.c ****  * @details  Wait UART debug port or semihost to input a char.
+ 560:Drivers/Library/StdDriver/src/retarget.c ****  */
+ 561:Drivers/Library/StdDriver/src/retarget.c **** static char GetChar(void)
+ 562:Drivers/Library/StdDriver/src/retarget.c **** {
+ 393              		.loc 1 562 1
+ 394              		.cfi_startproc
+ 395              		@ args = 0, pretend = 0, frame = 0
+ 396              		@ frame_needed = 1, uses_anonymous_args = 0
+ 397              		@ link register save eliminated.
+ 398 0000 80B4     		push	{r7}
+ 399              	.LCFI21:
+ 400              		.cfi_def_cfa_offset 4
+ 401              		.cfi_offset 7, -4
+ 402 0002 00AF     		add	r7, sp, #0
+ 403              	.LCFI22:
+ 404              		.cfi_def_cfa_register 7
+ 405              	.L22:
+ 563:Drivers/Library/StdDriver/src/retarget.c **** #ifdef DEBUG_ENABLE_SEMIHOST
+ 564:Drivers/Library/StdDriver/src/retarget.c **** # if defined (__CC_ARM)
+ 565:Drivers/Library/StdDriver/src/retarget.c ****     int nRet;
+ 566:Drivers/Library/StdDriver/src/retarget.c ****     while(SH_DoCommand(0x101, 0, &nRet) != 0)
+ 567:Drivers/Library/StdDriver/src/retarget.c ****     {
+ 568:Drivers/Library/StdDriver/src/retarget.c ****         if(nRet != 0)
+ 569:Drivers/Library/StdDriver/src/retarget.c ****         {
+ 570:Drivers/Library/StdDriver/src/retarget.c ****             SH_DoCommand(0x07, 0, &nRet);
+ 571:Drivers/Library/StdDriver/src/retarget.c ****             return (char)nRet;
+ 572:Drivers/Library/StdDriver/src/retarget.c ****         }
+ 573:Drivers/Library/StdDriver/src/retarget.c ****     }
+ 574:Drivers/Library/StdDriver/src/retarget.c **** # else
+ 575:Drivers/Library/StdDriver/src/retarget.c ****     int nRet;
+ 576:Drivers/Library/StdDriver/src/retarget.c ****     while(SH_DoCommand(0x7, 0, &nRet) != 0)
+ 577:Drivers/Library/StdDriver/src/retarget.c ****     {
+ 578:Drivers/Library/StdDriver/src/retarget.c ****         if(nRet != 0)
+ 579:Drivers/Library/StdDriver/src/retarget.c ****             return (char)nRet;
+ 580:Drivers/Library/StdDriver/src/retarget.c ****     }
+ 581:Drivers/Library/StdDriver/src/retarget.c **** # endif
+ 582:Drivers/Library/StdDriver/src/retarget.c ****     return (0);
+ 583:Drivers/Library/StdDriver/src/retarget.c **** #else
+ 584:Drivers/Library/StdDriver/src/retarget.c **** #ifndef DISABLE_UART
+ 585:Drivers/Library/StdDriver/src/retarget.c ****     while(1)
+ 586:Drivers/Library/StdDriver/src/retarget.c ****     {
+ 587:Drivers/Library/StdDriver/src/retarget.c ****         if((DEBUG_PORT->FIFOSTS & UART_FIFOSTS_RXEMPTY_Msk) == 0)
+ 406              		.loc 1 587 23
+ 407 0004 064B     		ldr	r3, .L24
+ 408 0006 9B69     		ldr	r3, [r3, #24]
+ 409              		.loc 1 587 33
+ 410 0008 03F48043 		and	r3, r3, #16384
+ 411              		.loc 1 587 11
+ 412 000c 002B     		cmp	r3, #0
+ 413 000e F9D1     		bne	.L22
+ 588:Drivers/Library/StdDriver/src/retarget.c ****         {
+ 589:Drivers/Library/StdDriver/src/retarget.c ****             return (DEBUG_PORT->DAT);
+ 414              		.loc 1 589 31
+ 415 0010 034B     		ldr	r3, .L24
+ 416 0012 1B68     		ldr	r3, [r3]
+ARM GAS  /tmp/ccxB69I0.s 			page 19
+
+
+ 417 0014 5BB2     		sxtb	r3, r3
+ 590:Drivers/Library/StdDriver/src/retarget.c ****         }
+ 591:Drivers/Library/StdDriver/src/retarget.c ****     }
+ 592:Drivers/Library/StdDriver/src/retarget.c **** #else
+ 593:Drivers/Library/StdDriver/src/retarget.c ****     return 0;
+ 594:Drivers/Library/StdDriver/src/retarget.c **** #endif
+ 595:Drivers/Library/StdDriver/src/retarget.c **** #endif
+ 596:Drivers/Library/StdDriver/src/retarget.c **** }
+ 418              		.loc 1 596 1
+ 419 0016 1846     		mov	r0, r3
+ 420 0018 BD46     		mov	sp, r7
+ 421              	.LCFI23:
+ 422              		.cfi_def_cfa_register 13
+ 423              		@ sp needed
+ 424 001a 5DF8047B 		ldr	r7, [sp], #4
+ 425              	.LCFI24:
+ 426              		.cfi_restore 7
+ 427              		.cfi_def_cfa_offset 0
+ 428 001e 7047     		bx	lr
+ 429              	.L25:
+ 430              		.align	2
+ 431              	.L24:
+ 432 0020 00000740 		.word	1074200576
+ 433              		.cfi_endproc
+ 434              	.LFE200:
+ 436              		.section	.text.kbhit,"ax",%progbits
+ 437              		.align	1
+ 438              		.global	kbhit
+ 439              		.syntax unified
+ 440              		.thumb
+ 441              		.thumb_func
+ 443              	kbhit:
+ 444              	.LFB201:
+ 597:Drivers/Library/StdDriver/src/retarget.c **** 
+ 598:Drivers/Library/StdDriver/src/retarget.c **** /**
+ 599:Drivers/Library/StdDriver/src/retarget.c ****  * @brief    Check any char input from UART
+ 600:Drivers/Library/StdDriver/src/retarget.c ****  *
+ 601:Drivers/Library/StdDriver/src/retarget.c ****  * @param    None
+ 602:Drivers/Library/StdDriver/src/retarget.c ****  *
+ 603:Drivers/Library/StdDriver/src/retarget.c ****  * @retval   1: No any char input
+ 604:Drivers/Library/StdDriver/src/retarget.c ****  * @retval   0: Have some char input
+ 605:Drivers/Library/StdDriver/src/retarget.c ****  *
+ 606:Drivers/Library/StdDriver/src/retarget.c ****  * @details  Check UART RSR RX EMPTY or not to determine if any char input from UART
+ 607:Drivers/Library/StdDriver/src/retarget.c ****  */
+ 608:Drivers/Library/StdDriver/src/retarget.c **** 
+ 609:Drivers/Library/StdDriver/src/retarget.c **** int kbhit(void)
+ 610:Drivers/Library/StdDriver/src/retarget.c **** {
+ 445              		.loc 1 610 1
+ 446              		.cfi_startproc
+ 447              		@ args = 0, pretend = 0, frame = 0
+ 448              		@ frame_needed = 1, uses_anonymous_args = 0
+ 449              		@ link register save eliminated.
+ 450 0000 80B4     		push	{r7}
+ 451              	.LCFI25:
+ 452              		.cfi_def_cfa_offset 4
+ 453              		.cfi_offset 7, -4
+ 454 0002 00AF     		add	r7, sp, #0
+ARM GAS  /tmp/ccxB69I0.s 			page 20
+
+
+ 455              	.LCFI26:
+ 456              		.cfi_def_cfa_register 7
+ 611:Drivers/Library/StdDriver/src/retarget.c **** #ifndef DISABLE_UART
+ 612:Drivers/Library/StdDriver/src/retarget.c ****     return !((DEBUG_PORT->FIFOSTS & UART_FIFOSTS_RXEMPTY_Msk) == 0);
+ 457              		.loc 1 612 25
+ 458 0004 064B     		ldr	r3, .L28
+ 459 0006 9B69     		ldr	r3, [r3, #24]
+ 460              		.loc 1 612 35
+ 461 0008 03F48043 		and	r3, r3, #16384
+ 462              		.loc 1 612 12
+ 463 000c 002B     		cmp	r3, #0
+ 464 000e 14BF     		ite	ne
+ 465 0010 0123     		movne	r3, #1
+ 466 0012 0023     		moveq	r3, #0
+ 467 0014 DBB2     		uxtb	r3, r3
+ 613:Drivers/Library/StdDriver/src/retarget.c **** #else
+ 614:Drivers/Library/StdDriver/src/retarget.c ****     return 0;
+ 615:Drivers/Library/StdDriver/src/retarget.c **** #endif
+ 616:Drivers/Library/StdDriver/src/retarget.c **** }
+ 468              		.loc 1 616 1
+ 469 0016 1846     		mov	r0, r3
+ 470 0018 BD46     		mov	sp, r7
+ 471              	.LCFI27:
+ 472              		.cfi_def_cfa_register 13
+ 473              		@ sp needed
+ 474 001a 5DF8047B 		ldr	r7, [sp], #4
+ 475              	.LCFI28:
+ 476              		.cfi_restore 7
+ 477              		.cfi_def_cfa_offset 0
+ 478 001e 7047     		bx	lr
+ 479              	.L29:
+ 480              		.align	2
+ 481              	.L28:
+ 482 0020 00000740 		.word	1074200576
+ 483              		.cfi_endproc
+ 484              	.LFE201:
+ 486              		.section	.text.IsDebugFifoEmpty,"ax",%progbits
+ 487              		.align	1
+ 488              		.global	IsDebugFifoEmpty
+ 489              		.syntax unified
+ 490              		.thumb
+ 491              		.thumb_func
+ 493              	IsDebugFifoEmpty:
+ 494              	.LFB202:
+ 617:Drivers/Library/StdDriver/src/retarget.c **** /**
+ 618:Drivers/Library/StdDriver/src/retarget.c ****  * @brief    Check if debug message finished
+ 619:Drivers/Library/StdDriver/src/retarget.c ****  *
+ 620:Drivers/Library/StdDriver/src/retarget.c ****  * @param    None
+ 621:Drivers/Library/StdDriver/src/retarget.c ****  *
+ 622:Drivers/Library/StdDriver/src/retarget.c ****  * @retval   1: Message is finished
+ 623:Drivers/Library/StdDriver/src/retarget.c ****  * @retval   0: Message is transmitting.
+ 624:Drivers/Library/StdDriver/src/retarget.c ****  *
+ 625:Drivers/Library/StdDriver/src/retarget.c ****  * @details  Check if message finished (FIFO empty of debug port)
+ 626:Drivers/Library/StdDriver/src/retarget.c ****  */
+ 627:Drivers/Library/StdDriver/src/retarget.c **** 
+ 628:Drivers/Library/StdDriver/src/retarget.c **** int IsDebugFifoEmpty(void)
+ 629:Drivers/Library/StdDriver/src/retarget.c **** {
+ARM GAS  /tmp/ccxB69I0.s 			page 21
+
+
+ 495              		.loc 1 629 1
+ 496              		.cfi_startproc
+ 497              		@ args = 0, pretend = 0, frame = 0
+ 498              		@ frame_needed = 1, uses_anonymous_args = 0
+ 499              		@ link register save eliminated.
+ 500 0000 80B4     		push	{r7}
+ 501              	.LCFI29:
+ 502              		.cfi_def_cfa_offset 4
+ 503              		.cfi_offset 7, -4
+ 504 0002 00AF     		add	r7, sp, #0
+ 505              	.LCFI30:
+ 506              		.cfi_def_cfa_register 7
+ 630:Drivers/Library/StdDriver/src/retarget.c **** #ifndef DISABLE_UART
+ 631:Drivers/Library/StdDriver/src/retarget.c ****     return ((DEBUG_PORT->FIFOSTS & UART_FIFOSTS_TXEMPTYF_Msk) != 0);
+ 507              		.loc 1 631 24
+ 508 0004 064B     		ldr	r3, .L32
+ 509 0006 9B69     		ldr	r3, [r3, #24]
+ 510              		.loc 1 631 34
+ 511 0008 03F08053 		and	r3, r3, #268435456
+ 512              		.loc 1 631 63
+ 513 000c 002B     		cmp	r3, #0
+ 514 000e 14BF     		ite	ne
+ 515 0010 0123     		movne	r3, #1
+ 516 0012 0023     		moveq	r3, #0
+ 517 0014 DBB2     		uxtb	r3, r3
+ 632:Drivers/Library/StdDriver/src/retarget.c **** #else
+ 633:Drivers/Library/StdDriver/src/retarget.c ****     return 1;
+ 634:Drivers/Library/StdDriver/src/retarget.c **** #endif
+ 635:Drivers/Library/StdDriver/src/retarget.c **** }
+ 518              		.loc 1 635 1
+ 519 0016 1846     		mov	r0, r3
+ 520 0018 BD46     		mov	sp, r7
+ 521              	.LCFI31:
+ 522              		.cfi_def_cfa_register 13
+ 523              		@ sp needed
+ 524 001a 5DF8047B 		ldr	r7, [sp], #4
+ 525              	.LCFI32:
+ 526              		.cfi_restore 7
+ 527              		.cfi_def_cfa_offset 0
+ 528 001e 7047     		bx	lr
+ 529              	.L33:
+ 530              		.align	2
+ 531              	.L32:
+ 532 0020 00000740 		.word	1074200576
+ 533              		.cfi_endproc
+ 534              	.LFE202:
+ 536              		.section	.text._ttywrch,"ax",%progbits
+ 537              		.align	1
+ 538              		.global	_ttywrch
+ 539              		.syntax unified
+ 540              		.thumb
+ 541              		.thumb_func
+ 543              	_ttywrch:
+ 544              	.LFB203:
+ 636:Drivers/Library/StdDriver/src/retarget.c **** 
+ 637:Drivers/Library/StdDriver/src/retarget.c **** /**
+ 638:Drivers/Library/StdDriver/src/retarget.c ****  * @brief       C library retargetting
+ARM GAS  /tmp/ccxB69I0.s 			page 22
+
+
+ 639:Drivers/Library/StdDriver/src/retarget.c ****  *
+ 640:Drivers/Library/StdDriver/src/retarget.c ****  * @param[in]   ch Character to send to debug port.
+ 641:Drivers/Library/StdDriver/src/retarget.c ****  *
+ 642:Drivers/Library/StdDriver/src/retarget.c ****  * @returns     None
+ 643:Drivers/Library/StdDriver/src/retarget.c ****  *
+ 644:Drivers/Library/StdDriver/src/retarget.c ****  * @details     Check if message finished (FIFO empty of debug port)
+ 645:Drivers/Library/StdDriver/src/retarget.c ****  */
+ 646:Drivers/Library/StdDriver/src/retarget.c **** 
+ 647:Drivers/Library/StdDriver/src/retarget.c **** void _ttywrch(int ch)
+ 648:Drivers/Library/StdDriver/src/retarget.c **** {
+ 545              		.loc 1 648 1
+ 546              		.cfi_startproc
+ 547              		@ args = 0, pretend = 0, frame = 8
+ 548              		@ frame_needed = 1, uses_anonymous_args = 0
+ 549 0000 80B5     		push	{r7, lr}
+ 550              	.LCFI33:
+ 551              		.cfi_def_cfa_offset 8
+ 552              		.cfi_offset 7, -8
+ 553              		.cfi_offset 14, -4
+ 554 0002 82B0     		sub	sp, sp, #8
+ 555              	.LCFI34:
+ 556              		.cfi_def_cfa_offset 16
+ 557 0004 00AF     		add	r7, sp, #0
+ 558              	.LCFI35:
+ 559              		.cfi_def_cfa_register 7
+ 560 0006 7860     		str	r0, [r7, #4]
+ 649:Drivers/Library/StdDriver/src/retarget.c ****     SendChar(ch);
+ 561              		.loc 1 649 5
+ 562 0008 7868     		ldr	r0, [r7, #4]
+ 563 000a FFF7FEFF 		bl	SendChar
+ 650:Drivers/Library/StdDriver/src/retarget.c ****     return;
+ 564              		.loc 1 650 5
+ 565 000e 00BF     		nop
+ 651:Drivers/Library/StdDriver/src/retarget.c **** }
+ 566              		.loc 1 651 1
+ 567 0010 0837     		adds	r7, r7, #8
+ 568              	.LCFI36:
+ 569              		.cfi_def_cfa_offset 8
+ 570 0012 BD46     		mov	sp, r7
+ 571              	.LCFI37:
+ 572              		.cfi_def_cfa_register 13
+ 573              		@ sp needed
+ 574 0014 80BD     		pop	{r7, pc}
+ 575              		.cfi_endproc
+ 576              	.LFE203:
+ 578              		.section	.text.fputc,"ax",%progbits
+ 579              		.align	1
+ 580              		.global	fputc
+ 581              		.syntax unified
+ 582              		.thumb
+ 583              		.thumb_func
+ 585              	fputc:
+ 586              	.LFB204:
+ 652:Drivers/Library/StdDriver/src/retarget.c **** 
+ 653:Drivers/Library/StdDriver/src/retarget.c **** 
+ 654:Drivers/Library/StdDriver/src/retarget.c **** /**
+ 655:Drivers/Library/StdDriver/src/retarget.c ****  * @brief      Write character to stream
+ARM GAS  /tmp/ccxB69I0.s 			page 23
+
+
+ 656:Drivers/Library/StdDriver/src/retarget.c ****  *
+ 657:Drivers/Library/StdDriver/src/retarget.c ****  * @param[in]  ch       Character to be written. The character is passed as its int promotion.
+ 658:Drivers/Library/StdDriver/src/retarget.c ****  * @param[in]  stream   Pointer to a FILE object that identifies the stream where the character is 
+ 659:Drivers/Library/StdDriver/src/retarget.c ****  *
+ 660:Drivers/Library/StdDriver/src/retarget.c ****  * @returns    If there are no errors, the same character that has been written is returned.
+ 661:Drivers/Library/StdDriver/src/retarget.c ****  *             If an error occurs, EOF is returned and the error indicator is set (see ferror).
+ 662:Drivers/Library/StdDriver/src/retarget.c ****  *
+ 663:Drivers/Library/StdDriver/src/retarget.c ****  * @details    Writes a character to the stream and advances the position indicator.\n
+ 664:Drivers/Library/StdDriver/src/retarget.c ****  *             The character is written at the current position of the stream as indicated \n
+ 665:Drivers/Library/StdDriver/src/retarget.c ****  *             by the internal position indicator, which is then advanced one character.
+ 666:Drivers/Library/StdDriver/src/retarget.c ****  *
+ 667:Drivers/Library/StdDriver/src/retarget.c ****  * @note       The above descriptions are copied from http://www.cplusplus.com/reference/clibrary/c
+ 668:Drivers/Library/StdDriver/src/retarget.c ****  *
+ 669:Drivers/Library/StdDriver/src/retarget.c ****  *
+ 670:Drivers/Library/StdDriver/src/retarget.c ****  */
+ 671:Drivers/Library/StdDriver/src/retarget.c **** 
+ 672:Drivers/Library/StdDriver/src/retarget.c **** int fputc(int ch, FILE *stream)
+ 673:Drivers/Library/StdDriver/src/retarget.c **** {
+ 587              		.loc 1 673 1
+ 588              		.cfi_startproc
+ 589              		@ args = 0, pretend = 0, frame = 8
+ 590              		@ frame_needed = 1, uses_anonymous_args = 0
+ 591 0000 80B5     		push	{r7, lr}
+ 592              	.LCFI38:
+ 593              		.cfi_def_cfa_offset 8
+ 594              		.cfi_offset 7, -8
+ 595              		.cfi_offset 14, -4
+ 596 0002 82B0     		sub	sp, sp, #8
+ 597              	.LCFI39:
+ 598              		.cfi_def_cfa_offset 16
+ 599 0004 00AF     		add	r7, sp, #0
+ 600              	.LCFI40:
+ 601              		.cfi_def_cfa_register 7
+ 602 0006 7860     		str	r0, [r7, #4]
+ 603 0008 3960     		str	r1, [r7]
+ 674:Drivers/Library/StdDriver/src/retarget.c ****     SendChar(ch);
+ 604              		.loc 1 674 5
+ 605 000a 7868     		ldr	r0, [r7, #4]
+ 606 000c FFF7FEFF 		bl	SendChar
+ 675:Drivers/Library/StdDriver/src/retarget.c ****     return ch;
+ 607              		.loc 1 675 12
+ 608 0010 7B68     		ldr	r3, [r7, #4]
+ 676:Drivers/Library/StdDriver/src/retarget.c **** }
+ 609              		.loc 1 676 1
+ 610 0012 1846     		mov	r0, r3
+ 611 0014 0837     		adds	r7, r7, #8
+ 612              	.LCFI41:
+ 613              		.cfi_def_cfa_offset 8
+ 614 0016 BD46     		mov	sp, r7
+ 615              	.LCFI42:
+ 616              		.cfi_def_cfa_register 13
+ 617              		@ sp needed
+ 618 0018 80BD     		pop	{r7, pc}
+ 619              		.cfi_endproc
+ 620              	.LFE204:
+ 622              		.section	.text._write,"ax",%progbits
+ 623              		.align	1
+ARM GAS  /tmp/ccxB69I0.s 			page 24
+
+
+ 624              		.global	_write
+ 625              		.syntax unified
+ 626              		.thumb
+ 627              		.thumb_func
+ 629              	_write:
+ 630              	.LFB205:
+ 677:Drivers/Library/StdDriver/src/retarget.c **** 
+ 678:Drivers/Library/StdDriver/src/retarget.c **** #if defined (__GNUC__) && !defined(__ARMCC_VERSION)
+ 679:Drivers/Library/StdDriver/src/retarget.c **** 
+ 680:Drivers/Library/StdDriver/src/retarget.c **** int _write (int fd, char *ptr, int len)
+ 681:Drivers/Library/StdDriver/src/retarget.c **** {
+ 631              		.loc 1 681 1
+ 632              		.cfi_startproc
+ 633              		@ args = 0, pretend = 0, frame = 24
+ 634              		@ frame_needed = 1, uses_anonymous_args = 0
+ 635              		@ link register save eliminated.
+ 636 0000 80B4     		push	{r7}
+ 637              	.LCFI43:
+ 638              		.cfi_def_cfa_offset 4
+ 639              		.cfi_offset 7, -4
+ 640 0002 87B0     		sub	sp, sp, #28
+ 641              	.LCFI44:
+ 642              		.cfi_def_cfa_offset 32
+ 643 0004 00AF     		add	r7, sp, #0
+ 644              	.LCFI45:
+ 645              		.cfi_def_cfa_register 7
+ 646 0006 F860     		str	r0, [r7, #12]
+ 647 0008 B960     		str	r1, [r7, #8]
+ 648 000a 7A60     		str	r2, [r7, #4]
+ 682:Drivers/Library/StdDriver/src/retarget.c ****     int i = len;
+ 649              		.loc 1 682 9
+ 650 000c 7B68     		ldr	r3, [r7, #4]
+ 651 000e 7B61     		str	r3, [r7, #20]
+ 683:Drivers/Library/StdDriver/src/retarget.c **** 
+ 684:Drivers/Library/StdDriver/src/retarget.c ****     while(i--)
+ 652              		.loc 1 684 10
+ 653 0010 1CE0     		b	.L39
+ 654              	.L43:
+ 685:Drivers/Library/StdDriver/src/retarget.c ****     {
+ 686:Drivers/Library/StdDriver/src/retarget.c ****         while(DEBUG_PORT->FIFOSTS & UART_FIFOSTS_TXFULL_Msk);
+ 655              		.loc 1 686 14
+ 656 0012 00BF     		nop
+ 657              	.L40:
+ 658              		.loc 1 686 25 discriminator 1
+ 659 0014 134B     		ldr	r3, .L45
+ 660 0016 9B69     		ldr	r3, [r3, #24]
+ 661              		.loc 1 686 35 discriminator 1
+ 662 0018 03F40003 		and	r3, r3, #8388608
+ 663              		.loc 1 686 14 discriminator 1
+ 664 001c 002B     		cmp	r3, #0
+ 665 001e F9D1     		bne	.L40
+ 687:Drivers/Library/StdDriver/src/retarget.c **** 
+ 688:Drivers/Library/StdDriver/src/retarget.c ****         if(*ptr == '\n')
+ 666              		.loc 1 688 12
+ 667 0020 BB68     		ldr	r3, [r7, #8]
+ 668 0022 93F90030 		ldrsb	r3, [r3]
+ 669              		.loc 1 688 11
+ARM GAS  /tmp/ccxB69I0.s 			page 25
+
+
+ 670 0026 0A2B     		cmp	r3, #10
+ 671 0028 09D1     		bne	.L41
+ 689:Drivers/Library/StdDriver/src/retarget.c ****         {
+ 690:Drivers/Library/StdDriver/src/retarget.c ****             DEBUG_PORT->DAT = '\r';
+ 672              		.loc 1 690 23
+ 673 002a 0E4B     		ldr	r3, .L45
+ 674              		.loc 1 690 29
+ 675 002c 0D22     		movs	r2, #13
+ 676 002e 1A60     		str	r2, [r3]
+ 691:Drivers/Library/StdDriver/src/retarget.c ****             while(DEBUG_PORT->FIFOSTS & UART_FIFOSTS_TXFULL_Msk);
+ 677              		.loc 1 691 18
+ 678 0030 00BF     		nop
+ 679              	.L42:
+ 680              		.loc 1 691 29 discriminator 1
+ 681 0032 0C4B     		ldr	r3, .L45
+ 682 0034 9B69     		ldr	r3, [r3, #24]
+ 683              		.loc 1 691 39 discriminator 1
+ 684 0036 03F40003 		and	r3, r3, #8388608
+ 685              		.loc 1 691 18 discriminator 1
+ 686 003a 002B     		cmp	r3, #0
+ 687 003c F9D1     		bne	.L42
+ 688              	.L41:
+ 692:Drivers/Library/StdDriver/src/retarget.c ****         }
+ 693:Drivers/Library/StdDriver/src/retarget.c **** 
+ 694:Drivers/Library/StdDriver/src/retarget.c ****         DEBUG_PORT->DAT = *ptr++;
+ 689              		.loc 1 694 31
+ 690 003e BB68     		ldr	r3, [r7, #8]
+ 691 0040 5A1C     		adds	r2, r3, #1
+ 692 0042 BA60     		str	r2, [r7, #8]
+ 693              		.loc 1 694 27
+ 694 0044 93F90020 		ldrsb	r2, [r3]
+ 695              		.loc 1 694 19
+ 696 0048 064B     		ldr	r3, .L45
+ 697              		.loc 1 694 25
+ 698 004a 1A60     		str	r2, [r3]
+ 699              	.L39:
+ 684:Drivers/Library/StdDriver/src/retarget.c ****     {
+ 700              		.loc 1 684 12
+ 701 004c 7B69     		ldr	r3, [r7, #20]
+ 702 004e 5A1E     		subs	r2, r3, #1
+ 703 0050 7A61     		str	r2, [r7, #20]
+ 684:Drivers/Library/StdDriver/src/retarget.c ****     {
+ 704              		.loc 1 684 10
+ 705 0052 002B     		cmp	r3, #0
+ 706 0054 DDD1     		bne	.L43
+ 695:Drivers/Library/StdDriver/src/retarget.c **** 
+ 696:Drivers/Library/StdDriver/src/retarget.c ****     }
+ 697:Drivers/Library/StdDriver/src/retarget.c ****     return len;
+ 707              		.loc 1 697 12
+ 708 0056 7B68     		ldr	r3, [r7, #4]
+ 698:Drivers/Library/StdDriver/src/retarget.c **** }
+ 709              		.loc 1 698 1
+ 710 0058 1846     		mov	r0, r3
+ 711 005a 1C37     		adds	r7, r7, #28
+ 712              	.LCFI46:
+ 713              		.cfi_def_cfa_offset 4
+ 714 005c BD46     		mov	sp, r7
+ARM GAS  /tmp/ccxB69I0.s 			page 26
+
+
+ 715              	.LCFI47:
+ 716              		.cfi_def_cfa_register 13
+ 717              		@ sp needed
+ 718 005e 5DF8047B 		ldr	r7, [sp], #4
+ 719              	.LCFI48:
+ 720              		.cfi_restore 7
+ 721              		.cfi_def_cfa_offset 0
+ 722 0062 7047     		bx	lr
+ 723              	.L46:
+ 724              		.align	2
+ 725              	.L45:
+ 726 0064 00000740 		.word	1074200576
+ 727              		.cfi_endproc
+ 728              	.LFE205:
+ 730              		.section	.text._read,"ax",%progbits
+ 731              		.align	1
+ 732              		.global	_read
+ 733              		.syntax unified
+ 734              		.thumb
+ 735              		.thumb_func
+ 737              	_read:
+ 738              	.LFB206:
+ 699:Drivers/Library/StdDriver/src/retarget.c **** 
+ 700:Drivers/Library/StdDriver/src/retarget.c **** int _read (int fd, char *ptr, int len)
+ 701:Drivers/Library/StdDriver/src/retarget.c **** {
+ 739              		.loc 1 701 1
+ 740              		.cfi_startproc
+ 741              		@ args = 0, pretend = 0, frame = 16
+ 742              		@ frame_needed = 1, uses_anonymous_args = 0
+ 743              		@ link register save eliminated.
+ 744 0000 80B4     		push	{r7}
+ 745              	.LCFI49:
+ 746              		.cfi_def_cfa_offset 4
+ 747              		.cfi_offset 7, -4
+ 748 0002 85B0     		sub	sp, sp, #20
+ 749              	.LCFI50:
+ 750              		.cfi_def_cfa_offset 24
+ 751 0004 00AF     		add	r7, sp, #0
+ 752              	.LCFI51:
+ 753              		.cfi_def_cfa_register 7
+ 754 0006 F860     		str	r0, [r7, #12]
+ 755 0008 B960     		str	r1, [r7, #8]
+ 756 000a 7A60     		str	r2, [r7, #4]
+ 702:Drivers/Library/StdDriver/src/retarget.c **** 
+ 703:Drivers/Library/StdDriver/src/retarget.c ****     while((DEBUG_PORT->FIFOSTS & UART_FIFOSTS_RXEMPTY_Msk) != 0);
+ 757              		.loc 1 703 10
+ 758 000c 00BF     		nop
+ 759              	.L48:
+ 760              		.loc 1 703 22 discriminator 1
+ 761 000e 094B     		ldr	r3, .L50
+ 762 0010 9B69     		ldr	r3, [r3, #24]
+ 763              		.loc 1 703 32 discriminator 1
+ 764 0012 03F48043 		and	r3, r3, #16384
+ 765              		.loc 1 703 10 discriminator 1
+ 766 0016 002B     		cmp	r3, #0
+ 767 0018 F9D1     		bne	.L48
+ 704:Drivers/Library/StdDriver/src/retarget.c ****     *ptr = DEBUG_PORT->DAT;
+ARM GAS  /tmp/ccxB69I0.s 			page 27
+
+
+ 768              		.loc 1 704 22
+ 769 001a 064B     		ldr	r3, .L50
+ 770 001c 1B68     		ldr	r3, [r3]
+ 771              		.loc 1 704 10
+ 772 001e 5AB2     		sxtb	r2, r3
+ 773 0020 BB68     		ldr	r3, [r7, #8]
+ 774 0022 1A70     		strb	r2, [r3]
+ 705:Drivers/Library/StdDriver/src/retarget.c ****     return 1;
+ 775              		.loc 1 705 12
+ 776 0024 0123     		movs	r3, #1
+ 706:Drivers/Library/StdDriver/src/retarget.c **** 
+ 707:Drivers/Library/StdDriver/src/retarget.c **** 
+ 708:Drivers/Library/StdDriver/src/retarget.c **** }
+ 777              		.loc 1 708 1
+ 778 0026 1846     		mov	r0, r3
+ 779 0028 1437     		adds	r7, r7, #20
+ 780              	.LCFI52:
+ 781              		.cfi_def_cfa_offset 4
+ 782 002a BD46     		mov	sp, r7
+ 783              	.LCFI53:
+ 784              		.cfi_def_cfa_register 13
+ 785              		@ sp needed
+ 786 002c 5DF8047B 		ldr	r7, [sp], #4
+ 787              	.LCFI54:
+ 788              		.cfi_restore 7
+ 789              		.cfi_def_cfa_offset 0
+ 790 0030 7047     		bx	lr
+ 791              	.L51:
+ 792 0032 00BF     		.align	2
+ 793              	.L50:
+ 794 0034 00000740 		.word	1074200576
+ 795              		.cfi_endproc
+ 796              	.LFE206:
+ 798              		.text
+ 799              	.Letext0:
+ 800              		.file 2 "/usr/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/machine/_default_types.h"
+ 801              		.file 3 "/usr/share/gcc-arm-none-eabi-10.3-2021.10/lib/gcc/arm-none-eabi/10.3.1/include/stddef.h"
+ 802              		.file 4 "/usr/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/_types.h"
+ 803              		.file 5 "/usr/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/reent.h"
+ 804              		.file 6 "/usr/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/lock.h"
+ 805              		.file 7 "/usr/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/_stdint.h"
+ 806              		.file 8 "/usr/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/stdio.h"
+ 807              		.file 9 "Drivers/Library/Device/Nuvoton_M480/Include/uart_reg.h"
+ARM GAS  /tmp/ccxB69I0.s 			page 28
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 retarget.c
+     /tmp/ccxB69I0.s:24     .bss.__stdout:0000000000000000 __stdout
+     /tmp/ccxB69I0.s:21     .bss.__stdout:0000000000000000 $d
+     /tmp/ccxB69I0.s:31     .bss.__stdin:0000000000000000 __stdin
+     /tmp/ccxB69I0.s:28     .bss.__stdin:0000000000000000 $d
+     /tmp/ccxB69I0.s:34     .rodata:0000000000000000 $d
+     /tmp/ccxB69I0.s:59     .text.stackDump:0000000000000000 $t
+     /tmp/ccxB69I0.s:64     .text.stackDump:0000000000000000 stackDump
+     /tmp/ccxB69I0.s:158    .text.stackDump:0000000000000080 $d
+     /tmp/ccxB69I0.s:174    .text.Hard_Fault_Handler:0000000000000000 $t
+     /tmp/ccxB69I0.s:180    .text.Hard_Fault_Handler:0000000000000000 Hard_Fault_Handler
+     /tmp/ccxB69I0.s:210    .text.Hard_Fault_Handler:0000000000000018 $d
+     /tmp/ccxB69I0.s:215    .text.HardFault_Handler:0000000000000000 $t
+     /tmp/ccxB69I0.s:221    .text.HardFault_Handler:0000000000000000 HardFault_Handler
+     /tmp/ccxB69I0.s:259    .text.HardFault_Handler:0000000000000024 $d
+     /tmp/ccxB69I0.s:264    .text.SendChar_ToUART:0000000000000000 $t
+     /tmp/ccxB69I0.s:269    .text.SendChar_ToUART:0000000000000000 SendChar_ToUART
+     /tmp/ccxB69I0.s:341    .text.SendChar_ToUART:0000000000000044 $d
+     /tmp/ccxB69I0.s:346    .text.SendChar:0000000000000000 $t
+     /tmp/ccxB69I0.s:351    .text.SendChar:0000000000000000 SendChar
+     /tmp/ccxB69I0.s:386    .text.GetChar:0000000000000000 $t
+     /tmp/ccxB69I0.s:391    .text.GetChar:0000000000000000 GetChar
+     /tmp/ccxB69I0.s:432    .text.GetChar:0000000000000020 $d
+     /tmp/ccxB69I0.s:437    .text.kbhit:0000000000000000 $t
+     /tmp/ccxB69I0.s:443    .text.kbhit:0000000000000000 kbhit
+     /tmp/ccxB69I0.s:482    .text.kbhit:0000000000000020 $d
+     /tmp/ccxB69I0.s:487    .text.IsDebugFifoEmpty:0000000000000000 $t
+     /tmp/ccxB69I0.s:493    .text.IsDebugFifoEmpty:0000000000000000 IsDebugFifoEmpty
+     /tmp/ccxB69I0.s:532    .text.IsDebugFifoEmpty:0000000000000020 $d
+     /tmp/ccxB69I0.s:537    .text._ttywrch:0000000000000000 $t
+     /tmp/ccxB69I0.s:543    .text._ttywrch:0000000000000000 _ttywrch
+     /tmp/ccxB69I0.s:579    .text.fputc:0000000000000000 $t
+     /tmp/ccxB69I0.s:585    .text.fputc:0000000000000000 fputc
+     /tmp/ccxB69I0.s:623    .text._write:0000000000000000 $t
+     /tmp/ccxB69I0.s:629    .text._write:0000000000000000 _write
+     /tmp/ccxB69I0.s:726    .text._write:0000000000000064 $d
+     /tmp/ccxB69I0.s:731    .text._read:0000000000000000 $t
+     /tmp/ccxB69I0.s:737    .text._read:0000000000000000 _read
+     /tmp/ccxB69I0.s:794    .text._read:0000000000000034 $d
+
+UNDEFINED SYMBOLS
+printf
+puts
