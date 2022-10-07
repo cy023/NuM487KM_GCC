@@ -90,7 +90,6 @@ LDSCRIPT = Device_Startup/gcc_arm.ld
 ################################################################################
 # Toolchain
 ################################################################################
-# COMPILER_PATH ?= D:/arm-gnu-toolchain-6.3.1.508-win32.any.x86/arm-none-eabi/bin/
 COMPILER_PATH ?= 
 CROSS   := $(COMPILER_PATH)arm-none-eabi
 CC      := $(CROSS)-gcc
