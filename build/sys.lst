@@ -1,30 +1,30 @@
-ARM GAS  /tmp/cc4Hv4N7.s 			page 1
+ARM GAS  /tmp/ccavsG2p.s 			page 1
 
 
    1              		.cpu cortex-m4
-   2              		.arch armv7e-m
-   3              		.fpu fpv4-sp-d16
-   4              		.eabi_attribute 27, 1
-   5              		.eabi_attribute 28, 1
-   6              		.eabi_attribute 20, 1
-   7              		.eabi_attribute 21, 1
-   8              		.eabi_attribute 23, 3
-   9              		.eabi_attribute 24, 1
-  10              		.eabi_attribute 25, 1
-  11              		.eabi_attribute 26, 1
-  12              		.eabi_attribute 30, 6
-  13              		.eabi_attribute 34, 1
-  14              		.eabi_attribute 18, 4
-  15              		.file	"sys.c"
-  16              		.text
-  17              	.Ltext0:
-  18              		.cfi_sections	.debug_frame
-  19              		.section	.text.SYS_ClearResetSrc,"ax",%progbits
-  20              		.align	1
-  21              		.global	SYS_ClearResetSrc
-  22              		.syntax unified
-  23              		.thumb
-  24              		.thumb_func
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"sys.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.SYS_ClearResetSrc,"ax",%progbits
+  18              		.align	1
+  19              		.global	SYS_ClearResetSrc
+  20              		.arch armv7e-m
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv4-sp-d16
   26              	SYS_ClearResetSrc:
   27              	.LFB195:
   28              		.file 1 "Drivers/Library/StdDriver/src/sys.c"
@@ -58,7 +58,7 @@ ARM GAS  /tmp/cc4Hv4N7.s 			page 1
   28:Drivers/Library/StdDriver/src/sys.c **** */
   29:Drivers/Library/StdDriver/src/sys.c **** 
   30:Drivers/Library/StdDriver/src/sys.c **** /**
-ARM GAS  /tmp/cc4Hv4N7.s 			page 2
+ARM GAS  /tmp/ccavsG2p.s 			page 2
 
 
   31:Drivers/Library/StdDriver/src/sys.c ****   * @brief      Clear reset source
@@ -118,7 +118,7 @@ ARM GAS  /tmp/cc4Hv4N7.s 			page 1
   66              		.cfi_endproc
   67              	.LFE195:
   69              		.section	.text.SYS_GetBODStatus,"ax",%progbits
-ARM GAS  /tmp/cc4Hv4N7.s 			page 3
+ARM GAS  /tmp/ccavsG2p.s 			page 3
 
 
   70              		.align	1
@@ -126,8 +126,9 @@ ARM GAS  /tmp/cc4Hv4N7.s 			page 1
   72              		.syntax unified
   73              		.thumb
   74              		.thumb_func
-  76              	SYS_GetBODStatus:
-  77              	.LFB196:
+  75              		.fpu fpv4-sp-d16
+  77              	SYS_GetBODStatus:
+  78              	.LFB196:
   48:Drivers/Library/StdDriver/src/sys.c **** 
   49:Drivers/Library/StdDriver/src/sys.c **** /**
   50:Drivers/Library/StdDriver/src/sys.c ****   * @brief      Get Brown-out detector output status
@@ -138,50 +139,51 @@ ARM GAS  /tmp/cc4Hv4N7.s 			page 1
   55:Drivers/Library/StdDriver/src/sys.c ****   */
   56:Drivers/Library/StdDriver/src/sys.c **** uint32_t SYS_GetBODStatus(void)
   57:Drivers/Library/StdDriver/src/sys.c **** {
-  78              		.loc 1 57 1
-  79              		.cfi_startproc
-  80              		@ args = 0, pretend = 0, frame = 0
-  81              		@ frame_needed = 1, uses_anonymous_args = 0
-  82              		@ link register save eliminated.
-  83 0000 80B4     		push	{r7}
-  84              	.LCFI6:
-  85              		.cfi_def_cfa_offset 4
-  86              		.cfi_offset 7, -4
-  87 0002 00AF     		add	r7, sp, #0
-  88              	.LCFI7:
-  89              		.cfi_def_cfa_register 7
+  79              		.loc 1 57 1
+  80              		.cfi_startproc
+  81              		@ args = 0, pretend = 0, frame = 0
+  82              		@ frame_needed = 1, uses_anonymous_args = 0
+  83              		@ link register save eliminated.
+  84 0000 80B4     		push	{r7}
+  85              	.LCFI6:
+  86              		.cfi_def_cfa_offset 4
+  87              		.cfi_offset 7, -4
+  88 0002 00AF     		add	r7, sp, #0
+  89              	.LCFI7:
+  90              		.cfi_def_cfa_register 7
   58:Drivers/Library/StdDriver/src/sys.c ****     return ((SYS->BODCTL & SYS_BODCTL_BODOUT_Msk) >> SYS_BODCTL_BODOUT_Pos);
-  90              		.loc 1 58 17
-  91 0004 4FF08043 		mov	r3, #1073741824
-  92 0008 9B69     		ldr	r3, [r3, #24]
-  93              		.loc 1 58 51
-  94 000a 9B09     		lsrs	r3, r3, #6
-  95 000c 03F00103 		and	r3, r3, #1
+  91              		.loc 1 58 17
+  92 0004 4FF08043 		mov	r3, #1073741824
+  93 0008 9B69     		ldr	r3, [r3, #24]
+  94              		.loc 1 58 51
+  95 000a 9B09     		lsrs	r3, r3, #6
+  96 000c 03F00103 		and	r3, r3, #1
   59:Drivers/Library/StdDriver/src/sys.c **** }
-  96              		.loc 1 59 1
-  97 0010 1846     		mov	r0, r3
-  98 0012 BD46     		mov	sp, r7
-  99              	.LCFI8:
- 100              		.cfi_def_cfa_register 13
- 101              		@ sp needed
- 102 0014 5DF8047B 		ldr	r7, [sp], #4
- 103              	.LCFI9:
- 104              		.cfi_restore 7
- 105              		.cfi_def_cfa_offset 0
- 106 0018 7047     		bx	lr
- 107              		.cfi_endproc
- 108              	.LFE196:
- 110              		.section	.text.SYS_GetResetSrc,"ax",%progbits
- 111              		.align	1
- 112              		.global	SYS_GetResetSrc
- 113              		.syntax unified
- 114              		.thumb
- 115              		.thumb_func
- 117              	SYS_GetResetSrc:
-ARM GAS  /tmp/cc4Hv4N7.s 			page 4
+  97              		.loc 1 59 1
+  98 0010 1846     		mov	r0, r3
+  99 0012 BD46     		mov	sp, r7
+ 100              	.LCFI8:
+ 101              		.cfi_def_cfa_register 13
+ 102              		@ sp needed
+ 103 0014 5DF8047B 		ldr	r7, [sp], #4
+ 104              	.LCFI9:
+ 105              		.cfi_restore 7
+ 106              		.cfi_def_cfa_offset 0
+ 107 0018 7047     		bx	lr
+ 108              		.cfi_endproc
+ 109              	.LFE196:
+ 111              		.section	.text.SYS_GetResetSrc,"ax",%progbits
+ 112              		.align	1
+ 113              		.global	SYS_GetResetSrc
+ 114              		.syntax unified
+ 115              		.thumb
+ 116              		.thumb_func
+ARM GAS  /tmp/ccavsG2p.s 			page 4
 
 
- 118              	.LFB197:
+ 117              		.fpu fpv4-sp-d16
+ 119              	SYS_GetResetSrc:
+ 120              	.LFB197:
   60:Drivers/Library/StdDriver/src/sys.c **** 
   61:Drivers/Library/StdDriver/src/sys.c **** /**
   62:Drivers/Library/StdDriver/src/sys.c ****   * @brief      Get reset status register value
@@ -191,153 +193,156 @@ ARM GAS  /tmp/cc4Hv4N7.s 			page 1
   66:Drivers/Library/StdDriver/src/sys.c ****   */
   67:Drivers/Library/StdDriver/src/sys.c **** uint32_t SYS_GetResetSrc(void)
   68:Drivers/Library/StdDriver/src/sys.c **** {
- 119              		.loc 1 68 1
- 120              		.cfi_startproc
- 121              		@ args = 0, pretend = 0, frame = 0
- 122              		@ frame_needed = 1, uses_anonymous_args = 0
- 123              		@ link register save eliminated.
- 124 0000 80B4     		push	{r7}
- 125              	.LCFI10:
- 126              		.cfi_def_cfa_offset 4
- 127              		.cfi_offset 7, -4
- 128 0002 00AF     		add	r7, sp, #0
- 129              	.LCFI11:
- 130              		.cfi_def_cfa_register 7
+ 121              		.loc 1 68 1
+ 122              		.cfi_startproc
+ 123              		@ args = 0, pretend = 0, frame = 0
+ 124              		@ frame_needed = 1, uses_anonymous_args = 0
+ 125              		@ link register save eliminated.
+ 126 0000 80B4     		push	{r7}
+ 127              	.LCFI10:
+ 128              		.cfi_def_cfa_offset 4
+ 129              		.cfi_offset 7, -4
+ 130 0002 00AF     		add	r7, sp, #0
+ 131              	.LCFI11:
+ 132              		.cfi_def_cfa_register 7
   69:Drivers/Library/StdDriver/src/sys.c ****     return (SYS->RSTSTS);
- 131              		.loc 1 69 16
- 132 0004 4FF08043 		mov	r3, #1073741824
- 133 0008 5B68     		ldr	r3, [r3, #4]
+ 133              		.loc 1 69 16
+ 134 0004 4FF08043 		mov	r3, #1073741824
+ 135 0008 5B68     		ldr	r3, [r3, #4]
   70:Drivers/Library/StdDriver/src/sys.c **** }
- 134              		.loc 1 70 1
- 135 000a 1846     		mov	r0, r3
- 136 000c BD46     		mov	sp, r7
- 137              	.LCFI12:
- 138              		.cfi_def_cfa_register 13
- 139              		@ sp needed
- 140 000e 5DF8047B 		ldr	r7, [sp], #4
- 141              	.LCFI13:
- 142              		.cfi_restore 7
- 143              		.cfi_def_cfa_offset 0
- 144 0012 7047     		bx	lr
- 145              		.cfi_endproc
- 146              	.LFE197:
- 148              		.section	.text.SYS_IsRegLocked,"ax",%progbits
- 149              		.align	1
- 150              		.global	SYS_IsRegLocked
- 151              		.syntax unified
- 152              		.thumb
- 153              		.thumb_func
- 155              	SYS_IsRegLocked:
- 156              	.LFB198:
+ 136              		.loc 1 70 1
+ 137 000a 1846     		mov	r0, r3
+ 138 000c BD46     		mov	sp, r7
+ 139              	.LCFI12:
+ 140              		.cfi_def_cfa_register 13
+ 141              		@ sp needed
+ 142 000e 5DF8047B 		ldr	r7, [sp], #4
+ 143              	.LCFI13:
+ 144              		.cfi_restore 7
+ 145              		.cfi_def_cfa_offset 0
+ 146 0012 7047     		bx	lr
+ 147              		.cfi_endproc
+ 148              	.LFE197:
+ 150              		.section	.text.SYS_IsRegLocked,"ax",%progbits
+ 151              		.align	1
+ 152              		.global	SYS_IsRegLocked
+ 153              		.syntax unified
+ 154              		.thumb
+ 155              		.thumb_func
+ 156              		.fpu fpv4-sp-d16
+ 158              	SYS_IsRegLocked:
+ 159              	.LFB198:
   71:Drivers/Library/StdDriver/src/sys.c **** 
   72:Drivers/Library/StdDriver/src/sys.c **** /**
   73:Drivers/Library/StdDriver/src/sys.c ****   * @brief      Check if register is locked nor not
   74:Drivers/Library/StdDriver/src/sys.c ****   * @param      None
   75:Drivers/Library/StdDriver/src/sys.c ****   * @retval     0 Write-protection function is disabled.
   76:Drivers/Library/StdDriver/src/sys.c ****   *             1 Write-protection function is enabled.
+ARM GAS  /tmp/ccavsG2p.s 			page 5
+
+
   77:Drivers/Library/StdDriver/src/sys.c ****   * @details    This function check register write-protection bit setting.
   78:Drivers/Library/StdDriver/src/sys.c ****   */
   79:Drivers/Library/StdDriver/src/sys.c **** uint32_t SYS_IsRegLocked(void)
-ARM GAS  /tmp/cc4Hv4N7.s 			page 5
-
-
   80:Drivers/Library/StdDriver/src/sys.c **** {
- 157              		.loc 1 80 1
- 158              		.cfi_startproc
- 159              		@ args = 0, pretend = 0, frame = 0
- 160              		@ frame_needed = 1, uses_anonymous_args = 0
- 161              		@ link register save eliminated.
- 162 0000 80B4     		push	{r7}
- 163              	.LCFI14:
- 164              		.cfi_def_cfa_offset 4
- 165              		.cfi_offset 7, -4
- 166 0002 00AF     		add	r7, sp, #0
- 167              	.LCFI15:
- 168              		.cfi_def_cfa_register 7
+ 160              		.loc 1 80 1
+ 161              		.cfi_startproc
+ 162              		@ args = 0, pretend = 0, frame = 0
+ 163              		@ frame_needed = 1, uses_anonymous_args = 0
+ 164              		@ link register save eliminated.
+ 165 0000 80B4     		push	{r7}
+ 166              	.LCFI14:
+ 167              		.cfi_def_cfa_offset 4
+ 168              		.cfi_offset 7, -4
+ 169 0002 00AF     		add	r7, sp, #0
+ 170              	.LCFI15:
+ 171              		.cfi_def_cfa_register 7
   81:Drivers/Library/StdDriver/src/sys.c ****     return SYS->REGLCTL & 1UL ? 0UL : 1UL;
- 169              		.loc 1 81 15
- 170 0004 4FF08043 		mov	r3, #1073741824
- 171 0008 D3F80031 		ldr	r3, [r3, #256]
- 172              		.loc 1 81 25
- 173 000c 03F00103 		and	r3, r3, #1
- 174              		.loc 1 81 37
- 175 0010 002B     		cmp	r3, #0
- 176 0012 0CBF     		ite	eq
- 177 0014 0123     		moveq	r3, #1
- 178 0016 0023     		movne	r3, #0
- 179 0018 DBB2     		uxtb	r3, r3
+ 172              		.loc 1 81 15
+ 173 0004 4FF08043 		mov	r3, #1073741824
+ 174 0008 D3F80031 		ldr	r3, [r3, #256]
+ 175              		.loc 1 81 25
+ 176 000c 03F00103 		and	r3, r3, #1
+ 177              		.loc 1 81 37
+ 178 0010 002B     		cmp	r3, #0
+ 179 0012 0CBF     		ite	eq
+ 180 0014 0123     		moveq	r3, #1
+ 181 0016 0023     		movne	r3, #0
+ 182 0018 DBB2     		uxtb	r3, r3
   82:Drivers/Library/StdDriver/src/sys.c **** }
- 180              		.loc 1 82 1
- 181 001a 1846     		mov	r0, r3
- 182 001c BD46     		mov	sp, r7
- 183              	.LCFI16:
- 184              		.cfi_def_cfa_register 13
- 185              		@ sp needed
- 186 001e 5DF8047B 		ldr	r7, [sp], #4
- 187              	.LCFI17:
- 188              		.cfi_restore 7
- 189              		.cfi_def_cfa_offset 0
- 190 0022 7047     		bx	lr
- 191              		.cfi_endproc
- 192              	.LFE198:
- 194              		.section	.text.SYS_ReadPDID,"ax",%progbits
- 195              		.align	1
- 196              		.global	SYS_ReadPDID
- 197              		.syntax unified
- 198              		.thumb
- 199              		.thumb_func
- 201              	SYS_ReadPDID:
- 202              	.LFB199:
+ 183              		.loc 1 82 1
+ 184 001a 1846     		mov	r0, r3
+ 185 001c BD46     		mov	sp, r7
+ 186              	.LCFI16:
+ 187              		.cfi_def_cfa_register 13
+ 188              		@ sp needed
+ 189 001e 5DF8047B 		ldr	r7, [sp], #4
+ 190              	.LCFI17:
+ 191              		.cfi_restore 7
+ 192              		.cfi_def_cfa_offset 0
+ 193 0022 7047     		bx	lr
+ 194              		.cfi_endproc
+ 195              	.LFE198:
+ 197              		.section	.text.SYS_ReadPDID,"ax",%progbits
+ 198              		.align	1
+ 199              		.global	SYS_ReadPDID
+ 200              		.syntax unified
+ 201              		.thumb
+ 202              		.thumb_func
+ 203              		.fpu fpv4-sp-d16
+ 205              	SYS_ReadPDID:
+ 206              	.LFB199:
   83:Drivers/Library/StdDriver/src/sys.c **** 
   84:Drivers/Library/StdDriver/src/sys.c **** /**
   85:Drivers/Library/StdDriver/src/sys.c ****   * @brief      Get product ID
   86:Drivers/Library/StdDriver/src/sys.c ****   * @param      None
   87:Drivers/Library/StdDriver/src/sys.c ****   * @return     Product ID
   88:Drivers/Library/StdDriver/src/sys.c ****   * @details    This function get product ID.
+ARM GAS  /tmp/ccavsG2p.s 			page 6
+
+
   89:Drivers/Library/StdDriver/src/sys.c ****   */
   90:Drivers/Library/StdDriver/src/sys.c **** uint32_t  SYS_ReadPDID(void)
   91:Drivers/Library/StdDriver/src/sys.c **** {
- 203              		.loc 1 91 1
-ARM GAS  /tmp/cc4Hv4N7.s 			page 6
-
-
- 204              		.cfi_startproc
- 205              		@ args = 0, pretend = 0, frame = 0
- 206              		@ frame_needed = 1, uses_anonymous_args = 0
- 207              		@ link register save eliminated.
- 208 0000 80B4     		push	{r7}
- 209              	.LCFI18:
- 210              		.cfi_def_cfa_offset 4
- 211              		.cfi_offset 7, -4
- 212 0002 00AF     		add	r7, sp, #0
- 213              	.LCFI19:
- 214              		.cfi_def_cfa_register 7
+ 207              		.loc 1 91 1
+ 208              		.cfi_startproc
+ 209              		@ args = 0, pretend = 0, frame = 0
+ 210              		@ frame_needed = 1, uses_anonymous_args = 0
+ 211              		@ link register save eliminated.
+ 212 0000 80B4     		push	{r7}
+ 213              	.LCFI18:
+ 214              		.cfi_def_cfa_offset 4
+ 215              		.cfi_offset 7, -4
+ 216 0002 00AF     		add	r7, sp, #0
+ 217              	.LCFI19:
+ 218              		.cfi_def_cfa_register 7
   92:Drivers/Library/StdDriver/src/sys.c ****     return SYS->PDID;
- 215              		.loc 1 92 15
- 216 0004 4FF08043 		mov	r3, #1073741824
- 217 0008 1B68     		ldr	r3, [r3]
+ 219              		.loc 1 92 15
+ 220 0004 4FF08043 		mov	r3, #1073741824
+ 221 0008 1B68     		ldr	r3, [r3]
   93:Drivers/Library/StdDriver/src/sys.c **** }
- 218              		.loc 1 93 1
- 219 000a 1846     		mov	r0, r3
- 220 000c BD46     		mov	sp, r7
- 221              	.LCFI20:
- 222              		.cfi_def_cfa_register 13
- 223              		@ sp needed
- 224 000e 5DF8047B 		ldr	r7, [sp], #4
- 225              	.LCFI21:
- 226              		.cfi_restore 7
- 227              		.cfi_def_cfa_offset 0
- 228 0012 7047     		bx	lr
- 229              		.cfi_endproc
- 230              	.LFE199:
- 232              		.section	.text.SYS_ResetChip,"ax",%progbits
- 233              		.align	1
- 234              		.global	SYS_ResetChip
- 235              		.syntax unified
- 236              		.thumb
- 237              		.thumb_func
- 239              	SYS_ResetChip:
- 240              	.LFB200:
+ 222              		.loc 1 93 1
+ 223 000a 1846     		mov	r0, r3
+ 224 000c BD46     		mov	sp, r7
+ 225              	.LCFI20:
+ 226              		.cfi_def_cfa_register 13
+ 227              		@ sp needed
+ 228 000e 5DF8047B 		ldr	r7, [sp], #4
+ 229              	.LCFI21:
+ 230              		.cfi_restore 7
+ 231              		.cfi_def_cfa_offset 0
+ 232 0012 7047     		bx	lr
+ 233              		.cfi_endproc
+ 234              	.LFE199:
+ 236              		.section	.text.SYS_ResetChip,"ax",%progbits
+ 237              		.align	1
+ 238              		.global	SYS_ResetChip
+ 239              		.syntax unified
+ 240              		.thumb
+ 241              		.thumb_func
+ 242              		.fpu fpv4-sp-d16
+ 244              	SYS_ResetChip:
+ 245              	.LFB200:
   94:Drivers/Library/StdDriver/src/sys.c **** 
   95:Drivers/Library/StdDriver/src/sys.c **** /**
   96:Drivers/Library/StdDriver/src/sys.c ****   * @brief      Reset chip with chip reset
@@ -348,50 +353,51 @@ ARM GAS  /tmp/cc4Hv4N7.s 			page 1
  101:Drivers/Library/StdDriver/src/sys.c ****   */
  102:Drivers/Library/StdDriver/src/sys.c **** void SYS_ResetChip(void)
  103:Drivers/Library/StdDriver/src/sys.c **** {
- 241              		.loc 1 103 1
- 242              		.cfi_startproc
- 243              		@ args = 0, pretend = 0, frame = 0
- 244              		@ frame_needed = 1, uses_anonymous_args = 0
- 245              		@ link register save eliminated.
- 246 0000 80B4     		push	{r7}
- 247              	.LCFI22:
- 248              		.cfi_def_cfa_offset 4
- 249              		.cfi_offset 7, -4
- 250 0002 00AF     		add	r7, sp, #0
-ARM GAS  /tmp/cc4Hv4N7.s 			page 7
+ 246              		.loc 1 103 1
+ 247              		.cfi_startproc
+ 248              		@ args = 0, pretend = 0, frame = 0
+ 249              		@ frame_needed = 1, uses_anonymous_args = 0
+ 250              		@ link register save eliminated.
+ARM GAS  /tmp/ccavsG2p.s 			page 7
 
 
- 251              	.LCFI23:
- 252              		.cfi_def_cfa_register 7
+ 251 0000 80B4     		push	{r7}
+ 252              	.LCFI22:
+ 253              		.cfi_def_cfa_offset 4
+ 254              		.cfi_offset 7, -4
+ 255 0002 00AF     		add	r7, sp, #0
+ 256              	.LCFI23:
+ 257              		.cfi_def_cfa_register 7
  104:Drivers/Library/StdDriver/src/sys.c ****     SYS->IPRST0 |= SYS_IPRST0_CHIPRST_Msk;
- 253              		.loc 1 104 17
- 254 0004 4FF08043 		mov	r3, #1073741824
- 255 0008 9B68     		ldr	r3, [r3, #8]
- 256 000a 4FF08042 		mov	r2, #1073741824
- 257 000e 43F00103 		orr	r3, r3, #1
- 258 0012 9360     		str	r3, [r2, #8]
+ 258              		.loc 1 104 17
+ 259 0004 4FF08043 		mov	r3, #1073741824
+ 260 0008 9B68     		ldr	r3, [r3, #8]
+ 261 000a 4FF08042 		mov	r2, #1073741824
+ 262 000e 43F00103 		orr	r3, r3, #1
+ 263 0012 9360     		str	r3, [r2, #8]
  105:Drivers/Library/StdDriver/src/sys.c **** }
- 259              		.loc 1 105 1
- 260 0014 00BF     		nop
- 261 0016 BD46     		mov	sp, r7
- 262              	.LCFI24:
- 263              		.cfi_def_cfa_register 13
- 264              		@ sp needed
- 265 0018 5DF8047B 		ldr	r7, [sp], #4
- 266              	.LCFI25:
- 267              		.cfi_restore 7
- 268              		.cfi_def_cfa_offset 0
- 269 001c 7047     		bx	lr
- 270              		.cfi_endproc
- 271              	.LFE200:
- 273              		.section	.text.SYS_ResetCPU,"ax",%progbits
- 274              		.align	1
- 275              		.global	SYS_ResetCPU
- 276              		.syntax unified
- 277              		.thumb
- 278              		.thumb_func
- 280              	SYS_ResetCPU:
- 281              	.LFB201:
+ 264              		.loc 1 105 1
+ 265 0014 00BF     		nop
+ 266 0016 BD46     		mov	sp, r7
+ 267              	.LCFI24:
+ 268              		.cfi_def_cfa_register 13
+ 269              		@ sp needed
+ 270 0018 5DF8047B 		ldr	r7, [sp], #4
+ 271              	.LCFI25:
+ 272              		.cfi_restore 7
+ 273              		.cfi_def_cfa_offset 0
+ 274 001c 7047     		bx	lr
+ 275              		.cfi_endproc
+ 276              	.LFE200:
+ 278              		.section	.text.SYS_ResetCPU,"ax",%progbits
+ 279              		.align	1
+ 280              		.global	SYS_ResetCPU
+ 281              		.syntax unified
+ 282              		.thumb
+ 283              		.thumb_func
+ 284              		.fpu fpv4-sp-d16
+ 286              	SYS_ResetCPU:
+ 287              	.LFB201:
  106:Drivers/Library/StdDriver/src/sys.c **** 
  107:Drivers/Library/StdDriver/src/sys.c **** /**
  108:Drivers/Library/StdDriver/src/sys.c ****   * @brief      Reset chip with CPU reset
@@ -402,50 +408,51 @@ ARM GAS  /tmp/cc4Hv4N7.s 			page 1
  113:Drivers/Library/StdDriver/src/sys.c ****   */
  114:Drivers/Library/StdDriver/src/sys.c **** void SYS_ResetCPU(void)
  115:Drivers/Library/StdDriver/src/sys.c **** {
- 282              		.loc 1 115 1
- 283              		.cfi_startproc
- 284              		@ args = 0, pretend = 0, frame = 0
- 285              		@ frame_needed = 1, uses_anonymous_args = 0
- 286              		@ link register save eliminated.
- 287 0000 80B4     		push	{r7}
- 288              	.LCFI26:
- 289              		.cfi_def_cfa_offset 4
- 290              		.cfi_offset 7, -4
- 291 0002 00AF     		add	r7, sp, #0
- 292              	.LCFI27:
- 293              		.cfi_def_cfa_register 7
+ 288              		.loc 1 115 1
+ 289              		.cfi_startproc
+ 290              		@ args = 0, pretend = 0, frame = 0
+ 291              		@ frame_needed = 1, uses_anonymous_args = 0
+ 292              		@ link register save eliminated.
+ 293 0000 80B4     		push	{r7}
+ 294              	.LCFI26:
+ 295              		.cfi_def_cfa_offset 4
+ 296              		.cfi_offset 7, -4
+ 297 0002 00AF     		add	r7, sp, #0
+ARM GAS  /tmp/ccavsG2p.s 			page 8
+
+
+ 298              	.LCFI27:
+ 299              		.cfi_def_cfa_register 7
  116:Drivers/Library/StdDriver/src/sys.c ****     SYS->IPRST0 |= SYS_IPRST0_CPURST_Msk;
- 294              		.loc 1 116 17
- 295 0004 4FF08043 		mov	r3, #1073741824
- 296 0008 9B68     		ldr	r3, [r3, #8]
-ARM GAS  /tmp/cc4Hv4N7.s 			page 8
-
-
- 297 000a 4FF08042 		mov	r2, #1073741824
- 298 000e 43F00203 		orr	r3, r3, #2
- 299 0012 9360     		str	r3, [r2, #8]
+ 300              		.loc 1 116 17
+ 301 0004 4FF08043 		mov	r3, #1073741824
+ 302 0008 9B68     		ldr	r3, [r3, #8]
+ 303 000a 4FF08042 		mov	r2, #1073741824
+ 304 000e 43F00203 		orr	r3, r3, #2
+ 305 0012 9360     		str	r3, [r2, #8]
  117:Drivers/Library/StdDriver/src/sys.c **** }
- 300              		.loc 1 117 1
- 301 0014 00BF     		nop
- 302 0016 BD46     		mov	sp, r7
- 303              	.LCFI28:
- 304              		.cfi_def_cfa_register 13
- 305              		@ sp needed
- 306 0018 5DF8047B 		ldr	r7, [sp], #4
- 307              	.LCFI29:
- 308              		.cfi_restore 7
- 309              		.cfi_def_cfa_offset 0
- 310 001c 7047     		bx	lr
- 311              		.cfi_endproc
- 312              	.LFE201:
- 314              		.section	.text.SYS_ResetModule,"ax",%progbits
- 315              		.align	1
- 316              		.global	SYS_ResetModule
- 317              		.syntax unified
- 318              		.thumb
- 319              		.thumb_func
- 321              	SYS_ResetModule:
- 322              	.LFB202:
+ 306              		.loc 1 117 1
+ 307 0014 00BF     		nop
+ 308 0016 BD46     		mov	sp, r7
+ 309              	.LCFI28:
+ 310              		.cfi_def_cfa_register 13
+ 311              		@ sp needed
+ 312 0018 5DF8047B 		ldr	r7, [sp], #4
+ 313              	.LCFI29:
+ 314              		.cfi_restore 7
+ 315              		.cfi_def_cfa_offset 0
+ 316 001c 7047     		bx	lr
+ 317              		.cfi_endproc
+ 318              	.LFE201:
+ 320              		.section	.text.SYS_ResetModule,"ax",%progbits
+ 321              		.align	1
+ 322              		.global	SYS_ResetModule
+ 323              		.syntax unified
+ 324              		.thumb
+ 325              		.thumb_func
+ 326              		.fpu fpv4-sp-d16
+ 328              	SYS_ResetModule:
+ 329              	.LFB202:
  118:Drivers/Library/StdDriver/src/sys.c **** 
  119:Drivers/Library/StdDriver/src/sys.c **** /**
  120:Drivers/Library/StdDriver/src/sys.c ****   * @brief      Reset selected module
@@ -471,6 +478,9 @@ ARM GAS  /tmp/cc4Hv4N7.s 			page 1
  140:Drivers/Library/StdDriver/src/sys.c ****   *             - \ref I2C1_RST
  141:Drivers/Library/StdDriver/src/sys.c ****   *             - \ref I2C2_RST
  142:Drivers/Library/StdDriver/src/sys.c ****   *             - \ref QSPI0_RST
+ARM GAS  /tmp/ccavsG2p.s 			page 9
+
+
  143:Drivers/Library/StdDriver/src/sys.c ****   *             - \ref SPI0_RST
  144:Drivers/Library/StdDriver/src/sys.c ****   *             - \ref SPI1_RST
  145:Drivers/Library/StdDriver/src/sys.c ****   *             - \ref SPI2_RST
@@ -478,9 +488,6 @@ ARM GAS  /tmp/cc4Hv4N7.s 			page 1
  147:Drivers/Library/StdDriver/src/sys.c ****   *             - \ref UART1_RST
  148:Drivers/Library/StdDriver/src/sys.c ****   *             - \ref UART2_RST
  149:Drivers/Library/StdDriver/src/sys.c ****   *             - \ref UART3_RST
-ARM GAS  /tmp/cc4Hv4N7.s 			page 9
-
-
  150:Drivers/Library/StdDriver/src/sys.c ****   *             - \ref UART4_RST
  151:Drivers/Library/StdDriver/src/sys.c ****   *             - \ref UART5_RST
  152:Drivers/Library/StdDriver/src/sys.c ****   *             - \ref UART6_RST
@@ -517,106 +524,107 @@ ARM GAS  /tmp/cc4Hv4N7.s 			page 1
  183:Drivers/Library/StdDriver/src/sys.c ****   */
  184:Drivers/Library/StdDriver/src/sys.c **** void SYS_ResetModule(uint32_t u32ModuleIndex)
  185:Drivers/Library/StdDriver/src/sys.c **** {
- 323              		.loc 1 185 1
- 324              		.cfi_startproc
- 325              		@ args = 0, pretend = 0, frame = 16
- 326              		@ frame_needed = 1, uses_anonymous_args = 0
- 327              		@ link register save eliminated.
- 328 0000 80B4     		push	{r7}
- 329              	.LCFI30:
- 330              		.cfi_def_cfa_offset 4
- 331              		.cfi_offset 7, -4
- 332 0002 85B0     		sub	sp, sp, #20
- 333              	.LCFI31:
- 334              		.cfi_def_cfa_offset 24
- 335 0004 00AF     		add	r7, sp, #0
- 336              	.LCFI32:
- 337              		.cfi_def_cfa_register 7
- 338 0006 7860     		str	r0, [r7, #4]
+ 330              		.loc 1 185 1
+ 331              		.cfi_startproc
+ 332              		@ args = 0, pretend = 0, frame = 16
+ 333              		@ frame_needed = 1, uses_anonymous_args = 0
+ 334              		@ link register save eliminated.
+ 335 0000 80B4     		push	{r7}
+ 336              	.LCFI30:
+ 337              		.cfi_def_cfa_offset 4
+ 338              		.cfi_offset 7, -4
+ 339 0002 85B0     		sub	sp, sp, #20
+ 340              	.LCFI31:
+ 341              		.cfi_def_cfa_offset 24
+ 342 0004 00AF     		add	r7, sp, #0
+ 343              	.LCFI32:
+ARM GAS  /tmp/ccavsG2p.s 			page 10
+
+
+ 344              		.cfi_def_cfa_register 7
+ 345 0006 7860     		str	r0, [r7, #4]
  186:Drivers/Library/StdDriver/src/sys.c ****     uint32_t u32tmpVal = 0UL, u32tmpAddr = 0UL;
- 339              		.loc 1 186 14
- 340 0008 0023     		movs	r3, #0
- 341 000a FB60     		str	r3, [r7, #12]
- 342              		.loc 1 186 31
-ARM GAS  /tmp/cc4Hv4N7.s 			page 10
-
-
- 343 000c 0023     		movs	r3, #0
- 344 000e BB60     		str	r3, [r7, #8]
+ 346              		.loc 1 186 14
+ 347 0008 0023     		movs	r3, #0
+ 348 000a FB60     		str	r3, [r7, #12]
+ 349              		.loc 1 186 31
+ 350 000c 0023     		movs	r3, #0
+ 351 000e BB60     		str	r3, [r7, #8]
  187:Drivers/Library/StdDriver/src/sys.c **** 
  188:Drivers/Library/StdDriver/src/sys.c ****     /* Generate reset signal to the corresponding module */
  189:Drivers/Library/StdDriver/src/sys.c ****     u32tmpVal = (1UL << (u32ModuleIndex & 0x00ffffffUL));
- 345              		.loc 1 189 41
- 346 0010 7B68     		ldr	r3, [r7, #4]
- 347 0012 23F07F43 		bic	r3, r3, #-16777216
- 348              		.loc 1 189 15
- 349 0016 0122     		movs	r2, #1
- 350 0018 02FA03F3 		lsl	r3, r2, r3
- 351 001c FB60     		str	r3, [r7, #12]
+ 352              		.loc 1 189 41
+ 353 0010 7B68     		ldr	r3, [r7, #4]
+ 354 0012 23F07F43 		bic	r3, r3, #-16777216
+ 355              		.loc 1 189 15
+ 356 0016 0122     		movs	r2, #1
+ 357 0018 02FA03F3 		lsl	r3, r2, r3
+ 358 001c FB60     		str	r3, [r7, #12]
  190:Drivers/Library/StdDriver/src/sys.c ****     u32tmpAddr = (uint32_t)&SYS->IPRST0 + ((u32ModuleIndex >> 24UL));
- 352              		.loc 1 190 60
- 353 001e 7B68     		ldr	r3, [r7, #4]
- 354 0020 1B0E     		lsrs	r3, r3, #24
- 355              		.loc 1 190 16
- 356 0022 03F18043 		add	r3, r3, #1073741824
- 357 0026 0833     		adds	r3, r3, #8
- 358 0028 BB60     		str	r3, [r7, #8]
+ 359              		.loc 1 190 60
+ 360 001e 7B68     		ldr	r3, [r7, #4]
+ 361 0020 1B0E     		lsrs	r3, r3, #24
+ 362              		.loc 1 190 16
+ 363 0022 03F18043 		add	r3, r3, #1073741824
+ 364 0026 0833     		adds	r3, r3, #8
+ 365 0028 BB60     		str	r3, [r7, #8]
  191:Drivers/Library/StdDriver/src/sys.c ****     *(uint32_t *)u32tmpAddr |= u32tmpVal;
- 359              		.loc 1 191 29
- 360 002a BB68     		ldr	r3, [r7, #8]
- 361 002c 1968     		ldr	r1, [r3]
- 362 002e BB68     		ldr	r3, [r7, #8]
- 363 0030 FA68     		ldr	r2, [r7, #12]
- 364 0032 0A43     		orrs	r2, r2, r1
- 365 0034 1A60     		str	r2, [r3]
+ 366              		.loc 1 191 29
+ 367 002a BB68     		ldr	r3, [r7, #8]
+ 368 002c 1968     		ldr	r1, [r3]
+ 369 002e BB68     		ldr	r3, [r7, #8]
+ 370 0030 FA68     		ldr	r2, [r7, #12]
+ 371 0032 0A43     		orrs	r2, r2, r1
+ 372 0034 1A60     		str	r2, [r3]
  192:Drivers/Library/StdDriver/src/sys.c **** 
  193:Drivers/Library/StdDriver/src/sys.c ****     /* Release corresponding module from reset state */
  194:Drivers/Library/StdDriver/src/sys.c ****     u32tmpVal = ~(1UL << (u32ModuleIndex & 0x00ffffffUL));
- 366              		.loc 1 194 42
- 367 0036 7B68     		ldr	r3, [r7, #4]
- 368 0038 23F07F43 		bic	r3, r3, #-16777216
- 369              		.loc 1 194 23
- 370 003c 0122     		movs	r2, #1
- 371 003e 02FA03F3 		lsl	r3, r2, r3
- 372              		.loc 1 194 15
- 373 0042 DB43     		mvns	r3, r3
- 374 0044 FB60     		str	r3, [r7, #12]
+ 373              		.loc 1 194 42
+ 374 0036 7B68     		ldr	r3, [r7, #4]
+ 375 0038 23F07F43 		bic	r3, r3, #-16777216
+ 376              		.loc 1 194 23
+ 377 003c 0122     		movs	r2, #1
+ 378 003e 02FA03F3 		lsl	r3, r2, r3
+ 379              		.loc 1 194 15
+ 380 0042 DB43     		mvns	r3, r3
+ 381 0044 FB60     		str	r3, [r7, #12]
  195:Drivers/Library/StdDriver/src/sys.c ****     *(uint32_t *)u32tmpAddr &= u32tmpVal;
- 375              		.loc 1 195 29
- 376 0046 BB68     		ldr	r3, [r7, #8]
- 377 0048 1968     		ldr	r1, [r3]
- 378 004a BB68     		ldr	r3, [r7, #8]
- 379 004c FA68     		ldr	r2, [r7, #12]
- 380 004e 0A40     		ands	r2, r2, r1
- 381 0050 1A60     		str	r2, [r3]
+ 382              		.loc 1 195 29
+ 383 0046 BB68     		ldr	r3, [r7, #8]
+ 384 0048 1968     		ldr	r1, [r3]
+ 385 004a BB68     		ldr	r3, [r7, #8]
+ 386 004c FA68     		ldr	r2, [r7, #12]
+ 387 004e 0A40     		ands	r2, r2, r1
+ 388 0050 1A60     		str	r2, [r3]
  196:Drivers/Library/StdDriver/src/sys.c **** }
- 382              		.loc 1 196 1
- 383 0052 00BF     		nop
- 384 0054 1437     		adds	r7, r7, #20
- 385              	.LCFI33:
- 386              		.cfi_def_cfa_offset 4
- 387 0056 BD46     		mov	sp, r7
- 388              	.LCFI34:
- 389              		.cfi_def_cfa_register 13
-ARM GAS  /tmp/cc4Hv4N7.s 			page 11
+ 389              		.loc 1 196 1
+ARM GAS  /tmp/ccavsG2p.s 			page 11
 
 
- 390              		@ sp needed
- 391 0058 5DF8047B 		ldr	r7, [sp], #4
- 392              	.LCFI35:
- 393              		.cfi_restore 7
- 394              		.cfi_def_cfa_offset 0
- 395 005c 7047     		bx	lr
- 396              		.cfi_endproc
- 397              	.LFE202:
- 399              		.section	.text.SYS_EnableBOD,"ax",%progbits
- 400              		.align	1
- 401              		.global	SYS_EnableBOD
- 402              		.syntax unified
- 403              		.thumb
- 404              		.thumb_func
- 406              	SYS_EnableBOD:
- 407              	.LFB203:
+ 390 0052 00BF     		nop
+ 391 0054 1437     		adds	r7, r7, #20
+ 392              	.LCFI33:
+ 393              		.cfi_def_cfa_offset 4
+ 394 0056 BD46     		mov	sp, r7
+ 395              	.LCFI34:
+ 396              		.cfi_def_cfa_register 13
+ 397              		@ sp needed
+ 398 0058 5DF8047B 		ldr	r7, [sp], #4
+ 399              	.LCFI35:
+ 400              		.cfi_restore 7
+ 401              		.cfi_def_cfa_offset 0
+ 402 005c 7047     		bx	lr
+ 403              		.cfi_endproc
+ 404              	.LFE202:
+ 406              		.section	.text.SYS_EnableBOD,"ax",%progbits
+ 407              		.align	1
+ 408              		.global	SYS_EnableBOD
+ 409              		.syntax unified
+ 410              		.thumb
+ 411              		.thumb_func
+ 412              		.fpu fpv4-sp-d16
+ 414              	SYS_EnableBOD:
+ 415              	.LFB203:
  197:Drivers/Library/StdDriver/src/sys.c **** 
  198:Drivers/Library/StdDriver/src/sys.c **** /**
  199:Drivers/Library/StdDriver/src/sys.c ****   * @brief      Enable and configure Brown-out detector function
@@ -638,93 +646,94 @@ ARM GAS  /tmp/cc4Hv4N7.s 			page 1
  215:Drivers/Library/StdDriver/src/sys.c ****   */
  216:Drivers/Library/StdDriver/src/sys.c **** void SYS_EnableBOD(int32_t i32Mode, uint32_t u32BODLevel)
  217:Drivers/Library/StdDriver/src/sys.c **** {
- 408              		.loc 1 217 1
- 409              		.cfi_startproc
- 410              		@ args = 0, pretend = 0, frame = 8
- 411              		@ frame_needed = 1, uses_anonymous_args = 0
- 412              		@ link register save eliminated.
- 413 0000 80B4     		push	{r7}
- 414              	.LCFI36:
- 415              		.cfi_def_cfa_offset 4
- 416              		.cfi_offset 7, -4
- 417 0002 83B0     		sub	sp, sp, #12
- 418              	.LCFI37:
- 419              		.cfi_def_cfa_offset 16
- 420 0004 00AF     		add	r7, sp, #0
- 421              	.LCFI38:
- 422              		.cfi_def_cfa_register 7
- 423 0006 7860     		str	r0, [r7, #4]
- 424 0008 3960     		str	r1, [r7]
+ 416              		.loc 1 217 1
+ 417              		.cfi_startproc
+ 418              		@ args = 0, pretend = 0, frame = 8
+ 419              		@ frame_needed = 1, uses_anonymous_args = 0
+ 420              		@ link register save eliminated.
+ 421 0000 80B4     		push	{r7}
+ 422              	.LCFI36:
+ 423              		.cfi_def_cfa_offset 4
+ 424              		.cfi_offset 7, -4
+ 425 0002 83B0     		sub	sp, sp, #12
+ 426              	.LCFI37:
+ 427              		.cfi_def_cfa_offset 16
+ARM GAS  /tmp/ccavsG2p.s 			page 12
+
+
+ 428 0004 00AF     		add	r7, sp, #0
+ 429              	.LCFI38:
+ 430              		.cfi_def_cfa_register 7
+ 431 0006 7860     		str	r0, [r7, #4]
+ 432 0008 3960     		str	r1, [r7]
  218:Drivers/Library/StdDriver/src/sys.c ****     /* Enable Brown-out Detector function */
  219:Drivers/Library/StdDriver/src/sys.c ****     SYS->BODCTL |= SYS_BODCTL_BODEN_Msk;
- 425              		.loc 1 219 17
-ARM GAS  /tmp/cc4Hv4N7.s 			page 12
-
-
- 426 000a 4FF08043 		mov	r3, #1073741824
- 427 000e 9B69     		ldr	r3, [r3, #24]
- 428 0010 4FF08042 		mov	r2, #1073741824
- 429 0014 43F00103 		orr	r3, r3, #1
- 430 0018 9361     		str	r3, [r2, #24]
+ 433              		.loc 1 219 17
+ 434 000a 4FF08043 		mov	r3, #1073741824
+ 435 000e 9B69     		ldr	r3, [r3, #24]
+ 436 0010 4FF08042 		mov	r2, #1073741824
+ 437 0014 43F00103 		orr	r3, r3, #1
+ 438 0018 9361     		str	r3, [r2, #24]
  220:Drivers/Library/StdDriver/src/sys.c **** 
  221:Drivers/Library/StdDriver/src/sys.c ****     /* Enable Brown-out interrupt or reset function */
  222:Drivers/Library/StdDriver/src/sys.c ****     SYS->BODCTL = (SYS->BODCTL & ~SYS_BODCTL_BODRSTEN_Msk) | (uint32_t)i32Mode;
- 431              		.loc 1 222 23
- 432 001a 4FF08043 		mov	r3, #1073741824
- 433 001e 9B69     		ldr	r3, [r3, #24]
- 434              		.loc 1 222 32
- 435 0020 23F00802 		bic	r2, r3, #8
- 436              		.loc 1 222 62
- 437 0024 7B68     		ldr	r3, [r7, #4]
- 438              		.loc 1 222 8
- 439 0026 4FF08041 		mov	r1, #1073741824
- 440              		.loc 1 222 60
- 441 002a 1343     		orrs	r3, r3, r2
- 442              		.loc 1 222 17
- 443 002c 8B61     		str	r3, [r1, #24]
+ 439              		.loc 1 222 23
+ 440 001a 4FF08043 		mov	r3, #1073741824
+ 441 001e 9B69     		ldr	r3, [r3, #24]
+ 442              		.loc 1 222 32
+ 443 0020 23F00802 		bic	r2, r3, #8
+ 444              		.loc 1 222 62
+ 445 0024 7B68     		ldr	r3, [r7, #4]
+ 446              		.loc 1 222 8
+ 447 0026 4FF08041 		mov	r1, #1073741824
+ 448              		.loc 1 222 60
+ 449 002a 1343     		orrs	r3, r3, r2
+ 450              		.loc 1 222 17
+ 451 002c 8B61     		str	r3, [r1, #24]
  223:Drivers/Library/StdDriver/src/sys.c **** 
  224:Drivers/Library/StdDriver/src/sys.c ****     /* Select Brown-out Detector threshold voltage */
  225:Drivers/Library/StdDriver/src/sys.c ****     SYS->BODCTL = (SYS->BODCTL & ~SYS_BODCTL_BODVL_Msk) | u32BODLevel;
- 444              		.loc 1 225 23
- 445 002e 4FF08043 		mov	r3, #1073741824
- 446 0032 9B69     		ldr	r3, [r3, #24]
- 447              		.loc 1 225 32
- 448 0034 23F4E022 		bic	r2, r3, #458752
- 449              		.loc 1 225 8
- 450 0038 4FF08041 		mov	r1, #1073741824
- 451              		.loc 1 225 57
- 452 003c 3B68     		ldr	r3, [r7]
- 453 003e 1343     		orrs	r3, r3, r2
- 454              		.loc 1 225 17
- 455 0040 8B61     		str	r3, [r1, #24]
+ 452              		.loc 1 225 23
+ 453 002e 4FF08043 		mov	r3, #1073741824
+ 454 0032 9B69     		ldr	r3, [r3, #24]
+ 455              		.loc 1 225 32
+ 456 0034 23F4E022 		bic	r2, r3, #458752
+ 457              		.loc 1 225 8
+ 458 0038 4FF08041 		mov	r1, #1073741824
+ 459              		.loc 1 225 57
+ 460 003c 3B68     		ldr	r3, [r7]
+ 461 003e 1343     		orrs	r3, r3, r2
+ 462              		.loc 1 225 17
+ 463 0040 8B61     		str	r3, [r1, #24]
  226:Drivers/Library/StdDriver/src/sys.c **** }
- 456              		.loc 1 226 1
- 457 0042 00BF     		nop
- 458 0044 0C37     		adds	r7, r7, #12
- 459              	.LCFI39:
- 460              		.cfi_def_cfa_offset 4
- 461 0046 BD46     		mov	sp, r7
- 462              	.LCFI40:
- 463              		.cfi_def_cfa_register 13
- 464              		@ sp needed
- 465 0048 5DF8047B 		ldr	r7, [sp], #4
- 466              	.LCFI41:
- 467              		.cfi_restore 7
- 468              		.cfi_def_cfa_offset 0
- 469 004c 7047     		bx	lr
- 470              		.cfi_endproc
- 471              	.LFE203:
- 473              		.section	.text.SYS_DisableBOD,"ax",%progbits
- 474              		.align	1
- 475              		.global	SYS_DisableBOD
- 476              		.syntax unified
-ARM GAS  /tmp/cc4Hv4N7.s 			page 13
+ 464              		.loc 1 226 1
+ 465 0042 00BF     		nop
+ 466 0044 0C37     		adds	r7, r7, #12
+ 467              	.LCFI39:
+ 468              		.cfi_def_cfa_offset 4
+ 469 0046 BD46     		mov	sp, r7
+ 470              	.LCFI40:
+ 471              		.cfi_def_cfa_register 13
+ 472              		@ sp needed
+ 473 0048 5DF8047B 		ldr	r7, [sp], #4
+ 474              	.LCFI41:
+ 475              		.cfi_restore 7
+ARM GAS  /tmp/ccavsG2p.s 			page 13
 
 
- 477              		.thumb
- 478              		.thumb_func
- 480              	SYS_DisableBOD:
- 481              	.LFB204:
+ 476              		.cfi_def_cfa_offset 0
+ 477 004c 7047     		bx	lr
+ 478              		.cfi_endproc
+ 479              	.LFE203:
+ 481              		.section	.text.SYS_DisableBOD,"ax",%progbits
+ 482              		.align	1
+ 483              		.global	SYS_DisableBOD
+ 484              		.syntax unified
+ 485              		.thumb
+ 486              		.thumb_func
+ 487              		.fpu fpv4-sp-d16
+ 489              	SYS_DisableBOD:
+ 490              	.LFB204:
  227:Drivers/Library/StdDriver/src/sys.c **** 
  228:Drivers/Library/StdDriver/src/sys.c **** /**
  229:Drivers/Library/StdDriver/src/sys.c ****   * @brief      Disable Brown-out detector function
@@ -735,52 +744,53 @@ ARM GAS  /tmp/cc4Hv4N7.s 			page 1
  234:Drivers/Library/StdDriver/src/sys.c ****   */
  235:Drivers/Library/StdDriver/src/sys.c **** void SYS_DisableBOD(void)
  236:Drivers/Library/StdDriver/src/sys.c **** {
- 482              		.loc 1 236 1
- 483              		.cfi_startproc
- 484              		@ args = 0, pretend = 0, frame = 0
- 485              		@ frame_needed = 1, uses_anonymous_args = 0
- 486              		@ link register save eliminated.
- 487 0000 80B4     		push	{r7}
- 488              	.LCFI42:
- 489              		.cfi_def_cfa_offset 4
- 490              		.cfi_offset 7, -4
- 491 0002 00AF     		add	r7, sp, #0
- 492              	.LCFI43:
- 493              		.cfi_def_cfa_register 7
+ 491              		.loc 1 236 1
+ 492              		.cfi_startproc
+ 493              		@ args = 0, pretend = 0, frame = 0
+ 494              		@ frame_needed = 1, uses_anonymous_args = 0
+ 495              		@ link register save eliminated.
+ 496 0000 80B4     		push	{r7}
+ 497              	.LCFI42:
+ 498              		.cfi_def_cfa_offset 4
+ 499              		.cfi_offset 7, -4
+ 500 0002 00AF     		add	r7, sp, #0
+ 501              	.LCFI43:
+ 502              		.cfi_def_cfa_register 7
  237:Drivers/Library/StdDriver/src/sys.c ****     SYS->BODCTL &= ~SYS_BODCTL_BODEN_Msk;
- 494              		.loc 1 237 17
- 495 0004 4FF08043 		mov	r3, #1073741824
- 496 0008 9B69     		ldr	r3, [r3, #24]
- 497 000a 4FF08042 		mov	r2, #1073741824
- 498 000e 23F00103 		bic	r3, r3, #1
- 499 0012 9361     		str	r3, [r2, #24]
+ 503              		.loc 1 237 17
+ 504 0004 4FF08043 		mov	r3, #1073741824
+ 505 0008 9B69     		ldr	r3, [r3, #24]
+ 506 000a 4FF08042 		mov	r2, #1073741824
+ 507 000e 23F00103 		bic	r3, r3, #1
+ 508 0012 9361     		str	r3, [r2, #24]
  238:Drivers/Library/StdDriver/src/sys.c **** }
- 500              		.loc 1 238 1
- 501 0014 00BF     		nop
- 502 0016 BD46     		mov	sp, r7
- 503              	.LCFI44:
- 504              		.cfi_def_cfa_register 13
- 505              		@ sp needed
- 506 0018 5DF8047B 		ldr	r7, [sp], #4
- 507              	.LCFI45:
- 508              		.cfi_restore 7
- 509              		.cfi_def_cfa_offset 0
- 510 001c 7047     		bx	lr
- 511              		.cfi_endproc
- 512              	.LFE204:
- 514              		.section	.text.SYS_SetPowerLevel,"ax",%progbits
- 515              		.align	1
- 516              		.global	SYS_SetPowerLevel
- 517              		.syntax unified
- 518              		.thumb
- 519              		.thumb_func
- 521              	SYS_SetPowerLevel:
- 522              	.LFB205:
+ 509              		.loc 1 238 1
+ 510 0014 00BF     		nop
+ 511 0016 BD46     		mov	sp, r7
+ 512              	.LCFI44:
+ 513              		.cfi_def_cfa_register 13
+ 514              		@ sp needed
+ 515 0018 5DF8047B 		ldr	r7, [sp], #4
+ 516              	.LCFI45:
+ 517              		.cfi_restore 7
+ 518              		.cfi_def_cfa_offset 0
+ 519 001c 7047     		bx	lr
+ 520              		.cfi_endproc
+ 521              	.LFE204:
+ 523              		.section	.text.SYS_SetPowerLevel,"ax",%progbits
+ARM GAS  /tmp/ccavsG2p.s 			page 14
+
+
+ 524              		.align	1
+ 525              		.global	SYS_SetPowerLevel
+ 526              		.syntax unified
+ 527              		.thumb
+ 528              		.thumb_func
+ 529              		.fpu fpv4-sp-d16
+ 531              	SYS_SetPowerLevel:
+ 532              	.LFB205:
  239:Drivers/Library/StdDriver/src/sys.c **** 
  240:Drivers/Library/StdDriver/src/sys.c **** /**
-ARM GAS  /tmp/cc4Hv4N7.s 			page 14
-
-
  241:Drivers/Library/StdDriver/src/sys.c ****   * @brief      Set Power Level
  242:Drivers/Library/StdDriver/src/sys.c ****   * @param[in]  u32PowerLevel is power level setting. Including :
  243:Drivers/Library/StdDriver/src/sys.c ****   *             - \ref SYS_PLCTL_PLSEL_PL0
@@ -791,64 +801,65 @@ ARM GAS  /tmp/cc4Hv4N7.s 			page 1
  248:Drivers/Library/StdDriver/src/sys.c ****   */
  249:Drivers/Library/StdDriver/src/sys.c **** void SYS_SetPowerLevel(uint32_t u32PowerLevel)
  250:Drivers/Library/StdDriver/src/sys.c **** {
- 523              		.loc 1 250 1
- 524              		.cfi_startproc
- 525              		@ args = 0, pretend = 0, frame = 8
- 526              		@ frame_needed = 1, uses_anonymous_args = 0
- 527              		@ link register save eliminated.
- 528 0000 80B4     		push	{r7}
- 529              	.LCFI46:
- 530              		.cfi_def_cfa_offset 4
- 531              		.cfi_offset 7, -4
- 532 0002 83B0     		sub	sp, sp, #12
- 533              	.LCFI47:
- 534              		.cfi_def_cfa_offset 16
- 535 0004 00AF     		add	r7, sp, #0
- 536              	.LCFI48:
- 537              		.cfi_def_cfa_register 7
- 538 0006 7860     		str	r0, [r7, #4]
+ 533              		.loc 1 250 1
+ 534              		.cfi_startproc
+ 535              		@ args = 0, pretend = 0, frame = 8
+ 536              		@ frame_needed = 1, uses_anonymous_args = 0
+ 537              		@ link register save eliminated.
+ 538 0000 80B4     		push	{r7}
+ 539              	.LCFI46:
+ 540              		.cfi_def_cfa_offset 4
+ 541              		.cfi_offset 7, -4
+ 542 0002 83B0     		sub	sp, sp, #12
+ 543              	.LCFI47:
+ 544              		.cfi_def_cfa_offset 16
+ 545 0004 00AF     		add	r7, sp, #0
+ 546              	.LCFI48:
+ 547              		.cfi_def_cfa_register 7
+ 548 0006 7860     		str	r0, [r7, #4]
  251:Drivers/Library/StdDriver/src/sys.c ****     /* Set power voltage level */
  252:Drivers/Library/StdDriver/src/sys.c ****     SYS->PLCTL = (SYS->PLCTL & (~SYS_PLCTL_PLSEL_Msk)) | (u32PowerLevel);
- 539              		.loc 1 252 22
- 540 0008 4FF08043 		mov	r3, #1073741824
- 541 000c D3F8F831 		ldr	r3, [r3, #504]
- 542              		.loc 1 252 30
- 543 0010 23F00302 		bic	r2, r3, #3
- 544              		.loc 1 252 8
- 545 0014 4FF08041 		mov	r1, #1073741824
- 546              		.loc 1 252 56
- 547 0018 7B68     		ldr	r3, [r7, #4]
- 548 001a 1343     		orrs	r3, r3, r2
- 549              		.loc 1 252 16
- 550 001c C1F8F831 		str	r3, [r1, #504]
+ 549              		.loc 1 252 22
+ 550 0008 4FF08043 		mov	r3, #1073741824
+ 551 000c D3F8F831 		ldr	r3, [r3, #504]
+ 552              		.loc 1 252 30
+ 553 0010 23F00302 		bic	r2, r3, #3
+ 554              		.loc 1 252 8
+ 555 0014 4FF08041 		mov	r1, #1073741824
+ 556              		.loc 1 252 56
+ 557 0018 7B68     		ldr	r3, [r7, #4]
+ 558 001a 1343     		orrs	r3, r3, r2
+ 559              		.loc 1 252 16
+ 560 001c C1F8F831 		str	r3, [r1, #504]
  253:Drivers/Library/StdDriver/src/sys.c **** }
- 551              		.loc 1 253 1
- 552 0020 00BF     		nop
- 553 0022 0C37     		adds	r7, r7, #12
- 554              	.LCFI49:
- 555              		.cfi_def_cfa_offset 4
- 556 0024 BD46     		mov	sp, r7
- 557              	.LCFI50:
- 558              		.cfi_def_cfa_register 13
- 559              		@ sp needed
- 560 0026 5DF8047B 		ldr	r7, [sp], #4
- 561              	.LCFI51:
- 562              		.cfi_restore 7
- 563              		.cfi_def_cfa_offset 0
- 564 002a 7047     		bx	lr
- 565              		.cfi_endproc
- 566              	.LFE205:
-ARM GAS  /tmp/cc4Hv4N7.s 			page 15
+ 561              		.loc 1 253 1
+ 562 0020 00BF     		nop
+ 563 0022 0C37     		adds	r7, r7, #12
+ 564              	.LCFI49:
+ 565              		.cfi_def_cfa_offset 4
+ 566 0024 BD46     		mov	sp, r7
+ARM GAS  /tmp/ccavsG2p.s 			page 15
 
 
- 568              		.section	.text.SYS_SetVRef,"ax",%progbits
- 569              		.align	1
- 570              		.global	SYS_SetVRef
- 571              		.syntax unified
- 572              		.thumb
- 573              		.thumb_func
- 575              	SYS_SetVRef:
- 576              	.LFB206:
+ 567              	.LCFI50:
+ 568              		.cfi_def_cfa_register 13
+ 569              		@ sp needed
+ 570 0026 5DF8047B 		ldr	r7, [sp], #4
+ 571              	.LCFI51:
+ 572              		.cfi_restore 7
+ 573              		.cfi_def_cfa_offset 0
+ 574 002a 7047     		bx	lr
+ 575              		.cfi_endproc
+ 576              	.LFE205:
+ 578              		.section	.text.SYS_SetVRef,"ax",%progbits
+ 579              		.align	1
+ 580              		.global	SYS_SetVRef
+ 581              		.syntax unified
+ 582              		.thumb
+ 583              		.thumb_func
+ 584              		.fpu fpv4-sp-d16
+ 586              	SYS_SetVRef:
+ 587              	.LFB206:
  254:Drivers/Library/StdDriver/src/sys.c **** 
  255:Drivers/Library/StdDriver/src/sys.c **** /**
  256:Drivers/Library/StdDriver/src/sys.c ****   * @brief      Set Reference Voltage
@@ -865,89 +876,88 @@ ARM GAS  /tmp/cc4Hv4N7.s 			page 1
  267:Drivers/Library/StdDriver/src/sys.c ****   */
  268:Drivers/Library/StdDriver/src/sys.c **** void SYS_SetVRef(uint32_t u32VRefCTL)
  269:Drivers/Library/StdDriver/src/sys.c **** {
- 577              		.loc 1 269 1
- 578              		.cfi_startproc
- 579              		@ args = 0, pretend = 0, frame = 8
- 580              		@ frame_needed = 1, uses_anonymous_args = 0
- 581              		@ link register save eliminated.
- 582 0000 80B4     		push	{r7}
- 583              	.LCFI52:
- 584              		.cfi_def_cfa_offset 4
- 585              		.cfi_offset 7, -4
- 586 0002 83B0     		sub	sp, sp, #12
- 587              	.LCFI53:
- 588              		.cfi_def_cfa_offset 16
- 589 0004 00AF     		add	r7, sp, #0
- 590              	.LCFI54:
- 591              		.cfi_def_cfa_register 7
- 592 0006 7860     		str	r0, [r7, #4]
+ 588              		.loc 1 269 1
+ 589              		.cfi_startproc
+ 590              		@ args = 0, pretend = 0, frame = 8
+ 591              		@ frame_needed = 1, uses_anonymous_args = 0
+ 592              		@ link register save eliminated.
+ 593 0000 80B4     		push	{r7}
+ 594              	.LCFI52:
+ 595              		.cfi_def_cfa_offset 4
+ 596              		.cfi_offset 7, -4
+ 597 0002 83B0     		sub	sp, sp, #12
+ 598              	.LCFI53:
+ 599              		.cfi_def_cfa_offset 16
+ 600 0004 00AF     		add	r7, sp, #0
+ 601              	.LCFI54:
+ 602              		.cfi_def_cfa_register 7
+ 603 0006 7860     		str	r0, [r7, #4]
  270:Drivers/Library/StdDriver/src/sys.c ****     /* Set reference voltage */
  271:Drivers/Library/StdDriver/src/sys.c ****     SYS->VREFCTL = (SYS->VREFCTL & (~SYS_VREFCTL_VREFCTL_Msk)) | (u32VRefCTL);
- 593              		.loc 1 271 24
- 594 0008 4FF08043 		mov	r3, #1073741824
- 595 000c 9B6A     		ldr	r3, [r3, #40]
- 596              		.loc 1 271 34
- 597 000e 23F01F02 		bic	r2, r3, #31
- 598              		.loc 1 271 8
- 599 0012 4FF08041 		mov	r1, #1073741824
- 600              		.loc 1 271 64
- 601 0016 7B68     		ldr	r3, [r7, #4]
- 602 0018 1343     		orrs	r3, r3, r2
- 603              		.loc 1 271 18
- 604 001a 8B62     		str	r3, [r1, #40]
+ 604              		.loc 1 271 24
+ 605 0008 4FF08043 		mov	r3, #1073741824
+ 606 000c 9B6A     		ldr	r3, [r3, #40]
+ 607              		.loc 1 271 34
+ARM GAS  /tmp/ccavsG2p.s 			page 16
+
+
+ 608 000e 23F01F02 		bic	r2, r3, #31
+ 609              		.loc 1 271 8
+ 610 0012 4FF08041 		mov	r1, #1073741824
+ 611              		.loc 1 271 64
+ 612 0016 7B68     		ldr	r3, [r7, #4]
+ 613 0018 1343     		orrs	r3, r3, r2
+ 614              		.loc 1 271 18
+ 615 001a 8B62     		str	r3, [r1, #40]
  272:Drivers/Library/StdDriver/src/sys.c **** }
- 605              		.loc 1 272 1
- 606 001c 00BF     		nop
-ARM GAS  /tmp/cc4Hv4N7.s 			page 16
-
-
- 607 001e 0C37     		adds	r7, r7, #12
- 608              	.LCFI55:
- 609              		.cfi_def_cfa_offset 4
- 610 0020 BD46     		mov	sp, r7
- 611              	.LCFI56:
- 612              		.cfi_def_cfa_register 13
- 613              		@ sp needed
- 614 0022 5DF8047B 		ldr	r7, [sp], #4
- 615              	.LCFI57:
- 616              		.cfi_restore 7
- 617              		.cfi_def_cfa_offset 0
- 618 0026 7047     		bx	lr
- 619              		.cfi_endproc
- 620              	.LFE206:
- 622              		.text
- 623              	.Letext0:
- 624              		.file 2 "/usr/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/machine/_default_types.h"
- 625              		.file 3 "/usr/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/_stdint.h"
- 626              		.file 4 "Drivers/Library/Device/Nuvoton_M480/Include/sys_reg.h"
-ARM GAS  /tmp/cc4Hv4N7.s 			page 17
+ 616              		.loc 1 272 1
+ 617 001c 00BF     		nop
+ 618 001e 0C37     		adds	r7, r7, #12
+ 619              	.LCFI55:
+ 620              		.cfi_def_cfa_offset 4
+ 621 0020 BD46     		mov	sp, r7
+ 622              	.LCFI56:
+ 623              		.cfi_def_cfa_register 13
+ 624              		@ sp needed
+ 625 0022 5DF8047B 		ldr	r7, [sp], #4
+ 626              	.LCFI57:
+ 627              		.cfi_restore 7
+ 628              		.cfi_def_cfa_offset 0
+ 629 0026 7047     		bx	lr
+ 630              		.cfi_endproc
+ 631              	.LFE206:
+ 633              		.text
+ 634              	.Letext0:
+ 635              		.file 2 "/usr/lib/gcc/arm-none-eabi/10.3.1/include/stdint.h"
+ 636              		.file 3 "Drivers/Library/Device/Nuvoton_M480/Include/sys_reg.h"
+ARM GAS  /tmp/ccavsG2p.s 			page 17
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 sys.c
-     /tmp/cc4Hv4N7.s:20     .text.SYS_ClearResetSrc:0000000000000000 $t
-     /tmp/cc4Hv4N7.s:26     .text.SYS_ClearResetSrc:0000000000000000 SYS_ClearResetSrc
-     /tmp/cc4Hv4N7.s:70     .text.SYS_GetBODStatus:0000000000000000 $t
-     /tmp/cc4Hv4N7.s:76     .text.SYS_GetBODStatus:0000000000000000 SYS_GetBODStatus
-     /tmp/cc4Hv4N7.s:111    .text.SYS_GetResetSrc:0000000000000000 $t
-     /tmp/cc4Hv4N7.s:117    .text.SYS_GetResetSrc:0000000000000000 SYS_GetResetSrc
-     /tmp/cc4Hv4N7.s:149    .text.SYS_IsRegLocked:0000000000000000 $t
-     /tmp/cc4Hv4N7.s:155    .text.SYS_IsRegLocked:0000000000000000 SYS_IsRegLocked
-     /tmp/cc4Hv4N7.s:195    .text.SYS_ReadPDID:0000000000000000 $t
-     /tmp/cc4Hv4N7.s:201    .text.SYS_ReadPDID:0000000000000000 SYS_ReadPDID
-     /tmp/cc4Hv4N7.s:233    .text.SYS_ResetChip:0000000000000000 $t
-     /tmp/cc4Hv4N7.s:239    .text.SYS_ResetChip:0000000000000000 SYS_ResetChip
-     /tmp/cc4Hv4N7.s:274    .text.SYS_ResetCPU:0000000000000000 $t
-     /tmp/cc4Hv4N7.s:280    .text.SYS_ResetCPU:0000000000000000 SYS_ResetCPU
-     /tmp/cc4Hv4N7.s:315    .text.SYS_ResetModule:0000000000000000 $t
-     /tmp/cc4Hv4N7.s:321    .text.SYS_ResetModule:0000000000000000 SYS_ResetModule
-     /tmp/cc4Hv4N7.s:400    .text.SYS_EnableBOD:0000000000000000 $t
-     /tmp/cc4Hv4N7.s:406    .text.SYS_EnableBOD:0000000000000000 SYS_EnableBOD
-     /tmp/cc4Hv4N7.s:474    .text.SYS_DisableBOD:0000000000000000 $t
-     /tmp/cc4Hv4N7.s:480    .text.SYS_DisableBOD:0000000000000000 SYS_DisableBOD
-     /tmp/cc4Hv4N7.s:515    .text.SYS_SetPowerLevel:0000000000000000 $t
-     /tmp/cc4Hv4N7.s:521    .text.SYS_SetPowerLevel:0000000000000000 SYS_SetPowerLevel
-     /tmp/cc4Hv4N7.s:569    .text.SYS_SetVRef:0000000000000000 $t
-     /tmp/cc4Hv4N7.s:575    .text.SYS_SetVRef:0000000000000000 SYS_SetVRef
+     /tmp/ccavsG2p.s:18     .text.SYS_ClearResetSrc:0000000000000000 $t
+     /tmp/ccavsG2p.s:26     .text.SYS_ClearResetSrc:0000000000000000 SYS_ClearResetSrc
+     /tmp/ccavsG2p.s:70     .text.SYS_GetBODStatus:0000000000000000 $t
+     /tmp/ccavsG2p.s:77     .text.SYS_GetBODStatus:0000000000000000 SYS_GetBODStatus
+     /tmp/ccavsG2p.s:112    .text.SYS_GetResetSrc:0000000000000000 $t
+     /tmp/ccavsG2p.s:119    .text.SYS_GetResetSrc:0000000000000000 SYS_GetResetSrc
+     /tmp/ccavsG2p.s:151    .text.SYS_IsRegLocked:0000000000000000 $t
+     /tmp/ccavsG2p.s:158    .text.SYS_IsRegLocked:0000000000000000 SYS_IsRegLocked
+     /tmp/ccavsG2p.s:198    .text.SYS_ReadPDID:0000000000000000 $t
+     /tmp/ccavsG2p.s:205    .text.SYS_ReadPDID:0000000000000000 SYS_ReadPDID
+     /tmp/ccavsG2p.s:237    .text.SYS_ResetChip:0000000000000000 $t
+     /tmp/ccavsG2p.s:244    .text.SYS_ResetChip:0000000000000000 SYS_ResetChip
+     /tmp/ccavsG2p.s:279    .text.SYS_ResetCPU:0000000000000000 $t
+     /tmp/ccavsG2p.s:286    .text.SYS_ResetCPU:0000000000000000 SYS_ResetCPU
+     /tmp/ccavsG2p.s:321    .text.SYS_ResetModule:0000000000000000 $t
+     /tmp/ccavsG2p.s:328    .text.SYS_ResetModule:0000000000000000 SYS_ResetModule
+     /tmp/ccavsG2p.s:407    .text.SYS_EnableBOD:0000000000000000 $t
+     /tmp/ccavsG2p.s:414    .text.SYS_EnableBOD:0000000000000000 SYS_EnableBOD
+     /tmp/ccavsG2p.s:482    .text.SYS_DisableBOD:0000000000000000 $t
+     /tmp/ccavsG2p.s:489    .text.SYS_DisableBOD:0000000000000000 SYS_DisableBOD
+     /tmp/ccavsG2p.s:524    .text.SYS_SetPowerLevel:0000000000000000 $t
+     /tmp/ccavsG2p.s:531    .text.SYS_SetPowerLevel:0000000000000000 SYS_SetPowerLevel
+     /tmp/ccavsG2p.s:579    .text.SYS_SetVRef:0000000000000000 $t
+     /tmp/ccavsG2p.s:586    .text.SYS_SetVRef:0000000000000000 SYS_SetVRef
 
 NO UNDEFINED SYMBOLS

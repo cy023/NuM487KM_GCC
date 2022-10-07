@@ -1,64 +1,64 @@
-ARM GAS  /tmp/ccGDNd4X.s 			page 1
+ARM GAS  /tmp/ccutAnwa.s 			page 1
 
 
    1              		.cpu cortex-m4
-   2              		.arch armv7e-m
-   3              		.fpu fpv4-sp-d16
-   4              		.eabi_attribute 27, 1
-   5              		.eabi_attribute 28, 1
-   6              		.eabi_attribute 20, 1
-   7              		.eabi_attribute 21, 1
-   8              		.eabi_attribute 23, 3
-   9              		.eabi_attribute 24, 1
-  10              		.eabi_attribute 25, 1
-  11              		.eabi_attribute 26, 1
-  12              		.eabi_attribute 30, 6
-  13              		.eabi_attribute 34, 1
-  14              		.eabi_attribute 18, 4
-  15              		.file	"system_M480.c"
-  16              		.text
-  17              	.Ltext0:
-  18              		.cfi_sections	.debug_frame
-  19              		.global	SystemCoreClock
-  20              		.section	.data.SystemCoreClock,"aw"
-  21              		.align	2
-  24              	SystemCoreClock:
-  25 0000 001BB700 		.word	12000000
-  26              		.global	CyclesPerUs
-  27              		.section	.data.CyclesPerUs,"aw"
-  28              		.align	2
-  31              	CyclesPerUs:
-  32 0000 0C000000 		.word	12
-  33              		.global	PllClock
-  34              		.section	.data.PllClock,"aw"
-  35              		.align	2
-  38              	PllClock:
-  39 0000 001BB700 		.word	12000000
-  40              		.global	gau32ClkSrcTbl
-  41              		.section	.data.gau32ClkSrcTbl,"aw"
-  42              		.align	2
-  45              	gau32ClkSrcTbl:
-  46 0000 001BB700 		.word	12000000
-  47 0004 00800000 		.word	32768
-  48 0008 00000000 		.word	0
-  49 000c 10270000 		.word	10000
-  50 0010 00000000 		.word	0
-  51 0014 00000000 		.word	0
-  52 0018 00000000 		.word	0
-  53 001c 001BB700 		.word	12000000
-  54              		.section	.text.SystemCoreClockUpdate,"ax",%progbits
-  55              		.align	1
-  56              		.global	SystemCoreClockUpdate
-  57              		.syntax unified
-  58              		.thumb
-  59              		.thumb_func
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"system_M480.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.global	SystemCoreClock
+  18              		.section	.data.SystemCoreClock,"aw"
+  19              		.align	2
+  22              	SystemCoreClock:
+  23 0000 001BB700 		.word	12000000
+  24              		.global	CyclesPerUs
+  25              		.section	.data.CyclesPerUs,"aw"
+  26              		.align	2
+  29              	CyclesPerUs:
+  30 0000 0C000000 		.word	12
+  31              		.global	PllClock
+  32              		.section	.data.PllClock,"aw"
+  33              		.align	2
+  36              	PllClock:
+  37 0000 001BB700 		.word	12000000
+  38              		.global	gau32ClkSrcTbl
+  39              		.section	.data.gau32ClkSrcTbl,"aw"
+  40              		.align	2
+  43              	gau32ClkSrcTbl:
+  44 0000 001BB700 		.word	12000000
+  45 0004 00800000 		.word	32768
+  46 0008 00000000 		.word	0
+  47 000c 10270000 		.word	10000
+  48 0010 00000000 		.word	0
+  49 0014 00000000 		.word	0
+  50 0018 00000000 		.word	0
+  51 001c 001BB700 		.word	12000000
+  52              		.section	.text.SystemCoreClockUpdate,"ax",%progbits
+  53              		.align	1
+  54              		.global	SystemCoreClockUpdate
+  55              		.arch armv7e-m
+  56              		.syntax unified
+  57              		.thumb
+  58              		.thumb_func
+  59              		.fpu fpv4-sp-d16
   61              	SystemCoreClockUpdate:
   62              	.LFB195:
   63              		.file 1 "Drivers/Library/Device/Nuvoton_M480/Source/system_M480.c"
    1:Drivers/Library/Device/Nuvoton_M480/Source/system_M480.c **** /**************************************************************************//**
    2:Drivers/Library/Device/Nuvoton_M480/Source/system_M480.c ****  * @file     system_M480.c
    3:Drivers/Library/Device/Nuvoton_M480/Source/system_M480.c ****  * @version  V1.000
-ARM GAS  /tmp/ccGDNd4X.s 			page 2
+ARM GAS  /tmp/ccutAnwa.s 			page 2
 
 
    4:Drivers/Library/Device/Nuvoton_M480/Source/system_M480.c ****  * @brief    CMSIS Cortex-M4 Core Peripheral Access Layer Source File for M480
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccGDNd4X.s 			page 1
   37:Drivers/Library/Device/Nuvoton_M480/Source/system_M480.c ****     u32ClkSrc = CLK->CLKSEL0 & CLK_CLKSEL0_HCLKSEL_Msk;
   85              		.loc 1 37 20
   86 0010 174B     		ldr	r3, .L4+4
-ARM GAS  /tmp/ccGDNd4X.s 			page 3
+ARM GAS  /tmp/ccutAnwa.s 			page 3
 
 
   87 0012 1B69     		ldr	r3, [r3, #16]
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccGDNd4X.s 			page 1
   57:Drivers/Library/Device/Nuvoton_M480/Source/system_M480.c ****     //    __BKPT(0);
   58:Drivers/Library/Device/Nuvoton_M480/Source/system_M480.c **** 
   59:Drivers/Library/Device/Nuvoton_M480/Source/system_M480.c ****     CyclesPerUs = (SystemCoreClock + 500000UL) / 1000000UL;
-ARM GAS  /tmp/ccGDNd4X.s 			page 4
+ARM GAS  /tmp/ccutAnwa.s 			page 4
 
 
  122              		.loc 1 59 36
@@ -220,8 +220,9 @@ ARM GAS  /tmp/ccGDNd4X.s 			page 1
  158              		.syntax unified
  159              		.thumb
  160              		.thumb_func
- 162              	HXTInit:
- 163              	.LFB196:
+ 161              		.fpu fpv4-sp-d16
+ 163              	HXTInit:
+ 164              	.LFB196:
   61:Drivers/Library/Device/Nuvoton_M480/Source/system_M480.c **** 
   62:Drivers/Library/Device/Nuvoton_M480/Source/system_M480.c **** /**
   63:Drivers/Library/Device/Nuvoton_M480/Source/system_M480.c ****   * @brief      Set PF.2 and PF.3 to input mode
@@ -233,55 +234,56 @@ ARM GAS  /tmp/ccGDNd4X.s 			page 1
   69:Drivers/Library/Device/Nuvoton_M480/Source/system_M480.c ****   */
   70:Drivers/Library/Device/Nuvoton_M480/Source/system_M480.c **** static __INLINE void HXTInit(void)
   71:Drivers/Library/Device/Nuvoton_M480/Source/system_M480.c **** {
- 164              		.loc 1 71 1
- 165              		.cfi_startproc
- 166              		@ args = 0, pretend = 0, frame = 0
- 167              		@ frame_needed = 1, uses_anonymous_args = 0
- 168              		@ link register save eliminated.
-ARM GAS  /tmp/ccGDNd4X.s 			page 5
+ 165              		.loc 1 71 1
+ 166              		.cfi_startproc
+ 167              		@ args = 0, pretend = 0, frame = 0
+ 168              		@ frame_needed = 1, uses_anonymous_args = 0
+ARM GAS  /tmp/ccutAnwa.s 			page 5
 
 
- 169 0000 80B4     		push	{r7}
- 170              	.LCFI5:
- 171              		.cfi_def_cfa_offset 4
- 172              		.cfi_offset 7, -4
- 173 0002 00AF     		add	r7, sp, #0
- 174              	.LCFI6:
- 175              		.cfi_def_cfa_register 7
+ 169              		@ link register save eliminated.
+ 170 0000 80B4     		push	{r7}
+ 171              	.LCFI5:
+ 172              		.cfi_def_cfa_offset 4
+ 173              		.cfi_offset 7, -4
+ 174 0002 00AF     		add	r7, sp, #0
+ 175              	.LCFI6:
+ 176              		.cfi_def_cfa_register 7
   72:Drivers/Library/Device/Nuvoton_M480/Source/system_M480.c ****     PF->MODE &= ~(GPIO_MODE_MODE2_Msk | GPIO_MODE_MODE3_Msk);
- 176              		.loc 1 72 14
- 177 0004 054B     		ldr	r3, .L7
- 178 0006 1B68     		ldr	r3, [r3]
- 179 0008 044A     		ldr	r2, .L7
- 180 000a 23F0F003 		bic	r3, r3, #240
- 181 000e 1360     		str	r3, [r2]
+ 177              		.loc 1 72 14
+ 178 0004 054B     		ldr	r3, .L7
+ 179 0006 1B68     		ldr	r3, [r3]
+ 180 0008 044A     		ldr	r2, .L7
+ 181 000a 23F0F003 		bic	r3, r3, #240
+ 182 000e 1360     		str	r3, [r2]
   73:Drivers/Library/Device/Nuvoton_M480/Source/system_M480.c **** 
   74:Drivers/Library/Device/Nuvoton_M480/Source/system_M480.c **** }
- 182              		.loc 1 74 1
- 183 0010 00BF     		nop
- 184 0012 BD46     		mov	sp, r7
- 185              	.LCFI7:
- 186              		.cfi_def_cfa_register 13
- 187              		@ sp needed
- 188 0014 5DF8047B 		ldr	r7, [sp], #4
- 189              	.LCFI8:
- 190              		.cfi_restore 7
- 191              		.cfi_def_cfa_offset 0
- 192 0018 7047     		bx	lr
- 193              	.L8:
- 194 001a 00BF     		.align	2
- 195              	.L7:
- 196 001c 40410040 		.word	1073758528
- 197              		.cfi_endproc
- 198              	.LFE196:
- 200              		.section	.text.SystemInit,"ax",%progbits
- 201              		.align	1
- 202              		.global	SystemInit
- 203              		.syntax unified
- 204              		.thumb
- 205              		.thumb_func
- 207              	SystemInit:
- 208              	.LFB197:
+ 183              		.loc 1 74 1
+ 184 0010 00BF     		nop
+ 185 0012 BD46     		mov	sp, r7
+ 186              	.LCFI7:
+ 187              		.cfi_def_cfa_register 13
+ 188              		@ sp needed
+ 189 0014 5DF8047B 		ldr	r7, [sp], #4
+ 190              	.LCFI8:
+ 191              		.cfi_restore 7
+ 192              		.cfi_def_cfa_offset 0
+ 193 0018 7047     		bx	lr
+ 194              	.L8:
+ 195 001a 00BF     		.align	2
+ 196              	.L7:
+ 197 001c 40410040 		.word	1073758528
+ 198              		.cfi_endproc
+ 199              	.LFE196:
+ 201              		.section	.text.SystemInit,"ax",%progbits
+ 202              		.align	1
+ 203              		.global	SystemInit
+ 204              		.syntax unified
+ 205              		.thumb
+ 206              		.thumb_func
+ 207              		.fpu fpv4-sp-d16
+ 209              	SystemInit:
+ 210              	.LFB197:
   75:Drivers/Library/Device/Nuvoton_M480/Source/system_M480.c **** 
   76:Drivers/Library/Device/Nuvoton_M480/Source/system_M480.c **** /**
   77:Drivers/Library/Device/Nuvoton_M480/Source/system_M480.c ****  * @brief  Initialize the System
@@ -291,21 +293,21 @@ ARM GAS  /tmp/ccGDNd4X.s 			page 1
   81:Drivers/Library/Device/Nuvoton_M480/Source/system_M480.c ****  */
   82:Drivers/Library/Device/Nuvoton_M480/Source/system_M480.c **** void SystemInit (void)
   83:Drivers/Library/Device/Nuvoton_M480/Source/system_M480.c **** {
- 209              		.loc 1 83 1
- 210              		.cfi_startproc
- 211              		@ args = 0, pretend = 0, frame = 0
- 212              		@ frame_needed = 1, uses_anonymous_args = 0
- 213 0000 80B5     		push	{r7, lr}
- 214              	.LCFI9:
- 215              		.cfi_def_cfa_offset 8
-ARM GAS  /tmp/ccGDNd4X.s 			page 6
+ 211              		.loc 1 83 1
+ 212              		.cfi_startproc
+ 213              		@ args = 0, pretend = 0, frame = 0
+ 214              		@ frame_needed = 1, uses_anonymous_args = 0
+ 215 0000 80B5     		push	{r7, lr}
+ARM GAS  /tmp/ccutAnwa.s 			page 6
 
 
- 216              		.cfi_offset 7, -8
- 217              		.cfi_offset 14, -4
- 218 0002 00AF     		add	r7, sp, #0
- 219              	.LCFI10:
- 220              		.cfi_def_cfa_register 7
+ 216              	.LCFI9:
+ 217              		.cfi_def_cfa_offset 8
+ 218              		.cfi_offset 7, -8
+ 219              		.cfi_offset 14, -4
+ 220 0002 00AF     		add	r7, sp, #0
+ 221              	.LCFI10:
+ 222              		.cfi_def_cfa_register 7
   84:Drivers/Library/Device/Nuvoton_M480/Source/system_M480.c ****     /* Add your system initialize code here.
   85:Drivers/Library/Device/Nuvoton_M480/Source/system_M480.c ****        Do not use global variables because this function is called before
   86:Drivers/Library/Device/Nuvoton_M480/Source/system_M480.c ****        reaching pre-main. RW section maybe overwritten afterwards.          */
@@ -314,120 +316,119 @@ ARM GAS  /tmp/ccGDNd4X.s 			page 1
   89:Drivers/Library/Device/Nuvoton_M480/Source/system_M480.c ****     /* FPU settings ------------------------------------------------------------*/
   90:Drivers/Library/Device/Nuvoton_M480/Source/system_M480.c **** #if (__FPU_PRESENT == 1U) && (__FPU_USED == 1U)
   91:Drivers/Library/Device/Nuvoton_M480/Source/system_M480.c ****     SCB->CPACR |= ((3UL << 10*2) |                 /* set CP10 Full Access */
- 221              		.loc 1 91 16
- 222 0004 1B4B     		ldr	r3, .L10
- 223 0006 D3F88830 		ldr	r3, [r3, #136]
- 224 000a 1A4A     		ldr	r2, .L10
- 225 000c 43F47003 		orr	r3, r3, #15728640
- 226 0010 C2F88830 		str	r3, [r2, #136]
+ 223              		.loc 1 91 16
+ 224 0004 1B4B     		ldr	r3, .L10
+ 225 0006 D3F88830 		ldr	r3, [r3, #136]
+ 226 000a 1A4A     		ldr	r2, .L10
+ 227 000c 43F47003 		orr	r3, r3, #15728640
+ 228 0010 C2F88830 		str	r3, [r2, #136]
   92:Drivers/Library/Device/Nuvoton_M480/Source/system_M480.c ****                    (3UL << 11*2)  );               /* set CP11 Full Access */
   93:Drivers/Library/Device/Nuvoton_M480/Source/system_M480.c **** #endif
   94:Drivers/Library/Device/Nuvoton_M480/Source/system_M480.c **** 
   95:Drivers/Library/Device/Nuvoton_M480/Source/system_M480.c ****     /* Set access cycle for CPU @ 192MHz */
   96:Drivers/Library/Device/Nuvoton_M480/Source/system_M480.c ****     FMC->CYCCTL = (FMC->CYCCTL & ~FMC_CYCCTL_CYCLE_Msk) | (8 << FMC_CYCCTL_CYCLE_Pos);
- 227              		.loc 1 96 23
- 228 0014 184B     		ldr	r3, .L10+4
- 229 0016 DB6C     		ldr	r3, [r3, #76]
- 230              		.loc 1 96 32
- 231 0018 23F00F03 		bic	r3, r3, #15
- 232              		.loc 1 96 8
- 233 001c 164A     		ldr	r2, .L10+4
- 234              		.loc 1 96 57
- 235 001e 43F00803 		orr	r3, r3, #8
- 236              		.loc 1 96 17
- 237 0022 D364     		str	r3, [r2, #76]
+ 229              		.loc 1 96 23
+ 230 0014 184B     		ldr	r3, .L10+4
+ 231 0016 DB6C     		ldr	r3, [r3, #76]
+ 232              		.loc 1 96 32
+ 233 0018 23F00F03 		bic	r3, r3, #15
+ 234              		.loc 1 96 8
+ 235 001c 164A     		ldr	r2, .L10+4
+ 236              		.loc 1 96 57
+ 237 001e 43F00803 		orr	r3, r3, #8
+ 238              		.loc 1 96 17
+ 239 0022 D364     		str	r3, [r2, #76]
   97:Drivers/Library/Device/Nuvoton_M480/Source/system_M480.c ****     /* Configure power down bias, must set 1 before entering power down mode.
   98:Drivers/Library/Device/Nuvoton_M480/Source/system_M480.c ****        So set it at the very beginning */
   99:Drivers/Library/Device/Nuvoton_M480/Source/system_M480.c ****     CLK->LDOCTL |= CLK_LDOCTL_PDBIASEN_Msk;
- 238              		.loc 1 99 17
- 239 0024 154B     		ldr	r3, .L10+8
- 240 0026 D3F89830 		ldr	r3, [r3, #152]
- 241 002a 144A     		ldr	r2, .L10+8
- 242 002c 43F48023 		orr	r3, r3, #262144
- 243 0030 C2F89830 		str	r3, [r2, #152]
+ 240              		.loc 1 99 17
+ 241 0024 154B     		ldr	r3, .L10+8
+ 242 0026 D3F89830 		ldr	r3, [r3, #152]
+ 243 002a 144A     		ldr	r2, .L10+8
+ 244 002c 43F48023 		orr	r3, r3, #262144
+ 245 0030 C2F89830 		str	r3, [r2, #152]
  100:Drivers/Library/Device/Nuvoton_M480/Source/system_M480.c ****     /* Hand over the control of PF.4~11 I/O function from RTC module to GPIO module */
  101:Drivers/Library/Device/Nuvoton_M480/Source/system_M480.c ****     CLK->APBCLK0 |= CLK_APBCLK0_RTCCKEN_Msk;
- 244              		.loc 1 101 18
- 245 0034 114B     		ldr	r3, .L10+8
- 246 0036 9B68     		ldr	r3, [r3, #8]
- 247 0038 104A     		ldr	r2, .L10+8
- 248 003a 43F00203 		orr	r3, r3, #2
- 249 003e 9360     		str	r3, [r2, #8]
+ 246              		.loc 1 101 18
+ 247 0034 114B     		ldr	r3, .L10+8
+ 248 0036 9B68     		ldr	r3, [r3, #8]
+ 249 0038 104A     		ldr	r2, .L10+8
+ 250 003a 43F00203 		orr	r3, r3, #2
+ 251 003e 9360     		str	r3, [r2, #8]
  102:Drivers/Library/Device/Nuvoton_M480/Source/system_M480.c ****     RTC->GPIOCTL0 &= ~(RTC_GPIOCTL0_CTLSEL0_Msk | RTC_GPIOCTL0_CTLSEL1_Msk |
- 250              		.loc 1 102 19
- 251 0040 0F4B     		ldr	r3, .L10+12
- 252 0042 D3F80431 		ldr	r3, [r3, #260]
- 253 0046 0E4A     		ldr	r2, .L10+12
-ARM GAS  /tmp/ccGDNd4X.s 			page 7
+ 252              		.loc 1 102 19
+ 253 0040 0F4B     		ldr	r3, .L10+12
+ARM GAS  /tmp/ccutAnwa.s 			page 7
 
 
- 254 0048 03F0F733 		and	r3, r3, #-134744073
- 255 004c C2F80431 		str	r3, [r2, #260]
+ 254 0042 D3F80431 		ldr	r3, [r3, #260]
+ 255 0046 0E4A     		ldr	r2, .L10+12
+ 256 0048 03F0F733 		and	r3, r3, #-134744073
+ 257 004c C2F80431 		str	r3, [r2, #260]
  103:Drivers/Library/Device/Nuvoton_M480/Source/system_M480.c ****                        RTC_GPIOCTL0_CTLSEL2_Msk | RTC_GPIOCTL0_CTLSEL3_Msk);
  104:Drivers/Library/Device/Nuvoton_M480/Source/system_M480.c ****     RTC->GPIOCTL1 &= ~(RTC_GPIOCTL1_CTLSEL4_Msk | RTC_GPIOCTL1_CTLSEL5_Msk |
- 256              		.loc 1 104 19
- 257 0050 0B4B     		ldr	r3, .L10+12
- 258 0052 D3F80831 		ldr	r3, [r3, #264]
- 259 0056 0A4A     		ldr	r2, .L10+12
- 260 0058 03F0F733 		and	r3, r3, #-134744073
- 261 005c C2F80831 		str	r3, [r2, #264]
+ 258              		.loc 1 104 19
+ 259 0050 0B4B     		ldr	r3, .L10+12
+ 260 0052 D3F80831 		ldr	r3, [r3, #264]
+ 261 0056 0A4A     		ldr	r2, .L10+12
+ 262 0058 03F0F733 		and	r3, r3, #-134744073
+ 263 005c C2F80831 		str	r3, [r2, #264]
  105:Drivers/Library/Device/Nuvoton_M480/Source/system_M480.c ****                        RTC_GPIOCTL1_CTLSEL6_Msk | RTC_GPIOCTL1_CTLSEL7_Msk);
  106:Drivers/Library/Device/Nuvoton_M480/Source/system_M480.c ****     CLK->APBCLK0 &= ~CLK_APBCLK0_RTCCKEN_Msk;
- 262              		.loc 1 106 18
- 263 0060 064B     		ldr	r3, .L10+8
- 264 0062 9B68     		ldr	r3, [r3, #8]
- 265 0064 054A     		ldr	r2, .L10+8
- 266 0066 23F00203 		bic	r3, r3, #2
- 267 006a 9360     		str	r3, [r2, #8]
+ 264              		.loc 1 106 18
+ 265 0060 064B     		ldr	r3, .L10+8
+ 266 0062 9B68     		ldr	r3, [r3, #8]
+ 267 0064 054A     		ldr	r2, .L10+8
+ 268 0066 23F00203 		bic	r3, r3, #2
+ 269 006a 9360     		str	r3, [r2, #8]
  107:Drivers/Library/Device/Nuvoton_M480/Source/system_M480.c ****     HXTInit();
- 268              		.loc 1 107 5
- 269 006c FFF7FEFF 		bl	HXTInit
+ 270              		.loc 1 107 5
+ 271 006c FFF7FEFF 		bl	HXTInit
  108:Drivers/Library/Device/Nuvoton_M480/Source/system_M480.c **** 
  109:Drivers/Library/Device/Nuvoton_M480/Source/system_M480.c **** }
- 270              		.loc 1 109 1
- 271 0070 00BF     		nop
- 272 0072 80BD     		pop	{r7, pc}
- 273              	.L11:
- 274              		.align	2
- 275              	.L10:
- 276 0074 00ED00E0 		.word	-536810240
- 277 0078 00C00040 		.word	1073790976
- 278 007c 00020040 		.word	1073742336
- 279 0080 00100440 		.word	1074008064
- 280              		.cfi_endproc
- 281              	.LFE197:
- 283              		.text
- 284              	.Letext0:
- 285              		.file 2 "/usr/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/machine/_default_types.h"
- 286              		.file 3 "/usr/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/_stdint.h"
- 287              		.file 4 "Drivers/CMSIS/core_cm4.h"
- 288              		.file 5 "Drivers/Library/Device/Nuvoton_M480/Include/system_M480.h"
- 289              		.file 6 "Drivers/Library/Device/Nuvoton_M480/Include/clk_reg.h"
- 290              		.file 7 "Drivers/Library/Device/Nuvoton_M480/Include/fmc_reg.h"
- 291              		.file 8 "Drivers/Library/Device/Nuvoton_M480/Include/gpio_reg.h"
- 292              		.file 9 "Drivers/Library/Device/Nuvoton_M480/Include/rtc_reg.h"
-ARM GAS  /tmp/ccGDNd4X.s 			page 8
+ 272              		.loc 1 109 1
+ 273 0070 00BF     		nop
+ 274 0072 80BD     		pop	{r7, pc}
+ 275              	.L11:
+ 276              		.align	2
+ 277              	.L10:
+ 278 0074 00ED00E0 		.word	-536810240
+ 279 0078 00C00040 		.word	1073790976
+ 280 007c 00020040 		.word	1073742336
+ 281 0080 00100440 		.word	1074008064
+ 282              		.cfi_endproc
+ 283              	.LFE197:
+ 285              		.text
+ 286              	.Letext0:
+ 287              		.file 2 "/usr/lib/gcc/arm-none-eabi/10.3.1/include/stdint.h"
+ 288              		.file 3 "Drivers/CMSIS/core_cm4.h"
+ 289              		.file 4 "Drivers/Library/Device/Nuvoton_M480/Include/system_M480.h"
+ 290              		.file 5 "Drivers/Library/Device/Nuvoton_M480/Include/clk_reg.h"
+ 291              		.file 6 "Drivers/Library/Device/Nuvoton_M480/Include/fmc_reg.h"
+ 292              		.file 7 "Drivers/Library/Device/Nuvoton_M480/Include/gpio_reg.h"
+ 293              		.file 8 "Drivers/Library/Device/Nuvoton_M480/Include/rtc_reg.h"
+ARM GAS  /tmp/ccutAnwa.s 			page 8
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 system_M480.c
-     /tmp/ccGDNd4X.s:24     .data.SystemCoreClock:0000000000000000 SystemCoreClock
-     /tmp/ccGDNd4X.s:21     .data.SystemCoreClock:0000000000000000 $d
-     /tmp/ccGDNd4X.s:31     .data.CyclesPerUs:0000000000000000 CyclesPerUs
-     /tmp/ccGDNd4X.s:28     .data.CyclesPerUs:0000000000000000 $d
-     /tmp/ccGDNd4X.s:38     .data.PllClock:0000000000000000 PllClock
-     /tmp/ccGDNd4X.s:35     .data.PllClock:0000000000000000 $d
-     /tmp/ccGDNd4X.s:45     .data.gau32ClkSrcTbl:0000000000000000 gau32ClkSrcTbl
-     /tmp/ccGDNd4X.s:42     .data.gau32ClkSrcTbl:0000000000000000 $d
-     /tmp/ccGDNd4X.s:55     .text.SystemCoreClockUpdate:0000000000000000 $t
-     /tmp/ccGDNd4X.s:61     .text.SystemCoreClockUpdate:0000000000000000 SystemCoreClockUpdate
-     /tmp/ccGDNd4X.s:147    .text.SystemCoreClockUpdate:000000000000006c $d
-     /tmp/ccGDNd4X.s:157    .text.HXTInit:0000000000000000 $t
-     /tmp/ccGDNd4X.s:162    .text.HXTInit:0000000000000000 HXTInit
-     /tmp/ccGDNd4X.s:196    .text.HXTInit:000000000000001c $d
-     /tmp/ccGDNd4X.s:201    .text.SystemInit:0000000000000000 $t
-     /tmp/ccGDNd4X.s:207    .text.SystemInit:0000000000000000 SystemInit
-     /tmp/ccGDNd4X.s:276    .text.SystemInit:0000000000000074 $d
+     /tmp/ccutAnwa.s:22     .data.SystemCoreClock:0000000000000000 SystemCoreClock
+     /tmp/ccutAnwa.s:19     .data.SystemCoreClock:0000000000000000 $d
+     /tmp/ccutAnwa.s:29     .data.CyclesPerUs:0000000000000000 CyclesPerUs
+     /tmp/ccutAnwa.s:26     .data.CyclesPerUs:0000000000000000 $d
+     /tmp/ccutAnwa.s:36     .data.PllClock:0000000000000000 PllClock
+     /tmp/ccutAnwa.s:33     .data.PllClock:0000000000000000 $d
+     /tmp/ccutAnwa.s:43     .data.gau32ClkSrcTbl:0000000000000000 gau32ClkSrcTbl
+     /tmp/ccutAnwa.s:40     .data.gau32ClkSrcTbl:0000000000000000 $d
+     /tmp/ccutAnwa.s:53     .text.SystemCoreClockUpdate:0000000000000000 $t
+     /tmp/ccutAnwa.s:61     .text.SystemCoreClockUpdate:0000000000000000 SystemCoreClockUpdate
+     /tmp/ccutAnwa.s:147    .text.SystemCoreClockUpdate:000000000000006c $d
+     /tmp/ccutAnwa.s:157    .text.HXTInit:0000000000000000 $t
+     /tmp/ccutAnwa.s:163    .text.HXTInit:0000000000000000 HXTInit
+     /tmp/ccutAnwa.s:197    .text.HXTInit:000000000000001c $d
+     /tmp/ccutAnwa.s:202    .text.SystemInit:0000000000000000 $t
+     /tmp/ccutAnwa.s:209    .text.SystemInit:0000000000000000 SystemInit
+     /tmp/ccutAnwa.s:278    .text.SystemInit:0000000000000074 $d
 
 UNDEFINED SYMBOLS
 CLK_GetPLLClockFreq

@@ -1,99 +1,99 @@
-ARM GAS  /tmp/ccxB69I0.s 			page 1
+ARM GAS  /tmp/cccbhmYm.s 			page 1
 
 
    1              		.cpu cortex-m4
-   2              		.arch armv7e-m
-   3              		.fpu fpv4-sp-d16
-   4              		.eabi_attribute 27, 1
-   5              		.eabi_attribute 28, 1
-   6              		.eabi_attribute 20, 1
-   7              		.eabi_attribute 21, 1
-   8              		.eabi_attribute 23, 3
-   9              		.eabi_attribute 24, 1
-  10              		.eabi_attribute 25, 1
-  11              		.eabi_attribute 26, 1
-  12              		.eabi_attribute 30, 6
-  13              		.eabi_attribute 34, 1
-  14              		.eabi_attribute 18, 4
-  15              		.file	"retarget.c"
-  16              		.text
-  17              	.Ltext0:
-  18              		.cfi_sections	.debug_frame
-  19              		.global	__stdout
-  20              		.section	.bss.__stdout,"aw",%nobits
-  21              		.align	2
-  24              	__stdout:
-  25 0000 00000000 		.space	104
-  25      00000000 
-  25      00000000 
-  25      00000000 
-  25      00000000 
-  26              		.global	__stdin
-  27              		.section	.bss.__stdin,"aw",%nobits
-  28              		.align	2
-  31              	__stdin:
-  32 0000 00000000 		.space	104
-  32      00000000 
-  32      00000000 
-  32      00000000 
-  32      00000000 
-  33              		.section	.rodata
-  34              		.align	2
-  35              	.LC0:
-  36 0000 72302020 		.ascii	"r0  = 0x%lx\012\000"
-  36      3D203078 
-  36      256C780A 
-  36      00
-  37 000d 000000   		.align	2
-  38              	.LC1:
-  39 0010 72312020 		.ascii	"r1  = 0x%lx\012\000"
-  39      3D203078 
-  39      256C780A 
-  39      00
-  40 001d 000000   		.align	2
-  41              	.LC2:
-  42 0020 72322020 		.ascii	"r2  = 0x%lx\012\000"
-  42      3D203078 
-  42      256C780A 
-  42      00
-  43 002d 000000   		.align	2
-  44              	.LC3:
-ARM GAS  /tmp/ccxB69I0.s 			page 2
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"retarget.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.global	__stdout
+  18              		.section	.bss.__stdout,"aw",%nobits
+  19              		.align	2
+  22              	__stdout:
+  23 0000 00000000 		.space	104
+  23      00000000 
+  23      00000000 
+  23      00000000 
+  23      00000000 
+  24              		.global	__stdin
+  25              		.section	.bss.__stdin,"aw",%nobits
+  26              		.align	2
+  29              	__stdin:
+  30 0000 00000000 		.space	104
+  30      00000000 
+  30      00000000 
+  30      00000000 
+  30      00000000 
+  31              		.section	.rodata
+  32              		.align	2
+  33              	.LC0:
+  34 0000 72302020 		.ascii	"r0  = 0x%lx\012\000"
+  34      3D203078 
+  34      256C780A 
+  34      00
+  35 000d 000000   		.align	2
+  36              	.LC1:
+  37 0010 72312020 		.ascii	"r1  = 0x%lx\012\000"
+  37      3D203078 
+  37      256C780A 
+  37      00
+  38 001d 000000   		.align	2
+  39              	.LC2:
+  40 0020 72322020 		.ascii	"r2  = 0x%lx\012\000"
+  40      3D203078 
+  40      256C780A 
+  40      00
+  41 002d 000000   		.align	2
+  42              	.LC3:
+  43 0030 72332020 		.ascii	"r3  = 0x%lx\012\000"
+  43      3D203078 
+ARM GAS  /tmp/cccbhmYm.s 			page 2
 
 
-  45 0030 72332020 		.ascii	"r3  = 0x%lx\012\000"
-  45      3D203078 
-  45      256C780A 
-  45      00
-  46 003d 000000   		.align	2
-  47              	.LC4:
-  48 0040 72313220 		.ascii	"r12 = 0x%lx\012\000"
-  48      3D203078 
-  48      256C780A 
-  48      00
-  49 004d 000000   		.align	2
-  50              	.LC5:
-  51 0050 6C722020 		.ascii	"lr  = 0x%lx\012\000"
-  51      3D203078 
-  51      256C780A 
-  51      00
-  52 005d 000000   		.align	2
-  53              	.LC6:
-  54 0060 70632020 		.ascii	"pc  = 0x%lx\012\000"
-  54      3D203078 
-  54      256C780A 
-  54      00
-  55 006d 000000   		.align	2
-  56              	.LC7:
-  57 0070 70737220 		.ascii	"psr = 0x%lx\012\000"
-  57      3D203078 
-  57      256C780A 
-  57      00
-  58              		.section	.text.stackDump,"ax",%progbits
-  59              		.align	1
-  60              		.syntax unified
-  61              		.thumb
-  62              		.thumb_func
+  43      256C780A 
+  43      00
+  44 003d 000000   		.align	2
+  45              	.LC4:
+  46 0040 72313220 		.ascii	"r12 = 0x%lx\012\000"
+  46      3D203078 
+  46      256C780A 
+  46      00
+  47 004d 000000   		.align	2
+  48              	.LC5:
+  49 0050 6C722020 		.ascii	"lr  = 0x%lx\012\000"
+  49      3D203078 
+  49      256C780A 
+  49      00
+  50 005d 000000   		.align	2
+  51              	.LC6:
+  52 0060 70632020 		.ascii	"pc  = 0x%lx\012\000"
+  52      3D203078 
+  52      256C780A 
+  52      00
+  53 006d 000000   		.align	2
+  54              	.LC7:
+  55 0070 70737220 		.ascii	"psr = 0x%lx\012\000"
+  55      3D203078 
+  55      256C780A 
+  55      00
+  56              		.section	.text.stackDump,"ax",%progbits
+  57              		.align	1
+  58              		.arch armv7e-m
+  59              		.syntax unified
+  60              		.thumb
+  61              		.thumb_func
+  62              		.fpu fpv4-sp-d16
   64              	stackDump:
   65              	.LFB195:
   66              		.file 1 "Drivers/Library/StdDriver/src/retarget.c"
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccxB69I0.s 			page 1
   19:Drivers/Library/StdDriver/src/retarget.c **** #endif
   20:Drivers/Library/StdDriver/src/retarget.c **** #endif
   21:Drivers/Library/StdDriver/src/retarget.c **** /* Uncomment this line to disable all printf and getchar. getchar() will always return 0x00*/
-ARM GAS  /tmp/ccxB69I0.s 			page 3
+ARM GAS  /tmp/cccbhmYm.s 			page 3
 
 
   22:Drivers/Library/StdDriver/src/retarget.c **** /* #define DISABLE_UART */
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccxB69I0.s 			page 1
   82 0006 7860     		str	r0, [r7, #4]
   61:Drivers/Library/StdDriver/src/retarget.c ****     printf("r0  = 0x%lx\n", stack[r0]);
   83              		.loc 1 61 5
-ARM GAS  /tmp/ccxB69I0.s 			page 4
+ARM GAS  /tmp/cccbhmYm.s 			page 4
 
 
   84 0008 7B68     		ldr	r3, [r7, #4]
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccxB69I0.s 			page 1
  132              		.loc 1 67 5
  133 005e 1B68     		ldr	r3, [r3]
  134 0060 1946     		mov	r1, r3
-ARM GAS  /tmp/ccxB69I0.s 			page 5
+ARM GAS  /tmp/cccbhmYm.s 			page 5
 
 
  135 0062 0D48     		ldr	r0, .L2+24
@@ -290,64 +290,66 @@ ARM GAS  /tmp/ccxB69I0.s 			page 1
  176              		.syntax unified
  177              		.thumb
  178              		.thumb_func
- 180              	Hard_Fault_Handler:
- 181              	.LFB196:
+ 179              		.fpu fpv4-sp-d16
+ 181              	Hard_Fault_Handler:
+ 182              	.LFB196:
   70:Drivers/Library/StdDriver/src/retarget.c **** 
   71:Drivers/Library/StdDriver/src/retarget.c **** /**
   72:Drivers/Library/StdDriver/src/retarget.c ****  * @brief       Hard fault handler
   73:Drivers/Library/StdDriver/src/retarget.c ****  * @param[in]   stack pointer points to the dumped registers in SRAM
   74:Drivers/Library/StdDriver/src/retarget.c ****  * @return      None
+ARM GAS  /tmp/cccbhmYm.s 			page 6
+
+
   75:Drivers/Library/StdDriver/src/retarget.c ****  * @details     Replace while(1) at the end of this function with chip reset if WDT is not enabled 
-ARM GAS  /tmp/ccxB69I0.s 			page 6
-
-
   76:Drivers/Library/StdDriver/src/retarget.c ****  */
   77:Drivers/Library/StdDriver/src/retarget.c **** void Hard_Fault_Handler(uint32_t stack[])
   78:Drivers/Library/StdDriver/src/retarget.c **** {
- 182              		.loc 1 78 1
- 183              		.cfi_startproc
- 184              		@ args = 0, pretend = 0, frame = 8
- 185              		@ frame_needed = 1, uses_anonymous_args = 0
- 186 0000 80B5     		push	{r7, lr}
- 187              	.LCFI5:
- 188              		.cfi_def_cfa_offset 8
- 189              		.cfi_offset 7, -8
- 190              		.cfi_offset 14, -4
- 191 0002 82B0     		sub	sp, sp, #8
- 192              	.LCFI6:
- 193              		.cfi_def_cfa_offset 16
- 194 0004 00AF     		add	r7, sp, #0
- 195              	.LCFI7:
- 196              		.cfi_def_cfa_register 7
- 197 0006 7860     		str	r0, [r7, #4]
+ 183              		.loc 1 78 1
+ 184              		.cfi_startproc
+ 185              		@ args = 0, pretend = 0, frame = 8
+ 186              		@ frame_needed = 1, uses_anonymous_args = 0
+ 187 0000 80B5     		push	{r7, lr}
+ 188              	.LCFI5:
+ 189              		.cfi_def_cfa_offset 8
+ 190              		.cfi_offset 7, -8
+ 191              		.cfi_offset 14, -4
+ 192 0002 82B0     		sub	sp, sp, #8
+ 193              	.LCFI6:
+ 194              		.cfi_def_cfa_offset 16
+ 195 0004 00AF     		add	r7, sp, #0
+ 196              	.LCFI7:
+ 197              		.cfi_def_cfa_register 7
+ 198 0006 7860     		str	r0, [r7, #4]
   79:Drivers/Library/StdDriver/src/retarget.c ****     printf("In Hard Fault Handler\n");
- 198              		.loc 1 79 5
- 199 0008 0348     		ldr	r0, .L6
- 200 000a FFF7FEFF 		bl	puts
+ 199              		.loc 1 79 5
+ 200 0008 0348     		ldr	r0, .L6
+ 201 000a FFF7FEFF 		bl	puts
   80:Drivers/Library/StdDriver/src/retarget.c **** 
   81:Drivers/Library/StdDriver/src/retarget.c ****     stackDump(stack);
- 201              		.loc 1 81 5
- 202 000e 7868     		ldr	r0, [r7, #4]
- 203 0010 FFF7FEFF 		bl	stackDump
- 204              	.L5:
+ 202              		.loc 1 81 5
+ 203 000e 7868     		ldr	r0, [r7, #4]
+ 204 0010 FFF7FEFF 		bl	stackDump
+ 205              	.L5:
   82:Drivers/Library/StdDriver/src/retarget.c ****     /* Replace while(1) with chip reset if WDT is not enabled for end product */
   83:Drivers/Library/StdDriver/src/retarget.c ****     while(1);
- 205              		.loc 1 83 10 discriminator 1
- 206 0014 FEE7     		b	.L5
- 207              	.L7:
- 208 0016 00BF     		.align	2
- 209              	.L6:
- 210 0018 80000000 		.word	.LC8
- 211              		.cfi_endproc
- 212              	.LFE196:
- 214              		.section	.text.HardFault_Handler,"ax",%progbits
- 215              		.align	1
- 216              		.global	HardFault_Handler
- 217              		.syntax unified
- 218              		.thumb
- 219              		.thumb_func
- 221              	HardFault_Handler:
- 222              	.LFB197:
+ 206              		.loc 1 83 10 discriminator 1
+ 207 0014 FEE7     		b	.L5
+ 208              	.L7:
+ 209 0016 00BF     		.align	2
+ 210              	.L6:
+ 211 0018 80000000 		.word	.LC8
+ 212              		.cfi_endproc
+ 213              	.LFE196:
+ 215              		.section	.text.HardFault_Handler,"ax",%progbits
+ 216              		.align	1
+ 217              		.global	HardFault_Handler
+ 218              		.syntax unified
+ 219              		.thumb
+ 220              		.thumb_func
+ 221              		.fpu fpv4-sp-d16
+ 223              	HardFault_Handler:
+ 224              	.LFB197:
   84:Drivers/Library/StdDriver/src/retarget.c ****     /* SYS->IPRST0 = SYS_IPRST0_CHIPRST_Msk; */
   85:Drivers/Library/StdDriver/src/retarget.c **** }
   86:Drivers/Library/StdDriver/src/retarget.c **** 
@@ -356,11 +358,11 @@ ARM GAS  /tmp/ccxB69I0.s 			page 1
   89:Drivers/Library/StdDriver/src/retarget.c **** /*-------------------------------------------------------------------------------------------------
   90:Drivers/Library/StdDriver/src/retarget.c **** /* Routine to write a char                                                                         
   91:Drivers/Library/StdDriver/src/retarget.c **** /*-------------------------------------------------------------------------------------------------
+ARM GAS  /tmp/cccbhmYm.s 			page 7
+
+
   92:Drivers/Library/StdDriver/src/retarget.c **** 
   93:Drivers/Library/StdDriver/src/retarget.c **** #if defined(DEBUG_ENABLE_SEMIHOST)
-ARM GAS  /tmp/ccxB69I0.s 			page 7
-
-
   94:Drivers/Library/StdDriver/src/retarget.c **** /* The static buffer is used to speed up the semihost    */
   95:Drivers/Library/StdDriver/src/retarget.c **** static char g_buf[16];
   96:Drivers/Library/StdDriver/src/retarget.c **** static char g_buf_len = 0;
@@ -416,11 +418,11 @@ ARM GAS  /tmp/ccxB69I0.s 			page 1
  146:Drivers/Library/StdDriver/src/retarget.c ****  */
  147:Drivers/Library/StdDriver/src/retarget.c **** void Get_LR_and_Branch(void)
  148:Drivers/Library/StdDriver/src/retarget.c **** {
+ARM GAS  /tmp/cccbhmYm.s 			page 8
+
+
  149:Drivers/Library/StdDriver/src/retarget.c ****     asm("MOV     R1, LR               \n" /*; LR current value */
  150:Drivers/Library/StdDriver/src/retarget.c ****         "B       Hard_Fault_Handler   \n"
-ARM GAS  /tmp/ccxB69I0.s 			page 8
-
-
  151:Drivers/Library/StdDriver/src/retarget.c ****        );
  152:Drivers/Library/StdDriver/src/retarget.c **** }
  153:Drivers/Library/StdDriver/src/retarget.c **** 
@@ -476,11 +478,11 @@ ARM GAS  /tmp/ccxB69I0.s 			page 1
  203:Drivers/Library/StdDriver/src/retarget.c ****        );
  204:Drivers/Library/StdDriver/src/retarget.c **** }
  205:Drivers/Library/StdDriver/src/retarget.c **** 
+ARM GAS  /tmp/cccbhmYm.s 			page 9
+
+
  206:Drivers/Library/StdDriver/src/retarget.c **** /**
  207:Drivers/Library/StdDriver/src/retarget.c ****  * @brief       Get stack pointer value and branch to Get_LR_and_Branch function
-ARM GAS  /tmp/ccxB69I0.s 			page 9
-
-
  208:Drivers/Library/StdDriver/src/retarget.c ****  * @param       None
  209:Drivers/Library/StdDriver/src/retarget.c ****  * @return      None
  210:Drivers/Library/StdDriver/src/retarget.c ****  * @details     This function is use to get stack pointer value and branch to Get_LR_and_Branch fun
@@ -536,11 +538,11 @@ ARM GAS  /tmp/ccxB69I0.s 			page 1
  260:Drivers/Library/StdDriver/src/retarget.c ****     MRS     R0, PSP               /*; Read PSP */
  261:Drivers/Library/StdDriver/src/retarget.c **** 
  262:Drivers/Library/StdDriver/src/retarget.c **** SP_Read_Ready
+ARM GAS  /tmp/cccbhmYm.s 			page 10
+
+
  263:Drivers/Library/StdDriver/src/retarget.c ****     LDR     R1, [R0, #24]         /*; Get previous PC */
  264:Drivers/Library/StdDriver/src/retarget.c ****     LDRH    R3, [R1]              /*; Get instruction */
-ARM GAS  /tmp/ccxB69I0.s 			page 10
-
-
  265:Drivers/Library/StdDriver/src/retarget.c ****     LDR     R2, =0xBEAB           /*; The special BKPT instruction */
  266:Drivers/Library/StdDriver/src/retarget.c ****     CMP     R3, R2                /*; Test if the instruction at previous PC is BKPT */
  267:Drivers/Library/StdDriver/src/retarget.c ****     BNE     HardFault_Handler_Ret /*; Not BKPT */
@@ -596,11 +598,11 @@ ARM GAS  /tmp/ccxB69I0.s 			page 1
  317:Drivers/Library/StdDriver/src/retarget.c ****     CMP    R2, #0
  318:Drivers/Library/StdDriver/src/retarget.c ****     BEQ    SH_End
  319:Drivers/Library/StdDriver/src/retarget.c ****     STR    R0, [R2]      /*; Save the return value to *pn32Out_R0 */
+ARM GAS  /tmp/cccbhmYm.s 			page 11
+
+
  320:Drivers/Library/StdDriver/src/retarget.c **** 
  321:Drivers/Library/StdDriver/src/retarget.c **** SH_End
-ARM GAS  /tmp/ccxB69I0.s 			page 11
-
-
  322:Drivers/Library/StdDriver/src/retarget.c ****     MOVS   R0, #1        /*; Set return value to 1 */
  323:Drivers/Library/StdDriver/src/retarget.c ****     BX     lr            /*; Return */
  324:Drivers/Library/StdDriver/src/retarget.c **** }
@@ -624,43 +626,43 @@ ARM GAS  /tmp/ccxB69I0.s 			page 1
  342:Drivers/Library/StdDriver/src/retarget.c ****  */
  343:Drivers/Library/StdDriver/src/retarget.c **** void HardFault_Handler(void)
  344:Drivers/Library/StdDriver/src/retarget.c **** {
- 223              		.loc 1 344 1
- 224              		.cfi_startproc
- 225              		@ args = 0, pretend = 0, frame = 0
- 226              		@ frame_needed = 1, uses_anonymous_args = 0
- 227              		@ link register save eliminated.
- 228 0000 80B4     		push	{r7}
- 229              	.LCFI8:
- 230              		.cfi_def_cfa_offset 4
- 231              		.cfi_offset 7, -4
- 232 0002 00AF     		add	r7, sp, #0
- 233              	.LCFI9:
- 234              		.cfi_def_cfa_register 7
+ 225              		.loc 1 344 1
+ 226              		.cfi_startproc
+ 227              		@ args = 0, pretend = 0, frame = 0
+ 228              		@ frame_needed = 1, uses_anonymous_args = 0
+ 229              		@ link register save eliminated.
+ 230 0000 80B4     		push	{r7}
+ 231              	.LCFI8:
+ 232              		.cfi_def_cfa_offset 4
+ 233              		.cfi_offset 7, -4
+ 234 0002 00AF     		add	r7, sp, #0
+ 235              	.LCFI9:
+ 236              		.cfi_def_cfa_register 7
  345:Drivers/Library/StdDriver/src/retarget.c ****     asm("MOVS    r0, #4                        \n"
- 235              		.loc 1 345 5
- 236 0004 074B     		ldr	r3, .L10
- 237              		.syntax unified
- 238              	@ 345 "Drivers/Library/StdDriver/src/retarget.c" 1
- 239 0006 0420     		MOVS    r0, #4                        
- 240 0008 7146     	MOV     r1, LR                        
- 241 000a 0842     	TST     r0, r1                        
- 242 000c 04D0     	BEQ     1f                            
- 243 000e EFF30980 	MRS     R0, PSP                       
- 244 0012 7146     	MOV     R1, LR                        
- 245 0014 FFF7FEBF 	B       Hard_Fault_Handler            
- 246              	1:                                    
- 247 0018 EFF30880 	MRS     R0, MSP                       
- 248 001c FFF7FEBF 	B       Hard_Fault_Handler            
- 249              	
- 250              	@ 0 "" 2
- 251              		.thumb
- 252              		.syntax unified
- 253              	.L9:
+ 237              		.loc 1 345 5
+ 238 0004 074B     		ldr	r3, .L10
+ 239              		.syntax unified
+ 240              	@ 345 "Drivers/Library/StdDriver/src/retarget.c" 1
+ 241 0006 0420     		MOVS    r0, #4                        
+ 242 0008 7146     	MOV     r1, LR                        
+ 243 000a 0842     	TST     r0, r1                        
+ 244 000c 04D0     	BEQ     1f                            
+ 245 000e EFF30980 	MRS     R0, PSP                       
+ 246 0012 7146     	MOV     R1, LR                        
+ 247 0014 FFF7FEBF 	B       Hard_Fault_Handler            
+ 248              	1:                                    
+ 249 0018 EFF30880 	MRS     R0, MSP                       
+ 250 001c FFF7FEBF 	B       Hard_Fault_Handler            
+ 251              	
+ 252              	@ 0 "" 2
+ 253              		.thumb
+ 254              		.syntax unified
+ 255              	.L9:
+ARM GAS  /tmp/cccbhmYm.s 			page 12
+
+
  346:Drivers/Library/StdDriver/src/retarget.c ****         "MOV     r1, LR                        \n"
  347:Drivers/Library/StdDriver/src/retarget.c ****         "TST     r0, r1                        \n" /*; check LR bit 2 */
-ARM GAS  /tmp/ccxB69I0.s 			page 12
-
-
  348:Drivers/Library/StdDriver/src/retarget.c ****         "BEQ     1f                            \n" /*; stack use MSP */
  349:Drivers/Library/StdDriver/src/retarget.c ****         "MRS     R0, PSP                       \n" /*; stack use PSP, read PSP */
  350:Drivers/Library/StdDriver/src/retarget.c ****         "MOV     R1, LR                        \n" /*; LR current value */
@@ -671,21 +673,22 @@ ARM GAS  /tmp/ccxB69I0.s 			page 1
  355:Drivers/Library/StdDriver/src/retarget.c ****         ::[Hard_Fault_Handler] "r" (Hard_Fault_Handler) // input
  356:Drivers/Library/StdDriver/src/retarget.c ****     );
  357:Drivers/Library/StdDriver/src/retarget.c ****     while(1);
- 254              		.loc 1 357 10 discriminator 1
- 255 0020 FEE7     		b	.L9
- 256              	.L11:
- 257 0022 00BF     		.align	2
- 258              	.L10:
- 259 0024 00000000 		.word	Hard_Fault_Handler
- 260              		.cfi_endproc
- 261              	.LFE197:
- 263              		.section	.text.SendChar_ToUART,"ax",%progbits
- 264              		.align	1
- 265              		.syntax unified
- 266              		.thumb
- 267              		.thumb_func
- 269              	SendChar_ToUART:
- 270              	.LFB198:
+ 256              		.loc 1 357 10 discriminator 1
+ 257 0020 FEE7     		b	.L9
+ 258              	.L11:
+ 259 0022 00BF     		.align	2
+ 260              	.L10:
+ 261 0024 00000000 		.word	Hard_Fault_Handler
+ 262              		.cfi_endproc
+ 263              	.LFE197:
+ 265              		.section	.text.SendChar_ToUART,"ax",%progbits
+ 266              		.align	1
+ 267              		.syntax unified
+ 268              		.thumb
+ 269              		.thumb_func
+ 270              		.fpu fpv4-sp-d16
+ 272              	SendChar_ToUART:
+ 273              	.LFB198:
  358:Drivers/Library/StdDriver/src/retarget.c **** }
  359:Drivers/Library/StdDriver/src/retarget.c **** 
  360:Drivers/Library/StdDriver/src/retarget.c **** # elif defined(__ICCARM__)
@@ -715,12 +718,12 @@ ARM GAS  /tmp/ccxB69I0.s 			page 1
  384:Drivers/Library/StdDriver/src/retarget.c ****  *
  385:Drivers/Library/StdDriver/src/retarget.c ****  */
  386:Drivers/Library/StdDriver/src/retarget.c **** void HardFault_Handler(void)
+ARM GAS  /tmp/cccbhmYm.s 			page 13
+
+
  387:Drivers/Library/StdDriver/src/retarget.c **** {
  388:Drivers/Library/StdDriver/src/retarget.c ****     asm("MOVS    r0, #4                        \n"
  389:Drivers/Library/StdDriver/src/retarget.c ****         "MOV     r1, LR                        \n"
-ARM GAS  /tmp/ccxB69I0.s 			page 13
-
-
  390:Drivers/Library/StdDriver/src/retarget.c ****         "TST     r0, r1                        \n" /*; check LR bit 2 */
  391:Drivers/Library/StdDriver/src/retarget.c ****         "BEQ     Stack_Use_MSP                 \n" /*; stack use MSP */
  392:Drivers/Library/StdDriver/src/retarget.c ****         "MRS     R0, PSP                       \n" /*; stack use PSP, read PSP */
@@ -775,101 +778,102 @@ ARM GAS  /tmp/ccxB69I0.s 			page 1
  441:Drivers/Library/StdDriver/src/retarget.c **** #ifndef NONBLOCK_PRINTF
  442:Drivers/Library/StdDriver/src/retarget.c **** static void SendChar_ToUART(int ch)
  443:Drivers/Library/StdDriver/src/retarget.c **** {
- 271              		.loc 1 443 1
- 272              		.cfi_startproc
- 273              		@ args = 0, pretend = 0, frame = 8
-ARM GAS  /tmp/ccxB69I0.s 			page 14
+ARM GAS  /tmp/cccbhmYm.s 			page 14
 
 
- 274              		@ frame_needed = 1, uses_anonymous_args = 0
- 275              		@ link register save eliminated.
- 276 0000 80B4     		push	{r7}
- 277              	.LCFI10:
- 278              		.cfi_def_cfa_offset 4
- 279              		.cfi_offset 7, -4
- 280 0002 83B0     		sub	sp, sp, #12
- 281              	.LCFI11:
- 282              		.cfi_def_cfa_offset 16
- 283 0004 00AF     		add	r7, sp, #0
- 284              	.LCFI12:
- 285              		.cfi_def_cfa_register 7
- 286 0006 7860     		str	r0, [r7, #4]
+ 274              		.loc 1 443 1
+ 275              		.cfi_startproc
+ 276              		@ args = 0, pretend = 0, frame = 8
+ 277              		@ frame_needed = 1, uses_anonymous_args = 0
+ 278              		@ link register save eliminated.
+ 279 0000 80B4     		push	{r7}
+ 280              	.LCFI10:
+ 281              		.cfi_def_cfa_offset 4
+ 282              		.cfi_offset 7, -4
+ 283 0002 83B0     		sub	sp, sp, #12
+ 284              	.LCFI11:
+ 285              		.cfi_def_cfa_offset 16
+ 286 0004 00AF     		add	r7, sp, #0
+ 287              	.LCFI12:
+ 288              		.cfi_def_cfa_register 7
+ 289 0006 7860     		str	r0, [r7, #4]
  444:Drivers/Library/StdDriver/src/retarget.c ****     while(DEBUG_PORT->FIFOSTS & UART_FIFOSTS_TXFULL_Msk);
- 287              		.loc 1 444 10
- 288 0008 00BF     		nop
- 289              	.L13:
- 290              		.loc 1 444 21 discriminator 1
- 291 000a 0E4B     		ldr	r3, .L16
- 292 000c 9B69     		ldr	r3, [r3, #24]
- 293              		.loc 1 444 31 discriminator 1
- 294 000e 03F40003 		and	r3, r3, #8388608
- 295              		.loc 1 444 10 discriminator 1
- 296 0012 002B     		cmp	r3, #0
- 297 0014 F9D1     		bne	.L13
+ 290              		.loc 1 444 10
+ 291 0008 00BF     		nop
+ 292              	.L13:
+ 293              		.loc 1 444 21 discriminator 1
+ 294 000a 0E4B     		ldr	r3, .L16
+ 295 000c 9B69     		ldr	r3, [r3, #24]
+ 296              		.loc 1 444 31 discriminator 1
+ 297 000e 03F40003 		and	r3, r3, #8388608
+ 298              		.loc 1 444 10 discriminator 1
+ 299 0012 002B     		cmp	r3, #0
+ 300 0014 F9D1     		bne	.L13
  445:Drivers/Library/StdDriver/src/retarget.c **** 
  446:Drivers/Library/StdDriver/src/retarget.c ****     if(ch == '\n')
- 298              		.loc 1 446 7
- 299 0016 7B68     		ldr	r3, [r7, #4]
- 300 0018 0A2B     		cmp	r3, #10
- 301 001a 09D1     		bne	.L14
+ 301              		.loc 1 446 7
+ 302 0016 7B68     		ldr	r3, [r7, #4]
+ 303 0018 0A2B     		cmp	r3, #10
+ 304 001a 09D1     		bne	.L14
  447:Drivers/Library/StdDriver/src/retarget.c ****     {
  448:Drivers/Library/StdDriver/src/retarget.c ****         DEBUG_PORT->DAT = '\r';
- 302              		.loc 1 448 19
- 303 001c 094B     		ldr	r3, .L16
- 304              		.loc 1 448 25
- 305 001e 0D22     		movs	r2, #13
- 306 0020 1A60     		str	r2, [r3]
+ 305              		.loc 1 448 19
+ 306 001c 094B     		ldr	r3, .L16
+ 307              		.loc 1 448 25
+ 308 001e 0D22     		movs	r2, #13
+ 309 0020 1A60     		str	r2, [r3]
  449:Drivers/Library/StdDriver/src/retarget.c ****         while(DEBUG_PORT->FIFOSTS & UART_FIFOSTS_TXFULL_Msk);
- 307              		.loc 1 449 14
- 308 0022 00BF     		nop
- 309              	.L15:
- 310              		.loc 1 449 25 discriminator 1
- 311 0024 074B     		ldr	r3, .L16
- 312 0026 9B69     		ldr	r3, [r3, #24]
- 313              		.loc 1 449 35 discriminator 1
- 314 0028 03F40003 		and	r3, r3, #8388608
- 315              		.loc 1 449 14 discriminator 1
- 316 002c 002B     		cmp	r3, #0
- 317 002e F9D1     		bne	.L15
- 318              	.L14:
+ 310              		.loc 1 449 14
+ 311 0022 00BF     		nop
+ 312              	.L15:
+ 313              		.loc 1 449 25 discriminator 1
+ 314 0024 074B     		ldr	r3, .L16
+ 315 0026 9B69     		ldr	r3, [r3, #24]
+ 316              		.loc 1 449 35 discriminator 1
+ 317 0028 03F40003 		and	r3, r3, #8388608
+ 318              		.loc 1 449 14 discriminator 1
+ 319 002c 002B     		cmp	r3, #0
+ 320 002e F9D1     		bne	.L15
+ 321              	.L14:
  450:Drivers/Library/StdDriver/src/retarget.c ****     }
  451:Drivers/Library/StdDriver/src/retarget.c ****     DEBUG_PORT->DAT = ch;
- 319              		.loc 1 451 15
- 320 0030 044A     		ldr	r2, .L16
- 321              		.loc 1 451 21
- 322 0032 7B68     		ldr	r3, [r7, #4]
-ARM GAS  /tmp/ccxB69I0.s 			page 15
+ 322              		.loc 1 451 15
+ARM GAS  /tmp/cccbhmYm.s 			page 15
 
 
- 323 0034 1360     		str	r3, [r2]
+ 323 0030 044A     		ldr	r2, .L16
+ 324              		.loc 1 451 21
+ 325 0032 7B68     		ldr	r3, [r7, #4]
+ 326 0034 1360     		str	r3, [r2]
  452:Drivers/Library/StdDriver/src/retarget.c **** }
- 324              		.loc 1 452 1
- 325 0036 00BF     		nop
- 326 0038 0C37     		adds	r7, r7, #12
- 327              	.LCFI13:
- 328              		.cfi_def_cfa_offset 4
- 329 003a BD46     		mov	sp, r7
- 330              	.LCFI14:
- 331              		.cfi_def_cfa_register 13
- 332              		@ sp needed
- 333 003c 5DF8047B 		ldr	r7, [sp], #4
- 334              	.LCFI15:
- 335              		.cfi_restore 7
- 336              		.cfi_def_cfa_offset 0
- 337 0040 7047     		bx	lr
- 338              	.L17:
- 339 0042 00BF     		.align	2
- 340              	.L16:
- 341 0044 00000740 		.word	1074200576
- 342              		.cfi_endproc
- 343              	.LFE198:
- 345              		.section	.text.SendChar,"ax",%progbits
- 346              		.align	1
- 347              		.syntax unified
- 348              		.thumb
- 349              		.thumb_func
- 351              	SendChar:
- 352              	.LFB199:
+ 327              		.loc 1 452 1
+ 328 0036 00BF     		nop
+ 329 0038 0C37     		adds	r7, r7, #12
+ 330              	.LCFI13:
+ 331              		.cfi_def_cfa_offset 4
+ 332 003a BD46     		mov	sp, r7
+ 333              	.LCFI14:
+ 334              		.cfi_def_cfa_register 13
+ 335              		@ sp needed
+ 336 003c 5DF8047B 		ldr	r7, [sp], #4
+ 337              	.LCFI15:
+ 338              		.cfi_restore 7
+ 339              		.cfi_def_cfa_offset 0
+ 340 0040 7047     		bx	lr
+ 341              	.L17:
+ 342 0042 00BF     		.align	2
+ 343              	.L16:
+ 344 0044 00000740 		.word	1074200576
+ 345              		.cfi_endproc
+ 346              	.LFE198:
+ 348              		.section	.text.SendChar,"ax",%progbits
+ 349              		.align	1
+ 350              		.syntax unified
+ 351              		.thumb
+ 352              		.thumb_func
+ 353              		.fpu fpv4-sp-d16
+ 355              	SendChar:
+ 356              	.LFB199:
  453:Drivers/Library/StdDriver/src/retarget.c **** 
  454:Drivers/Library/StdDriver/src/retarget.c **** #else
  455:Drivers/Library/StdDriver/src/retarget.c **** /* Non-block implement of send char */
@@ -894,13 +898,13 @@ ARM GAS  /tmp/ccxB69I0.s 			page 1
  474:Drivers/Library/StdDriver/src/retarget.c ****                 u8Buf[i32Head] = '\r';
  475:Drivers/Library/StdDriver/src/retarget.c ****                 i32Head = i32Tmp;
  476:Drivers/Library/StdDriver/src/retarget.c ****             }
+ARM GAS  /tmp/cccbhmYm.s 			page 16
+
+
  477:Drivers/Library/StdDriver/src/retarget.c ****         }
  478:Drivers/Library/StdDriver/src/retarget.c **** 
  479:Drivers/Library/StdDriver/src/retarget.c ****         i32Tmp = i32Head+1;
  480:Drivers/Library/StdDriver/src/retarget.c ****         if(i32Tmp > BUF_SIZE) i32Tmp = 0;
-ARM GAS  /tmp/ccxB69I0.s 			page 16
-
-
  481:Drivers/Library/StdDriver/src/retarget.c ****         if(i32Tmp != i32Tail)
  482:Drivers/Library/StdDriver/src/retarget.c ****         {
  483:Drivers/Library/StdDriver/src/retarget.c ****             u8Buf[i32Head] = ch;
@@ -943,25 +947,25 @@ ARM GAS  /tmp/ccxB69I0.s 			page 1
  520:Drivers/Library/StdDriver/src/retarget.c ****  */
  521:Drivers/Library/StdDriver/src/retarget.c **** static void SendChar(int ch)
  522:Drivers/Library/StdDriver/src/retarget.c **** {
- 353              		.loc 1 522 1
- 354              		.cfi_startproc
- 355              		@ args = 0, pretend = 0, frame = 8
- 356              		@ frame_needed = 1, uses_anonymous_args = 0
- 357 0000 80B5     		push	{r7, lr}
- 358              	.LCFI16:
- 359              		.cfi_def_cfa_offset 8
- 360              		.cfi_offset 7, -8
- 361              		.cfi_offset 14, -4
- 362 0002 82B0     		sub	sp, sp, #8
- 363              	.LCFI17:
- 364              		.cfi_def_cfa_offset 16
- 365 0004 00AF     		add	r7, sp, #0
- 366              	.LCFI18:
- 367              		.cfi_def_cfa_register 7
-ARM GAS  /tmp/ccxB69I0.s 			page 17
+ 357              		.loc 1 522 1
+ 358              		.cfi_startproc
+ 359              		@ args = 0, pretend = 0, frame = 8
+ 360              		@ frame_needed = 1, uses_anonymous_args = 0
+ 361 0000 80B5     		push	{r7, lr}
+ 362              	.LCFI16:
+ 363              		.cfi_def_cfa_offset 8
+ 364              		.cfi_offset 7, -8
+ 365              		.cfi_offset 14, -4
+ 366 0002 82B0     		sub	sp, sp, #8
+ 367              	.LCFI17:
+ARM GAS  /tmp/cccbhmYm.s 			page 17
 
 
- 368 0006 7860     		str	r0, [r7, #4]
+ 368              		.cfi_def_cfa_offset 16
+ 369 0004 00AF     		add	r7, sp, #0
+ 370              	.LCFI18:
+ 371              		.cfi_def_cfa_register 7
+ 372 0006 7860     		str	r0, [r7, #4]
  523:Drivers/Library/StdDriver/src/retarget.c **** #if defined(DEBUG_ENABLE_SEMIHOST)
  524:Drivers/Library/StdDriver/src/retarget.c ****     g_buf[g_buf_len++] = ch;
  525:Drivers/Library/StdDriver/src/retarget.c ****     g_buf[g_buf_len] = '\0';
@@ -987,59 +991,60 @@ ARM GAS  /tmp/ccxB69I0.s 			page 1
  545:Drivers/Library/StdDriver/src/retarget.c **** #else
  546:Drivers/Library/StdDriver/src/retarget.c **** #ifndef DISABLE_UART
  547:Drivers/Library/StdDriver/src/retarget.c ****     SendChar_ToUART(ch);
- 369              		.loc 1 547 5
- 370 0008 7868     		ldr	r0, [r7, #4]
- 371 000a FFF7FEFF 		bl	SendChar_ToUART
+ 373              		.loc 1 547 5
+ 374 0008 7868     		ldr	r0, [r7, #4]
+ 375 000a FFF7FEFF 		bl	SendChar_ToUART
  548:Drivers/Library/StdDriver/src/retarget.c **** #endif
  549:Drivers/Library/StdDriver/src/retarget.c **** #endif
  550:Drivers/Library/StdDriver/src/retarget.c **** }
- 372              		.loc 1 550 1
- 373 000e 00BF     		nop
- 374 0010 0837     		adds	r7, r7, #8
- 375              	.LCFI19:
- 376              		.cfi_def_cfa_offset 8
- 377 0012 BD46     		mov	sp, r7
- 378              	.LCFI20:
- 379              		.cfi_def_cfa_register 13
- 380              		@ sp needed
- 381 0014 80BD     		pop	{r7, pc}
- 382              		.cfi_endproc
- 383              	.LFE199:
- 385              		.section	.text.GetChar,"ax",%progbits
- 386              		.align	1
- 387              		.syntax unified
- 388              		.thumb
- 389              		.thumb_func
- 391              	GetChar:
- 392              	.LFB200:
+ 376              		.loc 1 550 1
+ 377 000e 00BF     		nop
+ 378 0010 0837     		adds	r7, r7, #8
+ 379              	.LCFI19:
+ 380              		.cfi_def_cfa_offset 8
+ 381 0012 BD46     		mov	sp, r7
+ 382              	.LCFI20:
+ 383              		.cfi_def_cfa_register 13
+ 384              		@ sp needed
+ 385 0014 80BD     		pop	{r7, pc}
+ 386              		.cfi_endproc
+ 387              	.LFE199:
+ 389              		.section	.text.GetChar,"ax",%progbits
+ 390              		.align	1
+ 391              		.syntax unified
+ 392              		.thumb
+ 393              		.thumb_func
+ 394              		.fpu fpv4-sp-d16
+ 396              	GetChar:
+ 397              	.LFB200:
  551:Drivers/Library/StdDriver/src/retarget.c **** 
+ARM GAS  /tmp/cccbhmYm.s 			page 18
+
+
  552:Drivers/Library/StdDriver/src/retarget.c **** /**
  553:Drivers/Library/StdDriver/src/retarget.c ****  * @brief    Routine to get a char
  554:Drivers/Library/StdDriver/src/retarget.c ****  *
  555:Drivers/Library/StdDriver/src/retarget.c ****  * @param    None
  556:Drivers/Library/StdDriver/src/retarget.c ****  *
-ARM GAS  /tmp/ccxB69I0.s 			page 18
-
-
  557:Drivers/Library/StdDriver/src/retarget.c ****  * @returns  Get value from UART debug port or semihost
  558:Drivers/Library/StdDriver/src/retarget.c ****  *
  559:Drivers/Library/StdDriver/src/retarget.c ****  * @details  Wait UART debug port or semihost to input a char.
  560:Drivers/Library/StdDriver/src/retarget.c ****  */
  561:Drivers/Library/StdDriver/src/retarget.c **** static char GetChar(void)
  562:Drivers/Library/StdDriver/src/retarget.c **** {
- 393              		.loc 1 562 1
- 394              		.cfi_startproc
- 395              		@ args = 0, pretend = 0, frame = 0
- 396              		@ frame_needed = 1, uses_anonymous_args = 0
- 397              		@ link register save eliminated.
- 398 0000 80B4     		push	{r7}
- 399              	.LCFI21:
- 400              		.cfi_def_cfa_offset 4
- 401              		.cfi_offset 7, -4
- 402 0002 00AF     		add	r7, sp, #0
- 403              	.LCFI22:
- 404              		.cfi_def_cfa_register 7
- 405              	.L22:
+ 398              		.loc 1 562 1
+ 399              		.cfi_startproc
+ 400              		@ args = 0, pretend = 0, frame = 0
+ 401              		@ frame_needed = 1, uses_anonymous_args = 0
+ 402              		@ link register save eliminated.
+ 403 0000 80B4     		push	{r7}
+ 404              	.LCFI21:
+ 405              		.cfi_def_cfa_offset 4
+ 406              		.cfi_offset 7, -4
+ 407 0002 00AF     		add	r7, sp, #0
+ 408              	.LCFI22:
+ 409              		.cfi_def_cfa_register 7
+ 410              	.L22:
  563:Drivers/Library/StdDriver/src/retarget.c **** #ifdef DEBUG_ENABLE_SEMIHOST
  564:Drivers/Library/StdDriver/src/retarget.c **** # if defined (__CC_ARM)
  565:Drivers/Library/StdDriver/src/retarget.c ****     int nRet;
@@ -1065,23 +1070,23 @@ ARM GAS  /tmp/ccxB69I0.s 			page 1
  585:Drivers/Library/StdDriver/src/retarget.c ****     while(1)
  586:Drivers/Library/StdDriver/src/retarget.c ****     {
  587:Drivers/Library/StdDriver/src/retarget.c ****         if((DEBUG_PORT->FIFOSTS & UART_FIFOSTS_RXEMPTY_Msk) == 0)
- 406              		.loc 1 587 23
- 407 0004 064B     		ldr	r3, .L24
- 408 0006 9B69     		ldr	r3, [r3, #24]
- 409              		.loc 1 587 33
- 410 0008 03F48043 		and	r3, r3, #16384
- 411              		.loc 1 587 11
- 412 000c 002B     		cmp	r3, #0
- 413 000e F9D1     		bne	.L22
+ 411              		.loc 1 587 23
+ 412 0004 064B     		ldr	r3, .L24
+ 413 0006 9B69     		ldr	r3, [r3, #24]
+ 414              		.loc 1 587 33
+ 415 0008 03F48043 		and	r3, r3, #16384
+ 416              		.loc 1 587 11
+ 417 000c 002B     		cmp	r3, #0
+ 418 000e F9D1     		bne	.L22
+ARM GAS  /tmp/cccbhmYm.s 			page 19
+
+
  588:Drivers/Library/StdDriver/src/retarget.c ****         {
  589:Drivers/Library/StdDriver/src/retarget.c ****             return (DEBUG_PORT->DAT);
- 414              		.loc 1 589 31
- 415 0010 034B     		ldr	r3, .L24
- 416 0012 1B68     		ldr	r3, [r3]
-ARM GAS  /tmp/ccxB69I0.s 			page 19
-
-
- 417 0014 5BB2     		sxtb	r3, r3
+ 419              		.loc 1 589 31
+ 420 0010 034B     		ldr	r3, .L24
+ 421 0012 1B68     		ldr	r3, [r3]
+ 422 0014 5BB2     		sxtb	r3, r3
  590:Drivers/Library/StdDriver/src/retarget.c ****         }
  591:Drivers/Library/StdDriver/src/retarget.c ****     }
  592:Drivers/Library/StdDriver/src/retarget.c **** #else
@@ -1089,31 +1094,32 @@ ARM GAS  /tmp/ccxB69I0.s 			page 1
  594:Drivers/Library/StdDriver/src/retarget.c **** #endif
  595:Drivers/Library/StdDriver/src/retarget.c **** #endif
  596:Drivers/Library/StdDriver/src/retarget.c **** }
- 418              		.loc 1 596 1
- 419 0016 1846     		mov	r0, r3
- 420 0018 BD46     		mov	sp, r7
- 421              	.LCFI23:
- 422              		.cfi_def_cfa_register 13
- 423              		@ sp needed
- 424 001a 5DF8047B 		ldr	r7, [sp], #4
- 425              	.LCFI24:
- 426              		.cfi_restore 7
- 427              		.cfi_def_cfa_offset 0
- 428 001e 7047     		bx	lr
- 429              	.L25:
- 430              		.align	2
- 431              	.L24:
- 432 0020 00000740 		.word	1074200576
- 433              		.cfi_endproc
- 434              	.LFE200:
- 436              		.section	.text.kbhit,"ax",%progbits
- 437              		.align	1
- 438              		.global	kbhit
- 439              		.syntax unified
- 440              		.thumb
- 441              		.thumb_func
- 443              	kbhit:
- 444              	.LFB201:
+ 423              		.loc 1 596 1
+ 424 0016 1846     		mov	r0, r3
+ 425 0018 BD46     		mov	sp, r7
+ 426              	.LCFI23:
+ 427              		.cfi_def_cfa_register 13
+ 428              		@ sp needed
+ 429 001a 5DF8047B 		ldr	r7, [sp], #4
+ 430              	.LCFI24:
+ 431              		.cfi_restore 7
+ 432              		.cfi_def_cfa_offset 0
+ 433 001e 7047     		bx	lr
+ 434              	.L25:
+ 435              		.align	2
+ 436              	.L24:
+ 437 0020 00000740 		.word	1074200576
+ 438              		.cfi_endproc
+ 439              	.LFE200:
+ 441              		.section	.text.kbhit,"ax",%progbits
+ 442              		.align	1
+ 443              		.global	kbhit
+ 444              		.syntax unified
+ 445              		.thumb
+ 446              		.thumb_func
+ 447              		.fpu fpv4-sp-d16
+ 449              	kbhit:
+ 450              	.LFB201:
  597:Drivers/Library/StdDriver/src/retarget.c **** 
  598:Drivers/Library/StdDriver/src/retarget.c **** /**
  599:Drivers/Library/StdDriver/src/retarget.c ****  * @brief    Check any char input from UART
@@ -1128,69 +1134,73 @@ ARM GAS  /tmp/ccxB69I0.s 			page 1
  608:Drivers/Library/StdDriver/src/retarget.c **** 
  609:Drivers/Library/StdDriver/src/retarget.c **** int kbhit(void)
  610:Drivers/Library/StdDriver/src/retarget.c **** {
- 445              		.loc 1 610 1
- 446              		.cfi_startproc
- 447              		@ args = 0, pretend = 0, frame = 0
- 448              		@ frame_needed = 1, uses_anonymous_args = 0
- 449              		@ link register save eliminated.
- 450 0000 80B4     		push	{r7}
- 451              	.LCFI25:
- 452              		.cfi_def_cfa_offset 4
- 453              		.cfi_offset 7, -4
- 454 0002 00AF     		add	r7, sp, #0
-ARM GAS  /tmp/ccxB69I0.s 			page 20
+ 451              		.loc 1 610 1
+ 452              		.cfi_startproc
+ 453              		@ args = 0, pretend = 0, frame = 0
+ 454              		@ frame_needed = 1, uses_anonymous_args = 0
+ARM GAS  /tmp/cccbhmYm.s 			page 20
 
 
- 455              	.LCFI26:
- 456              		.cfi_def_cfa_register 7
+ 455              		@ link register save eliminated.
+ 456 0000 80B4     		push	{r7}
+ 457              	.LCFI25:
+ 458              		.cfi_def_cfa_offset 4
+ 459              		.cfi_offset 7, -4
+ 460 0002 00AF     		add	r7, sp, #0
+ 461              	.LCFI26:
+ 462              		.cfi_def_cfa_register 7
  611:Drivers/Library/StdDriver/src/retarget.c **** #ifndef DISABLE_UART
  612:Drivers/Library/StdDriver/src/retarget.c ****     return !((DEBUG_PORT->FIFOSTS & UART_FIFOSTS_RXEMPTY_Msk) == 0);
- 457              		.loc 1 612 25
- 458 0004 064B     		ldr	r3, .L28
- 459 0006 9B69     		ldr	r3, [r3, #24]
- 460              		.loc 1 612 35
- 461 0008 03F48043 		and	r3, r3, #16384
- 462              		.loc 1 612 12
- 463 000c 002B     		cmp	r3, #0
- 464 000e 14BF     		ite	ne
- 465 0010 0123     		movne	r3, #1
- 466 0012 0023     		moveq	r3, #0
- 467 0014 DBB2     		uxtb	r3, r3
+ 463              		.loc 1 612 25
+ 464 0004 064B     		ldr	r3, .L28
+ 465 0006 9B69     		ldr	r3, [r3, #24]
+ 466              		.loc 1 612 35
+ 467 0008 03F48043 		and	r3, r3, #16384
+ 468              		.loc 1 612 12
+ 469 000c 002B     		cmp	r3, #0
+ 470 000e 14BF     		ite	ne
+ 471 0010 0123     		movne	r3, #1
+ 472 0012 0023     		moveq	r3, #0
+ 473 0014 DBB2     		uxtb	r3, r3
  613:Drivers/Library/StdDriver/src/retarget.c **** #else
  614:Drivers/Library/StdDriver/src/retarget.c ****     return 0;
  615:Drivers/Library/StdDriver/src/retarget.c **** #endif
  616:Drivers/Library/StdDriver/src/retarget.c **** }
- 468              		.loc 1 616 1
- 469 0016 1846     		mov	r0, r3
- 470 0018 BD46     		mov	sp, r7
- 471              	.LCFI27:
- 472              		.cfi_def_cfa_register 13
- 473              		@ sp needed
- 474 001a 5DF8047B 		ldr	r7, [sp], #4
- 475              	.LCFI28:
- 476              		.cfi_restore 7
- 477              		.cfi_def_cfa_offset 0
- 478 001e 7047     		bx	lr
- 479              	.L29:
- 480              		.align	2
- 481              	.L28:
- 482 0020 00000740 		.word	1074200576
- 483              		.cfi_endproc
- 484              	.LFE201:
- 486              		.section	.text.IsDebugFifoEmpty,"ax",%progbits
- 487              		.align	1
- 488              		.global	IsDebugFifoEmpty
- 489              		.syntax unified
- 490              		.thumb
- 491              		.thumb_func
- 493              	IsDebugFifoEmpty:
- 494              	.LFB202:
+ 474              		.loc 1 616 1
+ 475 0016 1846     		mov	r0, r3
+ 476 0018 BD46     		mov	sp, r7
+ 477              	.LCFI27:
+ 478              		.cfi_def_cfa_register 13
+ 479              		@ sp needed
+ 480 001a 5DF8047B 		ldr	r7, [sp], #4
+ 481              	.LCFI28:
+ 482              		.cfi_restore 7
+ 483              		.cfi_def_cfa_offset 0
+ 484 001e 7047     		bx	lr
+ 485              	.L29:
+ 486              		.align	2
+ 487              	.L28:
+ 488 0020 00000740 		.word	1074200576
+ 489              		.cfi_endproc
+ 490              	.LFE201:
+ 492              		.section	.text.IsDebugFifoEmpty,"ax",%progbits
+ 493              		.align	1
+ 494              		.global	IsDebugFifoEmpty
+ 495              		.syntax unified
+ 496              		.thumb
+ 497              		.thumb_func
+ 498              		.fpu fpv4-sp-d16
+ 500              	IsDebugFifoEmpty:
+ 501              	.LFB202:
  617:Drivers/Library/StdDriver/src/retarget.c **** /**
  618:Drivers/Library/StdDriver/src/retarget.c ****  * @brief    Check if debug message finished
  619:Drivers/Library/StdDriver/src/retarget.c ****  *
  620:Drivers/Library/StdDriver/src/retarget.c ****  * @param    None
  621:Drivers/Library/StdDriver/src/retarget.c ****  *
  622:Drivers/Library/StdDriver/src/retarget.c ****  * @retval   1: Message is finished
+ARM GAS  /tmp/cccbhmYm.s 			page 21
+
+
  623:Drivers/Library/StdDriver/src/retarget.c ****  * @retval   0: Message is transmitting.
  624:Drivers/Library/StdDriver/src/retarget.c ****  *
  625:Drivers/Library/StdDriver/src/retarget.c ****  * @details  Check if message finished (FIFO empty of debug port)
@@ -1198,69 +1208,67 @@ ARM GAS  /tmp/ccxB69I0.s 			page 1
  627:Drivers/Library/StdDriver/src/retarget.c **** 
  628:Drivers/Library/StdDriver/src/retarget.c **** int IsDebugFifoEmpty(void)
  629:Drivers/Library/StdDriver/src/retarget.c **** {
-ARM GAS  /tmp/ccxB69I0.s 			page 21
-
-
- 495              		.loc 1 629 1
- 496              		.cfi_startproc
- 497              		@ args = 0, pretend = 0, frame = 0
- 498              		@ frame_needed = 1, uses_anonymous_args = 0
- 499              		@ link register save eliminated.
- 500 0000 80B4     		push	{r7}
- 501              	.LCFI29:
- 502              		.cfi_def_cfa_offset 4
- 503              		.cfi_offset 7, -4
- 504 0002 00AF     		add	r7, sp, #0
- 505              	.LCFI30:
- 506              		.cfi_def_cfa_register 7
+ 502              		.loc 1 629 1
+ 503              		.cfi_startproc
+ 504              		@ args = 0, pretend = 0, frame = 0
+ 505              		@ frame_needed = 1, uses_anonymous_args = 0
+ 506              		@ link register save eliminated.
+ 507 0000 80B4     		push	{r7}
+ 508              	.LCFI29:
+ 509              		.cfi_def_cfa_offset 4
+ 510              		.cfi_offset 7, -4
+ 511 0002 00AF     		add	r7, sp, #0
+ 512              	.LCFI30:
+ 513              		.cfi_def_cfa_register 7
  630:Drivers/Library/StdDriver/src/retarget.c **** #ifndef DISABLE_UART
  631:Drivers/Library/StdDriver/src/retarget.c ****     return ((DEBUG_PORT->FIFOSTS & UART_FIFOSTS_TXEMPTYF_Msk) != 0);
- 507              		.loc 1 631 24
- 508 0004 064B     		ldr	r3, .L32
- 509 0006 9B69     		ldr	r3, [r3, #24]
- 510              		.loc 1 631 34
- 511 0008 03F08053 		and	r3, r3, #268435456
- 512              		.loc 1 631 63
- 513 000c 002B     		cmp	r3, #0
- 514 000e 14BF     		ite	ne
- 515 0010 0123     		movne	r3, #1
- 516 0012 0023     		moveq	r3, #0
- 517 0014 DBB2     		uxtb	r3, r3
+ 514              		.loc 1 631 24
+ 515 0004 064B     		ldr	r3, .L32
+ 516 0006 9B69     		ldr	r3, [r3, #24]
+ 517              		.loc 1 631 34
+ 518 0008 03F08053 		and	r3, r3, #268435456
+ 519              		.loc 1 631 63
+ 520 000c 002B     		cmp	r3, #0
+ 521 000e 14BF     		ite	ne
+ 522 0010 0123     		movne	r3, #1
+ 523 0012 0023     		moveq	r3, #0
+ 524 0014 DBB2     		uxtb	r3, r3
  632:Drivers/Library/StdDriver/src/retarget.c **** #else
  633:Drivers/Library/StdDriver/src/retarget.c ****     return 1;
  634:Drivers/Library/StdDriver/src/retarget.c **** #endif
  635:Drivers/Library/StdDriver/src/retarget.c **** }
- 518              		.loc 1 635 1
- 519 0016 1846     		mov	r0, r3
- 520 0018 BD46     		mov	sp, r7
- 521              	.LCFI31:
- 522              		.cfi_def_cfa_register 13
- 523              		@ sp needed
- 524 001a 5DF8047B 		ldr	r7, [sp], #4
- 525              	.LCFI32:
- 526              		.cfi_restore 7
- 527              		.cfi_def_cfa_offset 0
- 528 001e 7047     		bx	lr
- 529              	.L33:
- 530              		.align	2
- 531              	.L32:
- 532 0020 00000740 		.word	1074200576
- 533              		.cfi_endproc
- 534              	.LFE202:
- 536              		.section	.text._ttywrch,"ax",%progbits
- 537              		.align	1
- 538              		.global	_ttywrch
- 539              		.syntax unified
- 540              		.thumb
- 541              		.thumb_func
- 543              	_ttywrch:
- 544              	.LFB203:
+ 525              		.loc 1 635 1
+ 526 0016 1846     		mov	r0, r3
+ 527 0018 BD46     		mov	sp, r7
+ 528              	.LCFI31:
+ 529              		.cfi_def_cfa_register 13
+ 530              		@ sp needed
+ 531 001a 5DF8047B 		ldr	r7, [sp], #4
+ 532              	.LCFI32:
+ 533              		.cfi_restore 7
+ 534              		.cfi_def_cfa_offset 0
+ 535 001e 7047     		bx	lr
+ 536              	.L33:
+ 537              		.align	2
+ 538              	.L32:
+ 539 0020 00000740 		.word	1074200576
+ 540              		.cfi_endproc
+ 541              	.LFE202:
+ 543              		.section	.text._ttywrch,"ax",%progbits
+ 544              		.align	1
+ 545              		.global	_ttywrch
+ 546              		.syntax unified
+ARM GAS  /tmp/cccbhmYm.s 			page 22
+
+
+ 547              		.thumb
+ 548              		.thumb_func
+ 549              		.fpu fpv4-sp-d16
+ 551              	_ttywrch:
+ 552              	.LFB203:
  636:Drivers/Library/StdDriver/src/retarget.c **** 
  637:Drivers/Library/StdDriver/src/retarget.c **** /**
  638:Drivers/Library/StdDriver/src/retarget.c ****  * @brief       C library retargetting
-ARM GAS  /tmp/ccxB69I0.s 			page 22
-
-
  639:Drivers/Library/StdDriver/src/retarget.c ****  *
  640:Drivers/Library/StdDriver/src/retarget.c ****  * @param[in]   ch Character to send to debug port.
  641:Drivers/Library/StdDriver/src/retarget.c ****  *
@@ -1271,56 +1279,57 @@ ARM GAS  /tmp/ccxB69I0.s 			page 1
  646:Drivers/Library/StdDriver/src/retarget.c **** 
  647:Drivers/Library/StdDriver/src/retarget.c **** void _ttywrch(int ch)
  648:Drivers/Library/StdDriver/src/retarget.c **** {
- 545              		.loc 1 648 1
- 546              		.cfi_startproc
- 547              		@ args = 0, pretend = 0, frame = 8
- 548              		@ frame_needed = 1, uses_anonymous_args = 0
- 549 0000 80B5     		push	{r7, lr}
- 550              	.LCFI33:
- 551              		.cfi_def_cfa_offset 8
- 552              		.cfi_offset 7, -8
- 553              		.cfi_offset 14, -4
- 554 0002 82B0     		sub	sp, sp, #8
- 555              	.LCFI34:
- 556              		.cfi_def_cfa_offset 16
- 557 0004 00AF     		add	r7, sp, #0
- 558              	.LCFI35:
- 559              		.cfi_def_cfa_register 7
- 560 0006 7860     		str	r0, [r7, #4]
+ 553              		.loc 1 648 1
+ 554              		.cfi_startproc
+ 555              		@ args = 0, pretend = 0, frame = 8
+ 556              		@ frame_needed = 1, uses_anonymous_args = 0
+ 557 0000 80B5     		push	{r7, lr}
+ 558              	.LCFI33:
+ 559              		.cfi_def_cfa_offset 8
+ 560              		.cfi_offset 7, -8
+ 561              		.cfi_offset 14, -4
+ 562 0002 82B0     		sub	sp, sp, #8
+ 563              	.LCFI34:
+ 564              		.cfi_def_cfa_offset 16
+ 565 0004 00AF     		add	r7, sp, #0
+ 566              	.LCFI35:
+ 567              		.cfi_def_cfa_register 7
+ 568 0006 7860     		str	r0, [r7, #4]
  649:Drivers/Library/StdDriver/src/retarget.c ****     SendChar(ch);
- 561              		.loc 1 649 5
- 562 0008 7868     		ldr	r0, [r7, #4]
- 563 000a FFF7FEFF 		bl	SendChar
+ 569              		.loc 1 649 5
+ 570 0008 7868     		ldr	r0, [r7, #4]
+ 571 000a FFF7FEFF 		bl	SendChar
  650:Drivers/Library/StdDriver/src/retarget.c ****     return;
- 564              		.loc 1 650 5
- 565 000e 00BF     		nop
+ 572              		.loc 1 650 5
+ 573 000e 00BF     		nop
  651:Drivers/Library/StdDriver/src/retarget.c **** }
- 566              		.loc 1 651 1
- 567 0010 0837     		adds	r7, r7, #8
- 568              	.LCFI36:
- 569              		.cfi_def_cfa_offset 8
- 570 0012 BD46     		mov	sp, r7
- 571              	.LCFI37:
- 572              		.cfi_def_cfa_register 13
- 573              		@ sp needed
- 574 0014 80BD     		pop	{r7, pc}
- 575              		.cfi_endproc
- 576              	.LFE203:
- 578              		.section	.text.fputc,"ax",%progbits
- 579              		.align	1
- 580              		.global	fputc
- 581              		.syntax unified
- 582              		.thumb
- 583              		.thumb_func
- 585              	fputc:
- 586              	.LFB204:
+ 574              		.loc 1 651 1
+ 575 0010 0837     		adds	r7, r7, #8
+ 576              	.LCFI36:
+ 577              		.cfi_def_cfa_offset 8
+ 578 0012 BD46     		mov	sp, r7
+ 579              	.LCFI37:
+ 580              		.cfi_def_cfa_register 13
+ 581              		@ sp needed
+ 582 0014 80BD     		pop	{r7, pc}
+ 583              		.cfi_endproc
+ 584              	.LFE203:
+ 586              		.section	.text.fputc,"ax",%progbits
+ 587              		.align	1
+ 588              		.global	fputc
+ 589              		.syntax unified
+ARM GAS  /tmp/cccbhmYm.s 			page 23
+
+
+ 590              		.thumb
+ 591              		.thumb_func
+ 592              		.fpu fpv4-sp-d16
+ 594              	fputc:
+ 595              	.LFB204:
  652:Drivers/Library/StdDriver/src/retarget.c **** 
  653:Drivers/Library/StdDriver/src/retarget.c **** 
  654:Drivers/Library/StdDriver/src/retarget.c **** /**
  655:Drivers/Library/StdDriver/src/retarget.c ****  * @brief      Write character to stream
-ARM GAS  /tmp/ccxB69I0.s 			page 23
-
-
  656:Drivers/Library/StdDriver/src/retarget.c ****  *
  657:Drivers/Library/StdDriver/src/retarget.c ****  * @param[in]  ch       Character to be written. The character is passed as its int promotion.
  658:Drivers/Library/StdDriver/src/retarget.c ****  * @param[in]  stream   Pointer to a FILE object that identifies the stream where the character is 
@@ -1339,314 +1348,316 @@ ARM GAS  /tmp/ccxB69I0.s 			page 1
  671:Drivers/Library/StdDriver/src/retarget.c **** 
  672:Drivers/Library/StdDriver/src/retarget.c **** int fputc(int ch, FILE *stream)
  673:Drivers/Library/StdDriver/src/retarget.c **** {
- 587              		.loc 1 673 1
- 588              		.cfi_startproc
- 589              		@ args = 0, pretend = 0, frame = 8
- 590              		@ frame_needed = 1, uses_anonymous_args = 0
- 591 0000 80B5     		push	{r7, lr}
- 592              	.LCFI38:
- 593              		.cfi_def_cfa_offset 8
- 594              		.cfi_offset 7, -8
- 595              		.cfi_offset 14, -4
- 596 0002 82B0     		sub	sp, sp, #8
- 597              	.LCFI39:
- 598              		.cfi_def_cfa_offset 16
- 599 0004 00AF     		add	r7, sp, #0
- 600              	.LCFI40:
- 601              		.cfi_def_cfa_register 7
- 602 0006 7860     		str	r0, [r7, #4]
- 603 0008 3960     		str	r1, [r7]
+ 596              		.loc 1 673 1
+ 597              		.cfi_startproc
+ 598              		@ args = 0, pretend = 0, frame = 8
+ 599              		@ frame_needed = 1, uses_anonymous_args = 0
+ 600 0000 80B5     		push	{r7, lr}
+ 601              	.LCFI38:
+ 602              		.cfi_def_cfa_offset 8
+ 603              		.cfi_offset 7, -8
+ 604              		.cfi_offset 14, -4
+ 605 0002 82B0     		sub	sp, sp, #8
+ 606              	.LCFI39:
+ 607              		.cfi_def_cfa_offset 16
+ 608 0004 00AF     		add	r7, sp, #0
+ 609              	.LCFI40:
+ 610              		.cfi_def_cfa_register 7
+ 611 0006 7860     		str	r0, [r7, #4]
+ 612 0008 3960     		str	r1, [r7]
  674:Drivers/Library/StdDriver/src/retarget.c ****     SendChar(ch);
- 604              		.loc 1 674 5
- 605 000a 7868     		ldr	r0, [r7, #4]
- 606 000c FFF7FEFF 		bl	SendChar
+ 613              		.loc 1 674 5
+ 614 000a 7868     		ldr	r0, [r7, #4]
+ 615 000c FFF7FEFF 		bl	SendChar
  675:Drivers/Library/StdDriver/src/retarget.c ****     return ch;
- 607              		.loc 1 675 12
- 608 0010 7B68     		ldr	r3, [r7, #4]
+ 616              		.loc 1 675 12
+ 617 0010 7B68     		ldr	r3, [r7, #4]
  676:Drivers/Library/StdDriver/src/retarget.c **** }
- 609              		.loc 1 676 1
- 610 0012 1846     		mov	r0, r3
- 611 0014 0837     		adds	r7, r7, #8
- 612              	.LCFI41:
- 613              		.cfi_def_cfa_offset 8
- 614 0016 BD46     		mov	sp, r7
- 615              	.LCFI42:
- 616              		.cfi_def_cfa_register 13
- 617              		@ sp needed
- 618 0018 80BD     		pop	{r7, pc}
- 619              		.cfi_endproc
- 620              	.LFE204:
- 622              		.section	.text._write,"ax",%progbits
- 623              		.align	1
-ARM GAS  /tmp/ccxB69I0.s 			page 24
+ 618              		.loc 1 676 1
+ 619 0012 1846     		mov	r0, r3
+ 620 0014 0837     		adds	r7, r7, #8
+ 621              	.LCFI41:
+ 622              		.cfi_def_cfa_offset 8
+ARM GAS  /tmp/cccbhmYm.s 			page 24
 
 
- 624              		.global	_write
- 625              		.syntax unified
- 626              		.thumb
- 627              		.thumb_func
- 629              	_write:
- 630              	.LFB205:
+ 623 0016 BD46     		mov	sp, r7
+ 624              	.LCFI42:
+ 625              		.cfi_def_cfa_register 13
+ 626              		@ sp needed
+ 627 0018 80BD     		pop	{r7, pc}
+ 628              		.cfi_endproc
+ 629              	.LFE204:
+ 631              		.section	.text._write,"ax",%progbits
+ 632              		.align	1
+ 633              		.global	_write
+ 634              		.syntax unified
+ 635              		.thumb
+ 636              		.thumb_func
+ 637              		.fpu fpv4-sp-d16
+ 639              	_write:
+ 640              	.LFB205:
  677:Drivers/Library/StdDriver/src/retarget.c **** 
  678:Drivers/Library/StdDriver/src/retarget.c **** #if defined (__GNUC__) && !defined(__ARMCC_VERSION)
  679:Drivers/Library/StdDriver/src/retarget.c **** 
  680:Drivers/Library/StdDriver/src/retarget.c **** int _write (int fd, char *ptr, int len)
  681:Drivers/Library/StdDriver/src/retarget.c **** {
- 631              		.loc 1 681 1
- 632              		.cfi_startproc
- 633              		@ args = 0, pretend = 0, frame = 24
- 634              		@ frame_needed = 1, uses_anonymous_args = 0
- 635              		@ link register save eliminated.
- 636 0000 80B4     		push	{r7}
- 637              	.LCFI43:
- 638              		.cfi_def_cfa_offset 4
- 639              		.cfi_offset 7, -4
- 640 0002 87B0     		sub	sp, sp, #28
- 641              	.LCFI44:
- 642              		.cfi_def_cfa_offset 32
- 643 0004 00AF     		add	r7, sp, #0
- 644              	.LCFI45:
- 645              		.cfi_def_cfa_register 7
- 646 0006 F860     		str	r0, [r7, #12]
- 647 0008 B960     		str	r1, [r7, #8]
- 648 000a 7A60     		str	r2, [r7, #4]
+ 641              		.loc 1 681 1
+ 642              		.cfi_startproc
+ 643              		@ args = 0, pretend = 0, frame = 24
+ 644              		@ frame_needed = 1, uses_anonymous_args = 0
+ 645              		@ link register save eliminated.
+ 646 0000 80B4     		push	{r7}
+ 647              	.LCFI43:
+ 648              		.cfi_def_cfa_offset 4
+ 649              		.cfi_offset 7, -4
+ 650 0002 87B0     		sub	sp, sp, #28
+ 651              	.LCFI44:
+ 652              		.cfi_def_cfa_offset 32
+ 653 0004 00AF     		add	r7, sp, #0
+ 654              	.LCFI45:
+ 655              		.cfi_def_cfa_register 7
+ 656 0006 F860     		str	r0, [r7, #12]
+ 657 0008 B960     		str	r1, [r7, #8]
+ 658 000a 7A60     		str	r2, [r7, #4]
  682:Drivers/Library/StdDriver/src/retarget.c ****     int i = len;
- 649              		.loc 1 682 9
- 650 000c 7B68     		ldr	r3, [r7, #4]
- 651 000e 7B61     		str	r3, [r7, #20]
+ 659              		.loc 1 682 9
+ 660 000c 7B68     		ldr	r3, [r7, #4]
+ 661 000e 7B61     		str	r3, [r7, #20]
  683:Drivers/Library/StdDriver/src/retarget.c **** 
  684:Drivers/Library/StdDriver/src/retarget.c ****     while(i--)
- 652              		.loc 1 684 10
- 653 0010 1CE0     		b	.L39
- 654              	.L43:
+ 662              		.loc 1 684 10
+ 663 0010 1CE0     		b	.L39
+ 664              	.L43:
  685:Drivers/Library/StdDriver/src/retarget.c ****     {
  686:Drivers/Library/StdDriver/src/retarget.c ****         while(DEBUG_PORT->FIFOSTS & UART_FIFOSTS_TXFULL_Msk);
- 655              		.loc 1 686 14
- 656 0012 00BF     		nop
- 657              	.L40:
- 658              		.loc 1 686 25 discriminator 1
- 659 0014 134B     		ldr	r3, .L45
- 660 0016 9B69     		ldr	r3, [r3, #24]
- 661              		.loc 1 686 35 discriminator 1
- 662 0018 03F40003 		and	r3, r3, #8388608
- 663              		.loc 1 686 14 discriminator 1
- 664 001c 002B     		cmp	r3, #0
- 665 001e F9D1     		bne	.L40
+ 665              		.loc 1 686 14
+ 666 0012 00BF     		nop
+ 667              	.L40:
+ 668              		.loc 1 686 25 discriminator 1
+ 669 0014 134B     		ldr	r3, .L45
+ 670 0016 9B69     		ldr	r3, [r3, #24]
+ 671              		.loc 1 686 35 discriminator 1
+ARM GAS  /tmp/cccbhmYm.s 			page 25
+
+
+ 672 0018 03F40003 		and	r3, r3, #8388608
+ 673              		.loc 1 686 14 discriminator 1
+ 674 001c 002B     		cmp	r3, #0
+ 675 001e F9D1     		bne	.L40
  687:Drivers/Library/StdDriver/src/retarget.c **** 
  688:Drivers/Library/StdDriver/src/retarget.c ****         if(*ptr == '\n')
- 666              		.loc 1 688 12
- 667 0020 BB68     		ldr	r3, [r7, #8]
- 668 0022 93F90030 		ldrsb	r3, [r3]
- 669              		.loc 1 688 11
-ARM GAS  /tmp/ccxB69I0.s 			page 25
-
-
- 670 0026 0A2B     		cmp	r3, #10
- 671 0028 09D1     		bne	.L41
+ 676              		.loc 1 688 12
+ 677 0020 BB68     		ldr	r3, [r7, #8]
+ 678 0022 93F90030 		ldrsb	r3, [r3]
+ 679              		.loc 1 688 11
+ 680 0026 0A2B     		cmp	r3, #10
+ 681 0028 09D1     		bne	.L41
  689:Drivers/Library/StdDriver/src/retarget.c ****         {
  690:Drivers/Library/StdDriver/src/retarget.c ****             DEBUG_PORT->DAT = '\r';
- 672              		.loc 1 690 23
- 673 002a 0E4B     		ldr	r3, .L45
- 674              		.loc 1 690 29
- 675 002c 0D22     		movs	r2, #13
- 676 002e 1A60     		str	r2, [r3]
+ 682              		.loc 1 690 23
+ 683 002a 0E4B     		ldr	r3, .L45
+ 684              		.loc 1 690 29
+ 685 002c 0D22     		movs	r2, #13
+ 686 002e 1A60     		str	r2, [r3]
  691:Drivers/Library/StdDriver/src/retarget.c ****             while(DEBUG_PORT->FIFOSTS & UART_FIFOSTS_TXFULL_Msk);
- 677              		.loc 1 691 18
- 678 0030 00BF     		nop
- 679              	.L42:
- 680              		.loc 1 691 29 discriminator 1
- 681 0032 0C4B     		ldr	r3, .L45
- 682 0034 9B69     		ldr	r3, [r3, #24]
- 683              		.loc 1 691 39 discriminator 1
- 684 0036 03F40003 		and	r3, r3, #8388608
- 685              		.loc 1 691 18 discriminator 1
- 686 003a 002B     		cmp	r3, #0
- 687 003c F9D1     		bne	.L42
- 688              	.L41:
+ 687              		.loc 1 691 18
+ 688 0030 00BF     		nop
+ 689              	.L42:
+ 690              		.loc 1 691 29 discriminator 1
+ 691 0032 0C4B     		ldr	r3, .L45
+ 692 0034 9B69     		ldr	r3, [r3, #24]
+ 693              		.loc 1 691 39 discriminator 1
+ 694 0036 03F40003 		and	r3, r3, #8388608
+ 695              		.loc 1 691 18 discriminator 1
+ 696 003a 002B     		cmp	r3, #0
+ 697 003c F9D1     		bne	.L42
+ 698              	.L41:
  692:Drivers/Library/StdDriver/src/retarget.c ****         }
  693:Drivers/Library/StdDriver/src/retarget.c **** 
  694:Drivers/Library/StdDriver/src/retarget.c ****         DEBUG_PORT->DAT = *ptr++;
- 689              		.loc 1 694 31
- 690 003e BB68     		ldr	r3, [r7, #8]
- 691 0040 5A1C     		adds	r2, r3, #1
- 692 0042 BA60     		str	r2, [r7, #8]
- 693              		.loc 1 694 27
- 694 0044 93F90020 		ldrsb	r2, [r3]
- 695              		.loc 1 694 19
- 696 0048 064B     		ldr	r3, .L45
- 697              		.loc 1 694 25
- 698 004a 1A60     		str	r2, [r3]
- 699              	.L39:
+ 699              		.loc 1 694 31
+ 700 003e BB68     		ldr	r3, [r7, #8]
+ 701 0040 5A1C     		adds	r2, r3, #1
+ 702 0042 BA60     		str	r2, [r7, #8]
+ 703              		.loc 1 694 27
+ 704 0044 93F90020 		ldrsb	r2, [r3]
+ 705              		.loc 1 694 19
+ 706 0048 064B     		ldr	r3, .L45
+ 707              		.loc 1 694 25
+ 708 004a 1A60     		str	r2, [r3]
+ 709              	.L39:
  684:Drivers/Library/StdDriver/src/retarget.c ****     {
- 700              		.loc 1 684 12
- 701 004c 7B69     		ldr	r3, [r7, #20]
- 702 004e 5A1E     		subs	r2, r3, #1
- 703 0050 7A61     		str	r2, [r7, #20]
+ 710              		.loc 1 684 12
+ 711 004c 7B69     		ldr	r3, [r7, #20]
+ 712 004e 5A1E     		subs	r2, r3, #1
+ 713 0050 7A61     		str	r2, [r7, #20]
  684:Drivers/Library/StdDriver/src/retarget.c ****     {
- 704              		.loc 1 684 10
- 705 0052 002B     		cmp	r3, #0
- 706 0054 DDD1     		bne	.L43
+ 714              		.loc 1 684 10
+ 715 0052 002B     		cmp	r3, #0
+ 716 0054 DDD1     		bne	.L43
  695:Drivers/Library/StdDriver/src/retarget.c **** 
  696:Drivers/Library/StdDriver/src/retarget.c ****     }
+ARM GAS  /tmp/cccbhmYm.s 			page 26
+
+
  697:Drivers/Library/StdDriver/src/retarget.c ****     return len;
- 707              		.loc 1 697 12
- 708 0056 7B68     		ldr	r3, [r7, #4]
+ 717              		.loc 1 697 12
+ 718 0056 7B68     		ldr	r3, [r7, #4]
  698:Drivers/Library/StdDriver/src/retarget.c **** }
- 709              		.loc 1 698 1
- 710 0058 1846     		mov	r0, r3
- 711 005a 1C37     		adds	r7, r7, #28
- 712              	.LCFI46:
- 713              		.cfi_def_cfa_offset 4
- 714 005c BD46     		mov	sp, r7
-ARM GAS  /tmp/ccxB69I0.s 			page 26
-
-
- 715              	.LCFI47:
- 716              		.cfi_def_cfa_register 13
- 717              		@ sp needed
- 718 005e 5DF8047B 		ldr	r7, [sp], #4
- 719              	.LCFI48:
- 720              		.cfi_restore 7
- 721              		.cfi_def_cfa_offset 0
- 722 0062 7047     		bx	lr
- 723              	.L46:
- 724              		.align	2
- 725              	.L45:
- 726 0064 00000740 		.word	1074200576
- 727              		.cfi_endproc
- 728              	.LFE205:
- 730              		.section	.text._read,"ax",%progbits
- 731              		.align	1
- 732              		.global	_read
- 733              		.syntax unified
- 734              		.thumb
- 735              		.thumb_func
- 737              	_read:
- 738              	.LFB206:
+ 719              		.loc 1 698 1
+ 720 0058 1846     		mov	r0, r3
+ 721 005a 1C37     		adds	r7, r7, #28
+ 722              	.LCFI46:
+ 723              		.cfi_def_cfa_offset 4
+ 724 005c BD46     		mov	sp, r7
+ 725              	.LCFI47:
+ 726              		.cfi_def_cfa_register 13
+ 727              		@ sp needed
+ 728 005e 5DF8047B 		ldr	r7, [sp], #4
+ 729              	.LCFI48:
+ 730              		.cfi_restore 7
+ 731              		.cfi_def_cfa_offset 0
+ 732 0062 7047     		bx	lr
+ 733              	.L46:
+ 734              		.align	2
+ 735              	.L45:
+ 736 0064 00000740 		.word	1074200576
+ 737              		.cfi_endproc
+ 738              	.LFE205:
+ 740              		.section	.text._read,"ax",%progbits
+ 741              		.align	1
+ 742              		.global	_read
+ 743              		.syntax unified
+ 744              		.thumb
+ 745              		.thumb_func
+ 746              		.fpu fpv4-sp-d16
+ 748              	_read:
+ 749              	.LFB206:
  699:Drivers/Library/StdDriver/src/retarget.c **** 
  700:Drivers/Library/StdDriver/src/retarget.c **** int _read (int fd, char *ptr, int len)
  701:Drivers/Library/StdDriver/src/retarget.c **** {
- 739              		.loc 1 701 1
- 740              		.cfi_startproc
- 741              		@ args = 0, pretend = 0, frame = 16
- 742              		@ frame_needed = 1, uses_anonymous_args = 0
- 743              		@ link register save eliminated.
- 744 0000 80B4     		push	{r7}
- 745              	.LCFI49:
- 746              		.cfi_def_cfa_offset 4
- 747              		.cfi_offset 7, -4
- 748 0002 85B0     		sub	sp, sp, #20
- 749              	.LCFI50:
- 750              		.cfi_def_cfa_offset 24
- 751 0004 00AF     		add	r7, sp, #0
- 752              	.LCFI51:
- 753              		.cfi_def_cfa_register 7
- 754 0006 F860     		str	r0, [r7, #12]
- 755 0008 B960     		str	r1, [r7, #8]
- 756 000a 7A60     		str	r2, [r7, #4]
+ 750              		.loc 1 701 1
+ 751              		.cfi_startproc
+ 752              		@ args = 0, pretend = 0, frame = 16
+ 753              		@ frame_needed = 1, uses_anonymous_args = 0
+ 754              		@ link register save eliminated.
+ 755 0000 80B4     		push	{r7}
+ 756              	.LCFI49:
+ 757              		.cfi_def_cfa_offset 4
+ 758              		.cfi_offset 7, -4
+ 759 0002 85B0     		sub	sp, sp, #20
+ 760              	.LCFI50:
+ 761              		.cfi_def_cfa_offset 24
+ 762 0004 00AF     		add	r7, sp, #0
+ 763              	.LCFI51:
+ 764              		.cfi_def_cfa_register 7
+ 765 0006 F860     		str	r0, [r7, #12]
+ 766 0008 B960     		str	r1, [r7, #8]
+ 767 000a 7A60     		str	r2, [r7, #4]
  702:Drivers/Library/StdDriver/src/retarget.c **** 
  703:Drivers/Library/StdDriver/src/retarget.c ****     while((DEBUG_PORT->FIFOSTS & UART_FIFOSTS_RXEMPTY_Msk) != 0);
- 757              		.loc 1 703 10
- 758 000c 00BF     		nop
- 759              	.L48:
- 760              		.loc 1 703 22 discriminator 1
- 761 000e 094B     		ldr	r3, .L50
- 762 0010 9B69     		ldr	r3, [r3, #24]
- 763              		.loc 1 703 32 discriminator 1
- 764 0012 03F48043 		and	r3, r3, #16384
- 765              		.loc 1 703 10 discriminator 1
- 766 0016 002B     		cmp	r3, #0
- 767 0018 F9D1     		bne	.L48
+ 768              		.loc 1 703 10
+ARM GAS  /tmp/cccbhmYm.s 			page 27
+
+
+ 769 000c 00BF     		nop
+ 770              	.L48:
+ 771              		.loc 1 703 22 discriminator 1
+ 772 000e 094B     		ldr	r3, .L50
+ 773 0010 9B69     		ldr	r3, [r3, #24]
+ 774              		.loc 1 703 32 discriminator 1
+ 775 0012 03F48043 		and	r3, r3, #16384
+ 776              		.loc 1 703 10 discriminator 1
+ 777 0016 002B     		cmp	r3, #0
+ 778 0018 F9D1     		bne	.L48
  704:Drivers/Library/StdDriver/src/retarget.c ****     *ptr = DEBUG_PORT->DAT;
-ARM GAS  /tmp/ccxB69I0.s 			page 27
-
-
- 768              		.loc 1 704 22
- 769 001a 064B     		ldr	r3, .L50
- 770 001c 1B68     		ldr	r3, [r3]
- 771              		.loc 1 704 10
- 772 001e 5AB2     		sxtb	r2, r3
- 773 0020 BB68     		ldr	r3, [r7, #8]
- 774 0022 1A70     		strb	r2, [r3]
+ 779              		.loc 1 704 22
+ 780 001a 064B     		ldr	r3, .L50
+ 781 001c 1B68     		ldr	r3, [r3]
+ 782              		.loc 1 704 10
+ 783 001e 5AB2     		sxtb	r2, r3
+ 784 0020 BB68     		ldr	r3, [r7, #8]
+ 785 0022 1A70     		strb	r2, [r3]
  705:Drivers/Library/StdDriver/src/retarget.c ****     return 1;
- 775              		.loc 1 705 12
- 776 0024 0123     		movs	r3, #1
+ 786              		.loc 1 705 12
+ 787 0024 0123     		movs	r3, #1
  706:Drivers/Library/StdDriver/src/retarget.c **** 
  707:Drivers/Library/StdDriver/src/retarget.c **** 
  708:Drivers/Library/StdDriver/src/retarget.c **** }
- 777              		.loc 1 708 1
- 778 0026 1846     		mov	r0, r3
- 779 0028 1437     		adds	r7, r7, #20
- 780              	.LCFI52:
- 781              		.cfi_def_cfa_offset 4
- 782 002a BD46     		mov	sp, r7
- 783              	.LCFI53:
- 784              		.cfi_def_cfa_register 13
- 785              		@ sp needed
- 786 002c 5DF8047B 		ldr	r7, [sp], #4
- 787              	.LCFI54:
- 788              		.cfi_restore 7
- 789              		.cfi_def_cfa_offset 0
- 790 0030 7047     		bx	lr
- 791              	.L51:
- 792 0032 00BF     		.align	2
- 793              	.L50:
- 794 0034 00000740 		.word	1074200576
- 795              		.cfi_endproc
- 796              	.LFE206:
- 798              		.text
- 799              	.Letext0:
- 800              		.file 2 "/usr/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/machine/_default_types.h"
- 801              		.file 3 "/usr/share/gcc-arm-none-eabi-10.3-2021.10/lib/gcc/arm-none-eabi/10.3.1/include/stddef.h"
- 802              		.file 4 "/usr/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/_types.h"
- 803              		.file 5 "/usr/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/reent.h"
- 804              		.file 6 "/usr/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/lock.h"
- 805              		.file 7 "/usr/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/_stdint.h"
- 806              		.file 8 "/usr/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/stdio.h"
- 807              		.file 9 "Drivers/Library/Device/Nuvoton_M480/Include/uart_reg.h"
-ARM GAS  /tmp/ccxB69I0.s 			page 28
+ 788              		.loc 1 708 1
+ 789 0026 1846     		mov	r0, r3
+ 790 0028 1437     		adds	r7, r7, #20
+ 791              	.LCFI52:
+ 792              		.cfi_def_cfa_offset 4
+ 793 002a BD46     		mov	sp, r7
+ 794              	.LCFI53:
+ 795              		.cfi_def_cfa_register 13
+ 796              		@ sp needed
+ 797 002c 5DF8047B 		ldr	r7, [sp], #4
+ 798              	.LCFI54:
+ 799              		.cfi_restore 7
+ 800              		.cfi_def_cfa_offset 0
+ 801 0030 7047     		bx	lr
+ 802              	.L51:
+ 803 0032 00BF     		.align	2
+ 804              	.L50:
+ 805 0034 00000740 		.word	1074200576
+ 806              		.cfi_endproc
+ 807              	.LFE206:
+ 809              		.text
+ 810              	.Letext0:
+ 811              		.file 2 "/usr/include/newlib/machine/_default_types.h"
+ 812              		.file 3 "/usr/lib/gcc/arm-none-eabi/10.3.1/include/stddef.h"
+ 813              		.file 4 "/usr/include/newlib/sys/_types.h"
+ 814              		.file 5 "/usr/include/newlib/sys/reent.h"
+ 815              		.file 6 "/usr/include/newlib/sys/lock.h"
+ 816              		.file 7 "/usr/include/newlib/sys/_stdint.h"
+ 817              		.file 8 "/usr/include/newlib/stdio.h"
+ 818              		.file 9 "Drivers/Library/Device/Nuvoton_M480/Include/uart_reg.h"
+ARM GAS  /tmp/cccbhmYm.s 			page 28
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 retarget.c
-     /tmp/ccxB69I0.s:24     .bss.__stdout:0000000000000000 __stdout
-     /tmp/ccxB69I0.s:21     .bss.__stdout:0000000000000000 $d
-     /tmp/ccxB69I0.s:31     .bss.__stdin:0000000000000000 __stdin
-     /tmp/ccxB69I0.s:28     .bss.__stdin:0000000000000000 $d
-     /tmp/ccxB69I0.s:34     .rodata:0000000000000000 $d
-     /tmp/ccxB69I0.s:59     .text.stackDump:0000000000000000 $t
-     /tmp/ccxB69I0.s:64     .text.stackDump:0000000000000000 stackDump
-     /tmp/ccxB69I0.s:158    .text.stackDump:0000000000000080 $d
-     /tmp/ccxB69I0.s:174    .text.Hard_Fault_Handler:0000000000000000 $t
-     /tmp/ccxB69I0.s:180    .text.Hard_Fault_Handler:0000000000000000 Hard_Fault_Handler
-     /tmp/ccxB69I0.s:210    .text.Hard_Fault_Handler:0000000000000018 $d
-     /tmp/ccxB69I0.s:215    .text.HardFault_Handler:0000000000000000 $t
-     /tmp/ccxB69I0.s:221    .text.HardFault_Handler:0000000000000000 HardFault_Handler
-     /tmp/ccxB69I0.s:259    .text.HardFault_Handler:0000000000000024 $d
-     /tmp/ccxB69I0.s:264    .text.SendChar_ToUART:0000000000000000 $t
-     /tmp/ccxB69I0.s:269    .text.SendChar_ToUART:0000000000000000 SendChar_ToUART
-     /tmp/ccxB69I0.s:341    .text.SendChar_ToUART:0000000000000044 $d
-     /tmp/ccxB69I0.s:346    .text.SendChar:0000000000000000 $t
-     /tmp/ccxB69I0.s:351    .text.SendChar:0000000000000000 SendChar
-     /tmp/ccxB69I0.s:386    .text.GetChar:0000000000000000 $t
-     /tmp/ccxB69I0.s:391    .text.GetChar:0000000000000000 GetChar
-     /tmp/ccxB69I0.s:432    .text.GetChar:0000000000000020 $d
-     /tmp/ccxB69I0.s:437    .text.kbhit:0000000000000000 $t
-     /tmp/ccxB69I0.s:443    .text.kbhit:0000000000000000 kbhit
-     /tmp/ccxB69I0.s:482    .text.kbhit:0000000000000020 $d
-     /tmp/ccxB69I0.s:487    .text.IsDebugFifoEmpty:0000000000000000 $t
-     /tmp/ccxB69I0.s:493    .text.IsDebugFifoEmpty:0000000000000000 IsDebugFifoEmpty
-     /tmp/ccxB69I0.s:532    .text.IsDebugFifoEmpty:0000000000000020 $d
-     /tmp/ccxB69I0.s:537    .text._ttywrch:0000000000000000 $t
-     /tmp/ccxB69I0.s:543    .text._ttywrch:0000000000000000 _ttywrch
-     /tmp/ccxB69I0.s:579    .text.fputc:0000000000000000 $t
-     /tmp/ccxB69I0.s:585    .text.fputc:0000000000000000 fputc
-     /tmp/ccxB69I0.s:623    .text._write:0000000000000000 $t
-     /tmp/ccxB69I0.s:629    .text._write:0000000000000000 _write
-     /tmp/ccxB69I0.s:726    .text._write:0000000000000064 $d
-     /tmp/ccxB69I0.s:731    .text._read:0000000000000000 $t
-     /tmp/ccxB69I0.s:737    .text._read:0000000000000000 _read
-     /tmp/ccxB69I0.s:794    .text._read:0000000000000034 $d
+     /tmp/cccbhmYm.s:22     .bss.__stdout:0000000000000000 __stdout
+     /tmp/cccbhmYm.s:19     .bss.__stdout:0000000000000000 $d
+     /tmp/cccbhmYm.s:29     .bss.__stdin:0000000000000000 __stdin
+     /tmp/cccbhmYm.s:26     .bss.__stdin:0000000000000000 $d
+     /tmp/cccbhmYm.s:32     .rodata:0000000000000000 $d
+     /tmp/cccbhmYm.s:57     .text.stackDump:0000000000000000 $t
+     /tmp/cccbhmYm.s:64     .text.stackDump:0000000000000000 stackDump
+     /tmp/cccbhmYm.s:158    .text.stackDump:0000000000000080 $d
+     /tmp/cccbhmYm.s:174    .text.Hard_Fault_Handler:0000000000000000 $t
+     /tmp/cccbhmYm.s:181    .text.Hard_Fault_Handler:0000000000000000 Hard_Fault_Handler
+     /tmp/cccbhmYm.s:211    .text.Hard_Fault_Handler:0000000000000018 $d
+     /tmp/cccbhmYm.s:216    .text.HardFault_Handler:0000000000000000 $t
+     /tmp/cccbhmYm.s:223    .text.HardFault_Handler:0000000000000000 HardFault_Handler
+     /tmp/cccbhmYm.s:261    .text.HardFault_Handler:0000000000000024 $d
+     /tmp/cccbhmYm.s:266    .text.SendChar_ToUART:0000000000000000 $t
+     /tmp/cccbhmYm.s:272    .text.SendChar_ToUART:0000000000000000 SendChar_ToUART
+     /tmp/cccbhmYm.s:344    .text.SendChar_ToUART:0000000000000044 $d
+     /tmp/cccbhmYm.s:349    .text.SendChar:0000000000000000 $t
+     /tmp/cccbhmYm.s:355    .text.SendChar:0000000000000000 SendChar
+     /tmp/cccbhmYm.s:390    .text.GetChar:0000000000000000 $t
+     /tmp/cccbhmYm.s:396    .text.GetChar:0000000000000000 GetChar
+     /tmp/cccbhmYm.s:437    .text.GetChar:0000000000000020 $d
+     /tmp/cccbhmYm.s:442    .text.kbhit:0000000000000000 $t
+     /tmp/cccbhmYm.s:449    .text.kbhit:0000000000000000 kbhit
+     /tmp/cccbhmYm.s:488    .text.kbhit:0000000000000020 $d
+     /tmp/cccbhmYm.s:493    .text.IsDebugFifoEmpty:0000000000000000 $t
+     /tmp/cccbhmYm.s:500    .text.IsDebugFifoEmpty:0000000000000000 IsDebugFifoEmpty
+     /tmp/cccbhmYm.s:539    .text.IsDebugFifoEmpty:0000000000000020 $d
+     /tmp/cccbhmYm.s:544    .text._ttywrch:0000000000000000 $t
+     /tmp/cccbhmYm.s:551    .text._ttywrch:0000000000000000 _ttywrch
+     /tmp/cccbhmYm.s:587    .text.fputc:0000000000000000 $t
+     /tmp/cccbhmYm.s:594    .text.fputc:0000000000000000 fputc
+     /tmp/cccbhmYm.s:632    .text._write:0000000000000000 $t
+     /tmp/cccbhmYm.s:639    .text._write:0000000000000000 _write
+     /tmp/cccbhmYm.s:736    .text._write:0000000000000064 $d
+     /tmp/cccbhmYm.s:741    .text._read:0000000000000000 $t
+     /tmp/cccbhmYm.s:748    .text._read:0000000000000000 _read
+     /tmp/cccbhmYm.s:805    .text._read:0000000000000034 $d
 
 UNDEFINED SYMBOLS
 printf

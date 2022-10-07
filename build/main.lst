@@ -1,29 +1,29 @@
-ARM GAS  /tmp/ccUlMDIg.s 			page 1
+ARM GAS  /tmp/ccz9dsF0.s 			page 1
 
 
    1              		.cpu cortex-m4
-   2              		.arch armv7e-m
-   3              		.fpu fpv4-sp-d16
-   4              		.eabi_attribute 27, 1
-   5              		.eabi_attribute 28, 1
-   6              		.eabi_attribute 20, 1
-   7              		.eabi_attribute 21, 1
-   8              		.eabi_attribute 23, 3
-   9              		.eabi_attribute 24, 1
-  10              		.eabi_attribute 25, 1
-  11              		.eabi_attribute 26, 1
-  12              		.eabi_attribute 30, 6
-  13              		.eabi_attribute 34, 1
-  14              		.eabi_attribute 18, 4
-  15              		.file	"main.c"
-  16              		.text
-  17              	.Ltext0:
-  18              		.cfi_sections	.debug_frame
-  19              		.section	.text.SYS_UnlockReg,"ax",%progbits
-  20              		.align	1
-  21              		.syntax unified
-  22              		.thumb
-  23              		.thumb_func
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"main.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.SYS_UnlockReg,"ax",%progbits
+  18              		.align	1
+  19              		.arch armv7e-m
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  23              		.fpu fpv4-sp-d16
   25              	SYS_UnlockReg:
   26              	.LFB133:
   27              		.file 1 "Drivers/Library/StdDriver/inc/sys.h"
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccUlMDIg.s 			page 1
   29:Drivers/Library/StdDriver/inc/sys.h **** */
   30:Drivers/Library/StdDriver/inc/sys.h **** 
   31:Drivers/Library/StdDriver/inc/sys.h **** 
-ARM GAS  /tmp/ccUlMDIg.s 			page 2
+ARM GAS  /tmp/ccz9dsF0.s 			page 2
 
 
   32:Drivers/Library/StdDriver/inc/sys.h **** /*-------------------------------------------------------------------------------------------------
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccUlMDIg.s 			page 1
   86:Drivers/Library/StdDriver/inc/sys.h **** #define EPWM1_RST           ((8UL<<24) | SYS_IPRST2_EPWM1RST_Pos)       /*!< Reset EPWM1 \hideiniti
   87:Drivers/Library/StdDriver/inc/sys.h **** #define BPWM0_RST           ((8UL<<24) | SYS_IPRST2_BPWM0RST_Pos)       /*!< Reset BPWM0 \hideiniti
   88:Drivers/Library/StdDriver/inc/sys.h **** #define BPWM1_RST           ((8UL<<24) | SYS_IPRST2_BPWM1RST_Pos)       /*!< Reset BPWM1 \hideiniti
-ARM GAS  /tmp/ccUlMDIg.s 			page 3
+ARM GAS  /tmp/ccz9dsF0.s 			page 3
 
 
   89:Drivers/Library/StdDriver/inc/sys.h **** #define QEI0_RST            ((8UL<<24) | SYS_IPRST2_QEI0RST_Pos)        /*!< Reset QEI0 \hideinitia
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccUlMDIg.s 			page 1
  143:Drivers/Library/StdDriver/inc/sys.h **** /*-------------------------------------------------------------------------------------------------
  144:Drivers/Library/StdDriver/inc/sys.h **** /* How to use below #define?
  145:Drivers/Library/StdDriver/inc/sys.h **** Example 1: If user want to set PA.0 as SC0_CLK in initial function,
-ARM GAS  /tmp/ccUlMDIg.s 			page 4
+ARM GAS  /tmp/ccz9dsF0.s 			page 4
 
 
  146:Drivers/Library/StdDriver/inc/sys.h ****            user can issue following command to achieve it.
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccUlMDIg.s 			page 1
  200:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPA_MFPL_PA3MFP_BPWM0_CH3         (0x0CUL<<SYS_GPA_MFPL_PA3MFP_Pos)  /*!< BPWM0 channel
  201:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPA_MFPL_PA3MFP_EPWM0_CH2         (0x0DUL<<SYS_GPA_MFPL_PA3MFP_Pos)  /*!< EPWM0 channel
  202:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPA_MFPL_PA3MFP_QEI0_B            (0x0EUL<<SYS_GPA_MFPL_PA3MFP_Pos)  /*!< Quadrature en
-ARM GAS  /tmp/ccUlMDIg.s 			page 5
+ARM GAS  /tmp/ccz9dsF0.s 			page 5
 
 
  203:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPA_MFPL_PA3MFP_EPWM1_BRAKE1      (0x0FUL<<SYS_GPA_MFPL_PA3MFP_Pos)  /*!< Brake input p
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccUlMDIg.s 			page 1
  257:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPA_MFPL_PA7MFP_TM2               (0x0EUL<<SYS_GPA_MFPL_PA7MFP_Pos)  /*!< Timer2 event 
  258:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPA_MFPL_PA7MFP_INT1              (0x0FUL<<SYS_GPA_MFPL_PA7MFP_Pos)  /*!< External inte
  259:Drivers/Library/StdDriver/inc/sys.h **** /********************* Bit definition of GPA_MFPH register **********************/
-ARM GAS  /tmp/ccUlMDIg.s 			page 6
+ARM GAS  /tmp/ccz9dsF0.s 			page 6
 
 
  260:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPA_MFPH_PA8MFP_GPIO              (0x00UL<<SYS_GPA_MFPH_PA8MFP_Pos)  /*!< General purpo
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccUlMDIg.s 			page 1
  314:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPA_MFPH_PA11MFP_USCI0_CLK        (0x06UL<<SYS_GPA_MFPH_PA11MFP_Pos) /*!< USCI0 clock p
  315:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPA_MFPH_PA11MFP_I2C2_SCL         (0x07UL<<SYS_GPA_MFPH_PA11MFP_Pos) /*!< I2C2 clock pi
  316:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPA_MFPH_PA11MFP_UART6_TXD        (0x08UL<<SYS_GPA_MFPH_PA11MFP_Pos) /*!< Data transmit
-ARM GAS  /tmp/ccUlMDIg.s 			page 7
+ARM GAS  /tmp/ccz9dsF0.s 			page 7
 
 
  317:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPA_MFPH_PA11MFP_BPWM0_CH0        (0x09UL<<SYS_GPA_MFPH_PA11MFP_Pos) /*!< BPWM0 channel
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccUlMDIg.s 			page 1
  371:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPB_MFPL_PB0MFP_EPWM1_CH5         (0x0CUL<<SYS_GPB_MFPL_PB0MFP_Pos)  /*!< EPWM1 channel
  372:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPB_MFPL_PB0MFP_EPWM0_BRAKE1      (0x0DUL<<SYS_GPB_MFPL_PB0MFP_Pos)  /*!< Brake input p
  373:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPB_MFPL_PB1MFP_GPIO              (0x00UL<<SYS_GPB_MFPL_PB1MFP_Pos)  /*!< General purpo
-ARM GAS  /tmp/ccUlMDIg.s 			page 8
+ARM GAS  /tmp/ccz9dsF0.s 			page 8
 
 
  374:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPB_MFPL_PB1MFP_EADC0_CH1         (0x01UL<<SYS_GPB_MFPL_PB1MFP_Pos)  /*!< EADC0 channel
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccUlMDIg.s 			page 1
  428:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPB_MFPL_PB4MFP_SD0_DAT2          (0x03UL<<SYS_GPB_MFPL_PB4MFP_Pos)  /*!< SD/SDIO 0 dat
  429:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPB_MFPL_PB4MFP_EMAC_RMII_RXD0    (0x04UL<<SYS_GPB_MFPL_PB4MFP_Pos)  /*!< RMII Receive 
  430:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPB_MFPL_PB4MFP_SPI1_MOSI         (0x05UL<<SYS_GPB_MFPL_PB4MFP_Pos)  /*!< 1st SPI1 MOSI
-ARM GAS  /tmp/ccUlMDIg.s 			page 9
+ARM GAS  /tmp/ccz9dsF0.s 			page 9
 
 
  431:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPB_MFPL_PB4MFP_I2C0_SDA          (0x06UL<<SYS_GPB_MFPL_PB4MFP_Pos)  /*!< I2C0 data inp
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccUlMDIg.s 			page 1
  485:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPB_MFPL_PB7MFP_ACMP0_O           (0x0FUL<<SYS_GPB_MFPL_PB7MFP_Pos)  /*!< Analog compar
  486:Drivers/Library/StdDriver/inc/sys.h **** /********************* Bit definition of GPB_MFPH register **********************/
  487:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPB_MFPH_PB8MFP_GPIO              (0x00UL<<SYS_GPB_MFPH_PB8MFP_Pos)  /*!< General purpo
-ARM GAS  /tmp/ccUlMDIg.s 			page 10
+ARM GAS  /tmp/ccz9dsF0.s 			page 10
 
 
  488:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPB_MFPH_PB8MFP_EADC0_CH8         (0x01UL<<SYS_GPB_MFPH_PB8MFP_Pos)  /*!< EADC0 channel
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccUlMDIg.s 			page 1
  542:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPB_MFPH_PB12MFP_GPIO             (0x00UL<<SYS_GPB_MFPH_PB12MFP_Pos) /*!< General purpo
  543:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPB_MFPH_PB12MFP_ACMP0_P2         (0x01UL<<SYS_GPB_MFPH_PB12MFP_Pos) /*!< Analog compar
  544:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPB_MFPH_PB12MFP_ACMP1_P2         (0x01UL<<SYS_GPB_MFPH_PB12MFP_Pos) /*!< Analog compar
-ARM GAS  /tmp/ccUlMDIg.s 			page 11
+ARM GAS  /tmp/ccz9dsF0.s 			page 11
 
 
  545:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPB_MFPH_PB12MFP_DAC0_OUT         (0x01UL<<SYS_GPB_MFPH_PB12MFP_Pos) /*!< DAC0 channel 
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccUlMDIg.s 			page 1
  599:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPB_MFPH_PB15MFP_UART0_nCTS       (0x06UL<<SYS_GPB_MFPH_PB15MFP_Pos) /*!< Clear to Send
  600:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPB_MFPH_PB15MFP_UART3_TXD        (0x07UL<<SYS_GPB_MFPH_PB15MFP_Pos) /*!< Data transmit
  601:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPB_MFPH_PB15MFP_I2C2_SMBAL       (0x08UL<<SYS_GPB_MFPH_PB15MFP_Pos) /*!< I2C2 SMBus SM
-ARM GAS  /tmp/ccUlMDIg.s 			page 12
+ARM GAS  /tmp/ccz9dsF0.s 			page 12
 
 
  602:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPB_MFPH_PB15MFP_EPWM0_BRAKE1     (0x0AUL<<SYS_GPB_MFPH_PB15MFP_Pos) /*!< Brake input p
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccUlMDIg.s 			page 1
  656:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPC_MFPL_PC3MFP_I2S0_MCLK         (0x06UL<<SYS_GPC_MFPL_PC3MFP_Pos)  /*!< I2S0 master c
  657:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPC_MFPL_PC3MFP_SPI1_MISO         (0x07UL<<SYS_GPC_MFPL_PC3MFP_Pos)  /*!< 1st SPI1 MISO
  658:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPC_MFPL_PC3MFP_UART2_nRTS        (0x08UL<<SYS_GPC_MFPL_PC3MFP_Pos)  /*!< Request to Se
-ARM GAS  /tmp/ccUlMDIg.s 			page 13
+ARM GAS  /tmp/ccz9dsF0.s 			page 13
 
 
  659:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPC_MFPL_PC3MFP_I2C0_SMBAL        (0x09UL<<SYS_GPC_MFPL_PC3MFP_Pos)  /*!< I2C0 SMBus SM
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccUlMDIg.s 			page 1
  713:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPC_MFPL_PC7MFP_BPWM1_CH0         (0x0CUL<<SYS_GPC_MFPL_PC7MFP_Pos)  /*!< BPWM1 channel
  714:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPC_MFPL_PC7MFP_TM0               (0x0EUL<<SYS_GPC_MFPL_PC7MFP_Pos)  /*!< Timer0 event 
  715:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPC_MFPL_PC7MFP_INT3              (0x0FUL<<SYS_GPC_MFPL_PC7MFP_Pos)  /*!< External inte
-ARM GAS  /tmp/ccUlMDIg.s 			page 14
+ARM GAS  /tmp/ccz9dsF0.s 			page 14
 
 
  716:Drivers/Library/StdDriver/inc/sys.h **** /********************* Bit definition of GPC_MFPH register **********************/
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccUlMDIg.s 			page 1
  770:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPC_MFPH_PC13MFP_CLKO             (0x0DUL<<SYS_GPC_MFPH_PC13MFP_Pos) /*!< Clock Output 
  771:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPC_MFPH_PC13MFP_EADC0_ST         (0x0EUL<<SYS_GPC_MFPH_PC13MFP_Pos) /*!< EADC external
  772:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPC_MFPH_PC14MFP_GPIO             (0x00UL<<SYS_GPC_MFPH_PC14MFP_Pos) /*!< General purpo
-ARM GAS  /tmp/ccUlMDIg.s 			page 15
+ARM GAS  /tmp/ccz9dsF0.s 			page 15
 
 
  773:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPC_MFPH_PC14MFP_EBI_AD11         (0x02UL<<SYS_GPC_MFPH_PC14MFP_Pos) /*!< EBI address/d
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccUlMDIg.s 			page 1
  827:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPD_MFPL_PD6MFP_GPIO              (0x00UL<<SYS_GPD_MFPL_PD6MFP_Pos)  /*!< General purpo
  828:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPD_MFPL_PD6MFP_UART1_RXD         (0x03UL<<SYS_GPD_MFPL_PD6MFP_Pos)  /*!< Data receiver
  829:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPD_MFPL_PD6MFP_I2C0_SDA          (0x04UL<<SYS_GPD_MFPL_PD6MFP_Pos)  /*!< I2C0 data inp
-ARM GAS  /tmp/ccUlMDIg.s 			page 16
+ARM GAS  /tmp/ccz9dsF0.s 			page 16
 
 
  830:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPD_MFPL_PD6MFP_SPI1_MOSI         (0x05UL<<SYS_GPD_MFPL_PD6MFP_Pos)  /*!< 1st SPI1 MOSI
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccUlMDIg.s 			page 1
  884:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPD_MFPH_PD13MFP_SC2_nCD          (0x07UL<<SYS_GPD_MFPH_PD13MFP_Pos) /*!< SmartCard2 ca
  885:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPD_MFPH_PD14MFP_GPIO             (0x00UL<<SYS_GPD_MFPH_PD14MFP_Pos) /*!< General purpo
  886:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPD_MFPH_PD14MFP_EBI_nCS0         (0x02UL<<SYS_GPD_MFPH_PD14MFP_Pos) /*!< EBI chip sele
-ARM GAS  /tmp/ccUlMDIg.s 			page 17
+ARM GAS  /tmp/ccz9dsF0.s 			page 17
 
 
  887:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPD_MFPH_PD14MFP_SPI3_I2SMCLK     (0x03UL<<SYS_GPD_MFPH_PD14MFP_Pos) /*!< SPI3 I2S mast
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccUlMDIg.s 			page 1
  941:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPE_MFPL_PE4MFP_UART6_RXD         (0x08UL<<SYS_GPE_MFPL_PE4MFP_Pos)  /*!< Data receiver
  942:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPE_MFPL_PE4MFP_UART7_nCTS        (0x09UL<<SYS_GPE_MFPL_PE4MFP_Pos)  /*!< Clear to Send
  943:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPE_MFPL_PE4MFP_QEI0_INDEX        (0x0BUL<<SYS_GPE_MFPL_PE4MFP_Pos)  /*!< Quadrature en
-ARM GAS  /tmp/ccUlMDIg.s 			page 18
+ARM GAS  /tmp/ccz9dsF0.s 			page 18
 
 
  944:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPE_MFPL_PE4MFP_EPWM0_CH3         (0x0CUL<<SYS_GPE_MFPL_PE4MFP_Pos)  /*!< EPWM0 channel
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccUlMDIg.s 			page 1
  998:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPE_MFPH_PE9MFP_ECAP0_IC1         (0x0CUL<<SYS_GPE_MFPH_PE9MFP_Pos)  /*!< Input 1 of en
  999:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPE_MFPH_PE9MFP_TRACE_DATA2       (0x0EUL<<SYS_GPE_MFPH_PE9MFP_Pos)  /*!< ETM Rx input 
 1000:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPE_MFPH_PE10MFP_GPIO             (0x00UL<<SYS_GPE_MFPH_PE10MFP_Pos) /*!< General purpo
-ARM GAS  /tmp/ccUlMDIg.s 			page 19
+ARM GAS  /tmp/ccz9dsF0.s 			page 19
 
 
 1001:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPE_MFPH_PE10MFP_EBI_ADR12        (0x02UL<<SYS_GPE_MFPH_PE10MFP_Pos) /*!< EBI address/d
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccUlMDIg.s 			page 1
 1055:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPF_MFPL_PF0MFP_GPIO              (0x00UL<<SYS_GPF_MFPL_PF0MFP_Pos)  /*!< General purpo
 1056:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPF_MFPL_PF0MFP_UART1_TXD         (0x02UL<<SYS_GPF_MFPL_PF0MFP_Pos)  /*!< Data transmit
 1057:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPF_MFPL_PF0MFP_I2C1_SCL          (0x03UL<<SYS_GPF_MFPL_PF0MFP_Pos)  /*!< I2C1 clock pi
-ARM GAS  /tmp/ccUlMDIg.s 			page 20
+ARM GAS  /tmp/ccz9dsF0.s 			page 20
 
 
 1058:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPF_MFPL_PF0MFP_UART0_TXD         (0x04UL<<SYS_GPF_MFPL_PF0MFP_Pos)  /*!< Data transmit
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccUlMDIg.s 			page 1
 1112:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPF_MFPL_PF7MFP_TAMPER1           (0x0AUL<<SYS_GPF_MFPL_PF7MFP_Pos)  /*!< TAMPER detect
 1113:Drivers/Library/StdDriver/inc/sys.h **** /********************* Bit definition of GPF_MFPH register **********************/
 1114:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPF_MFPH_PF8MFP_GPIO              (0x00UL<<SYS_GPF_MFPH_PF8MFP_Pos)  /*!< General purpo
-ARM GAS  /tmp/ccUlMDIg.s 			page 21
+ARM GAS  /tmp/ccz9dsF0.s 			page 21
 
 
 1115:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPF_MFPH_PF8MFP_EBI_ADR17         (0x02UL<<SYS_GPF_MFPH_PF8MFP_Pos)  /*!< EBI address/d
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccUlMDIg.s 			page 1
 1169:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPG_MFPL_PG2MFP_TM0               (0x0DUL<<SYS_GPG_MFPL_PG2MFP_Pos)  /*!< Timer0 event 
 1170:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPG_MFPL_PG3MFP_GPIO              (0x00UL<<SYS_GPG_MFPL_PG3MFP_Pos)  /*!< General purpo
 1171:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPG_MFPL_PG3MFP_EBI_ADR12         (0x02UL<<SYS_GPG_MFPL_PG3MFP_Pos)  /*!< EBI address/d
-ARM GAS  /tmp/ccUlMDIg.s 			page 22
+ARM GAS  /tmp/ccz9dsF0.s 			page 22
 
 
 1172:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPG_MFPL_PG3MFP_SPI2_CLK          (0x03UL<<SYS_GPG_MFPL_PG3MFP_Pos)  /*!< SPI2 serial c
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccUlMDIg.s 			page 1
 1226:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPG_MFPH_PG12MFP_EBI_AD3          (0x02UL<<SYS_GPG_MFPH_PG12MFP_Pos) /*!< EBI address/d
 1227:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPG_MFPH_PG12MFP_SD1_DAT0         (0x03UL<<SYS_GPG_MFPH_PG12MFP_Pos) /*!< SD/SDIO 1 dat
 1228:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPG_MFPH_PG12MFP_SPIM_CLK         (0x04UL<<SYS_GPG_MFPH_PG12MFP_Pos) /*!< SPIM serial c
-ARM GAS  /tmp/ccUlMDIg.s 			page 23
+ARM GAS  /tmp/ccz9dsF0.s 			page 23
 
 
 1229:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPG_MFPH_PG12MFP_QSPI1_CLK        (0x05UL<<SYS_GPG_MFPH_PG12MFP_Pos) /*!< QSPI1 serial 
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/ccUlMDIg.s 			page 1
 1283:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPH_MFPL_PH5MFP_UART6_RXD         (0x05UL<<SYS_GPH_MFPL_PH5MFP_Pos)  /*!< Data receiver
 1284:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPH_MFPL_PH6MFP_GPIO              (0x00UL<<SYS_GPH_MFPL_PH6MFP_Pos)  /*!< General purpo
 1285:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPH_MFPL_PH6MFP_EBI_ADR1          (0x02UL<<SYS_GPH_MFPL_PH6MFP_Pos)  /*!< EBI address/d
-ARM GAS  /tmp/ccUlMDIg.s 			page 24
+ARM GAS  /tmp/ccz9dsF0.s 			page 24
 
 
 1286:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_GPH_MFPL_PH6MFP_SPI1_CLK          (0x03UL<<SYS_GPH_MFPL_PH6MFP_Pos)  /*!< SPI1 serial c
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/ccUlMDIg.s 			page 1
 1340:Drivers/Library/StdDriver/inc/sys.h ****   * @details    This macro clear Brown-out detector interrupt flag.
 1341:Drivers/Library/StdDriver/inc/sys.h ****   * \hideinitializer
 1342:Drivers/Library/StdDriver/inc/sys.h ****   */
-ARM GAS  /tmp/ccUlMDIg.s 			page 25
+ARM GAS  /tmp/ccz9dsF0.s 			page 25
 
 
 1343:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_CLEAR_BOD_INT_FLAG()        (SYS->BODCTL |= SYS_BODCTL_BODIF_Msk)
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/ccUlMDIg.s 			page 1
 1397:Drivers/Library/StdDriver/inc/sys.h ****   * @brief      Enable Brown-out detector interrupt function
 1398:Drivers/Library/StdDriver/inc/sys.h ****   * @param      None
 1399:Drivers/Library/StdDriver/inc/sys.h ****   * @return     None
-ARM GAS  /tmp/ccUlMDIg.s 			page 26
+ARM GAS  /tmp/ccz9dsF0.s 			page 26
 
 
 1400:Drivers/Library/StdDriver/inc/sys.h ****   * @details    This macro enable Brown-out detector interrupt function.
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/ccUlMDIg.s 			page 1
 1454:Drivers/Library/StdDriver/inc/sys.h **** /**
 1455:Drivers/Library/StdDriver/inc/sys.h ****   * @brief      Get reset source is from CPU reset
 1456:Drivers/Library/StdDriver/inc/sys.h ****   * @param      None
-ARM GAS  /tmp/ccUlMDIg.s 			page 27
+ARM GAS  /tmp/ccz9dsF0.s 			page 27
 
 
 1457:Drivers/Library/StdDriver/inc/sys.h ****   * @retval     0   Previous reset source is not from CPU reset
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/ccUlMDIg.s 			page 1
 1511:Drivers/Library/StdDriver/inc/sys.h ****   */
 1512:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_IS_WDT_RST()                (SYS->RSTSTS & SYS_RSTSTS_WDTRF_Msk)
 1513:Drivers/Library/StdDriver/inc/sys.h **** 
-ARM GAS  /tmp/ccUlMDIg.s 			page 28
+ARM GAS  /tmp/ccz9dsF0.s 			page 28
 
 
 1514:Drivers/Library/StdDriver/inc/sys.h **** /**
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/ccUlMDIg.s 			page 1
 1568:Drivers/Library/StdDriver/inc/sys.h ****   */
 1569:Drivers/Library/StdDriver/inc/sys.h **** #define SYS_CLEAR_RST_SOURCE(u32RstSrc) ((SYS->RSTSTS) = (u32RstSrc) )
 1570:Drivers/Library/StdDriver/inc/sys.h **** 
-ARM GAS  /tmp/ccUlMDIg.s 			page 29
+ARM GAS  /tmp/ccz9dsF0.s 			page 29
 
 
 1571:Drivers/Library/StdDriver/inc/sys.h **** 
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/ccUlMDIg.s 			page 1
   58 0026 D3F80031 		ldr	r3, [r3, #256]
   59              		.loc 1 1594 5 discriminator 1
   60 002a 002B     		cmp	r3, #0
-ARM GAS  /tmp/ccUlMDIg.s 			page 30
+ARM GAS  /tmp/ccz9dsF0.s 			page 30
 
 
   61 002c EAD0     		beq	.L2
@@ -1762,8 +1762,9 @@ ARM GAS  /tmp/ccUlMDIg.s 			page 1
   79              		.syntax unified
   80              		.thumb
   81              		.thumb_func
-  83              	SYS_LockReg:
-  84              	.LFB134:
+  82              		.fpu fpv4-sp-d16
+  84              	SYS_LockReg:
+  85              	.LFB134:
 1596:Drivers/Library/StdDriver/inc/sys.h **** 
 1597:Drivers/Library/StdDriver/inc/sys.h **** /**
 1598:Drivers/Library/StdDriver/inc/sys.h ****   * @brief      Enable register write-protection function
@@ -1774,50 +1775,51 @@ ARM GAS  /tmp/ccUlMDIg.s 			page 1
 1603:Drivers/Library/StdDriver/inc/sys.h ****   */
 1604:Drivers/Library/StdDriver/inc/sys.h **** __STATIC_INLINE void SYS_LockReg(void)
 1605:Drivers/Library/StdDriver/inc/sys.h **** {
-  85              		.loc 1 1605 1
-  86              		.cfi_startproc
-  87              		@ args = 0, pretend = 0, frame = 0
-  88              		@ frame_needed = 1, uses_anonymous_args = 0
-  89              		@ link register save eliminated.
-  90 0000 80B4     		push	{r7}
-  91              	.LCFI4:
-  92              		.cfi_def_cfa_offset 4
-  93              		.cfi_offset 7, -4
-  94 0002 00AF     		add	r7, sp, #0
-  95              	.LCFI5:
-  96              		.cfi_def_cfa_register 7
+  86              		.loc 1 1605 1
+  87              		.cfi_startproc
+  88              		@ args = 0, pretend = 0, frame = 0
+  89              		@ frame_needed = 1, uses_anonymous_args = 0
+  90              		@ link register save eliminated.
+  91 0000 80B4     		push	{r7}
+  92              	.LCFI4:
+  93              		.cfi_def_cfa_offset 4
+  94              		.cfi_offset 7, -4
+  95 0002 00AF     		add	r7, sp, #0
+  96              	.LCFI5:
+  97              		.cfi_def_cfa_register 7
 1606:Drivers/Library/StdDriver/inc/sys.h ****     SYS->REGLCTL = 0UL;
-  97              		.loc 1 1606 8
-  98 0004 4FF08043 		mov	r3, #1073741824
-  99              		.loc 1 1606 18
- 100 0008 0022     		movs	r2, #0
- 101 000a C3F80021 		str	r2, [r3, #256]
+  98              		.loc 1 1606 8
+  99 0004 4FF08043 		mov	r3, #1073741824
+ 100              		.loc 1 1606 18
+ 101 0008 0022     		movs	r2, #0
+ 102 000a C3F80021 		str	r2, [r3, #256]
 1607:Drivers/Library/StdDriver/inc/sys.h **** }
- 102              		.loc 1 1607 1
- 103 000e 00BF     		nop
- 104 0010 BD46     		mov	sp, r7
- 105              	.LCFI6:
- 106              		.cfi_def_cfa_register 13
-ARM GAS  /tmp/ccUlMDIg.s 			page 31
+ 103              		.loc 1 1607 1
+ 104 000e 00BF     		nop
+ 105 0010 BD46     		mov	sp, r7
+ 106              	.LCFI6:
+ARM GAS  /tmp/ccz9dsF0.s 			page 31
 
 
- 107              		@ sp needed
- 108 0012 5DF8047B 		ldr	r7, [sp], #4
- 109              	.LCFI7:
- 110              		.cfi_restore 7
- 111              		.cfi_def_cfa_offset 0
- 112 0016 7047     		bx	lr
- 113              		.cfi_endproc
- 114              	.LFE134:
- 116              		.section	.text.SYS_Init,"ax",%progbits
- 117              		.align	1
- 118              		.global	SYS_Init
- 119              		.syntax unified
- 120              		.thumb
- 121              		.thumb_func
- 123              	SYS_Init:
- 124              	.LFB195:
- 125              		.file 2 "Core/main.c"
+ 107              		.cfi_def_cfa_register 13
+ 108              		@ sp needed
+ 109 0012 5DF8047B 		ldr	r7, [sp], #4
+ 110              	.LCFI7:
+ 111              		.cfi_restore 7
+ 112              		.cfi_def_cfa_offset 0
+ 113 0016 7047     		bx	lr
+ 114              		.cfi_endproc
+ 115              	.LFE134:
+ 117              		.section	.text.SYS_Init,"ax",%progbits
+ 118              		.align	1
+ 119              		.global	SYS_Init
+ 120              		.syntax unified
+ 121              		.thumb
+ 122              		.thumb_func
+ 123              		.fpu fpv4-sp-d16
+ 125              	SYS_Init:
+ 126              	.LFB195:
+ 127              		.file 2 "Core/main.c"
    1:Core/main.c   **** /*************************************************************************//**
    2:Core/main.c   ****  * @file     main.c
    3:Core/main.c   ****  * @version  V1.00
@@ -1832,226 +1834,230 @@ ARM GAS  /tmp/ccUlMDIg.s 			page 1
   12:Core/main.c   **** 
   13:Core/main.c   **** void SYS_Init(void)
   14:Core/main.c   **** {
- 126              		.loc 2 14 1
- 127              		.cfi_startproc
- 128              		@ args = 0, pretend = 0, frame = 0
- 129              		@ frame_needed = 1, uses_anonymous_args = 0
- 130 0000 80B5     		push	{r7, lr}
- 131              	.LCFI8:
- 132              		.cfi_def_cfa_offset 8
- 133              		.cfi_offset 7, -8
- 134              		.cfi_offset 14, -4
- 135 0002 00AF     		add	r7, sp, #0
- 136              	.LCFI9:
- 137              		.cfi_def_cfa_register 7
+ 128              		.loc 2 14 1
+ 129              		.cfi_startproc
+ 130              		@ args = 0, pretend = 0, frame = 0
+ 131              		@ frame_needed = 1, uses_anonymous_args = 0
+ 132 0000 80B5     		push	{r7, lr}
+ 133              	.LCFI8:
+ 134              		.cfi_def_cfa_offset 8
+ 135              		.cfi_offset 7, -8
+ 136              		.cfi_offset 14, -4
+ 137 0002 00AF     		add	r7, sp, #0
+ 138              	.LCFI9:
+ 139              		.cfi_def_cfa_register 7
   15:Core/main.c   ****     /*---------------------------------------------------------------------------------------------
   16:Core/main.c   ****     /* Init System Clock                                                                           
   17:Core/main.c   ****     /*---------------------------------------------------------------------------------------------
   18:Core/main.c   ****     /* Unlock protected registers */
   19:Core/main.c   ****     SYS_UnlockReg();
- 138              		.loc 2 19 5
- 139 0004 FFF7FEFF 		bl	SYS_UnlockReg
+ 140              		.loc 2 19 5
+ 141 0004 FFF7FEFF 		bl	SYS_UnlockReg
   20:Core/main.c   **** 
   21:Core/main.c   ****     /* Set XT1_OUT(PF.2) and XT1_IN(PF.3) to input mode */
   22:Core/main.c   ****     PF->MODE &= ~(GPIO_MODE_MODE2_Msk | GPIO_MODE_MODE3_Msk);
- 140              		.loc 2 22 14
- 141 0008 174B     		ldr	r3, .L5
- 142 000a 1B68     		ldr	r3, [r3]
- 143 000c 164A     		ldr	r2, .L5
-ARM GAS  /tmp/ccUlMDIg.s 			page 32
+ 142              		.loc 2 22 14
+ 143 0008 174B     		ldr	r3, .L5
+ARM GAS  /tmp/ccz9dsF0.s 			page 32
 
 
- 144 000e 23F0F003 		bic	r3, r3, #240
- 145 0012 1360     		str	r3, [r2]
+ 144 000a 1B68     		ldr	r3, [r3]
+ 145 000c 164A     		ldr	r2, .L5
+ 146 000e 23F0F003 		bic	r3, r3, #240
+ 147 0012 1360     		str	r3, [r2]
   23:Core/main.c   **** 
   24:Core/main.c   ****     /* Enable External XTAL (4~24 MHz) */
   25:Core/main.c   ****     CLK_EnableXtalRC(CLK_PWRCTL_HXTEN_Msk);
- 146              		.loc 2 25 5
- 147 0014 0120     		movs	r0, #1
- 148 0016 FFF7FEFF 		bl	CLK_EnableXtalRC
+ 148              		.loc 2 25 5
+ 149 0014 0120     		movs	r0, #1
+ 150 0016 FFF7FEFF 		bl	CLK_EnableXtalRC
   26:Core/main.c   **** 
   27:Core/main.c   ****     /* Waiting for 12MHz clock ready */
   28:Core/main.c   ****     CLK_WaitClockReady(CLK_STATUS_HXTSTB_Msk);
- 149              		.loc 2 28 5
- 150 001a 0120     		movs	r0, #1
- 151 001c FFF7FEFF 		bl	CLK_WaitClockReady
+ 151              		.loc 2 28 5
+ 152 001a 0120     		movs	r0, #1
+ 153 001c FFF7FEFF 		bl	CLK_WaitClockReady
   29:Core/main.c   **** 
   30:Core/main.c   ****     /* Set core clock as PLL_CLOCK from PLL */
   31:Core/main.c   ****     CLK_SetCoreClock(PLL_CLOCK);
- 152              		.loc 2 31 5
- 153 0020 1248     		ldr	r0, .L5+4
- 154 0022 FFF7FEFF 		bl	CLK_SetCoreClock
+ 154              		.loc 2 31 5
+ 155 0020 1248     		ldr	r0, .L5+4
+ 156 0022 FFF7FEFF 		bl	CLK_SetCoreClock
   32:Core/main.c   ****     /* Set PCLK0/PCLK1 to HCLK/2 */
   33:Core/main.c   ****     CLK->PCLKDIV = (CLK_PCLKDIV_APB0DIV_DIV2 | CLK_PCLKDIV_APB1DIV_DIV2);
- 155              		.loc 2 33 8
- 156 0026 124B     		ldr	r3, .L5+8
- 157              		.loc 2 33 18
- 158 0028 1122     		movs	r2, #17
- 159 002a 5A63     		str	r2, [r3, #52]
+ 157              		.loc 2 33 8
+ 158 0026 124B     		ldr	r3, .L5+8
+ 159              		.loc 2 33 18
+ 160 0028 1122     		movs	r2, #17
+ 161 002a 5A63     		str	r2, [r3, #52]
   34:Core/main.c   **** 
   35:Core/main.c   ****     /* Enable UART clock */
   36:Core/main.c   ****     CLK_EnableModuleClock(UART0_MODULE);
- 160              		.loc 2 36 5
- 161 002c 1148     		ldr	r0, .L5+12
- 162 002e FFF7FEFF 		bl	CLK_EnableModuleClock
+ 162              		.loc 2 36 5
+ 163 002c 1148     		ldr	r0, .L5+12
+ 164 002e FFF7FEFF 		bl	CLK_EnableModuleClock
   37:Core/main.c   **** 
   38:Core/main.c   ****     /* Select UART clock source from HXT */
   39:Core/main.c   ****     CLK_SetModuleClock(UART0_MODULE, CLK_CLKSEL1_UART0SEL_HXT, CLK_CLKDIV0_UART0(1));
- 163              		.loc 2 39 5
- 164 0032 0022     		movs	r2, #0
- 165 0034 0021     		movs	r1, #0
- 166 0036 0F48     		ldr	r0, .L5+12
- 167 0038 FFF7FEFF 		bl	CLK_SetModuleClock
+ 165              		.loc 2 39 5
+ 166 0032 0022     		movs	r2, #0
+ 167 0034 0021     		movs	r1, #0
+ 168 0036 0F48     		ldr	r0, .L5+12
+ 169 0038 FFF7FEFF 		bl	CLK_SetModuleClock
   40:Core/main.c   **** 
   41:Core/main.c   ****     /* Update System Core Clock */
   42:Core/main.c   ****     /* User can use SystemCoreClockUpdate() to calculate SystemCoreClock. */
   43:Core/main.c   ****     SystemCoreClockUpdate();
- 168              		.loc 2 43 5
- 169 003c FFF7FEFF 		bl	SystemCoreClockUpdate
+ 170              		.loc 2 43 5
+ 171 003c FFF7FEFF 		bl	SystemCoreClockUpdate
   44:Core/main.c   **** 
   45:Core/main.c   **** 
   46:Core/main.c   **** 
   47:Core/main.c   ****     /* Set GPB multi-function pins for UART0 RXD and TXD */
   48:Core/main.c   ****     SYS->GPB_MFPH &= ~(SYS_GPB_MFPH_PB12MFP_Msk | SYS_GPB_MFPH_PB13MFP_Msk);
- 170              		.loc 2 48 19
- 171 0040 4FF08043 		mov	r3, #1073741824
- 172 0044 DB6B     		ldr	r3, [r3, #60]
- 173 0046 4FF08042 		mov	r2, #1073741824
- 174 004a 23F47F03 		bic	r3, r3, #16711680
-ARM GAS  /tmp/ccUlMDIg.s 			page 33
+ 172              		.loc 2 48 19
+ 173 0040 4FF08043 		mov	r3, #1073741824
+ 174 0044 DB6B     		ldr	r3, [r3, #60]
+ARM GAS  /tmp/ccz9dsF0.s 			page 33
 
 
- 175 004e D363     		str	r3, [r2, #60]
+ 175 0046 4FF08042 		mov	r2, #1073741824
+ 176 004a 23F47F03 		bic	r3, r3, #16711680
+ 177 004e D363     		str	r3, [r2, #60]
   49:Core/main.c   ****     SYS->GPB_MFPH |= (SYS_GPB_MFPH_PB12MFP_UART0_RXD | SYS_GPB_MFPH_PB13MFP_UART0_TXD);
- 176              		.loc 2 49 19
- 177 0050 4FF08043 		mov	r3, #1073741824
- 178 0054 DB6B     		ldr	r3, [r3, #60]
- 179 0056 4FF08042 		mov	r2, #1073741824
- 180 005a 43F4CC03 		orr	r3, r3, #6684672
- 181 005e D363     		str	r3, [r2, #60]
+ 178              		.loc 2 49 19
+ 179 0050 4FF08043 		mov	r3, #1073741824
+ 180 0054 DB6B     		ldr	r3, [r3, #60]
+ 181 0056 4FF08042 		mov	r2, #1073741824
+ 182 005a 43F4CC03 		orr	r3, r3, #6684672
+ 183 005e D363     		str	r3, [r2, #60]
   50:Core/main.c   ****     /* Lock protected registers */
   51:Core/main.c   ****     SYS_LockReg();
- 182              		.loc 2 51 5
- 183 0060 FFF7FEFF 		bl	SYS_LockReg
+ 184              		.loc 2 51 5
+ 185 0060 FFF7FEFF 		bl	SYS_LockReg
   52:Core/main.c   **** }
- 184              		.loc 2 52 1
- 185 0064 00BF     		nop
- 186 0066 80BD     		pop	{r7, pc}
- 187              	.L6:
- 188              		.align	2
- 189              	.L5:
- 190 0068 40410040 		.word	1073758528
- 191 006c 00B0710B 		.word	192000000
- 192 0070 00020040 		.word	1073742336
- 193 0074 103D8057 		.word	1468022032
- 194              		.cfi_endproc
- 195              	.LFE195:
- 197              		.section	.rodata
- 198              		.align	2
- 199              	.LC0:
- 200 0000 48656C6C 		.ascii	"Hello World! Hello Nuvoton!\000"
- 200      6F20576F 
- 200      726C6421 
- 200      2048656C 
- 200      6C6F204E 
- 201              		.align	2
- 202              	.LC1:
- 203 001c 48657265 		.ascii	"Here is Nuvoton M487KMCAN :)\012\000"
- 203      20697320 
- 203      4E75766F 
- 203      746F6E20 
- 203      4D343837 
- 204              		.section	.text.main,"ax",%progbits
- 205              		.align	1
- 206              		.global	main
- 207              		.syntax unified
- 208              		.thumb
- 209              		.thumb_func
- 211              	main:
- 212              	.LFB196:
+ 186              		.loc 2 52 1
+ 187 0064 00BF     		nop
+ 188 0066 80BD     		pop	{r7, pc}
+ 189              	.L6:
+ 190              		.align	2
+ 191              	.L5:
+ 192 0068 40410040 		.word	1073758528
+ 193 006c 00B0710B 		.word	192000000
+ 194 0070 00020040 		.word	1073742336
+ 195 0074 103D8057 		.word	1468022032
+ 196              		.cfi_endproc
+ 197              	.LFE195:
+ 199              		.section	.rodata
+ 200              		.align	2
+ 201              	.LC0:
+ 202 0000 48656C6C 		.ascii	"Hello World! Hello Nuvoton!\000"
+ 202      6F20576F 
+ 202      726C6421 
+ 202      2048656C 
+ 202      6C6F204E 
+ 203              		.align	2
+ 204              	.LC1:
+ 205 001c 48657265 		.ascii	"Here is Nuvoton M487KMCAN.\012\000"
+ 205      20697320 
+ 205      4E75766F 
+ 205      746F6E20 
+ 205      4D343837 
+ 206              		.section	.text.main,"ax",%progbits
+ 207              		.align	1
+ 208              		.global	main
+ 209              		.syntax unified
+ 210              		.thumb
+ 211              		.thumb_func
+ 212              		.fpu fpv4-sp-d16
+ 214              	main:
+ 215              	.LFB196:
   53:Core/main.c   **** 
   54:Core/main.c   **** /*
   55:Core/main.c   ****  * This is a template project for M480 series MCU. Users could based on this project to create thei
   56:Core/main.c   ****  * own application without worry about the IAR/Keil project settings.
   57:Core/main.c   ****  *
   58:Core/main.c   ****  * This template application uses external crystal as HCLK source and configures UART0 to print out
+ARM GAS  /tmp/ccz9dsF0.s 			page 34
+
+
   59:Core/main.c   ****  * "Hello World", users may need to do extra system configuration based on their system design.
   60:Core/main.c   ****  */
   61:Core/main.c   **** 
-ARM GAS  /tmp/ccUlMDIg.s 			page 34
-
-
   62:Core/main.c   **** int main()
   63:Core/main.c   **** {
- 213              		.loc 2 63 1
- 214              		.cfi_startproc
- 215              		@ args = 0, pretend = 0, frame = 0
- 216              		@ frame_needed = 1, uses_anonymous_args = 0
- 217 0000 80B5     		push	{r7, lr}
- 218              	.LCFI10:
- 219              		.cfi_def_cfa_offset 8
- 220              		.cfi_offset 7, -8
- 221              		.cfi_offset 14, -4
- 222 0002 00AF     		add	r7, sp, #0
- 223              	.LCFI11:
- 224              		.cfi_def_cfa_register 7
+ 216              		.loc 2 63 1
+ 217              		.cfi_startproc
+ 218              		@ args = 0, pretend = 0, frame = 0
+ 219              		@ frame_needed = 1, uses_anonymous_args = 0
+ 220 0000 80B5     		push	{r7, lr}
+ 221              	.LCFI10:
+ 222              		.cfi_def_cfa_offset 8
+ 223              		.cfi_offset 7, -8
+ 224              		.cfi_offset 14, -4
+ 225 0002 00AF     		add	r7, sp, #0
+ 226              	.LCFI11:
+ 227              		.cfi_def_cfa_register 7
   64:Core/main.c   **** 
   65:Core/main.c   ****     SYS_Init();
- 225              		.loc 2 65 5
- 226 0004 FFF7FEFF 		bl	SYS_Init
+ 228              		.loc 2 65 5
+ 229 0004 FFF7FEFF 		bl	SYS_Init
   66:Core/main.c   ****     /* Init UART to 115200-8n1 for print message */
   67:Core/main.c   ****     UART_Open(UART0, 38400);
- 227              		.loc 2 67 5
- 228 0008 4FF41641 		mov	r1, #38400
- 229 000c 0448     		ldr	r0, .L9
- 230 000e FFF7FEFF 		bl	UART_Open
+ 230              		.loc 2 67 5
+ 231 0008 4FF41641 		mov	r1, #38400
+ 232 000c 0448     		ldr	r0, .L9
+ 233 000e FFF7FEFF 		bl	UART_Open
   68:Core/main.c   ****     /* Connect UART to PC, and open a terminal tool to receive following message */
   69:Core/main.c   ****     printf("Hello World! Hello Nuvoton!\n");
- 231              		.loc 2 69 5
- 232 0012 0448     		ldr	r0, .L9+4
- 233 0014 FFF7FEFF 		bl	puts
-  70:Core/main.c   ****     printf("Here is Nuvoton M487KMCAN :)\n\n");
- 234              		.loc 2 70 5
- 235 0018 0348     		ldr	r0, .L9+8
- 236 001a FFF7FEFF 		bl	puts
- 237              	.L8:
+ 234              		.loc 2 69 5
+ 235 0012 0448     		ldr	r0, .L9+4
+ 236 0014 FFF7FEFF 		bl	puts
+  70:Core/main.c   ****     printf("Here is Nuvoton M487KMCAN.\n\n");
+ 237              		.loc 2 70 5
+ 238 0018 0348     		ldr	r0, .L9+8
+ 239 001a FFF7FEFF 		bl	puts
+ 240              	.L8:
   71:Core/main.c   **** 
   72:Core/main.c   ****     /* Got no where to go, just loop forever */
   73:Core/main.c   ****     while(1);
- 238              		.loc 2 73 10 discriminator 1
- 239 001e FEE7     		b	.L8
- 240              	.L10:
- 241              		.align	2
- 242              	.L9:
- 243 0020 00000740 		.word	1074200576
- 244 0024 00000000 		.word	.LC0
- 245 0028 1C000000 		.word	.LC1
- 246              		.cfi_endproc
- 247              	.LFE196:
- 249              		.text
- 250              	.Letext0:
- 251              		.file 3 "/usr/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/machine/_default_types.h"
- 252              		.file 4 "/usr/share/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/_stdint.h"
- 253              		.file 5 "Drivers/Library/Device/Nuvoton_M480/Include/sys_reg.h"
- 254              		.file 6 "Drivers/Library/Device/Nuvoton_M480/Include/clk_reg.h"
- 255              		.file 7 "Drivers/Library/Device/Nuvoton_M480/Include/gpio_reg.h"
- 256              		.file 8 "Drivers/Library/Device/Nuvoton_M480/Include/uart_reg.h"
-ARM GAS  /tmp/ccUlMDIg.s 			page 35
+ 241              		.loc 2 73 10 discriminator 1
+ 242 001e FEE7     		b	.L8
+ 243              	.L10:
+ 244              		.align	2
+ 245              	.L9:
+ 246 0020 00000740 		.word	1074200576
+ 247 0024 00000000 		.word	.LC0
+ 248 0028 1C000000 		.word	.LC1
+ 249              		.cfi_endproc
+ 250              	.LFE196:
+ 252              		.text
+ 253              	.Letext0:
+ 254              		.file 3 "/usr/include/newlib/machine/_default_types.h"
+ 255              		.file 4 "/usr/include/newlib/sys/_stdint.h"
+ 256              		.file 5 "Drivers/Library/Device/Nuvoton_M480/Include/sys_reg.h"
+ 257              		.file 6 "Drivers/Library/Device/Nuvoton_M480/Include/clk_reg.h"
+ 258              		.file 7 "Drivers/Library/Device/Nuvoton_M480/Include/gpio_reg.h"
+ARM GAS  /tmp/ccz9dsF0.s 			page 35
+
+
+ 259              		.file 8 "Drivers/Library/Device/Nuvoton_M480/Include/uart_reg.h"
+ARM GAS  /tmp/ccz9dsF0.s 			page 36
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 main.c
-     /tmp/ccUlMDIg.s:20     .text.SYS_UnlockReg:0000000000000000 $t
-     /tmp/ccUlMDIg.s:25     .text.SYS_UnlockReg:0000000000000000 SYS_UnlockReg
-     /tmp/ccUlMDIg.s:78     .text.SYS_LockReg:0000000000000000 $t
-     /tmp/ccUlMDIg.s:83     .text.SYS_LockReg:0000000000000000 SYS_LockReg
-     /tmp/ccUlMDIg.s:117    .text.SYS_Init:0000000000000000 $t
-     /tmp/ccUlMDIg.s:123    .text.SYS_Init:0000000000000000 SYS_Init
-     /tmp/ccUlMDIg.s:190    .text.SYS_Init:0000000000000068 $d
-     /tmp/ccUlMDIg.s:198    .rodata:0000000000000000 $d
-     /tmp/ccUlMDIg.s:205    .text.main:0000000000000000 $t
-     /tmp/ccUlMDIg.s:211    .text.main:0000000000000000 main
-     /tmp/ccUlMDIg.s:243    .text.main:0000000000000020 $d
+     /tmp/ccz9dsF0.s:18     .text.SYS_UnlockReg:0000000000000000 $t
+     /tmp/ccz9dsF0.s:25     .text.SYS_UnlockReg:0000000000000000 SYS_UnlockReg
+     /tmp/ccz9dsF0.s:78     .text.SYS_LockReg:0000000000000000 $t
+     /tmp/ccz9dsF0.s:84     .text.SYS_LockReg:0000000000000000 SYS_LockReg
+     /tmp/ccz9dsF0.s:118    .text.SYS_Init:0000000000000000 $t
+     /tmp/ccz9dsF0.s:125    .text.SYS_Init:0000000000000000 SYS_Init
+     /tmp/ccz9dsF0.s:192    .text.SYS_Init:0000000000000068 $d
+     /tmp/ccz9dsF0.s:200    .rodata:0000000000000000 $d
+     /tmp/ccz9dsF0.s:207    .text.main:0000000000000000 $t
+     /tmp/ccz9dsF0.s:214    .text.main:0000000000000000 main
+     /tmp/ccz9dsF0.s:246    .text.main:0000000000000020 $d
 
 UNDEFINED SYMBOLS
 CLK_EnableXtalRC
