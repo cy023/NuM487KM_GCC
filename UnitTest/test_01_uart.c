@@ -43,8 +43,6 @@ void SYS_Init(void)
     /* User can use SystemCoreClockUpdate() to calculate SystemCoreClock. */
     SystemCoreClockUpdate();
 
-
-
     /* Set GPB multi-function pins for UART0 RXD and TXD */
     SYS->GPB_MFPH &= ~(SYS_GPB_MFPH_PB12MFP_Msk | SYS_GPB_MFPH_PB13MFP_Msk);
     SYS->GPB_MFPH |= (SYS_GPB_MFPH_PB12MFP_UART0_RXD | SYS_GPB_MFPH_PB13MFP_UART0_TXD);
@@ -65,9 +63,9 @@ int main()
     uint32_t cur_time = 0;
 
     while (1) {
-        cur_time = sys_now();
+        // cur_time = sys_now();
         printf("current systick is %ld\n", cur_time);
-        CLK_SysTickLongDelay(1000000);
+        // CLK_SysTickLongDelay(1000000);
     }
 
     return 0;
