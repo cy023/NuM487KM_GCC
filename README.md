@@ -1,4 +1,4 @@
-# NuM487_GCC
+# NuM487KM_GCC
 
 A GNU GCC Toolchain project template for Nuvoton M480 series MCU.
 
