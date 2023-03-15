@@ -145,7 +145,7 @@ test: $(OBJECTS) $(TESTOBJ) $(TEST_TARGET)
 
 macro: $(OBJECTS:.o=.i) $(APPOBJS:.o=.i) $(TESTOBJ:.o=.i)
 
-lib: $(BUILD_DIR)/libc4mrtos.a
+dump: $(BUILD_DIR)/$(TARGET).lss $(TESTOBJ:.o=.lss) $(BUILD_DIR)/$(TARGET).sym $(TESTOBJ:.o=.sym)
 
 size: $(TARGET_FILE)
 	$(SIZE) $(TARGET_FILE)
@@ -164,7 +164,7 @@ systeminfo:
 	@uname -a
 	@$(CC) --version
 
-.PHONY: all test macro lib size systeminfo clean upload terminal
+.PHONY: all test macro dump size systeminfo clean upload terminal
 
 ################################################################################
 # Build The Project
