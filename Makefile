@@ -90,7 +90,7 @@ LDSCRIPT = Device_Startup/gcc_arm.ld
 ################################################################################
 # Toolchain
 ################################################################################
-COMPILER_PATH ?= 
+COMPILER_PATH ?=
 CROSS   := $(COMPILER_PATH)arm-none-eabi
 CC      := $(CROSS)-gcc
 AR      := $(CROSS)-ar
@@ -112,7 +112,7 @@ CFLAGS += $(C_INCLUDES)
 
 ## Assembler Options
 ASMFLAGS  = $(MCUFLAGS)
-ASMFLAGS += -x assembler-with-cpp -Wa,-g$(DEBUG)
+ASMFLAGS += -x assembler-with-cpp -Wa,$(DEBUG)
 
 ## Link Options
 LDFLAGS  = $(MCUFLAGS)
