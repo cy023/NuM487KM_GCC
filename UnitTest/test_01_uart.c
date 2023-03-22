@@ -50,23 +50,29 @@ void SYS_Init(void)
     SYS_LockReg();
 }
 
+void system_delay_ms(uint32_t ms)
+{
+    uint16_t delay;
+    volatile uint32_t i;
+    for (delay = ms; delay > 0; delay--) {
+        // 1 ms loop with -O0 optimization.
+        for (i = 19200; i > 0; i--) {;}
+    }
+}
+
 int main()
 {
-
     SYS_Init();
-    /* Init UART to 115200-8n1 for print message */
-    UART_Open(UART0, 115200);
+    /* Init UART to 38400-8n1 for print message */
+    UART_Open(UART0, 38400);
     /* Connect UART to PC, and open a terminal tool to receive following message */
     printf("System Boot.\n");
     printf("[test01]: sysnow ...\n");
 
-    uint32_t cur_time = 0;
-
+    uint32_t sec = 0;
     while (1) {
-        // cur_time = sys_now();
-        printf("current systick is %ld\n", cur_time);
-        // CLK_SysTickLongDelay(1000000);
+        printf("Time: %ld sec\n", sec++);
+        system_delay_ms(1000);
     }
-
     return 0;
 }
