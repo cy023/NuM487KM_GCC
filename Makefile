@@ -153,12 +153,11 @@ size: $(TARGET_FILE)
 clean:
 	-rm -rf $(BUILD_DIR)
 
-# download:
-# 	NuLink -e all
-# 	NuLink 0x180006EE -w APROM build/$(UPLOAD_HEX).hex
+upload:
+	serprog prog -p $(COMPORT) -f $(UPLOAD_HEX)
 
-# terminal:
-# 	putty -serial $(COMPORT) -sercfg 38400,1,N,N
+terminal:
+	putty -serial $(COMPORT) -sercfg 38400,1,N,N
 
 systeminfo:
 	@uname -a
