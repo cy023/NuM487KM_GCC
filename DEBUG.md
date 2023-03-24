@@ -1,6 +1,14 @@
 # Debug Usage Tutorial
 ##  Requirment
-OpenOCD_Nuvoton
+### Tools
+* [OpenOCD_Nuvoton](https://github.com/OpenNuvoton/OpenOCD-Nuvoton)
+* arm-none-eabi-gcc
+* cmake(optional)
+* NuLink Command Tools(optional)
+* `M481_v1.svd` from [Nuvoton_DFP](https://github.com/OpenNuvoton/cmsis-packs)
+### VScode Extensions
+* C/C++
+* Cortex-Debug(must use v1.2.2)
 ## Before usage
 1. install
 2. Edit following excutable path
