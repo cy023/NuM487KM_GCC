@@ -76,14 +76,15 @@ target_link_options(${EXECUTABLE} PRIVATE
         -Wl,--gc-sections   # gc no-referenced code/data
         -Xlinker -print-memory-usage -Xlinker
         )
-
-# Optional: Print executable size as part of the post build process
+##########################################################################
+# Optional: Print executable size as part of the post build process ######
 add_custom_command(TARGET ${EXECUTABLE}
         POST_BUILD
         COMMAND ${CMAKE_SIZE_UTIL} ${EXECUTABLE})
-
-# Optional: Create hex, bin and S-Record files after the build
+##########################################################################
+# Optional: Create hex, bin and S-Record files after the build ###########
 add_custom_command(TARGET ${EXECUTABLE}
         POST_BUILD
         COMMAND ${CMAKE_OBJCOPY} -O ihex ${EXECUTABLE} ${PROJECT_NAME}.hex
         COMMAND ${CMAKE_OBJCOPY} -O binary ${EXECUTABLE} ${PROJECT_NAME}.bin)
+##########################################################################
