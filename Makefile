@@ -12,15 +12,18 @@
 TARGET = main
 
 # Upload Info.
-COMPORT    ?= COM16
+COMPORT    ?=
 # UPLOAD_HEX ?= main
-UPLOAD_HEX ?= test_01_uart
+# UPLOAD_HEX ?= test_01_uart
+UPLOAD_HEX ?= test_fpu
 
 ## MCU Info.
 CPU       = -mcpu=cortex-m4
 MCU       = 
-FPU       = -mfpu=fpv4-sp-d16
-FLOAT-ABI = -mfloat-abi=hard
+# FPU       = -mfpu=fpv4-sp-d16
+# FLOAT-ABI = -mfloat-abi=hard
+FPU       =
+FLOAT-ABI =
 
 ## Warning Options
 WARNINGS = -Wall -Werror -Wtype-limits -Wno-unused-function
@@ -54,6 +57,7 @@ C_SOURCES += Drivers/Library/StdDriver/src/uart.c
 C_SOURCES += Drivers/Library/StdDriver/src/retarget.c
 C_SOURCES += Drivers/Library/StdDriver/src/clk.c
 C_SOURCES += Drivers/Library/StdDriver/src/gpio.c
+C_SOURCES += Drivers/Library/StdDriver/src/timer.c
 
 ASM_SOURCES += $(wildcard Device_Startup/*.S)
 
